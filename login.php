@@ -15,7 +15,6 @@
 	}
 
 	div.parent {
-
 	}
 
 	div.header {
@@ -61,7 +60,7 @@
 	<div class="parent">
 
 		<div class="header">
-			Header
+			<?php echo 'Header'; ?>
 		</div>
 
 		<div class="block-center">
