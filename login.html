@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>T3D WareHouse | Home</title>
+	<title>T3D WareHouse | Login</title>
 <style type="text/css">
 	
 	body {
@@ -34,7 +34,7 @@
 		padding: 1%;
 	}
 
-	div.block {
+	div.block-center {
 		background-color: #9ccc65;
 		margin: 1%;
 		padding: 1%;
@@ -54,38 +54,26 @@
 </head>
 <body>
 
+	<?php
+		$var = 5;
+	?>
+
 	<div class="parent">
 
 		<div class="header">
 			Header
 		</div>
 
-		<div class="body">
-
-			<div class="sidebar">
-				Sidebar
-			</div>
-
-			<div class="block">
-				Block
-			</div>
-
-			<div class="block">
-				<form>
-					<table class="form">
-						<tr><td>email address:
-							<td><input type="text">
-						<tr><td>password:
-							<td><input type="password">
-						<tr><td><td><input type="submit" name="">
-					</table>
-				</form>
-			</div>
-
-		</div>
-
-		<div class="footer">
-			Footer
+		<div class="block-center">
+			<form>
+				<table class="form">
+					<tr><td>email address:
+						<td><input type="text">
+					<tr><td>password:
+						<td><input type="password">
+					<tr><td><td><input type="submit" name="">
+				</table>
+			</form>
 		</div>
 
 	</div>
