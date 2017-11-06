@@ -8,49 +8,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>T3D WareHouse | Home</title>
-<style type="text/css">
-	
-	body {
-		background-color: #e1ffb1;
-	}
-
-	div.parent {
-
-	}
-
-	div.header {
-		background-color: #9ccc65;
-		margin: 1%;
-		padding: 1%;
-	}
-
-	div.body {
-
-	}
-
-	div.sidebar {
-		background-color: #9ccc65;
-		margin: 1%;
-		padding: 1%;
-	}
-
-	div.block {
-		background-color: #9ccc65;
-		margin: 1%;
-		padding: 1%;
-	}
-
-	div.footer {
-		background-color: #9ccc65;
-		margin: 1%;
-		padding: 1%;
-	}
-
-	table.form {
-		background-color: #ffffff;
-	}
-
-</style>
+	<link rel="stylesheet" type="text/css" href="css/div.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 

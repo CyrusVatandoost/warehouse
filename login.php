@@ -8,21 +8,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>T3D WareHouse | Login</title>
+	<link rel="stylesheet" type="text/css" href="css/div.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 <style type="text/css">
 	
 	body {
 		background-color: #e1ffb1;
 	}
 
-	table.form {
-
-	}
-
 </style>
 </head>
 <?php
-
-	
 
 ?>
 <body>

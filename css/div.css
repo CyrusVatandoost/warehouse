@@ -1,3 +1,8 @@
+/*
+	Author:			Cyrus
+	Created on:		2016 11 06
+	Last modified:	2016 11 06
+*/
 div.parent {
 
 }
@@ -13,6 +18,12 @@ div.body {
 }
 
 div.sidebar {
+	background-color: #9ccc65;
+	margin: 1%;
+	padding: 1%;
+}
+
+div.block {
 	background-color: #9ccc65;
 	margin: 1%;
 	padding: 1%;
