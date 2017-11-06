@@ -14,53 +14,23 @@
 		background-color: #e1ffb1;
 	}
 
-	div.parent {
-	}
-
-	div.header {
-		background-color: #9ccc65;
-		margin: 1%;
-		padding: 1%;
-	}
-
-	div.body {
-
-	}
-
-	div.sidebar {
-		background-color: #9ccc65;
-		margin: 1%;
-		padding: 1%;
-	}
-
-	div.block-center {
-		background-color: #9ccc65;
-		margin: 1%;
-		padding: 1%;
-	}
-
-	div.footer {
-		background-color: #9ccc65;
-		margin: 1%;
-		padding: 1%;
-	}
-
 	table.form {
-		background-color: #ffffff;
+
 	}
 
 </style>
 </head>
-<body>
+<?php
 
-	<?php
-		$var = 5;
-	?>
+	
+
+?>
+<body>
 
 	<div class="parent">
 
 		<div class="header">
-			<?php echo 'Header'; ?>
+			Header
 		</div>
 
 		<div class="block-center">
@@ -71,7 +41,7 @@
 					<tr><td>password:
 						<td><input type="password">
 					<tr><td><td><input type="submit" name="">
-				</table>
+				</table>	
 			</form>
 		</div>
 
