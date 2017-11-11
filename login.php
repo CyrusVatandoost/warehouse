@@ -27,7 +27,7 @@
 
 		<div class="header">
 			Header
-		</div>
+		: Hello</div>
 
 		<div class="block-center">
 			<form>
