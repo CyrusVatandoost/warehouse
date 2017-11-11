@@ -1,12 +1,12 @@
 <!--
 	Author:			Cyrus
-	Created on:		2016 11 01
+	Created on:		2016 11 11
 	Last modified:	2016 11 11
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>T3D WareHouse | Home</title>
+	<title>T3D WareHouse | Account</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -54,7 +54,7 @@
 
     <!-- body -->
     <div class="col-sm-8 text-left"> 
-      <h1>Welcome</h1>
+      <h1>Account</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <hr>
       <h3>Test</h3>
