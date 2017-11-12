@@ -59,23 +59,44 @@
       <div class="tabbable" id="tabs-463690">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a href="#panel-360368" data-toggle="tab">Section 1</a>
+            <a href="#panel-files" data-toggle="tab">Files</a>
           </li>
           <li>
-            <a href="#panel-711432" data-toggle="tab">Section 2</a>
+            <a href="#panel-progress" data-toggle="tab">Progress</a>
+          </li>
+          <li>
+            <a href="#panel-issues" data-toggle="tab">Issues</a>
+          </li>
+          <li>
+            <a href="#panel-settings" data-toggle="tab">Settings</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane active" id="panel-360368">
+
+          <div class="tab-pane active" id="panel-files">
             <p>
-              I'm in Section 1.
+              Files
             </p>
           </div>
-          <div class="tab-pane" id="panel-711432">
+
+          <div class="tab-pane" id="panel-progress">
             <p>
-              Howdy, I'm in Section 2.
+              Progress
             </p>
           </div>
+
+          <div class="tab-pane" id="panel-issues">
+            <p>
+              Issues
+            </p>
+          </div>
+
+          <div class="tab-pane" id="panel-settings">
+            <p>
+              Settings
+            </p>
+          </div>
+
         </div>
       </div>
       
