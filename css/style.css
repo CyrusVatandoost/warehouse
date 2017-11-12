@@ -15,13 +15,12 @@ body {
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-  height: 450px;
+  height: auto;
 }
 
 /* Set gray background color and 100% height */
 .sidenav {
   padding-top: 20px;
-  background-color: #f1f1f1;
   height: 100%;
 }
 
@@ -37,8 +36,11 @@ footer {
   .sidenav {
     height: auto;
     padding: 15px;
+    background-color: #f1f1f1;
   }
-  .row.content {height:auto;} 
+  .row.content {
+    height:auto;
+  } 
 }
 
 table.form {
