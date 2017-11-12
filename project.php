@@ -46,20 +46,71 @@
         <div class="tab-content">
 
           <div class="tab-pane active" id="panel-files">
-            <p>
-              Files
-            </p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#<th>Product<th>Payment Taken<th>Status
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1
+                  <td>TB - Monthly
+                  <td>01/04/2012
+                  <td>Default
+                <tr class="active">
+                  <td>1
+                  <td>TB - Monthly
+                  <td>01/04/2012
+                  <td>Approved
+                <tr class="success">
+                  <td>2
+                  <td>TB - Monthly
+                  <td>02/04/2012
+                  <td>Declined
+                <tr class="warning">
+                  <td>3
+                  <td>TB - Monthly
+                  <td>03/04/2012
+                  <td>Pending
+                <tr class="danger">
+                  <td>4
+                  <td>TB - Monthly
+                  <td>04/04/2012
+                  <td>Call in to confirm
+              </tbody>
+            </table>
           </div>
 
           <div class="tab-pane" id="panel-progress">
+            <br>
+            <div class="progress progress-striped">
+              <div class="progress-bar progress-success">
+              </div>
+            </div>
+            <h2>
+              Heading
+            </h2>
             <p>
-              Progress
+              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <p>
+              <a class="btn" href="#">View details »</a>
             </p>
           </div>
 
           <div class="tab-pane" id="panel-issues">
             <p>
-              Issues
+              <div class="jumbotron">
+                <h2>
+                  Hello, world!
+                </h2>
+                <p>
+                  This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+                </p>
+                <p>
+                  <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                </p>
+              </div>
             </p>
           </div>
 
