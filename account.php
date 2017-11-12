@@ -52,7 +52,7 @@
     <!-- body -->
     <div class="col-sm-8 text-left"> 
       <h1>Account</h1>
-      <img src="pic1.jpg" width="100"height="100">
+      <img src="res/account.png" width="100"height="100">
       <p>Name: Juan Dela Cruz</p>
       <p>Type of User: Member</p>
     
@@ -60,7 +60,6 @@
       <h3>About Myself</h3>
       <p>Hi I am Juan and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
     </div>
-
    
     <!-- right sidenav -->
     <div class="col-sm-2 sidenav">
