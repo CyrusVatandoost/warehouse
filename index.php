@@ -57,8 +57,61 @@
       <h1>Home</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="carousel slide" id="carousel-534241">
+          <ol class="carousel-indicators">
+            <li class="active" data-slide-to="0" data-target="#carousel-534241">
+            </li>
+            <li data-slide-to="1" data-target="#carousel-534241">
+            </li>
+            <li data-slide-to="2" data-target="#carousel-534241">
+            </li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item active">
+              <img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
+              <div class="carousel-caption">
+                <h4>
+                  First Thumbnail label
+                </h4>
+                <p>
+                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                </p>
+              </div>
+            </div>
+            <div class="item">
+              <img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+              <div class="carousel-caption">
+                <h4>
+                  Second Thumbnail label
+                </h4>
+                <p>
+                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                </p>
+              </div>
+            </div>
+            <div class="item">
+              <img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+              <div class="carousel-caption">
+                <h4>
+                  Third Thumbnail label
+                </h4>
+                <p>
+                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                </p>
+              </div>
+            </div>
+          </div> <a class="left carousel-control" href="#carousel-534241" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-534241" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+        
+      </div>
+    </div>
+
+    <hr>
+
     </div>
 
     <!-- right sidenav -->
