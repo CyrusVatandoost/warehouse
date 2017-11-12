@@ -19,9 +19,9 @@
       			echo "<li><a href=/warehouse/index.php>Home</a></li>";
 
       		if($_SERVER['REQUEST_URI'] == "/warehouse/projects.php")
-      			echo "<li class=active><a href=/warehouse/projects.php>Projects</a></li>";
+      			echo "<li class=active><a href=/warehouse/projects>Projects</a></li>";
       		else
-      			echo "<li><a href=/warehouse/projects.php>Projects</a></li>";
+      			echo "<li><a href=/warehouse/projects>Projects</a></li>";
 
       		if($_SERVER['REQUEST_URI'] == "/warehouse/account.php")
       			echo "<li class=active><a href=/warehouse/account.php>Account</a></li>";
