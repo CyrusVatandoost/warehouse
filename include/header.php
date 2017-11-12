@@ -13,12 +13,12 @@
       <ul class="nav navbar-nav">
 
       	<?php
-      		if($_SERVER['REQUEST_URI'] == "/warehouse/index.php")
-      			echo "<li class=active><a href=/warehouse/index.php>Home</a></li>";
+      		if($_SERVER['REQUEST_URI'] == "/warehouse/")
+      			echo "<li class=active><a href=/warehouse/>Home</a></li>";
       		else
-      			echo "<li><a href=/warehouse/index.php>Home</a></li>";
+      			echo "<li><a href=/warehouse/>Home</a></li>";
 
-      		if($_SERVER['REQUEST_URI'] == "/warehouse/projects.php")
+      		if($_SERVER['REQUEST_URI'] == "/warehouse/projects/")
       			echo "<li class=active><a href=/warehouse/projects>Projects</a></li>";
       		else
       			echo "<li><a href=/warehouse/projects>Projects</a></li>";
