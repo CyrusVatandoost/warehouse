@@ -33,7 +33,6 @@
         <li class="active"><a href="index.php">Home</a></li>
         <li><a href="projects.php">Projects</a></li>
         <li><a href="account.php">Account</a></li>
-        <li><a href="settings.php">Settings</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
