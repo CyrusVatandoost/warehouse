@@ -47,20 +47,22 @@
 
     <!-- left sidenav -->
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <p><a href="#">Edit your profile</a></p>
     </div>
 
     <!-- body -->
     <div class="col-sm-8 text-left"> 
       <h1>Account</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <img src="pic1.jpg" width="100"height="100">
+      <p>Name: Juan Dela Cruz</p>
+      <p>Type of User: Member</p>
+    
       <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
+      <h3>About Myself</h3>
+      <p>Hi I am Juan and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
     </div>
 
+   
     <!-- right sidenav -->
     <div class="col-sm-2 sidenav">
       <div class="well">
@@ -72,7 +74,7 @@
     </div>
 
   </div>
-</div>
+</div>  
 
 <!-- footer -->
 <footer class="container-fluid text-center">
