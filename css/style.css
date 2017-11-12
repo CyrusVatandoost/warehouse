@@ -4,7 +4,7 @@
 	Last modified:	2016 11 06
 */
 body {
-	
+  background-color: #555;
 }
 
 /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -16,6 +16,7 @@ body {
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
   height: auto;
+  background-color: #ffffff;
 }
 
 /* Set gray background color and 100% height */
