@@ -3,6 +3,7 @@
 	Created on:		2016 11 01
 	Last modified:	2016 11 11
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,7 @@
         <li><a href="settings.php">Settings</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="../warehouse/login/main_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
