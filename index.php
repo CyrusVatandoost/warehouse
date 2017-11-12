@@ -26,7 +26,7 @@
 
     <!-- body -->
     <div class="col-sm-8 text-left"> 
-      <h1>Home</h1>
+      <h1>Welcome to WareHouse!</h1>
 
     <!-- carousel -->
     <div class="row">
@@ -80,6 +80,10 @@
     </div>
 
     <hr>
+
+    <p>
+    This is a webapplication made for T3D House for organizing projects. This is made for companies or organizations wanting to store and organize their projects and files for their own members to access.
+    </p>
 
     </div>
 

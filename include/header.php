@@ -7,17 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">WareHouse</a>
+      <a class="navbar-brand" href="/warehouse/">WareHouse</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 
       	<?php
-      		if($_SERVER['REQUEST_URI'] == "/warehouse/")
-      			echo "<li class=active><a href=/warehouse/>Home</a></li>";
-      		else
-      			echo "<li><a href=/warehouse/>Home</a></li>";
-
       		if($_SERVER['REQUEST_URI'] == "/warehouse/projects/")
       			echo "<li class=active><a href=/warehouse/projects>Projects</a></li>";
       		else

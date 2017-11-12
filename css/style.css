@@ -3,8 +3,23 @@
 	Created on:		2016 11 06
 	Last modified:	2016 11 06
 */
+
+/* variables */
+:root {
+  --color1: #555;
+  --color2: #ffffff;
+  --color3: #f1f1f1;
+}
+
 body {
-  background-color: #555;
+  background-color: var(--color1);
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: var(--color1);
+  color: white;
+  padding: 15px;
 }
 
 /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -16,7 +31,7 @@ body {
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
   height: auto;
-  background-color: #ffffff;
+  background-color: var(--color2);
 }
 
 /* Set gray background color and 100% height */
@@ -25,25 +40,17 @@ body {
   height: 100%;
 }
 
-/* Set black background color, white text and some padding */
-footer {
-  background-color: #555;
-  color: white;
-  padding: 15px;
-}
-
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
+
   .sidenav {
     height: auto;
     padding: 15px;
-    background-color: #f1f1f1;
+    background-color: var(--color3);
   }
+
   .row.content {
     height:auto;
   } 
-}
-
-table.form {
 
 }
