@@ -52,7 +52,7 @@
     <!-- body -->
     <div class="col-sm-8 text-left"> 
       <h1>Account</h1>
-      <img src="res/account.png" width="100"height="100">
+      <img src="res/account.png" width="150" height="150">
       <p>Name: Juan Dela Cruz</p>
       <p>Type of User: Member</p>
     
