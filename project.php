@@ -56,18 +56,29 @@
     <div class="col-sm-8 text-left"> 
       <h1>Project Name</h1>
 
-      <!-- badge -->
-      <ul class="nav nav-pills">
-        <li class="active">
-           <a href="#"> <span class="badge pull-right">42</span>My Projects</a>
-        </li>
-        <li>
-           <a href="#"> <span class="badge pull-right">16</span>All Projects</a>
-        </li>
-      </ul>
-
-      <hr>
-
+      <div class="tabbable" id="tabs-463690">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#panel-360368" data-toggle="tab">Section 1</a>
+          </li>
+          <li>
+            <a href="#panel-711432" data-toggle="tab">Section 2</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="panel-360368">
+            <p>
+              I'm in Section 1.
+            </p>
+          </div>
+          <div class="tab-pane" id="panel-711432">
+            <p>
+              Howdy, I'm in Section 2.
+            </p>
+          </div>
+        </div>
+      </div>
+      
     </div>
 
     <!-- right sidenav -->
