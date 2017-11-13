@@ -21,7 +21,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `warehousedb`
 --
-DROP DATABASE IF EXISTS 'warehousedb';
+IF EXISTS(SELECT name FROM sys.databases
+  WHERE name = 'warehousedb')
+  DROP DATABASE 'warehousedb';
 
 CREATE DATABASE 'warehousedb';
 USE 'warehousedb';
