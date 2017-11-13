@@ -21,6 +21,10 @@ SET time_zone = "+00:00";
 --
 -- Database: `warehousedb`
 --
+DROP DATABASE IF EXISTS 'warehousedb';
+
+CREATE DATABASE 'warehousedb';
+USE 'warehousedb';
 
 -- --------------------------------------------------------
 
