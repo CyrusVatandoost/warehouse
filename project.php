@@ -31,6 +31,9 @@
       <div class="tabbable" id="tabs-463690">
         <ul class="nav nav-tabs">
           <li class="active">
+            <a href="#panel-summary" data-toggle="tab">Summary</a>
+          </li>
+          <li>
             <a href="#panel-files" data-toggle="tab">Files</a>
           </li>
           <li>
@@ -45,7 +48,22 @@
         </ul>
         <div class="tab-content">
 
-          <div class="tab-pane active" id="panel-files">
+          <div class="tab-pane active" id="panel-summary">
+            <br>
+            <div class="jumbotron">
+              <h2>
+                Hello, world!
+              </h2>
+              <p>
+                This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+              </p>
+              <p>
+                <a class="btn btn-primary btn-large" href="#">Learn more</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="panel-files">
             <table class="table">
               <thead>
                 <tr>

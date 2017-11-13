@@ -29,7 +29,7 @@
         <li>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" placeholder="Search Projects"/>
             </div> 
             <button type="submit" class="btn btn-default">
               Search
@@ -37,7 +37,7 @@
           </form>
         </li>
         <!-- login -->
-        <li><a href="/warehouse/login/main_login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        <li><a href="/warehouse/login/main_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
