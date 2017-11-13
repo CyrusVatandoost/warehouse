@@ -21,19 +21,13 @@ SET time_zone = "+00:00";
 --
 -- Database: `warehousedb`
 --
-IF EXISTS(SELECT name FROM sys.databases
-  WHERE name = 'warehousedb')
-  DROP DATABASE 'warehousedb';
-
-CREATE DATABASE 'warehousedb';
-USE 'warehousedb';
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `AccessList`
 --
-
+DROP TABLE IF EXISTS 'AccessList'
 CREATE TABLE `AccessList` (
   `UserID` int(8) UNSIGNED NOT NULL,
   `FileID` int(8) UNSIGNED NOT NULL,
