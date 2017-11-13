@@ -1,12 +1,12 @@
 <!--
 	Author:			Cyrus
-	Created on:		2016 11 11
-	Last modified:	2016 11 11
+	Created on:		2016 11 12
+	Last modified:	2016 11 12
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>T3D WareHouse | Account</title>
+	<title>T3D WareHouse | Projects</title>
   <?php require realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/head_style.php"; ?>
 </head>
 <body>
@@ -19,22 +19,26 @@
 
     <!-- left sidenav -->
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Edit Profile</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
     </div>
 
     <!-- body -->
     <div class="col-sm-8 text-left"> 
-      <br>
-      <img src="res/account.png" width="150" height="150">
-      <h1>Juan Dela Cruz</h1>
-      <p><a href="#">juandelacruz@dlsu.edu.ph</a>
-      <p>T3D Member
-    
-      <hr>
-      <p>Hi I am Juan and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
+      <h1>Projects</h1>
+
+      <!-- badge -->
+      <ul class="nav nav-pills">
+        <li class="active">
+           <a href="#"> <span class="badge pull-right">3</span>My Projects</a>
+        </li>
+        <li>
+           <a href="all.php"> <span class="badge pull-right">7</span>All Projects</a>
+        </li>
+      </ul>
 
       <hr>
-      <h3>Personal Projects</h3>
 
       <div class="row">
         <div class="col-md-4">
@@ -88,7 +92,7 @@
       </div>
 
     </div>
-   
+
     <!-- right sidenav -->
     <div class="col-sm-2 sidenav">
       <div class="well">
@@ -100,7 +104,7 @@
     </div>
 
   </div>
-</div>  
+</div>
 
 <?php include realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/footer.php"; ?>
 
