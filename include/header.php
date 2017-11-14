@@ -1,4 +1,12 @@
 <!-- header -->
+<?php session_start();
+	if (isset($_SESSION['email'])) {
+		$user = $_SESSION['email'];
+		$redirect = "/warehouse/successlogin.php";}
+	else{
+		$user = "Login";
+		$redirect = "/warehouse/login/main_login.php";}
+?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -37,7 +45,7 @@
           </form>
         </li>
         <!-- login -->
-        <li><a href="/warehouse/login/main_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="<?php echo $redirect;?>"><span class="glyphicon glyphicon-log-in"></span> <?php echo $user;?></a></li>
       </ul>
     </div>
   </div>

@@ -28,7 +28,7 @@ class LoginForm extends DbConn
 
         }
 
-        $stmt = $db->conn->prepare("SELECT * FROM ".$tbl_members." WHERE username = :myusername");
+        $stmt = $db->conn->prepare("SELECT * FROM ".$tbl_members." WHERE email = :myusername");
         $stmt->bindParam(':myusername', $myusername);
         $stmt->execute();
 
@@ -50,7 +50,7 @@ class LoginForm extends DbConn
                 $success = 'true';
                     session_start();
 
-                    $_SESSION['username'] = $myusername;
+                    $_SESSION['email'] = $myusername;
 
             } elseif (password_verify($mypassword, $result['password']) && $result['verified'] == '0') {
 

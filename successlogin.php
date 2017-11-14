@@ -1,5 +1,10 @@
+<!--
+	Author:			Christian
+	Created on:		2016 11 12
+	Last modified:	2017 11 15
+-->
 <?php require "login/loginheader.php"; 
-$user = $_SESSION['username'];
+$user = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
