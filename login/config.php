@@ -1,3 +1,8 @@
+<!--
+	Author:			Christian
+	Created on:		2016 11 12
+	Last modified:	2017 11 15
+-->
 <?php
 //Pull '$base_url' and '$signin_url' from this file
 include 'globalcon.php';
@@ -17,11 +22,12 @@ $admin_email = '';
 
 //EMAIL SETTINGS
 //SEND TEST EMAILS THROUGH FORM TO https://www.mail-tester.com GENERATED ADDRESS FOR SPAM SCORE
-$from_email = 'youremail@domain.com'; //Webmaster email
-$from_name = 'Test Email'; //"From name" displayed on email
+$from_email = 'web-ksz45@mail-tester.com'; //Webmaster email
+$from_name = 'User Verification'; //"From name" displayed on email
 
 //Find specific server settings at https://www.arclab.com/en/kb/email/list-of-smtp-and-pop3-servers-mailserver-list.html
 $mailServerType = 'smtp';
+
 //IF $mailServerType = 'smtp'
 $smtp_server = 'smtp.mail.domain.com';
 $smtp_user = 'youremail@domain.com';

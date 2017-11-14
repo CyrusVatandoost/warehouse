@@ -1,3 +1,8 @@
+<!--
+	Author:			Christian
+	Created on:		2016 11 12
+	Last modified:	2017 11 15
+-->
 <?php
 //DO NOT ECHO ANYTHING ON THIS PAGE OTHER THAN RESPONSE
 //'true' triggers login success
