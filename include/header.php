@@ -29,7 +29,7 @@
         <li>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Projects"/>
+              <input type="text" class="form-control" placeholder="Search Projects/Members"/>
             </div> 
             <button type="submit" class="btn btn-default">
               Search
