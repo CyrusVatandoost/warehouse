@@ -29,7 +29,7 @@ footer {
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {
+.row.content, .row {
   height: auto;
   background-color: var(--color2);
 }
