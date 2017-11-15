@@ -1,5 +1,6 @@
 <!-- header -->
-<?php session_start();
+<?php
+session_start();
 	if (isset($_SESSION['email'])) {
 		$user = $_SESSION['email'];
 		$redirect = "/warehouse/successlogin.php";}
