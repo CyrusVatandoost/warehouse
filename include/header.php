@@ -51,9 +51,9 @@ session_start();
               Search
             </button>
           </form>
-        </li>
+        <li><a href="#"><i class="material-icons md-18">person</i></a></li>
         <!-- login -->
-        <li><a href="<?php echo $redirect;?>"><span class="glyphicon glyphicon-log-in"></span> <?php echo $user;?></a></li>
+        <li><a href="<?php echo $redirect;?>"><span class="glyphicon glyphicon-log-in"></span> <?php echo $user;?></a>
       </ul>
     </div>
   </div>
