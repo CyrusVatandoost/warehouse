@@ -25,9 +25,19 @@
     <!-- body -->
     <div class="col-sm-8 text-left"> 
       <p>
-        <!--
-        add content here
-        -->
+        <p>First Name:</p>
+        <input type = "text" name=" " size="40"/>
+        <p>Middle Name:</p>
+        <input type = "text" name=" " size="40"/>
+        <p>Last Name:</p>
+        <input type = "text" name=" " size="40"/>
+        <p>E-mail:</p>
+        <input type = "text" name=" " size="40"/>
+        <p>Biography</p>
+        <textarea cols="50" rows="20"></textarea>
+        <br><br>
+        <button> Cancel </button>
+        <button> Done </button>
       </p>
     </div>
    
