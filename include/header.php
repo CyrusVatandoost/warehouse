@@ -32,6 +32,11 @@ session_start();
       			echo "<li class=active><a href=/warehouse/account.php>Account</a></li>";
       		else
       			echo "<li><a href=/warehouse/account.php>Account</a></li>";
+
+          if($_SERVER['REQUEST_URI'] == "/warehouse/contact.php")
+            echo "<li class=active><a href=/warehouse/contact.php>Contact Us</a></li>";
+          else
+            echo "<li><a href=/warehouse/contact.php>Contact Us</a></li>";
         ?>
       </ul>
       <!-- navbar-right -->
