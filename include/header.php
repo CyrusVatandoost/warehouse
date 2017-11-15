@@ -1,12 +1,14 @@
 <!-- header -->
 <?php
 session_start();
+
 	if (isset($_SESSION['email'])) {
 		$user = $_SESSION['email'];
 		$redirect = "/warehouse/successlogin.php";}
 	else{
 		$user = "Login";
 		$redirect = "/warehouse/login/main_login.php";}
+
 ?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -38,7 +40,7 @@ session_start();
         <li>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Projects/Members"/>
+              <input type="text" class="form-control" placeholder="Search WareHouse"/>
             </div> 
             <button type="submit" class="btn btn-default">
               Search
