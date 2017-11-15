@@ -26,7 +26,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="item active">
-      <img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" width="100%" />
+      <img alt="Carousel Bootstrap First" src="/warehouse/res/homepage1.jpg" width="100%" />
       <div class="carousel-caption">
         <h4>
           First Thumbnail label
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="item">
-      <img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" width="100%"/>
+      <img alt="Carousel Bootstrap Second" src="/warehouse/res/homepage2.jpg" width="100%"/>
       <div class="carousel-caption">
         <h4>
           Second Thumbnail label
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="item">
-      <img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" width="100%"/>
+      <img alt="Carousel Bootstrap Third" src="/warehouse/res/homepage3.jpg" width="100%"/>
       <div class="carousel-caption">
         <h4>
           Third Thumbnail label
