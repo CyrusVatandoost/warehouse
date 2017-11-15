@@ -1,3 +1,8 @@
+<!--
+	Author:			Christian
+	Created on:		2016 11 12
+	Last modified:	2017 11 16
+-->
 <?php
 //SYSTEM SETTINGS
 $base_url = 'http://' . $_SERVER['SERVER_NAME'];

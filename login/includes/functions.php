@@ -1,3 +1,8 @@
+<!--
+	Author:			Christian
+	Created on:		2016 11 12
+	Last modified:	2017 11 16
+-->
 <?php
 //Class Autoloader
 spl_autoload_register(function ($className) {
@@ -59,7 +64,7 @@ function mySqlErrors($response)
     switch (substr($response, 0, 22)) {
 
         case 'Error: SQLSTATE[23000]':
-            echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Username or email already exists</div>";
+            echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Email already exists</div>";
             break;
 
         default:

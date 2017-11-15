@@ -1,7 +1,12 @@
+<!--
+	Author:			Christian
+	Created on:		2016 11 12
+	Last modified:	2017 11 16
+-->
 <?php
 class MailSender
 {
-    public function sendMail($email, $user, $id, $type)
+    public function sendMail($email, $id, $type)
     {
         require 'scripts/PHPMailer/PHPMailerAutoload.php';
         include 'config.php';
@@ -26,13 +31,13 @@ class MailSender
         * CAN BE SET TO addAddress(youremail@website.com, 'Your Name') FOR PRIVATE USER APPROVAL BY MODERATOR
         * SET TO addAddress($email, $user) FOR USER SELF-VERIFICATION
         *****/
-        $mail->addAddress($email, $user);
+        $mail->addAddress($email);
 
         //Sets message body content based on type (verification or confirmation)
         if ($type == 'Verify') {
 
             //Set the subject line
-            $mail->Subject = $user . ' Account Verification';
+            $mail->Subject = ' Account Verification';
 
             //Set the body of the message
             $mail->Body = $verifymsg . '<br><a href="'.$verifyurl.'">'.$verifyurl.'</a>';
