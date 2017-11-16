@@ -10,12 +10,17 @@
 	<title>T3D WareHouse | Home</title>
   <?php require realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/head_style.php"; ?>
 </head>
+<script type="text/javascript">
+  $('.carousel').carousel({
+    interval: 2000
+  })
+</script>
 <body>
 
 <!-- header -->
 <?php require realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/header.php"; ?>
 
-<div class="carousel slide" id="carousel-191868">
+<div class="carousel slide" id="carousel-191868" data-ride="carousel">
   <ol class="carousel-indicators">
     <li class="active" data-slide-to="0" data-target="#carousel-191868">
     </li>
@@ -26,39 +31,21 @@
   </ol>
   <div class="carousel-inner">
     <div class="item active">
-      <img alt="Carousel Bootstrap First" src="/warehouse/res/homepage1.jpg" width="100%" />
-      <div class="carousel-caption">
-        <h4>
-          First Thumbnail label
-        </h4>
-        <p>
-          Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-        </p>
-      </div>
+      <img alt="Carousel Bootstrap First" src="/warehouse/res/homepage1.jpg" width="100%"/>
     </div>
     <div class="item">
       <img alt="Carousel Bootstrap Second" src="/warehouse/res/homepage2.jpg" width="100%"/>
-      <div class="carousel-caption">
-        <h4>
-          Second Thumbnail label
-        </h4>
-        <p>
-          Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-        </p>
-      </div>
     </div>
     <div class="item">
       <img alt="Carousel Bootstrap Third" src="/warehouse/res/homepage3.jpg" width="100%"/>
-      <div class="carousel-caption">
-        <h4>
-          Third Thumbnail label
-        </h4>
-        <p>
-          Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-        </p>
-      </div>
     </div>
-  </div> <a class="left carousel-control" href="#carousel-191868" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-191868" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+  </div>
+  <a class="left carousel-control" href="#carousel-191868" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-191868" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
 </div>
 
 <div class="container-fluid">
