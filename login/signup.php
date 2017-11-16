@@ -1,7 +1,12 @@
+<!--
+	Author:			Christian
+	Created on:		2016 11 12
+	Last modified:	2017 11 15
+-->
 <?php
   session_start();
 
-  if (isset($_SESSION['username'])) {
+  if (isset($_SESSION['email'])) {
       session_start();
       session_destroy();
   }
@@ -24,7 +29,7 @@
 
       <form class="form-signup" id="usersignup" name="usersignup" method="post" action="createuser.php">
         <h2 class="form-signup-heading">Register</h2>
-        <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Username" autofocus>
+        <!--<input name="newuser" id="newuser" type="text" class="form-control" placeholder="Username" autofocus>-->
         <input name="email" id="email" type="text" class="form-control" placeholder="Email">
 <br>
         <input name="password1" id="password1" type="password" class="form-control" placeholder="Password">
@@ -64,6 +69,12 @@ $( "#usersignup" ).validate({
     }
   }
 });
+</script>
+
+<script>
+function redirect(){
+	window.location.replace("http://localhost/warehouse");
+}
 </script>
 
   </body>
