@@ -5,7 +5,7 @@ session_start();
 	if (isset($_SESSION['email'])) {
 		$user = $_SESSION['email'];
 		$redirect = "/warehouse/successlogin.php";}
-	else{
+	else {
 		$user = "Login";
 		$redirect = "/warehouse/login/main_login.php";}
 
@@ -47,13 +47,21 @@ session_start();
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search WareHouse"/>
             </div> 
-            <button type="submit" class="btn btn-default">
-              Search
-            </button>
+            <a class="btn btn-default">
+              <i class="material-icons md-18">search</i>
+            </a>
           </form>
-        <li><a href="#"><i class="material-icons md-18">person</i></a></li>
-        <!-- login -->
-        <li><a href="<?php echo $redirect;?>"><span class="glyphicon glyphicon-log-in"></span> <?php echo $user;?></a>
+        <li>
+          <a href="#" data-toggle="dropdown" class="btn">
+            <i class="material-icons md-18 md-light">menu</i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Account</a>
+            <li><a href="#">Edit Account</a>
+            <li><a href="#">Settings</a>
+            <li class="divider">
+            <li><a href="#">Logout</a>
+          </ul>
       </ul>
     </div>
   </div>
