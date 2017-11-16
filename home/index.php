@@ -25,11 +25,10 @@
 
     <!-- body -->
     <div class="col-sm-8 text-left"> 
-      <p>
-        <!--
-          body here
-        -->
-      </p>
+      <h1>Home</h1>
+      <!--
+        body here
+      -->
     </div>
 
     <!-- right sidenav -->

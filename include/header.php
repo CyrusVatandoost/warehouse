@@ -44,9 +44,7 @@ session_start();
         <!-- search -->
         <li>
           <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search WareHouse"/>
-            </div> 
+            <input type="text" class="form-control" placeholder="Search WareHouse"/>
             <a class="btn btn-default">
               <i class="material-icons md-18">search</i>
             </a>
