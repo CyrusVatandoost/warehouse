@@ -18,11 +18,16 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="/warehouse/home">WareHouse</a>
+      <a class="navbar-brand" href="/warehouse/welcome/">WareHouse</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
       	<?php
+          if($_SERVER['REQUEST_URI'] == "/warehouse/home/")
+            echo "<li class=active><a href=/warehouse/home>Home</a></li>";
+          else
+            echo "<li><a href=/warehouse/home>Home</a></li>";
+
       		if($_SERVER['REQUEST_URI'] == "/warehouse/projects/")
       			echo "<li class=active><a href=/warehouse/projects>Projects</a></li>";
       		else
