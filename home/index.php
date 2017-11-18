@@ -18,9 +18,8 @@
 
     <!-- left sidenav -->
     <div class="col-sm-2 sidenav">
-      <p><a href="/warehouse/projects">Featured Projects</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
+      <p><a href="#" class="btn btn-primary btn-block">New Project</a></p>
     </div>
 
     <!-- body -->

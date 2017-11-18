@@ -19,7 +19,7 @@
 
     <!-- left sidenav -->
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Edit Profile</a></p>
+      <p><a href="#" class="btn btn-primary btn-block">Edit Profile</a></p>
     </div>
 
     <!-- body -->
