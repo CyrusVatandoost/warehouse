@@ -75,3 +75,23 @@ footer {
   display: inline-flex;
   vertical-align: top;
 }
+
+.left{
+	text-align:left;
+	float:left;
+	margin-left:150px;
+}
+
+.center{
+	text-align:left;
+	float:left;
+	margin-left:250px;
+	
+}
+
+.right{
+	text-align:center;
+	float:right;
+	margin-right: 150px;
+	margin-top: 100px;
+}
