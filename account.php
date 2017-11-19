@@ -27,7 +27,7 @@
       <br>
       <img src="res/account.png" width="150" height="150">
       <h1>Juan Dela Cruz</h1>
-      <p><a href="#">juandelacruz@dlsu.edu.ph</a>
+      <p><a href="/warehouse/account/edit.php">juandelacruz@dlsu.edu.ph</a>
       <p>T3D Member
     
       <hr>
