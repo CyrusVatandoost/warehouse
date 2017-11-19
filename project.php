@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 	<title>T3D WareHouse | Project</title>
-  <?php require realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/head_style.php"; ?>
+  <?php require realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/style.php"; ?>
 </head>
 <body>
 

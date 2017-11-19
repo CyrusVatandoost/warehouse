@@ -1,7 +1,7 @@
 <!--
 	Author:			Christian
 	Created on:		2016 11 12
-	Last modified:	2017 11 15
+	Last modified:	2017 11 16
 -->
 <?php
 session_start();
@@ -33,8 +33,8 @@ if (isset($_SESSION['email'])) {
         </label>
         -->
         <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	    <!--<a href="signup.php" name="Sign Up" id="signup" class="btn btn-lg btn-primary btn-block" type="submit">Create new account</a>
-		-->
+	    <a href="signup.php" name="Sign Up" id="signup" class="btn btn-lg btn-primary btn-block" type="submit">Create new account</a>
+		
         <div id="message"></div>
       </form>
 

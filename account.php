@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 	<title>T3D WareHouse | Account</title>
-  <?php require realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/head_style.php"; ?>
+  <?php require realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/style.php"; ?>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 
     <!-- left sidenav -->
     <div class="col-sm-2 sidenav">
-      <p><a href="/warehouse/account/edit.php">Edit Profile</a></p>
+      <p><a href="/warehouse/account/edit.php" class="btn btn-primary btn-block">Edit Profile</a></p>
     </div>
 
     <!-- body -->
