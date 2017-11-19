@@ -23,9 +23,57 @@
     <!-- body -->
     <div class="col-sm-8 text-left"> 
       <p>
-        <!--
-          body here
-        -->
+        <div class="panel-group" id="panel-623321">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+             <a class="panel-title" data-toggle="collapse" data-parent="#panel-623321" href="#panel-element-338947">WareHouse Administrators</a>
+          </div>
+          <div id="panel-element-338947" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+             <a class="panel-title" data-toggle="collapse" data-parent="#panel-623321" href="#panel-element-201884">Fellows</a>
+          </div>
+          <div id="panel-element-201884" class="panel-collapse collapse">
+            <div class="panel-body">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+             <a class="panel-title" data-toggle="collapse" data-parent="#panel-623321" href="#panel-element-201884">Researchers</a>
+          </div>
+          <div id="panel-element-201884" class="panel-collapse collapse">
+            <div class="panel-body">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+              <img width="100px" height="100px">
+            </div>
+          </div>
+        </div>
+
+      </div>
       </p>
     </div>
 
