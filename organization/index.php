@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>T3D WareHouse | Title</title>
+	<title>T3D WareHouse | Organization</title>
   <?php require realpath($_SERVER['DOCUMENT_ROOT'])."/warehouse/include/style.php"; ?>
 </head>
 <body>
@@ -17,8 +17,6 @@
 
     <!-- left sidenav -->
     <div class="col-sm-2 sidenav">
-      <p><a href="#" class="btn btn-primary btn-block">New Button</a></p>
-      <p><a href="#" class="btn btn-primary btn-block">New Button</a></p>
       <p><a href="#" class="btn btn-primary btn-block">New Button</a></p>
     </div>
 

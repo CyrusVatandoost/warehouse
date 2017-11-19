@@ -1,6 +1,5 @@
 <!--
 	Author:			Cyrus
-	Created on:		2016 11 01
 -->
 <!DOCTYPE html>
 <html lang="en">
