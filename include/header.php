@@ -69,7 +69,7 @@ session_start();
             <li><a href="#">Edit Account</a>
             <li><a href="#">Settings</a>
             <li class="divider">
-            <li><a href="#">Logout</a>
+            <li><a href="/warehouse/login/main_login.php">Logout</a>
           </ul>
       </ul>
     </div>
