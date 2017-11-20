@@ -76,20 +76,15 @@ footer {
   vertical-align: top;
 }
 
-table{
-	padding:2px;
+.footer {
+	padding:10px;
 	color:white;
-	margin-left: 200px;
 }
 
-th{
-	padding-right:150px;
+.footer td {
+	padding-right:100px;
 }
 
-.tableheader{
-	float:left;
-}
-
-a, a:hover{
+.footer a, .footer a:hover{
 	color:white;
 }
