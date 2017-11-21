@@ -14,13 +14,13 @@
     </ol>
     <div class="carousel-inner">
       <div class="item active">
-        <img alt="Carousel Bootstrap First" src="/warehouse/res/homepage1.jpg" width="100%"/>
+        <img alt="Carousel Bootstrap First" src="/storage/homepage1.jpg" width="100%"/>
       </div>
       <div class="item">
-        <img alt="Carousel Bootstrap Second" src="/warehouse/res/homepage2.jpg" width="100%"/>
+        <img alt="Carousel Bootstrap Second" src="/storage/homepage2.jpg" width="100%"/>
       </div>
       <div class="item">
-        <img alt="Carousel Bootstrap Third" src="/warehouse/res/homepage3.jpg" width="100%"/>
+        <img alt="Carousel Bootstrap Third" src="/storage/homepage3.jpg" width="100%"/>
       </div>
     </div>
     <a class="left carousel-control" href="#carousel-191868" data-slide="prev">
