@@ -10,22 +10,19 @@
 	@endsection
 
 @section('body')
-
   <ul>
     @foreach ($tasks as $task)
       <li>{{ $task }}</li>
     @endforeach
   </ul>
-
+  {{ HTML::style('css/common.css') }}
 	@endsection
 
 @section('right-sidebar')
   <div class="well">
-    <p>ADS</p>
+    <p>ADS/<p>
   </div>
-
   <div class="well">
     <p>ADS</p>
   </div>
-
 	@endsection
