@@ -15,7 +15,6 @@
       <li>{{ $task }}</li>
     @endforeach
   </ul>
-  {{ HTML::style('css/common.css') }}
 	@endsection
 
 @section('right-sidebar')
