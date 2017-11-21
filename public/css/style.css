@@ -73,3 +73,17 @@ footer {
     display: inline-flex;
     vertical-align: top;
   }
+
+/* Footer */
+.footer {
+  padding:10px;
+  color:white;
+}
+
+.footer td {
+  padding-right: 10vh;
+}
+
+.footer a, .footer a:hover{
+  color:white;
+}
