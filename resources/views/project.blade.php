@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Project')
+@section('title', $project->name)
 
 @section('left-sidebar')
   <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>

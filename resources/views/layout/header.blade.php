@@ -35,7 +35,7 @@
             <li><a href="#">Edit Account</a>
             <li><a href="#">Settings</a>
             <li class="divider">
-            <li><a href="/warehouse/login/main_login.php">Logout</a>
+            <li><a href="{{ url('login') }}">Logout</a>
           </ul>
       </ul>
     </div>

@@ -24,11 +24,18 @@ Route::get('/home', function () {
 });
 
 Route::get('/projects', function () {
-    return view('projects');
+
+	// query to fetch all projects ordered from latest
+	$project_list = DB::table('project')->latest()->get();
+
+    return view('projects', compact('project_list'));
 });
 
-Route::get('/project', function () {
-    return view('project');
+Route::get('/project/{id}', function ($id) {
+
+	$project = DB::table('project')->find($id);
+
+    return view('project', compact('project'));
 });
 
 Route::get('/account', function () {
