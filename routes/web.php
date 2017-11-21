@@ -19,9 +19,18 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/test', function () {
+Route::get('/projects', function () {
+    return view('projects');
+});
 
-	$tasks = ['one', 'two', 'three'];
+Route::get('/account', function () {
+    return view('account');
+});
 
-    return view('test', compact('tasks'));
+Route::get('/organization', function () {
+    return view('organization');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
 });
