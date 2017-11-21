@@ -25,11 +25,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a>
-        <li><a href="#">Projects</a>
-        <li><a href="#">Account</a>
-        <li><a href="#">Organization</a>
-        <li><a href="#">Contact Us</a>
+        <li><a href="/home">Home</a>
+        <li><a href="/projects">Projects</a>
+        <li><a href="/account">Account</a>
+        <li><a href="/organization">Organization</a>
+        <li><a href="/contact">Contact Us</a>
       </ul>
       <!-- navbar-right -->
       <ul class="nav navbar-nav navbar-right">
