@@ -87,3 +87,12 @@ footer {
 .footer a, .footer a:hover{
   color:white;
 }
+
+/* Forms */
+.form table {
+
+}
+
+.form td {
+  padding: 10px;
+}
