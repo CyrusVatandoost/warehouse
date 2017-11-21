@@ -23,6 +23,10 @@ Route::get('/projects', function () {
     return view('projects');
 });
 
+Route::get('/project', function () {
+    return view('project');
+});
+
 Route::get('/account', function () {
     return view('account');
 });
