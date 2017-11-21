@@ -8,7 +8,42 @@
   @endsection
 
 @section('body')
-  Home Body
+  <div class="panel-group" id="panel-691658">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+         <a class="panel-title" data-toggle="collapse" data-parent="#panel-691658" href="#panel-element-admin">Administrators</a>
+      </div>
+      <div id="panel-element-admin" class="panel-collapse collapse in">
+        <div class="panel-body">
+          Anim pariatur cliche...
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+         <a class="panel-title" data-toggle="collapse" data-parent="#panel-691658" href="#panel-element-fellows">Fellows</a>
+      </div>
+      <div id="panel-element-fellows" class="panel-collapse collapse">
+        <div class="panel-body">
+          Anim pariatur cliche...
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+         <a class="panel-title" data-toggle="collapse" data-parent="#panel-691658" href="#panel-element-researchers">Researchers</a>
+      </div>
+      <div id="panel-element-researchers" class="panel-collapse collapse">
+        <div class="panel-body">
+          Anim pariatur cliche...
+        </div>
+      </div>
+    </div>
+
+  </div>
   @endsection
 
 @section('right-sidebar')
