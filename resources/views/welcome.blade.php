@@ -14,13 +14,10 @@
     </ol>
     <div class="carousel-inner">
       <div class="item active">
-        <img alt="Carousel Bootstrap First" src="/storage/homepage1.jpg" width="100%"/>
+        <img alt="Carousel Bootstrap First" src="/storage/carousel1.jpg" width="100%"/>
       </div>
       <div class="item">
-        <img alt="Carousel Bootstrap Second" src="/storage/homepage2.jpg" width="100%"/>
-      </div>
-      <div class="item">
-        <img alt="Carousel Bootstrap Third" src="/storage/homepage3.jpg" width="100%"/>
+        <img alt="Carousel Bootstrap Second" src="/storage/carousel2.jpg" width="100%"/>
       </div>
     </div>
     <a class="left carousel-control" href="#carousel-191868" data-slide="prev">
@@ -33,7 +30,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12" style="padding: 5%;">
+      <div class="col-md-12" style="padding: 2%;">
         <p>
         <h3>
           Welcome to WareHouse!
@@ -44,7 +41,7 @@
           What are you waiting for? Get started now!
         </p>
         <center>
-          <a href="/warehouse/projects" class="btn btn-primary btn-lg">
+          <a href="{{ url('projects') }}" class="btn btn-primary btn-lg">
             Browse Projects
           </a>
         </center>
