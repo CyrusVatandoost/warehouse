@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model {
 
+	protected $fillable = ['project_name', 'description'];
+
 	public function scopeComplete() {
 		return static::where('complete', 1);
 	}
