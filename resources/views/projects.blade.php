@@ -3,7 +3,7 @@
 @section('title', 'Projects')
 
 @section('left-sidebar')
-  <p><a href="#" class="btn btn-primary btn-block">New Project</a></p>
+  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 	@endsection
 
 @section('body')
@@ -80,3 +80,7 @@
   </div>
 
 	@endsection
+  
+</div>
+
+@include('modals.new_project')

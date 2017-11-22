@@ -31,4 +31,12 @@ class ProjectController extends Controller {
 		return view('project', compact('project'));
 	}
 
+	public function store() {
+		$project = new Project;
+		$project->name = request('project_name');
+		$project->description = request('project_description');
+		$project->save();
+		return redirect('/projects');
+	}
+
 }
