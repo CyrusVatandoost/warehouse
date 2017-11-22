@@ -11,7 +11,7 @@
         <td><a href="{{ url('home') }}">Home</a>
       <tr>
         <td>inquire@te3dhouse.edu.ph
-        <td><a href="">Projects</a>
+        <td><a href="{{ url('projects') }}">Projects</a>
       <tr>
         <td>(02) 809 7392
         <td><a href="{{ url('contact') }}">Contact Us</a>
