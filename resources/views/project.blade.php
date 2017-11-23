@@ -3,10 +3,7 @@
 @section('title', $project->name)
 
 @section('left-sidebar')
-  <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
-  <p><a href="#" class="btn btn-primary btn-block">New Project</a></p>
-  <p><a href="#" class="btn btn-primary btn-block">New Project</a></p>
-  <p><a href="#" class="btn btn-primary btn-block">New Project</a></p>
+  <p><a class="btn btn-danger btn-block" href="{{ url('project/delete/'.$project->id) }}">Delete</a>
 	@endsection
 
 @section('body')

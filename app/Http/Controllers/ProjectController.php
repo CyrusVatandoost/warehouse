@@ -31,11 +31,17 @@ class ProjectController extends Controller {
 		return view('project', compact('project'));
 	}
 
+	// stores a new project in warehousedb.projects
 	public function store() {
 		$project = new Project;
 		$project->name = request('project_name');
 		$project->description = request('project_description');
 		$project->save();
+		return redirect('/projects');
+	}
+
+	public function delete($id) {
+		Project::find($id)->delete();
 		return redirect('/projects');
 	}
 
