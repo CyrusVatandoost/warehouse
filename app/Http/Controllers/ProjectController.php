@@ -7,7 +7,7 @@ use App\Project;
 
 class ProjectController extends Controller {
     
-    // returns all projects
+	// returns all projects
 	public function index() {
 		$project_list = Project::get();
 		return view('projects', compact('project_list'));

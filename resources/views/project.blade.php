@@ -3,7 +3,7 @@
 @section('title', $project->name)
 
 @section('left-sidebar')
-  <p><a class="btn btn-danger btn-block" href="{{ url('project/delete/'.$project->id) }}">Delete</a>
+  <p><a href="#modal-container-delete-project" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Project</a></p>
 	@endsection
 
 @section('body')
@@ -133,3 +133,5 @@
   </div>
 
 	@endsection
+
+@include('modals.delete_project')
