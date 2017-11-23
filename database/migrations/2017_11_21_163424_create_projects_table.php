@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->boolean('complete')->default(false);
-            $table->text('description');
+            $table->text('description')->nullable(true);
             $table->timestamps();
         });
     }
