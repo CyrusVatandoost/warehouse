@@ -10,12 +10,19 @@
 @include('layout.header')
 
 <div class="container-fluid text-center">
+
   <div class="row content">
-    <!-- body -->
     <div class="col text-left">
-      @yield('body')
+      @yield('carousel')
     </div>
   </div>
+
+  <div class="row content">
+    <div class="col-sm-10 text-left"> 
+	      @yield('body')
+    </div>
+  </div>
+
 </div>
 
 <!-- footer -->

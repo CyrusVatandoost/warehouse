@@ -24,7 +24,7 @@
     </div>
 
     <!-- right sidenav -->
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav" style="min-height: 70vh">
       @yield('right-sidebar')
     </div>
 

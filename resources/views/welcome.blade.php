@@ -2,7 +2,7 @@
 
 @section('title', 'Welcome')
 
-@section('body')
+@section('carousel')
   <div class="carousel slide" id="carousel-191868" data-ride="carousel">
     <ol class="carousel-indicators">
       <li class="active" data-slide-to="0" data-target="#carousel-191868">
@@ -27,10 +27,12 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
   </div>
+  @endsection
 
+@section('body')
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12" style="padding: 2%;">
+      <div class="col-md-8" style="padding: 2%;">
         <p>
         <h3>
           Welcome to WareHouse!
@@ -41,11 +43,10 @@
           What are you waiting for? Get started now!
         </p>
         <center>
-          <a href="{{ url('projects') }}" class="btn btn-primary btn-lg">
+          <a href="{{ url('projects') }}" class="btn btn-success btn-lg">
             Browse Projects
           </a>
         </center>
-      </p>
       </div>
     </div>
   </div>
