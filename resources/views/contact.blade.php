@@ -4,7 +4,12 @@
 
 @section('body')
   <script>
-      
+      $( document ).ready(function() {
+         $( '.reset' ).click(function() {
+              $('.clickable').addClass('ph-big');
+          });
+       });
+
       $(document).ready(function(){
         $(".input").focus(function () {
           $(this).closest('div').find(".clickable").removeClass('ph-big');
@@ -12,9 +17,10 @@
             if( !this.value ) {
               $(this).closest('div').find(".clickable").addClass('ph-big');
             }
-        })
+        });
       });
-</script>
+
+      </script>
   <p>
   <div class="container">
     <div class="row">
@@ -72,7 +78,7 @@
                 </div>
                 <div class="">
                     <button type="submit" class="form__submit btn btn-info pull-right">Send <i class="material-icons">near_me</i></button>
-                    <button type="reset" value="Reset" name="reset" class="btn">Reset <i class="material-icons">cached</i></button>
+                    <button type="reset" value="Reset" name="reset" class="btn reset">Reset <i class="material-icons">cached</i></button>
                 </div>
               </form>
           </div>
