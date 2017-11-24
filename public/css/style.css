@@ -32,25 +32,10 @@ footer {
   background-color: var(--color2);
 }
 
-/* Set gray background color and 100% height */
 .sidenav {
   padding-top: 20px;
-  height: 100%;
-}
-
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-
-  .sidenav {
-    height: auto;
-    padding: 15px;
-    background-color: var(--color3);
-  }
-
-  .row.content {
-    height:auto;
-  } 
-
+  /* Set minimum height so that the footer will not go to the middle of the screen */
+  min-height: 70vh;
 }
 
 /* Material Icon */
@@ -89,10 +74,21 @@ footer {
 }
 
 /* Forms */
-.form table {
-
-}
-
 .form td {
   padding: 10px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+
+  .sidenav {
+    height: auto;
+    padding: 15px;
+    background-color: var(--color3);
+  }
+
+  .row.content {
+    height:auto;
+  } 
+
 }

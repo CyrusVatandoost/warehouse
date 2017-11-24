@@ -19,8 +19,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="title">Get in touch with us.</h1>
-        <p class="subtitle">We appreciate all feedback we receive - positive and constructive - and love to hear what you think about our programmes and services. </p>
+        <h1>Get in touch with us.</h1>
+        <p class="subtitle">We appreciate all feedback we receive - positive and constructive - and love to hear what you think about our programmes and services.</p>
       </div>
     </div>
     <div class="row">
