@@ -40,7 +40,7 @@
               </div>
             </div>
           @endforeach
-
+          
           </div>
         </p>
       </div>
@@ -80,7 +80,5 @@
   <div class="well">
     <p>ADS</p>
   </div>
-
-	@endsection
   
-</div>
+	@endsection
