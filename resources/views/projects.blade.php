@@ -8,6 +8,8 @@
 
 @section('body')
 
+@include('modals.new_project')
+
 <ul class="nav nav-tabs">
   <li class="active">
     <a href="#panel-summary" data-toggle="tab">My Projects</a>
@@ -80,7 +82,3 @@
   </div>
 
 	@endsection
-  
-</div>
-
-@include('modals.new_project')
