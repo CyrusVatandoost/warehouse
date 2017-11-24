@@ -18,8 +18,10 @@
   </div>
 
   <div class="row content">
-    <div class="col-sm-10 text-left"> 
+    <div class="col-sm-12 text-left"> 
+      <p>
 	      @yield('body')
+      </p>
     </div>
   </div>
 

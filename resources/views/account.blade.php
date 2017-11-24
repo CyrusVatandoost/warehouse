@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Account')
+@section('title', 'Juang Dela Cruz')
 
 @section('left-sidebar')
   <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
@@ -8,7 +8,12 @@
   @endsection
 
 @section('body')
-  Home Body
+  <img src="res/account.png" width="150" height="150">
+  <p><a href="/warehouse/account/edit.php">juandelacruz@dlsu.edu.ph</a>
+  <p>T3D Member
+
+  <hr>
+  <p>Hi I am Juan and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
   @endsection
 
 @section('right-sidebar')

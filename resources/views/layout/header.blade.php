@@ -27,16 +27,9 @@
             </a>
           </form>
         <li>
-          <a href="#" data-toggle="dropdown" class="btn">
-            Login
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Account</a>
-            <li><a href="#">Edit Account</a>
-            <li><a href="#">Settings</a>
-            <li class="divider">
-            <li><a href="{{ url('login') }}">Logout</a>
-          </ul>
+          <a href="#">Sign Up</a>
+        <li>
+          <a href="#">Login</a>
       </ul>
     </div>
   </div>
