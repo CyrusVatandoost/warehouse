@@ -27,9 +27,9 @@
             </a>
           </form>
         <li>
-          <a href="#">Sign Up</a>
+          <a href="/register">Sign Up</a>
         <li>
-          <a href="#">Login</a>
+          <a href="/login">Login</a>
       </ul>
     </div>
   </div>
