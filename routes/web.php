@@ -19,11 +19,12 @@ Route::post('/projects', 'ProjectController@store');
 Route::get('/project/{project}', 'ProjectController@show');
 Route::get('/project/delete/{project}', 'ProjectController@delete');
 
+Route::get('/home', function () {return view('home');});
+
 // to be shortened
 Route::get('/', function () {return view('welcome');});
 Route::get('/welcome', function () {return view('welcome');});
 Route::get('/login', function () {return view('login');});
-Route::get('/home', function () {return view('home');});
 Route::get('/account', function () {return view('account');});
 Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
