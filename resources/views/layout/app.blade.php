@@ -7,13 +7,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Warehouse | @yield('title')</title>
+    <title>@yield('title')</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
+    <!-- Google's Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/style.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/material-icons.css') }}" media="all" rel="stylesheet" type="text/css" />
 
   </head>
 
@@ -50,7 +54,9 @@
 
         <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <i class="material-icons md-18">search</i>
+          </button>
         </form>
 
         <ul class="navbar-nav mr-right">
