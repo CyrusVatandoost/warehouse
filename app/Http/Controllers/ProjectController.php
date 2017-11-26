@@ -7,7 +7,7 @@ use App\Project;
 
 class ProjectController extends Controller {
     
-	// returns all projects
+	// returns all of the logged in user's project and all the site's projects
 	public function index() {
 		$my_projects = Project::get()->where('user_id', auth()->id());
 		$all_projects = Project::get();
