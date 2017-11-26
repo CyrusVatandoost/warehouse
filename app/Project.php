@@ -18,7 +18,7 @@ class Project extends Model {
 
 	// $project->user
 	public function user() {
-		return $this->belongsTo(Project::class);
+		return $this->belongsTo('App\User', 'id');
 	}
 
 }
