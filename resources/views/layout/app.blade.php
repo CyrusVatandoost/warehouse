@@ -34,14 +34,18 @@
             <a class="nav-link" href="/projects">Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/account">Account</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/organization">Organization</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contact Us</a>
           </li>
+
+          @if(Auth::check())
+            <li class="nav-item">
+              <a class="nav-link" href="/account">{{ auth()->user()->first_name }}</a>
+            </li>
+          @endif
+          
         </ul>
 
         <form class="form-inline mt-2 mt-md-0">

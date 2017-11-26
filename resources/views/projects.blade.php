@@ -33,8 +33,9 @@
                   <h3>
                     <a href="{{ url('project') }}/{{ $project->id }}">{{ $project->name }}</a>
                   </h3>
+                  {{ $project->user->first_name }}
                   <p>
-                    {{ $project-> description }}
+                    {{ $project->description }}
                   </p>
                 </div>
               </div>

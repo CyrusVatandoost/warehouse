@@ -33,11 +33,19 @@ class ProjectController extends Controller {
 
 	// stores a new project in warehousedb.projects
 	public function store() {
+
+		$this->validate(request(), [
+			'project_name' => 'required'
+		]);
+
 		$project = new Project;
 		$project->name = request('project_name');
+		$project->user_id = auth()->id();
 		$project->description = request('project_description');
 		$project->save();
+
 		return redirect('/projects');
+
 	}
 
 	public function delete($id) {
