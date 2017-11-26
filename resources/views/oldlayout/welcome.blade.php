@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <title>T3D WareHouse | @yield('title')</title>
-  @include('layout.style')
+  @include('oldlayout.style')
 </head>
 <body>
 
 <!-- header -->
-@include('layout.header')
+@include('oldlayout.header')
 
 <div class="container-fluid text-center">
 
@@ -28,7 +28,7 @@
 </div>
 
 <!-- footer -->
-@include('layout.footer')
+@include('oldlayout.footer')
 
 </body>
 </html>
