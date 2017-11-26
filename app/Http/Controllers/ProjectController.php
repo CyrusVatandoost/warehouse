@@ -9,8 +9,9 @@ class ProjectController extends Controller {
     
 	// returns all projects
 	public function index() {
-		$project_list = Project::get();
-		return view('projects', compact('project_list'));
+		$my_projects = Project::get()->where('user_id', auth()->id());
+		$all_projects = Project::get();
+		return view('projects', compact('my_projects', 'all_projects'));
 	}
 
 	// returns incomplete projects
