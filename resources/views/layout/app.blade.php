@@ -13,27 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-
-    <style>
-
-      html {
-        position: relative;
-        min-height: 100%;
-      }
-      body {
-        margin-bottom: 60px; /* Margin bottom by footer height */
-      }
-      .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 60px; /* Set the fixed height of the footer here */
-        line-height: 60px; /* Vertically center the text there */
-        background-color: #f5f5f5;
-      }
-
-    </style>
+    <link href="{{ asset('css/style.css') }}" media="all" rel="stylesheet" type="text/css" />
 
   </head>
 
@@ -105,7 +85,25 @@
 
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <center>
+          <table class="foot small">
+            <tr>
+              <td><br><h5>TE<sup>3</sup>D HOUSE</h5>
+              <td><br><h5>WAREHOUSE</h5>
+            <tr>
+              <td><a href="/welcome">About TED House</a>
+              <td><a href="/home">Home</a>
+            <tr>
+              <td>inquire@te3dhouse.edu.ph
+              <td><a href="/projects">Projects</a>
+            <tr>
+              <td>(02) 809 7392
+              <td><a href="/contact">Contact Us</a>
+            <tr>
+              <td>LTI Spine Road, Laguna Blvd. Binan
+              <td><a href="/login">Members Sign In</a>
+              <td>ImagineWare Solutions, Inc. 2017
+          </table>
       </div>
     </footer>
 
