@@ -31,11 +31,8 @@ Route::get('/home', function () {return view('home');});
 Route::get('/login', function () {return view('login');});
 Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
-<<<<<<< HEAD
 
 Auth::routes();
 
 Route::get('/account', 'HomeController@index')->name('account');
-=======
 Route::get('/sample', function () {return view('sample');});
->>>>>>> cyrus/feature/boostrap-4.0
