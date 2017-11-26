@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>T3D WareHouse | @yield('title')</title>
-  @include('layout.style')
+  @include('oldlayout.style')
 </head>
 <body>
   Login lol

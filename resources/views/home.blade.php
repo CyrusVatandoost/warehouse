@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('oldlayout.app')
 
 @section('title', 'Home')
 
@@ -11,6 +11,8 @@
 
   @include('modals.new_project')
   
+  <a href="/sample">Boostrap 4.0 for WareHouse</a>
+
   @endsection
 
 @section('right-sidebar')
