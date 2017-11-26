@@ -1,4 +1,4 @@
-@extends('oldlayout.app')
+@extends('layout.app')
 
 @section('title', $project->name)
 

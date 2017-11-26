@@ -1,4 +1,4 @@
-@extends('layout.boostrap4')
+@extends('layout.app')
 
 @section('title', 'Sample')
 
