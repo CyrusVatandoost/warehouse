@@ -16,4 +16,9 @@ class Project extends Model {
 		return static::where('complete', 0);
 	}
 
+	// $project->user
+	public function user() {
+		return $this->belongsTo(Project::class);
+	}
+
 }

@@ -11,10 +11,10 @@ class CreateProjectsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('name');
             $table->boolean('complete')->default(false);
             $table->text('description')->nullable(true);
@@ -26,8 +26,7 @@ class CreateProjectsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('projects');
     }
 }

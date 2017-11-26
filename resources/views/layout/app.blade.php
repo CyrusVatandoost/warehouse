@@ -21,15 +21,16 @@
         position: relative;
         min-height: 100%;
       }
+
       body {
-        margin-bottom: 60px; /* Margin bottom by footer height */
+        margin-bottom: 20vh; /* Margin bottom by footer height */
       }
+
       .footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 60px; /* Set the fixed height of the footer here */
-        line-height: 60px; /* Vertically center the text there */
+        height: 20vh; /* Set the fixed height of the footer here */
         background-color: #f5f5f5;
       }
 
@@ -53,9 +54,13 @@
           <li class="nav-item">
             <a class="nav-link" href="/projects">Projects</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/account">Account</a>
-          </li>
+
+          @if(Auth::check())
+            <li class="nav-item">
+              <a class="nav-link" href="/account">{{ auth()->id() }}</a>
+            </li>
+          @endif
+
           <li class="nav-item">
             <a class="nav-link" href="/organization">Organization</a>
           </li>
@@ -105,7 +110,7 @@
 
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        
       </div>
     </footer>
 
