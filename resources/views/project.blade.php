@@ -2,28 +2,31 @@
 
 @section('title', $project->name)
 
-@section('left-sidebar')
+@section('left-sidenav')
   <p><a href="#modal-container-delete-project" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Project</a></p>
 	@endsection
 
 @section('body')
 
+  @include('modals.delete_project')
+
   <div class="tabbable" id="tabs-463690">
+
     <ul class="nav nav-tabs">
       <li class="active">
-        <a href="#panel-abstract" data-toggle="tab">Abstract</a>
+        <a class="btn" href="#panel-abstract" data-toggle="tab">Abstract</a>
       </li>
       <li>
-        <a href="#panel-files" data-toggle="tab">Files</a>
+        <a class="btn"  href="#panel-files" data-toggle="tab">Files</a>
       </li>
       <li>
-        <a href="#panel-progress" data-toggle="tab">Progress</a>
+        <a class="btn"  href="#panel-progress" data-toggle="tab">Progress</a>
       </li>
       <li>
-        <a href="#panel-issues" data-toggle="tab">Issues</a>
+        <a class="btn"  href="#panel-issues" data-toggle="tab">Issues</a>
       </li>
       <li>
-        <a href="#panel-settings" data-toggle="tab">Settings</a>
+        <a class="btn"  href="#panel-settings" data-toggle="tab">Settings</a>
       </li>
     </ul>
 
@@ -39,15 +42,10 @@
 
 	@endsection
 
-@section('right-sidebar')
-  <div class="well">
-    <p>ADS</p>
+@section('right-sidenav')
+  <div class="card">
+    <div class="card-body">
+      Project Title
+    </div>
   </div>
-
-  <div class="well">
-    <p>ADS</p>
-  </div>
-
 	@endsection
-
-@include('modals.delete_project')
