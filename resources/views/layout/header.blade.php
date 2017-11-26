@@ -26,10 +26,20 @@
               <i class="material-icons md-18">search</i>
             </a>
           </form>
-        <li>
-          <a href="#">Sign Up</a>
-        <li>
-          <a href="#">Login</a>
+        @guest
+        <li><a href="{{ url('register') }}">Sign Up</a>
+        <li><a href="{{ url('login') }}">Login</a>
+        @else
+        <li><a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+        @endguest
       </ul>
     </div>
   </div>
