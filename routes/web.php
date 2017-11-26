@@ -28,3 +28,4 @@ Route::get('/login', function () {return view('login');});
 Route::get('/account', function () {return view('account');});
 Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
+Route::get('/sample', function () {return view('sample');});
