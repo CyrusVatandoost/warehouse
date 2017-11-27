@@ -52,19 +52,31 @@
 
       <div class="tab-pane" id="panel-all_projects">
         <p>
-        @foreach($all_projects as $project)
-          <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="{{ url('project') }}/{{ $project->project_id }}">{{ $project->name }}</a>
-              </h4>
-              <h6 class="card-subtitle mb-2 text-muted">{{ $project->user->first_name }}</h6>
-              <p class="card-text">{{ $project->description }}</p>
-              <span class="badge badge-primary">Primary</span>
+        <div class="row">
+          @foreach($all_projects as $project)
+            <div class="col">
+              <div class="card" style="width: 20em;">
+                <img class="card-img-top" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="{{ url('project') }}/{{ $project->project_id }}">{{ $project->name }}</a>
+                  </h4>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ $project->user->first_name }}</h6>
+                  <p class="card-text">{{ $project->description }}</p>
+                  
+                  @if($project->complete == 1)
+                      <span class="badge badge-success">Compelete</span>
+                  @endif
+
+                  @if($project->complete == 0)
+                    <span class="badge badge-danger">Incomplete</span>
+                  @endif
+
+                </div>
+              </div>
             </div>
-          </div>
-        @endforeach
+          @endforeach
+        </div>
       </div>
 
     </div>
