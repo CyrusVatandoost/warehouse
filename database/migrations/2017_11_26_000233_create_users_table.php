@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration {
     $table->string('email', 320);
     $table->string('password', 64);
 
-  // required for Laravel 4.1.26
+    // required for Laravel 4.1.26
     $table->string('remember_token', 100)->nullable();
     $table->timestamps();
   });
@@ -33,6 +33,18 @@ class CreateUsersTable extends Migration {
     $table->string('token');
     $table->timestamp('created_at')->nullable();
   });
+
+  // by default, there must always be one user which is the admin
+  DB::table('users')->insert(
+      array(
+          'email' => 'admin@t3dhouse.com',
+          'first_name' => "Admin",
+          'middle_initial' => "A.",
+          'last_name' => 'last_name',
+          'gender' => "Male",
+          'password' => Hash::make('admin')
+      )
+  );
 
   }
 
