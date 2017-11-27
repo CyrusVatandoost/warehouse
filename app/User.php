@@ -30,4 +30,5 @@ class User extends Authenticatable
     public function projects() {
         return $this->hasMany('App\Project', 'project_id');
     }
+    
 }

@@ -32,8 +32,8 @@ class ProjectController extends Controller {
 		//$project = Project::find($id);
 		$project = DB::table('projects')->where('project_id', $id)->first();
 		return view('project', compact('project'));
-	
-}
+	}
+
 	// stores a new project in warehousedb.projects
 	public function store() {
 		$this->validate(request(), [
