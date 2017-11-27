@@ -61,15 +61,15 @@
 
         <ul class="navbar-nav mr-right">
           @guest
-              <li><a href="{{ route('login') }}">Login</a></li>
-              <li><a href="{{ route('register') }}">Register</a></li>
+              <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+              <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
           @else
               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">{{ auth()->user()->first_name }}</a>
+                  <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">{{ auth()->user()->first_name }}</a>
 
                   <ul class="dropdown-menu">
                       <li>
-                          <a href="{{ route('logout') }}"
+                          <a class="nav-link" href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">
                               Logout
