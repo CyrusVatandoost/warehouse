@@ -1,5 +1,5 @@
-# T3D Warehouse
+## About WareHouse
 
-This is a webapplication made for T3D House for organizing projects. This is made for companies or organizations wanting to store and organize their projects and files for their own members to access.
+WareHouse is nice.
 
-### ALL COLLABORATORS PLEASE GO THE WIKI AND READ HOW TO DOCUMENTATION
+The goal of WareHouse is to serve as a repository for journals and researches for the TE3D House. It is designed to manage and organize the organization's projects and files. Although this repository is made for the TE3D House, it can be remodelled and reprogrammed for use by other companies, organizations, and institutions with the goal of file management and organization. This software offers a distributed version control and source code management functionality of Git.
