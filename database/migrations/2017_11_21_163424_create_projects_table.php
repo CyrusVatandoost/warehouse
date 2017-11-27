@@ -13,7 +13,7 @@ class CreateProjectsTable extends Migration
      */
     public function up() {
         Schema::create('projects', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('project_id');
             $table->integer('user_id');
             $table->string('name');
             $table->boolean('complete')->default(false);

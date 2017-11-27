@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Project;
 
 class ProjectController extends Controller {
@@ -28,13 +29,13 @@ class ProjectController extends Controller {
 
 	// returns a single project using an ID
 	public function show($id) {
-		$project = Project::find($id);
+		//$project = Project::find($id);
+		$project = DB::table('projects')->where('project_id', $id)->first();
 		return view('project', compact('project'));
-	}
-
+	
+}
 	// stores a new project in warehousedb.projects
 	public function store() {
-
 		$this->validate(request(), [
 			'project_name' => 'required'
 		]);
@@ -46,11 +47,11 @@ class ProjectController extends Controller {
 		$project->save();
 
 		return redirect('/projects');
-
 	}
 
+	// deletes a project using an id
 	public function delete($id) {
-		Project::find($id)->delete();
+		DB::table('projects')->where('project_id', $id)->delete();
 		return redirect('/projects');
 	}
 

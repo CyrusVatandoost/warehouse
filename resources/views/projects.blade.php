@@ -31,7 +31,7 @@
                 <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" />
                 <div class="caption">
                   <h3>
-                    <a href="{{ url('project') }}/{{ $project->id }}">{{ $project->name }}</a>
+                    <a href="{{ url('project') }}/{{ $project->project_id }}">{{ $project->name }}</a>
                   </h3>
                   <p>
                     {{ $project->user->first_name }}
