@@ -18,6 +18,7 @@ Route::post('/projects', 'ProjectController@store');
 // project
 Route::get('/project/{project}', 'ProjectController@show');
 Route::get('/project/delete/{project}', 'ProjectController@delete');
+Route::get('/project/add/file/{project}', 'FileController@store');
 
 // login and register?
 Auth::routes();

@@ -2,7 +2,6 @@
 
 @section('title', $project->name)
 
-
 <style type="text/css">
   hr {
     border: none;
