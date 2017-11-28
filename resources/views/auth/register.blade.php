@@ -1,4 +1,5 @@
 @extends('layout.auth')
+
 @section('content')
 <style type="text/css">
     @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
@@ -38,9 +39,8 @@
     .main-center{
         margin-top: 30px;
         margin: 0 auto;
-        padding: 20px 40px;
-        background:#555;
-        color: #f5f5f5;
+        padding: 20px 40px;        background:#555;
+        color: #f5f5f5
         text-shadow: none;
         border-radius: 10px;
     }
@@ -49,7 +49,7 @@
         background: #f5f5f5; 
         color: #555; 
         font-weight:600;
-        margin-top: 5px;
+        margin-top: 5px
         border-radius: 5px;
     }
 

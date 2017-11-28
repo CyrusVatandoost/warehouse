@@ -41,3 +41,6 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+public/storage/homepage1.jpg
+public/storage/homepage2.jpg
+public/storage/homepage3.jpg

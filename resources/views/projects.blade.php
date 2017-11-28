@@ -42,7 +42,6 @@
                   @if($project->complete == 0)
                     <span class="badge badge-danger">Incomplete</span>
                   @endif
-
                 </div>
               </div>
             </div>
@@ -71,7 +70,6 @@
                   @if($project->complete == 0)
                     <span class="badge badge-danger">Incomplete</span>
                   @endif
-
                 </div>
               </div>
             </div>
