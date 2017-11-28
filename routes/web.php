@@ -30,3 +30,4 @@ Route::get('/home', function () {return view('home');});
 Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/sample', function () {return view('sample');});
+Route::get('/admin', function () {return view('admin');});
