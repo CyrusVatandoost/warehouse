@@ -1,19 +1,78 @@
-@extends('oldlayout.app')
+@extends('layout.app')
 
-@section('title', 'Juang Dela Cruz')
 
 @section('left-sidebar')
   <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
   <p><a href="#" class="btn btn-primary btn-block">New Project</a></p>
   @endsection
+<style>
+.banner .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 100%;
+  -webkit-transition: width .5s ease;
+  transition: width .5s ease;
+}
+.profile-pic {
+  height: 100%;
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.avatar {
+  background-color: #bbbbbb;
+  height: 190px;
+  min-width: 190px;
+  border-radius: 110px;
+}
+.bio {
+  margin-left: 40px;
+}
 
+
+</style>
 @section('body')
-  <img src="res/account.png" width="150" height="150">
-  <p><a href="/warehouse/account/edit.php">juandelacruz@dlsu.edu.ph</a>
-  <p>T3D Member
 
-  <hr>
-  <p>Hi I am Juan and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
+  <div class="banner">
+  <div class="container">
+    <div class="profile-pic">
+      <div class="avatar"></div>
+      
+    </div>
+    <div class="bio">
+      <h2 class="heading-medium">Juan Dela Cruz</h2>
+      <h5 class="heading-small">TE<sup>3</sup>D Member</h5>
+      <h6 class="heading-small">juan_delacruz@dlsu.edu.ph</h6>
+      <p class="body-small">Hi I'm Juan and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
+     <button type="button" class="btn btn-primary btn-sm">Edit Profile</button>
+  </div>
+</div>
+  
+
+
   @endsection
 
 @section('right-sidebar')

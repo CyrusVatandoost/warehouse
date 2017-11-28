@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('title', 'Welcome')
+@section('page-title', 'Welcome')
 
 @section('body')
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

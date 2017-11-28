@@ -4,11 +4,16 @@
     <ul class="list-group">
 		  <li class="list-group-item">Name Here</li>
 		  <li class="list-group-item">
-		  	<form class="form-inline">
-				  <input type="password" class="form-control" id="inputPassword2" placeholder="Add Project Head">
-				  &nbsp
-				  <button type="submit" class="btn btn-primary">Add</button>
-				</form>
+		   <div class="container">
+    <div class="expandable form-group" data-count="1">
+        <div class="row">
+            <label class="col-md-2 offset-md-2" for="name[]">Name(s):</label>
+    	    <input name="name[]" type="text" id="name[]" value="name">
+		    <button class="btn add-more" id="add-more" type="button">+</button>
+	    </div>
+    </div>
+</div>
+	  
 		  </li>
 		</ul>
   </p>
