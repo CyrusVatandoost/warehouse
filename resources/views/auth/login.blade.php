@@ -1,56 +1,68 @@
 @extends('layout.auth')
 
+@section('title', 'Login')
 
 @section('content')
 <style type="text/css">
     @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
-    .login-block{
+    .login-block {
         float:left;
         width:100%;
         padding : 50px 0;
     }
-    .help-block{
-        color: red;
+
+    .alert-spacing {
+        margin-top: 5px;
     }
-    .banner-sec{
+
+    .banner-sec {
         background-size:cover;    
         min-height:500px; 
         border-radius: 0 10px 10px 0; 
         padding:0;
     }
-    .container{
+
+    .container {
         background: #555; 
         border-radius: 10px; 
     }
-    .carousel-inner{
+
+    .carousel-inner {
         border-radius:0 10px 10px 0;
     }
-    .carousel-caption{
+
+    .carousel-caption {
         text-align:left; left:5%;
     }
-    .login-sec{
+
+    .login-sec {
         padding: 50px 30px; position:relative;
     }
-    .login-sec .copy-text{
+
+    .login-sec .copy-text {
         position:absolute; 
         width:80%; 
         bottom:20px; 
         font-size:13px; 
         text-align:center;
     }
-    .login-sec .copy-text i{
+
+    .login-sec .copy-text i {
         color:#f5f5f5;
     }
-    .login-sec .copy-text a{
+
+    .login-sec .copy-text a {
         color:#f5f5f5;
     }
-    .login-sec h2{
+
+    .login-sec h2 {
         margin-bottom:30px;
         font-weight:200; 
         font-size:30px; 
         color:#f5f5f5;
     }
-    .login-sec h2:after{
+
+    .login-sec h2:after {
         content:" "; 
         width:100px; 
         height:1px; 
@@ -61,17 +73,18 @@
         margin-left:auto;
         margin-right:auto
     }
-    .btn-login{
+
+    .btn-login {
         background: #f5f5f5; 
         color:#555;
         font-weight:600;
     }
 
-    .btn-link, label{
+    .btn-link, label {
          color:#f5f5f5 !important;
     }
 
-    .banner-text{
+    .banner-text {
         width:70%; 
         position:absolute; 
         bottom:40px; 
@@ -79,11 +92,13 @@
         border-radius: 5px;
         background: rgba(1,1,1,0.5);
     }
-    .banner-text h2{
+
+    .banner-text h2 {
         color: white; 
         font-weight:500;
     }
-    .banner-text h2:after{
+
+    .banner-text h2:after {
         content:" "; 
         width:100px; 
         height:2px; 
@@ -92,13 +107,16 @@
         margin-top:10px; 
         border-radius:3px;
     }
-    .banner-text p{
+
+    .banner-text p {
         color: white;
     }
+
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
+
 </style>
 <section class="login-block">
 <div class="container">
@@ -111,18 +129,18 @@
                     <label for="email" class="control-label">E-Mail Address</label>
                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
                         @if ($errors->has('email'))
-                            <span class="help-block font-italic">
+                            <div class="alert alert-danger alert-spacing small">
                                 {{ $errors->first('email') }}
-                            </span>
+                            </div>
                         @endif
                 </div>
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label for="password" class="control-label">Password</label>
                     <input id="password" type="password" class="form-control" name="password" required>
                         @if ($errors->has('password'))
-                            <span class="help-block font-italic">
+                            <div class="alert alert-danger alert-spacing small">
                                 {{ $errors->first('password') }}
-                            </span>
+                            </div>
                         @endif
                 </div>
                 <div class="form-group">

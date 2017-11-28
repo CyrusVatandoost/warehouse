@@ -1,14 +1,15 @@
 <div class="tab-pane active" id="panel-abstract">
   <br>
-  <div class="jumbotron">
-    <h2>
-      Hello, world!
-    </h2>
-    <p>
-      This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-    </p>
-    <p>
-      <a class="btn btn-primary btn-large" href="#">Learn more</a>
-    </p>
-  </div>
+    <div class="container">
+      <div class="row"> 
+        <div class="col-lg-12"> 
+          <div class="jumbotron">
+            <h1 class="display-3">Project Title</h1>
+              <p class="lead">Sample Abstract</p>
+                <hr class="my-4">
+                  <p>Insert Names</p>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
