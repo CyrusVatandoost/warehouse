@@ -3,8 +3,8 @@
 		<div class="modal-content">
 
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h4 class="modal-title" id="myModalLabel">Delete Project</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
 			</div>
 
       <div class="modal-body">
@@ -15,7 +15,7 @@
 
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-danger" href="{{ url('project/delete/'.$project->id) }}">Delete</a>
+				<a class="btn btn-danger" href="{{ url('project/delete/'.$project->project_id) }}">Delete</a>
 			</div>
 
 		</div>

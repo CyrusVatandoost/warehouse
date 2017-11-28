@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('oldlayout.app')
 
 @section('title', 'Projects')
 
@@ -25,16 +25,17 @@
       <p>
         <div class="row">
 
-          @foreach($project_list as $project)
+          @foreach($my_projects as $project)
             <div class="col-md-4">
               <div class="thumbnail">
                 <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" />
                 <div class="caption">
                   <h3>
-                    <a href="{{ url('project') }}/{{ $project->id }}">{{ $project->name }}</a>
+                    <a href="{{ url('project') }}/{{ $project->project_id }}">{{ $project->name }}</a>
                   </h3>
                   <p>
-                    {{ $project-> description }}
+                    {{ $project->user->first_name }}
+                    {{ $project->description }}
                   </p>
                 </div>
               </div>
@@ -49,7 +50,7 @@
       <p>
         <div class="row">
 
-          @foreach($project_list as $project)
+          @foreach($all_projects as $project)
             <div class="col-md-4">
               <div class="thumbnail">
                 <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" />
@@ -57,8 +58,9 @@
                   <h3>
                     <a href="{{ url('project') }}/{{ $project->id }}">{{ $project->name }}</a>
                   </h3>
+                  {{ $project->user->first_name }}
                   <p>
-                    {{ $project-> description }}
+                    {{ $project->description }}
                   </p>
                 </div>
               </div>
