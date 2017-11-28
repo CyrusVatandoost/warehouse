@@ -29,8 +29,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/account', 'HomeController@account')->name('account');
 Route::get('/organization', 'HomeController@organization')->name('organization');
 Route::get('/projects', 'HomeController@projects')->name('projects');
-Route::get('/successverification', function(){return view('vendor.laravel-user-verification.successverification')});
-//Route::group(['middleware' => ['isVerified']], function () {
+Route::get('/successverification', function() {
+	return view('vendor.laravel-user-verification.successverification');
+});
+//Route::group(['middleware' => ['isVerified']], function ()) 
 
 // to be shortened
 Route::get('/', function () {return view('welcome');});
