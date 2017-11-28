@@ -23,12 +23,6 @@ use Jrean\UserVerification\Mail\VerificationTokenGenerated;
 class UserVerification
 {
     /**
-     * Admin email address.
-     *
-     * @var 
-     */
-    protected $admin;
-    /**
      * Mailer instance.
      *
      * @var \Illuminate\Contracts\Mail\Mailer
@@ -201,9 +195,8 @@ class UserVerification
         $name = null
     )
     {
-        $admin = 'criscore98@gmail.com';
         return $this->mailer
-            ->to($admin)
+            ->to($user)
             ->send(new VerificationTokenGenerated($user, $subject, $from, $name));
     }
 
@@ -223,9 +216,8 @@ class UserVerification
         $name = null
     )
     {
-        $admin = 'criscore98@gmail.com';
         return $this->mailer
-            ->to($admin)
+            ->to($user)
             ->queue(new VerificationTokenGenerated($user, $subject, $from, $name));
     }
 
@@ -247,9 +239,8 @@ class UserVerification
         $name = null
     )
     {
-        $admin = 'criscore98@gmail.com';
         return $this->mailer
-            ->to($admin)
+            ->to($user)
             ->later($delay, new VerificationTokenGenerated($user, $subject, $from, $name));
     }
 
