@@ -4,8 +4,15 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Jrean\UserVerification\Traits\VerifiesUsers;
+use Jrean\UserVerification\Facades\UserVerification;
+
 
 class RegisterController extends Controller
 {
@@ -22,12 +29,26 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    use VerifiesUsers;
+
     /**
-     * Where to redirect users after registration.
+     * Where to redirect users after registration and when the email sent to an admin.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/home'; 
+    /**
+     * Where to redirect after the verification link is accessed.
+     *
+     * @var string
+     */
+    protected $redirectAfterVerification = 'successverification';
+    /**
+     * Where to redirect if user is verified.
+     *
+     * @var string
+     */
+    protected $redirectIfVerified = '/home';
 
     /**
      * Create a new controller instance.
@@ -36,7 +57,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest', ['except' => ['getVerification', 'getVerificationError']]);
     }
 
     /**
@@ -73,4 +94,29 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+         * Handle a registration request for the application.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @return \Illuminate\Http\Response
+         */
+        public function register(Request $request)
+        {
+            $this->validator($request->all())->validate();
+
+            $user = $this->create($request->all());
+
+            event(new Registered($user));
+
+            //$this->guard()->login($user); //automatically login user after register, even if not verified
+
+            UserVerification::generate($user);
+
+            UserVerification::send($user, 'User Registration Request');
+
+            return $this->registered($request, $user)
+                            ?: HomeController::emailSent();
+        }
+
 }

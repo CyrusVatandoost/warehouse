@@ -45,9 +45,8 @@
     .main-center{
         margin-top: 30px;
         margin: 0 auto;
-        padding: 20px 40px;
-        background:#555;
-        color: #f5f5f5;
+        padding: 20px 40px;        background:#555;
+        color: #f5f5f5
         text-shadow: none;
         border-radius: 10px;
     }
