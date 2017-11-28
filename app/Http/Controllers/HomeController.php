@@ -70,4 +70,14 @@ class HomeController extends Controller
     {
         return view ('verifyerror.notverified');
     }
+
+    /**
+     * Redirect if user not verified.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function emailSent()
+    {
+        return view ('vendor.laravel-user-verification.emailsent');
+    }
 }

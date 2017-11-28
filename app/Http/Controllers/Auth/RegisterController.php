@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Jrean\UserVerification\Traits\VerifiesUsers;
 use Jrean\UserVerification\Facades\UserVerification;
+
 
 class RegisterController extends Controller
 {
@@ -34,13 +36,13 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'emailsent';
+    protected $redirectTo = '/home'; 
     /**
      * Where to redirect after the verification link is accessed.
      *
      * @var string
      */
-    protected $redirectAfterVerification = 'successverfication';
+    protected $redirectAfterVerification = 'successverification';
     /**
      * Where to redirect if user is verified.
      *
@@ -114,7 +116,7 @@ class RegisterController extends Controller
             UserVerification::send($user, 'User Registration Request');
 
             return $this->registered($request, $user)
-                            ?: redirect($this->redirectPath());
+                            ?: HomeController::emailSent();
         }
 
 }

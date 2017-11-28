@@ -10,6 +10,14 @@
 
   @include('modals.delete_project')
 
+  @if($project->complete == 1)
+      <span class="badge badge-success">Completed</span>
+  @endif
+
+  @if($project->complete == 0)
+    <span class="badge badge-danger">Incomplete</span>
+  @endif
+
   <div class="tabbable" id="tabs-463690">
 
     <ul class="nav nav-tabs">
