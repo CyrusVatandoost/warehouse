@@ -1,6 +1,5 @@
 @extends('layout.auth')
 
-
 @section('content')
 <style type="text/css">
     @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
@@ -40,9 +39,8 @@
     .main-center{
         margin-top: 30px;
         margin: 0 auto;
-        padding: 20px 40px;
-        background:#555;
-        color: #f5f5f5;
+        padding: 20px 40px;        background:#555;
+        color: #f5f5f5
         text-shadow: none;
         border-radius: 10px;
     }
@@ -51,7 +49,7 @@
         background: #f5f5f5; 
         color: #555; 
         font-weight:600;
-        margin-top: 5px;
+        margin-top: 5px
         border-radius: 5px;
     }
 
@@ -233,8 +231,8 @@
                             <label for="gender" class="col-md-4 control-label">Gender</label>
 
                             <div class="col-md-6">
-                                <input type="radio" name="gender" value="Male" checked="checked"> Male<br>
-                                <input type="radio" name="gender" value="Female"> Female<br>
+                                <input type="radio" name="gender" value="male" checked="checked"> Male<br>
+                                <input type="radio" name="gender" value="female"> Female<br>
 
                                 @if ($errors->has('gender'))
                                     <span class="help-block font-italic">

@@ -1,4 +1,4 @@
-@extends('oldlayout.app')
+@extends('layout.app')
 
 @section('title', 'Projects')
 
@@ -70,7 +70,6 @@
                   @if($project->complete == 0)
                     <span class="badge badge-danger">Incomplete</span>
                   @endif
-                  
                 </div>
               </div>
             </div>
