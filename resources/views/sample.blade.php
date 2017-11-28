@@ -9,8 +9,8 @@
 @endif
 
 @section('left-sidenav')
-  <button type="button" class="btn btn-primary btn-block">Primary</button>
-  <button type="button" class="btn btn-primary btn-block">Primary</button>
+  <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
+  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 @endsection
 
 <style type="text/css">
@@ -30,6 +30,9 @@
 </style>
 
 @section('body')
+
+  @include('modals.new_project')
+
   <div class="container">
     <div class="row row-striped">
       <div class="col-2 text-right">
