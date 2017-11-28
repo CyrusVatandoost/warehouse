@@ -17,6 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Route::group(['middleware' => ['isVerified']], function () {
+
 // route to show the login form
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 
