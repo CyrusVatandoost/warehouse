@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model {
 
+	protected $primaryKey = 'project_id';
 	protected $fillable = ['project_name', 'description'];
 
 	public function scopeComplete() {
@@ -18,7 +19,12 @@ class Project extends Model {
 
 	// $project->user
 	public function user() {
-		return $this->belongsTo('App\User', 'user_id');
+		return $this->belongsTo(User::class, 'user_id');
+	}
+
+	// $project->files
+	public function files() {
+    return $this->hasMany(File::class, 'project_id', 'project_id');
 	}
 
 }
