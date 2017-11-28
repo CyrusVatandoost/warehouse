@@ -11,7 +11,9 @@
 
   @include('modals.new_project')
   
-  <a href="/sample">Boostrap 4.0 for WareHouse</a>
+  <p>Hello, World
+
+  <p><a href="/sample">Boostrap 4.0 for WareHouse</a>
 
   @endsection
 
