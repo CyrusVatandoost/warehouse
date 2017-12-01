@@ -1,6 +1,11 @@
 @extends('layout.app')
 
 @section('title', $project->name)
+@section('page-title', $project->name)
+
+@section('modals')
+  @include('modals.delete_project')
+@endsection
 
 <style type="text/css">
   hr {
@@ -18,10 +23,8 @@
 
 @section('body')
 
-  @include('modals.delete_project')
-
   @if($project->complete == 1)
-      <span class="badge badge-success">Completed</span>
+    <span class="badge badge-success">Completed</span>
   @endif
 
   @if($project->complete == 0)
@@ -58,12 +61,10 @@
     
   </div>
 
-	@endsection
+@endsection
 
+<!-- right-sidenav -->
 @section('right-sidenav')
-  <div class="card">
-    <div class="card-body">
-      Project Title
-    </div>
-  </div>
-	@endsection
+  <!-- insert featured projects here -->
+  @include('layout.right-sidenav')
+@endsection

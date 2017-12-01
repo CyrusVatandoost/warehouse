@@ -1,26 +1,29 @@
+<!-- follows this layout -->
 @extends('layout.app')
 
-<!-- if logged in -->
-@if(Auth::check())
-  @section('title', 'Search')
-@endif
+<!-- title at tab -->
+@section('title', 'Search')
+<!-- title at body -->
+@section('page-title', 'Search')
 
-<!-- if guest -->
-@if(!Auth::check())
-  @section('title', 'Search')
-@endif
+<!-- add modals here -->
+@section('modals')
+  @include('modals.new_project')
+@endsection
 
-<!-- left sidenav -->
+<!-- left-sidenav -->
 @section('left-sidenav')
   <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
+  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 @endsection
 
 <!-- body -->
 @section('body')
-  
+  <!-- insert body here -->  
 @endsection
 
-<!-- right sidenav -->
+<!-- right-sidenav -->
 @section('right-sidenav')
-
+  <!-- insert featured projects here -->
+  @include('layout.right-sidenav')
 @endsection

@@ -1,12 +1,15 @@
+<!-- follows this layout -->
 @extends('layout.app')
 
-@if(Auth::check())
-  @section('title', 'Home')
-@endif
+<!-- title at tab -->
+@section('title', 'Sample')
+<!-- title at body -->
+@section('page-title', 'Sample')
 
-@if(!Auth::check())
-  @section('title', 'Home')
-@endif
+<!-- add modals here -->
+@section('modals')
+  @include('modals.new_project')
+@endsection
 
 <!-- left-sidenav -->
 @section('left-sidenav')
@@ -16,22 +19,11 @@
 
 <!-- body -->
 @section('body')
-  @include('modals.new_project')
   <!-- insert body here -->  
 @endsection
 
 <!-- right-sidenav -->
 @section('right-sidenav')
-  <div class="card">
-    <div class="card-body">
-      Project Title
-    </div>
-  </div>
-  <br>
-  <div class="card">
-    <div class="card-body">
-      Project Title
-    </div>
-  </div>
+  <!-- insert featured projects here -->
+  @include('layout.right-sidenav')
 @endsection
-

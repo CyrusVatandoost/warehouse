@@ -3,6 +3,10 @@
 @section('page-title', 'Projects')
 @section('title', 'Projects')
 
+@section('modals')
+  @include('modals.new_project')
+@endsection
+
 @section('left-sidenav')
   <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 @endsection
@@ -26,8 +30,6 @@
        width: 20em;
     }
   </style>
- 
-  @include('modals.new_project')
 
     <ul class="nav nav-tabs">
       <li class="active">
@@ -113,6 +115,9 @@
 
 @endsection
 
+<!-- right-sidenav -->
 @section('right-sidenav')
-  
+  <!-- insert featured projects here -->
+  @include('layout.right-sidenav')
 @endsection
+

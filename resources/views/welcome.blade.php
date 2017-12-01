@@ -1,9 +1,24 @@
+<!-- follows this layout -->
 @extends('layout.app')
 
+<!-- title at tab -->
 @section('title', 'Welcome')
+<!-- title at body -->
 @section('page-title', 'Welcome')
 
+<!-- add modals here -->
+@section('modals')
+  @include('modals.new_project')
+@endsection
+
+<!-- left-sidenav -->
+@section('left-sidenav')
+
+@endsection
+
+<!-- body -->
 @section('body')
+  <!-- insert body here -->
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -34,4 +49,9 @@
   <center>
     <a href="{{ url('projects') }}" class="btn btn-success btn-lg">Browse Projects</a>
   </center>
+@endsection
+
+<!-- right-sidenav -->
+@section('right-sidenav')
+  <!-- insert featured projects here -->
 @endsection

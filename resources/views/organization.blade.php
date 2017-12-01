@@ -2,17 +2,24 @@
 
 @section('title', 'Organization')
 
+@section('modals')
+  @include('modals.new_project')
+@endsection
+
+<!-- left-sidenav -->
 @section('left-sidenav')
   <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
-  <p><a href="#" class="btn btn-primary btn-block">New Project</a></p>
-  @endsection
+  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
+@endsection
 
+<!-- body -->
 @section('body')
-  
+  @include('modals.new_project')
+  <!-- insert body here -->  
+@endsection
 
-
-  @endsection
-
+<!-- right-sidenav -->
 @section('right-sidenav')
-  
-  @endsection
+  <!-- insert featured projects here -->
+  @include('layout.right-sidenav')
+@endsection
