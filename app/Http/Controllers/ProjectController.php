@@ -29,10 +29,12 @@ class ProjectController extends Controller {
 
 	// returns a single project using an ID
 	public function show($id) {
-		//$project = Project::find($id);
+
 		$project = DB::table('projects')->where('project_id', $id)->first();
-		return view('project', compact('project'));
-	
+		$files = DB::table('files')->where('project_id', $id)->get();
+		
+		return view('project', compact('project', 'files'));
+
 }
 	// stores a new project in warehousedb.projects
 	public function store() {
