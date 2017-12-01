@@ -17,6 +17,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
   $(".expandable").on("click", ".add-more", function(e) {
+    e.preventDefault();
     var rmButton = '<button class="btn btn-danger remove-me" type="button">-</button>';
     var grandParent = $(this).parent().parent();
     var countVal = grandParent.data("count");
@@ -68,5 +69,8 @@
 
   });
 </script>
+
+<!-- insert css here -->
+@yield('style')
 
 </head>

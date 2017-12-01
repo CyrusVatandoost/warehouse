@@ -2,6 +2,26 @@
 
 @section('title', 'Home')
 
+@section('style')
+  <style type="text/css">
+
+   .row-striped:nth-of-type(odd) {    
+    background-color: #efefef;    
+    border-left: 4px #000000 solid;   
+   }    
+      
+   .row-striped:nth-of-type(even){    
+    background-color: #ffffff;    
+    border-left: 4px #efefef solid;   
+   }
+
+   .row-striped {   
+    padding: 15px 0;    
+   }
+   
+  </style>
+@endsection
+
 @section('modals')
   @include('modals.new_project')
 @endsection
@@ -10,24 +30,6 @@
   <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
   <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 @endsection
-
-<style type="text/css">
-
- .row-striped:nth-of-type(odd) {		
- 	background-color: #efefef;		
- 	border-left: 4px #000000 solid;		
- }		
- 		
- .row-striped:nth-of-type(even){		
- 	background-color: #ffffff;		
- 	border-left: 4px #efefef solid;		
- }
-
- .row-striped {		
- 	padding: 15px 0;		
- }
- 
-</style>
 
 @section('body')
 

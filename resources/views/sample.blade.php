@@ -1,4 +1,4 @@
-<!-- follows this layout -->
+<!-- this page follows this layout -->
 @extends('layout.app')
 
 <!-- title at tab -->
@@ -6,8 +6,14 @@
 <!-- title at body -->
 @section('page-title', 'Sample')
 
-<!-- add modals here -->
+<!-- css styles -->
+@section('style')
+	<!-- insert css styles here -->
+@endsection
+
+<!-- modals -->
 @section('modals')
+	<!-- insert css styles here -->
   @include('modals.new_project')
 @endsection
 

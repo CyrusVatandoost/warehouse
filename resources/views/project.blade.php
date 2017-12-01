@@ -3,19 +3,21 @@
 @section('title', $project->name)
 @section('page-title', $project->name)
 
+@section('style')
+  <style type="text/css">
+    hr {
+      border: none;
+      height: 1px;
+      /* Set the hr color */
+      color: #333; /* old IE */
+      background-color: #333; /* Modern Browsers */
+    }
+</style>
+@endsection
+
 @section('modals')
   @include('modals.delete_project')
 @endsection
-
-<style type="text/css">
-  hr {
-    border: none;
-    height: 1px;
-    /* Set the hr color */
-    color: #333; /* old IE */
-    background-color: #333; /* Modern Browsers */
-  }
-</style>
 
 @section('left-sidenav')
   <p><a href="#modal-container-delete-project" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Project</a></p>
