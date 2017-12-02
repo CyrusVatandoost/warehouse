@@ -14,6 +14,11 @@
 	</ul>
 
 	<p>
+	<div class="alert alert-warning" role="alert">
+	  Adding Project Heads isn't available as of now.
+	</div>
+
+	<p>
   <h4>Project Collaborators</h4>
   <ul class="list-group">
 
