@@ -51,12 +51,15 @@ class ProjectController extends Controller {
 		return redirect('/projects');
 	}
 
-	public function addCollaborator($project_id, $user_id) {
-		$collaborator = new Collaboration;
-		$collaborator->project_id = $project_id;
-		$collaborator->user_id = $user_id;
-		$collaborator->save();
-		return redirect('project/'.$project_id);
+	// set completeness depending on the current completeness
+	public function setCompleteness($id) {
+		$project = Project::find($id)->first();
+		if($project->complete == 1)
+			$project->complete = 0;
+		else
+			$project->complete = 1;
+		$project->save();
+		return back();
 	}
 
 }
