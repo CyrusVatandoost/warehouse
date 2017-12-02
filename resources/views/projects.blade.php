@@ -32,11 +32,11 @@
   </style>
 
     <ul class="nav nav-tabs">
-      <li class="active">
-        <a class="btn" href="#panel-projects_all" data-toggle="tab">My Projects</a>
+      <li class="nav-item">
+        <a class="nav-link active" href="#panel-projects_all" data-toggle="tab">My Projects</a>
       </li>
-      <li>
-        <a class="btn"  href="#panel-all_projects" data-toggle="tab">All Projects</a>
+      <li class="nav-item">
+        <a class="nav-link"  href="#panel-all_projects" data-toggle="tab">All Projects</a>
       </li>
     </ul>
 
