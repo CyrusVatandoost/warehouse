@@ -17,8 +17,16 @@ Route::post('/projects', 'ProjectController@store');
 
 // project
 Route::get('/project/{project}', 'ProjectController@show');
+// delete project
 Route::get('/project/delete/{project}', 'ProjectController@delete');
+// add file to project
 Route::get('/project/add/file/{project}', 'FileController@store');
+// set project as complete or incomplete
+Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
+// add a collaborator to a project
+Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
+// remove a collaborator from a project
+Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
 
 // login and register
 Auth::routes();

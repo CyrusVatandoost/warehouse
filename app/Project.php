@@ -16,7 +16,7 @@ class Project extends Model {
 	public function scopeIncomplete() {
 		return static::where('complete', 0);
 	}
-
+	
 	// $project->user
 	public function user() {
 		return $this->belongsTo(User::class, 'user_id');
@@ -25,6 +25,11 @@ class Project extends Model {
 	// $project->files
 	public function files() {
     return $this->hasMany(File::class, 'project_id', 'project_id');
+	}
+
+	// $project->collaborators
+	public function collaborators() {
+		return $this->hasMany(Collaborator::class, 'project_id', 'project_id');
 	}
 
 }

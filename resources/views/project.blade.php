@@ -5,6 +5,7 @@
 
 @section('style')
   <style type="text/css">
+  
     .hr-abstract {
       border: none;
       height: 1px;
@@ -12,10 +13,11 @@
       color: #333; /* old IE */
       background-color: #333; /* Modern Browsers */
     }
-
+    
     .project-badge{
       margin-bottom: 10px;
     }
+    
 </style>
 @endsection
 
@@ -28,6 +30,13 @@
 	@endsection
 
 @section('body')
+
+  by:
+  {{ $project->user->first_name }}
+  {{ $project->user->last_name }}
+
+  <br>
+  
   @if($project->complete == 1)
     <span class="badge badge-success project-badge">Completed</span>
   @endif
