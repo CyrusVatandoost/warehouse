@@ -49,3 +49,4 @@ Route::get('/sample', function () {return view('sample');});
 Route::get('/messages', function () {return view('messages');});
 
 Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
+Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
