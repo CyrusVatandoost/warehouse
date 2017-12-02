@@ -5,12 +5,16 @@
 
 @section('style')
   <style type="text/css">
-    hr {
+    .hr-abstract {
       border: none;
       height: 1px;
       /* Set the hr color */
       color: #333; /* old IE */
       background-color: #333; /* Modern Browsers */
+    }
+
+    .project-badge{
+      margin-bottom: 10px;
     }
 </style>
 @endsection
@@ -24,32 +28,31 @@
 	@endsection
 
 @section('body')
-
   @if($project->complete == 1)
-    <span class="badge badge-success">Completed</span>
+    <span class="badge badge-success project-badge">Completed</span>
   @endif
 
   @if($project->complete == 0)
-    <span class="badge badge-danger">Incomplete</span>
+    <span class="badge badge-danger project-badge">Incomplete</span>
   @endif
 
   <div class="tabbable" id="tabs-463690">
 
     <ul class="nav nav-tabs">
-      <li class="active">
-        <a class="btn" href="#panel-abstract" data-toggle="tab">Abstract</a>
+      <li class="nav-item">
+        <a class="nav-link active" href="#panel-abstract" data-toggle="tab">Abstract</a>
       </li>
-      <li>
-        <a class="btn"  href="#panel-files" data-toggle="tab">Files</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#panel-files" data-toggle="tab">Files</a>
       </li>
-      <li>
-        <a class="btn"  href="#panel-progress" data-toggle="tab">Progress</a>
+      <li class="nav-item">
+        <a class="nav-link"  href="#panel-progress" data-toggle="tab">Progress</a>
       </li>
-      <li>
-        <a class="btn"  href="#panel-issues" data-toggle="tab">Issues</a>
+      <li class="nav-item">
+        <a class="nav-link"  href="#panel-issues" data-toggle="tab">Issues</a>
       </li>
-      <li>
-        <a class="btn"  href="#panel-settings" data-toggle="tab">Settings</a>
+      <li class="nav-item">
+        <a class="nav-link"  href="#panel-settings" data-toggle="tab">Settings</a>
       </li>
     </ul>
 
