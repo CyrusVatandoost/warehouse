@@ -27,4 +27,9 @@ class Project extends Model {
     return $this->hasMany(File::class, 'project_id', 'project_id');
 	}
 
+	// $project->collaborators
+	public function collaborators() {
+		return $this->hasMany(Collaborator::class, 'project_id', 'project_id');
+	}
+
 }

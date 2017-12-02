@@ -47,3 +47,6 @@ Route::get('/contact', function () {return view('contact');});
 Route::get('/search', function () {return view('search');});
 Route::get('/sample', function () {return view('sample');});
 Route::get('/messages', function () {return view('messages');});
+
+Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
+Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
