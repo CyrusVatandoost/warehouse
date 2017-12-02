@@ -12,7 +12,7 @@
       color: #333; /* old IE */
       background-color: #333; /* Modern Browsers */
     }
-</style>
+  </style>
 @endsection
 
 @section('modals')
@@ -24,6 +24,12 @@
 	@endsection
 
 @section('body')
+
+  by:
+  {{ $project->user->first_name }}
+  {{ $project->user->last_name }}
+
+  <br>
 
   @if($project->complete == 1)
     <span class="badge badge-success">Completed</span>
