@@ -1,0 +1,50 @@
+{
+    "name": "jrean/laravel-user-verification",
+    "description": "User Email Verification For Laravel 5.*",
+    "keywords": ["laravel", "framework", "user verification", "email verification", "user activation", "email activation"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jean Ragouin",
+            "email": "go@askjong.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jrean\\UserVerification\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "phpunit/phpunit": "^5.5",
+        "fzaninotto/faker": "^1.6",
+        "mockery/mockery": "^0.9.5",
+        "satooshi/php-coveralls": "^1.0",
+        "friendsofphp/php-cs-fixer": "^1.12",
+        "sllh/php-cs-fixer-styleci-bridge": "^2.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+        }
+    },
+    "scripts": {
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jrean\\UserVerification\\UserVerificationServiceProvider"
+            ],
+            "aliases": {
+                "UserVerification": "Jrean\\UserVerification\\Facades\\UserVerification"
+            }
+        }
+    }
+}

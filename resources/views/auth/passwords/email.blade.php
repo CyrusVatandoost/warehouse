@@ -1,5 +1,6 @@
 @extends('layout.auth')
 
+@section('title','Forgot Password')
 
 @section('content')
 <style type="text/css">
@@ -13,7 +14,7 @@
         padding : 50px 0;
     }
   
-    .main-center{
+    .main-center {
         margin-top: 30px;
         margin: 0 auto;
         padding: 20px 40px;
@@ -29,7 +30,7 @@
         font-weight:200; 
     }
 
-     .btn-email{
+     .btn-email {
         background: #f5f5f5; 
         color: #555; 
         font-weight:600;
@@ -77,7 +78,7 @@
                         </center>
                           
                     </form>
-            </div>
         </div>
     </div>
+</div>
 @endsection
