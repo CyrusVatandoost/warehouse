@@ -2,7 +2,7 @@
 
   @include('modals.new_file')
 
-  @foreach($files as $file)
+  @foreach($project->files as $file)
   <p>{{ $file->name }}
   @endforeach
 
