@@ -68,4 +68,11 @@ class ProjectController extends Controller {
 		return back();
 	}
 
+	public function changeName($id) {
+		$project = Project::find($id)->first();
+		$project->name = request('name');
+		$project->save();
+		return back();
+	}
+
 }

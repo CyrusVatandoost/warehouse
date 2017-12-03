@@ -1,6 +1,15 @@
 <div class="tab-pane" id="panel-settings">
 
 	<p>
+  <h4>Project Name</h4>
+
+	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/change-name">
+		{{ csrf_field() }}
+		<input class="form-control" type="text" name="name" placeholder="{{$project->name}}">&nbsp;
+	  <button type="submit" class="btn btn-primary">Change Name</button>
+	</form>
+
+	<p>
   <h4>Project Heads</h4>
   <ul class="list-group">
 	  <li class="list-group-item">Name Here</li>

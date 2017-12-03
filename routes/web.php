@@ -29,6 +29,8 @@ Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
 Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
 // remove a collaborator from a project
 Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
+// change the name of a project
+Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 
 // login and register
 Auth::routes();
