@@ -65,7 +65,7 @@
     <div class="bio">
       <h2 class="heading-medium">{{ auth()->user()->first_name }} {{ auth()->user()->middle_initial }} {{ auth()->user()->last_name }}</h2>
       <h5 class="heading-small">TE<sup>3</sup>D Member</h5>
-      <h6 class="heading-small">juan_delacruz@dlsu.edu.ph</h6>
+      <h6 class="heading-small">{{ auth()->user()->email }}</h6>
       <p class="body-small">Hi I'm Juan and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
      <button type="button" class="btn btn-primary btn-sm">Edit Profile</button>
   </div>

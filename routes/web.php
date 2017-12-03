@@ -22,9 +22,24 @@ Route::get('/project/add/file/{project}', 'FileController@store');
 
 // login and register
 Auth::routes();
-Route::get('/account', 'HomeController@index')->name('account');
 
-// login and register routes; also pages that are for logged in users only
+//Messenger Routes
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+});
+
+
+//Auto Complete Routes
+Route::get('/user/autocomplete', function() {
+	return App\User::all();
+});
+
+
+//pages that are for logged in users only
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/account', 'HomeController@account')->name('account');
@@ -46,4 +61,3 @@ Route::get('/admin', function () {return view('admin');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/search', function () {return view('search');});
 Route::get('/sample', function () {return view('sample');});
-Route::get('/messages', function () {return view('messages');});

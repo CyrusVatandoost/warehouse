@@ -1,10 +1,6 @@
-@extends('layout.app')
+@extends('layout.master')
 
 @if(Auth::check())
-  @section('title', 'Home')
-@endif
-
-@if(!Auth::check())
   @section('title', 'Home')
 @endif
 
@@ -15,10 +11,16 @@
 
 @section('body')
 
-  @include('modals.new_project')
+	@include('modals.new_project')
   
 @endsection
 
 @section('right-sidenav')
 
 @endsection
+
+@section('content')
+    @include('messenger.partials.flash')
+
+    @each('messenger.partials.thread', $threads, 'thread', 'messenger.partials.no-threads')
+@stop

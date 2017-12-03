@@ -6,10 +6,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Thank you for registering!</div>
+                <div class="panel-heading">{!! trans('laravel-user-verification::user-verification.verification_error_header') !!}</div>
                 <div class="panel-body">
                     <span class="help-block">
-                        <strong>An application has been sent to an admin and is subject for approval. We will notify you if your application has been confirmed.</strong>
+                        <strong>{!! trans('laravel-user-verification::user-verification.verification_error_message') !!}</strong>
                     </span>
                     <div class="form-group">
                         <div class="col-md-12">
