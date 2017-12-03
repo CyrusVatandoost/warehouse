@@ -35,6 +35,8 @@ Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 // login and register
 Auth::routes();
 Route::get('/account', 'HomeController@index')->name('account');
+Route::get('/account/edit', function () {return view('account.edit');});
+Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
 
 // login and register routes; also pages that are for logged in users only
 Auth::routes();
