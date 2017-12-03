@@ -3,6 +3,7 @@
 	<p>
   <h4>Project Name</h4>
 
+  <!-- form to change project name -->
 	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/change-name">
 		{{ csrf_field() }}
 		<input class="form-control" type="text" name="name" placeholder="{{$project->name}}">&nbsp;
@@ -19,7 +20,6 @@
 			  &nbsp;
 			  <button type="submit" class="btn btn-primary">Add</button>
 			</form>
-
 	</ul>
 
 	<p>
@@ -34,6 +34,7 @@
   	<!-- list of collaborators -->
     @foreach($project->collaborators as $collaborator)
 	  	<li class="list-group-item">
+	  		<!-- form to add collaborator to the project -->
 	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-collaborator/{{$collaborator->user->user_id}}">
 	  			{{ $collaborator->user->first_name }}&nbsp;
 					{{ csrf_field() }}
@@ -43,10 +44,10 @@
 
 	  <!-- form to add collaborator -->
 	  <li class="list-group-item">
-	  	<form method="POST" action="/project/{{$project->project_id}}/add-collaborator">
+	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
 				{{ csrf_field() }}
-			  <input type="text" id="user_id" name="user_id" placeholder="Add Collaborator">&nbsp;
-			  <button type="submit" class="btn btn-primary">Add</button>
+			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="Add Collaborator">&nbsp;
+			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>
 
 	</ul>
