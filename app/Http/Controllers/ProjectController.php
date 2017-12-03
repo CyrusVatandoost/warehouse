@@ -27,6 +27,12 @@ class ProjectController extends Controller {
 		return view('projects', compact('project_list'));
 	}
 
+	// returns projects that are public
+	public function guest() {
+		$projects = Project::public()->get();
+		return view('project.guest', compact('projects'));
+	}
+
 	// returns a single project using an ID
 	public function show($id) {
 		$project = Project::find($id);

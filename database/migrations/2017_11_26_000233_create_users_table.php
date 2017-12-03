@@ -44,6 +44,7 @@ class CreateUsersTable extends Migration {
           'middle_initial' => "A.",
           'last_name' => 'last_name',
           'gender' => "Male",
+          'verified' => "1",
           'password' => Hash::make('admin')
       )
   );

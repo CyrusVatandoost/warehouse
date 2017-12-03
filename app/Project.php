@@ -16,6 +16,10 @@ class Project extends Model {
 	public function scopeIncomplete() {
 		return static::where('complete', 0);
 	}
+
+	public function scopePublic() {
+		return static::where('public', 1);
+	}
 	
 	// $project->user
 	public function user() {

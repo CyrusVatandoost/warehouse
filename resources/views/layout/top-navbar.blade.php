@@ -18,7 +18,7 @@
 
       <!-- if guest -->
       @if(!Auth::check())
-      <li class="nav-item"><a class="nav-link" href="/projects">Projects</a>
+      <li class="nav-item"><a class="nav-link" href="/projects/public">Projects</a>
       <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a>
       @endif
       

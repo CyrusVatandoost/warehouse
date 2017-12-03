@@ -14,6 +14,8 @@
 // projects
 //Route::get('/projects', 'ProjectController@index');
 Route::post('/projects', 'ProjectController@store');
+// projects that are public, used for guests
+Route::get('/projects/public', 'ProjectController@guest');
 
 // project
 Route::get('/project/{project}', 'ProjectController@show');
