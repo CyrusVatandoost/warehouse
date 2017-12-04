@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\User;
+
 use Carbon\Carbon;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Participant;
-use Cmgmyr\Messenger\Models\Thread;
+use App\MyThread as Thread;
+
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -21,11 +23,11 @@ class MessagesController extends Controller
     public function index()
     {
         // All threads, ignore deleted/archived participants
-        $threads = Thread::getAllLatest()->get();
+        //$threads = Thread::getAllLatest()->get();
         // All threads that user is participating in
-        // $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
+        $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
         // All threads that user is participating in, with new messages
-        // $threads = Thread::forUserWithNewMessages(Auth::id())->latest('updated_at')->get();
+        //$threads = Thread::forUserWithNewMessages(Auth::id())->latest('updated_at')->get();
         return view('messenger.messages', compact('threads'));
     }
     /**
@@ -60,6 +62,7 @@ class MessagesController extends Controller
         $users = User::where('user_id', '!=', Auth::id())->get();
         return view('messenger.create', compact('users'));
     }
+
     /**
      * Stores a new message thread.
      *
@@ -68,17 +71,6 @@ class MessagesController extends Controller
     public function store()
     {
         $input = Input::all();
-        $validatedData = Validator::make($input, [
-        'subject' => 'required',
-        'message' => 'required',
-        ]);
-
-        if ($validatedData->fails()) {
-            return redirect('/messages/create')
-                        ->withErrors($validatedData)
-                        ->withInput();
-        }
-        
         $thread = Thread::create([
             'subject' => $input['subject'],
         ]);
@@ -100,6 +92,37 @@ class MessagesController extends Controller
         }
         return redirect()->route('messages');
     }
+
+    /**
+     * Sends a message to admin
+     *
+     * @return mixed
+     */
+    public function adminSend()
+    {
+        $input = Input::all();
+        $adminID = 1;
+        
+        $thread = Thread::create([
+            'subject' => $input['subject'],
+        ]);
+        // Message
+        Message::create([
+            'thread_id' => $thread->id,
+            'user_id' => $adminID,
+            'body' => $input['message'],
+        ]);
+        // Sender
+        Participant::create([
+            'thread_id' => $thread->id,
+            'user_id' => $adminID,
+            'last_read' => new Carbon,
+        ]);
+        // Recipients
+        $thread->addParticipant($adminID);
+        return redirect()->route('/contact');
+    }
+
     /**
      * Adds a new message to a current thread.
      *

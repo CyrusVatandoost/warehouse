@@ -38,6 +38,8 @@ Route::get('/user/autocomplete', function() {
 	return App\User::all();
 });
 
+//Contact Us Routes
+Route::post('/sendtoadmin', 'MessagesController@adminSend');
 
 //pages that are for logged in users only
 Auth::routes();

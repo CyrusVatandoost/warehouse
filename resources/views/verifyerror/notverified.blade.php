@@ -6,10 +6,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Not Verified</div>
+                <div class="panel-heading">Login Error</div>
                 <div class="panel-body">
                     <span class="help-block">
-                        <strong>User is not yet verified.</strong>
+                        <strong>User is not yet verified or does not exist.</strong>
                     </span>
                     <div class="form-group">
                         <div class="col-md-12">

@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-sm-6">
           <div class="map-form">
-            <form class="card">
+            <form action="/sendtoadmin" id="contact-form" class="card" method="post">
                 <div class="form__row">
                       <div class="input-group">
                           <span class="input-group-addon"><i class="material-icons material-icons-md">person</i></span>
@@ -38,13 +38,7 @@
                       <i class="material-icons material-icons-mid">subject</i>
                       <span><label class="form__title" for="job-function">Subject</label></span>
                   </span>
-                  <select class="form-control" name="job-function" required>
-                    <option value="" selected="selected">Select a Subject</option> 
-                    <option value="op1">Subject 1</option>
-                    <option value="op2">Subject 2</option>
-                    <option value="op3">Subject 3</option>
-                    <option value="op4">Subject 4</option>
-                  </select>
+                  <input type="text" class="input form__field" name="subject" id="subject" placeholder="Subject" required>
                 </div>
                 <div class="form__row">
                   <div class="input-group">
@@ -53,11 +47,11 @@
                         <span><label class="form__title">Message</label></span>
                       </span>
                   </div>
-                  <textarea class="form__message" name="text" placeholder="Enter your message for us here. We will get back to you within 2 business days." required></textarea>
+                  <textarea class="form__message" id="body" name="message" placeholder="Enter your message for us here. We will get back to you within 2 business days." required></textarea>
                 </div>
                 <div class="">
                     <button type="reset" value="Reset" name="reset" class="btn btn-secondary reset float-left">Reset <i class="material-icons material-icons-mid">cached</i></button>
-                    <button type="submit" class="form__submit btn btn-info float-right">Send <i class="material-icons material-icons-mid">near_me</i></button>
+                    <button type="button" onclick="sendForm()" class="form__submit btn btn-info float-right">Send <i class="material-icons material-icons-mid">near_me</i></button>
                 </div>
               </form>
           </div>
@@ -89,3 +83,17 @@
   </p>
   @endsection
 
+@section('customscripts')
+<script>
+function sendForm(){
+  var form = document.getElementById("contact-form");
+  var message = document.getElementById("body");
+  var name = document.getElementById("name");
+  var email = document.getElementById("email");
+  var phone = document.getElementById("phone");
+
+  var concat = name.value+"\n"+email.value+"\n"+phone.value+"\n\nDear Admin, \n\n"+message.value;
+  message.value = concat;
+  form.submit();
+}
+</script>

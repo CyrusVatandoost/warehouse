@@ -5,15 +5,15 @@
         
     <!-- Message Form Input -->
     <div class="form-group">
-        <textarea name="message" id="message-body" class="form-control">{{ old('message') }}</textarea>
+        <textarea name="message" id="message-body" class="form-control" required>{{ old('message') }}</textarea>
     </div>
 
     @if($users->count() > 0)
       <div id="search">
-        <input id="provider-json" type="text" placeholder="Add Recipients">
+        <input id="provider-json" type="text" placeholder="Add Another Recipient">
         <button type="button" name="addRecipient" class="btn btn-primary" onclick="addRecipientElement()">Add </button>
       </div>
-      <div id="recipient" >
+      <div id="recipient">
           <!--<input style="display:none;" type="text" name="recipients[]" value="1"><br>-->
       </div>
     @endif

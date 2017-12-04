@@ -195,9 +195,8 @@ class UserVerification
         $name = null
     )
     {
-        $admin="criscore98@gmail.com";
         return $this->mailer
-            ->to($admin)
+            ->to($user)
             ->send(new VerificationTokenGenerated($user, $subject, $from, $name));
     }
 
@@ -217,9 +216,8 @@ class UserVerification
         $name = null
     )
     {
-        $admin="criscore98@gmail.com";
         return $this->mailer
-            ->to($admin)
+            ->to($user)
             ->queue(new VerificationTokenGenerated($user, $subject, $from, $name));
     }
 
@@ -241,9 +239,8 @@ class UserVerification
         $name = null
     )
     {
-        $admin="criscore98@gmail.com";
         return $this->mailer
-            ->to($admin)
+            ->to($user)
             ->later($delay, new VerificationTokenGenerated($user, $subject, $from, $name));
     }
 

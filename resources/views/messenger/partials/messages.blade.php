@@ -5,7 +5,7 @@
     </a>
     <div class="media-body">
         <h5 class="media-heading">{{ $message->user->first_name }}</h5>
-        <p>{{ $message->body }}</p>
+        <pre>{{ $message->body }}</pre>
         <div class="text-muted">
             <small>Posted {{ $message->created_at->diffForHumans() }}</small>
         </div>

@@ -15,28 +15,18 @@
             <div class="form-group">
                 <label class="control-label">Subject</label>
                 <input type="text" class="form-control" name="subject" placeholder="Subject"
-                       value="{{ old('subject') }}">
-                @if ($errors->has('subject'))
-                  <div class="alert alert-danger">
-                    {{ $errors->first('subject') }}
-                  </div>
-                @endif
+                       value="{{ old('subject') }}" required>
             </div>
 
             <!-- Message Form Input -->
             <div class="form-group">
                 <label class="control-label">Message</label>
-                <textarea name="message" class="form-control">{{ old('message') }}</textarea>
-                @if ($errors->has('message'))
-                  <div class="alert alert-danger">
-                    {{ $errors->first('message') }}
-                  </div>
-                @endif
+                <textarea name="message" class="form-control" required>{{ old('message') }}</textarea>
             </div>
             
             @if($users->count() > 0)
               <div id="search">
-                <input id="provider-json" type="text" placeholder="Add Recipients">
+                <input id="provider-json" type="text" placeholder="Add Recipients" required>
                 <button type="button" name="addRecipient" class="btn btn-primary" style="margin-top: 10px;" onclick="addRecipientElement()">Add </button>
                 <br>
                 <div  class="container" style="position: relative; left: -222;">
@@ -131,7 +121,7 @@ var users = {
       else
         recipientLastName = "";
 
-      recipient.value = $("#provider-json").getSelectedItemIndex()+1;
+      recipient.value = $("#provider-json").getSelectedItemData().user_id;
       recipient.id = $("#provider-json").getSelectedItemIndex()+1;
       recipient.name = "recipients[]";
       recipient.style.display = "none";
