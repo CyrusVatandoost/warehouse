@@ -24,53 +24,30 @@
 
 @section('modals')
   @include('modals.new_project')
+  @include('modals.new_announcement')
 @endsection
 
 @section('left-sidenav')
-  <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
+  <p><a href="#modal-container-new-announcement" class="btn btn-primary btn-block" role="button" data-toggle="modal">New Announcement</a></p>
   <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 @endsection
+
 
 @section('body')
 
   <div class="container">
-
-		<div class="row row-striped">
-      <!-- date -->
-      <div class="col-2 text-right">    
-        <h1 class="display-4"><span class="badge badge-secondary">23</span></h1>    
-        <h2>OCT</h2>    
-      </div>
-      <!-- body -->
-			<div class="col-10">		
-				<a href="/sample"><h3 class="text-uppercase"><strong>Sample WareHouse Page</strong></h3></a>
-				<ul class="list-inline">		
-				<li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>		
-				<li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM 2:00 PM</li>		
-				<li class="list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> Cafe</li>		
-				</ul>		
-				<p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>		
-			</div>		
-		</div>
-
+  @foreach($announcements as $announcement)
     <div class="row row-striped">
-      <!-- date -->
-      <div class="col-2 text-right">    
-        <h1 class="display-4"><span class="badge badge-secondary">23</span></h1>    
-        <h2>OCT</h2>    
+      <div class="col-2 text-center">    
+        <h1 class="display-5"><span class="badge badge-info">{{ $announcement->created_at->format('d') }}</span></h1>    
+        <h2 class="text-uppercase">{{ $announcement->created_at->format('M') }}</h2>    
       </div>
-      <!-- body -->
-      <div class="col-10">    
-        <a href="/sample"><h3 class="text-uppercase"><strong>Sample WareHouse Page</strong></h3></a>
-        <ul class="list-inline">    
-        <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>    
-        <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM 2:00 PM</li>   
-        <li class="list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> Cafe</li>    
-        </ul>   
-        <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>   
+      <div class="col-10">
+        <a href="/announcement/{{ $announcement->announcement_id }}"><h3 class="text-uppercase"><strong> {{ $announcement->name }} </strong></h3></a>
+        <p>  {{ $announcement->description }} </p>   
       </div>    
     </div>
-
+  @endforeach
   </div>
 
 @endsection
