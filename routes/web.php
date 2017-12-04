@@ -36,6 +36,10 @@
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 	// upload a file to the project
 	Route::post('/project/{project}/upload-file', 'FileController@store');
+// remove a tag from a project
+Route::post('/project/{project}/remove-tag/{tag}', 'TagController@delete');
+// add a tag to a project
+Route::post('/project/{project}/add-tag', 'TagController@store');
 
 // announcement
 	//create an announcement

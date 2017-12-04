@@ -53,10 +53,10 @@
 	</div>
 
 	<p>
-  <h4>Project Collaborators</h4>
+  <h4>Project Tags</h4>
   <ul class="list-group">
 
-  	<!-- list of collaborators -->
+  	<!-- list of tags -->
     @foreach($project->collaborators as $collaborator)
 	  	<li class="list-group-item">
 	  		<!-- form to add collaborator to the project -->
@@ -67,11 +67,41 @@
 				</form>
 	  @endforeach
 
-	  <!-- form to add collaborator -->
+	  <!-- form to add tags -->
 	  <li class="list-group-item">
 	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
 				{{ csrf_field() }}
 			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="Add Collaborator">&nbsp;
+			  <button class="btn btn-primary" type="submit">Add</button>
+			</form>
+
+	</ul>
+
+	<p>
+	<div class="alert alert-warning" role="alert">
+	  To add a collaborator, input the "user_id" of the user for now. You can check their "user_id" by checking the database. This will be fixed in the future.
+	</div>
+
+	<p>
+  <h4>Project Collaborators</h4>
+  <ul class="list-group">
+
+  	<!-- list of tags -->
+    @foreach($project->tags as $proj_tags)
+	  	<li class="list-group-item">
+	  		<!-- form to delete collaborator to the project -->
+	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-tag/{{$proj_tags->tag->tag_id}}">
+	  			{{ $proj_tags->tag->name }}&nbsp;
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-outline-danger">&times;</button>
+				</form>
+	  @endforeach
+
+	  <!-- form to add tags -->
+	  <li class="list-group-item">
+	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-tag">
+				{{ csrf_field() }}
+			  <input class="form-control" type="text" id="tag_name" name="tag_name" placeholder="Add Tag">&nbsp;
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>
 
