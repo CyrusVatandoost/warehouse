@@ -1,14 +1,39 @@
 <div class="tab-pane" id="panel-settings">
 
-	<p>
-  <h4>Project Name</h4>
 
-  <!-- form to change project name -->
-	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/change-name">
-		{{ csrf_field() }}
-		<input class="form-control" type="text" name="name" placeholder="{{$project->name}}">&nbsp;
-	  <button type="submit" class="btn btn-primary">Change Name</button>
-	</form>
+	<div class="row">
+	  <div class="col-lg-5">
+
+			<p>
+		  <h4>Project Name</h4>
+
+		  <!-- form to change project name -->
+			<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/change-name">
+				{{ csrf_field() }}
+				<input class="form-control" type="text" name="name" placeholder="{{$project->name}}">&nbsp;
+			  <button type="submit" class="btn btn-primary">Change Name</button>
+			</form>
+
+	  </div>
+
+	  <div class="col-lg-5">
+
+	      <p>
+		  <h4>Project Visibility</h4>
+			<!-- dropdown button to change project status -->
+			    @if( $project->public == 1 )
+			    	<a href="/project/{{$project->project_id}}/change-visibility" class="btn btn-success btn-sm " role="button" aria-pressed="true">
+			    	Public
+			   		</a>
+			    @endif
+
+			    @if( $project->public == 0 )
+			    	<a href="/project/{{$project->project_id}}/change-visibility" class="btn btn-danger btn-sm " role="button" aria-pressed="true">
+			   		Private
+			   		</a>
+			    @endif
+	  </div>
+	</div>
 
 	<p>
   <h4>Project Heads</h4>

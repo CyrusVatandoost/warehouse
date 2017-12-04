@@ -68,6 +68,17 @@ class ProjectController extends Controller {
 		return back();
 	}
 
+	// set visibility depending on current project's visibility
+	public function setVisibility($id) {
+		$project = Project::find($id)->first();
+		if($project->public == 1)
+			$project->public = 0;
+		else
+			$project->public = 1;
+		$project->save();
+		return back();
+	}
+
 	public function changeName($id) {
 		$project = Project::find($id)->first();
 		$project->name = request('name');
