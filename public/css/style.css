@@ -20,7 +20,7 @@ p{
 }
 
 .nav-link{
-  color: white !important;
+  color: black !important;
 }
 
 .navbar-brand{
@@ -61,8 +61,6 @@ p{
 .projects-link{
   color: #404040 !important;
 }
-
-
 
 .footer-title{
   color: #8BC34A;
