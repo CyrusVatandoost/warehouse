@@ -35,6 +35,8 @@
   {{ $project->user->first_name }}
   {{ $project->user->last_name }}
 
+  {{$project->tags->first()->tag->name}}
+
   <br>
   
   @if($project->complete == 1)
