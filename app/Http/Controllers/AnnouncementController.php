@@ -8,9 +8,9 @@ use App\Announcement;
 
 class AnnouncementController extends Controller
 {
-    //returns all announcements
+    //returns all announcements sorted by date
     public function index() {
-        $announcements = Announcement::get();
+        $announcements = Announcement::orderBy('created_at', 'DESC')->get();
         return view('home', compact('announcements'));
     }
 
