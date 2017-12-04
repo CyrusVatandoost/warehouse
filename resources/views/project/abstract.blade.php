@@ -4,9 +4,9 @@
       <div class="row"> 
         <div class="col-lg-12"> 
           <div class="jumbotron">
-            <h1 class="display-3">Project Title</h1>
-              <p class="lead">Sample Abstract</p>
-                <hr class="my-4">
+            <h1 class="display-3">{{ $project->name }}</h1>
+              <p class="lead">{{ $project->description }}</p>
+                <hr class="my-4 hr-abstract">
                   <p>Insert Names</p>
           </div>
         </div>

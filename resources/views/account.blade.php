@@ -1,11 +1,9 @@
 @extends('layout.app')
 
+@section('title', 'Account')
 
-@section('left-sidebar')
-  <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
-  <p><a href="#" class="btn btn-primary btn-block">New Project</a></p>
-  @endsection
-<style>
+@section('style')
+  <style>
 
   .banner .container {
     display: -webkit-box;
@@ -54,34 +52,30 @@
   }
 
 </style>
+@endsection
+
+@section('left-sidenav')
+  <p><a href="/account/edit" class="btn btn-primary btn-block">Edit Profile</a></p>
+@endsection
+
 @section('body')
-
   <div class="banner">
-  <div class="container">
-    <div class="profile-pic">
-      <div class="avatar"></div>
-      
+    <div class="container">
+      <div class="profile-pic"> 
+        <div class="avatar">
+          <img src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}" height="300" width="300">
+        </div>
+      </div>
+      <div class="bio">
+        <h2 class="heading-medium">{{ auth()->user()->first_name }} {{ auth()->user()->middle_initial }} {{ auth()->user()->last_name }}</h2>
+        <h5 class="heading-small">TE<sup>3</sup>D Member</h5>
+        <h6 class="heading-small">{{ auth()->user()->email }}</h6>
+        <p class="body-small">Hi I'm {{ auth()->user()->first_name }} and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
+       <button type="button" class="btn btn-primary btn-sm">Edit Profile</button>
     </div>
-    <div class="bio">
-      <h2 class="heading-medium">{{ auth()->user()->first_name }} {{ auth()->user()->middle_initial }} {{ auth()->user()->last_name }}</h2>
-      <h5 class="heading-small">TE<sup>3</sup>D Member</h5>
-      <h6 class="heading-small">{{ auth()->user()->email }}</h6>
-      <p class="body-small">Hi I'm Juan and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
-     <button type="button" class="btn btn-primary btn-sm">Edit Profile</button>
   </div>
-</div>
-  
+@endsection
 
+@section('right-sidenav')
 
-  @endsection
-
-@section('right-sidebar')
-  <div class="well">
-    <p>ADS</p>
-  </div>
-
-  <div class="well">
-    <p>ADS</p>
-  </div>
-
-  @endsection
+@endsection

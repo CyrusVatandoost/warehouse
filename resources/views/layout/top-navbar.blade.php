@@ -18,7 +18,7 @@
 
       <!-- if guest -->
       @if(!Auth::check())
-      <li class="nav-item"><a class="nav-link" href="/projects">Projects</a>
+      <li class="nav-item"><a class="nav-link" href="/projects/public">Projects</a>
       <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a>
       @endif
       
@@ -30,14 +30,13 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a>
         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a>
       @else
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown show">
           <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">{{ auth()->user()->first_name }}</a>
-          <ul class="dropdown-menu">
-            <li><a href="/account">Account</a>
-            <li>
-              <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/account">Account</a>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
-          </ul>
+          </div>
       @endguest
         <li class="nav-item">
           <!-- search -->
