@@ -42,7 +42,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectAfterVerification = 'successverification';
+    protected $redirectAfterVerification = '/successverification';
     /**
      * Where to redirect if user is verified.
      *
@@ -96,27 +96,25 @@ class RegisterController extends Controller
     }
 
     /**
-         * Handle a registration request for the application.
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @return \Illuminate\Http\Response
-         */
-        public function register(Request $request)
-        {
-            $this->validator($request->all())->validate();
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+      $this->validator($request->all())->validate();
 
-            $user = $this->create($request->all());
+      $user = $this->create($request->all());
 
-            event(new Registered($user));
+      event(new Registered($user));
 
-            //$this->guard()->login($user); //automatically login user after register, even if not verified
+      UserVerification::generate($user);
 
-            UserVerification::generate($user);
+      UserVerification::send($user, 'User Registration Request');
 
-            UserVerification::send($user, 'User Registration Request');
-
-            return $this->registered($request, $user)
-                            ?: HomeController::emailSent();
-        }
+      return $this->registered($request, $user)
+                    ?: HomeController::emailSent();
+      }
 
 }

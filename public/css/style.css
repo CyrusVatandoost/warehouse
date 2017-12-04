@@ -7,24 +7,85 @@ body {
   margin-bottom: 20vh; /* Margin bottom by footer height */
 }
 
+p{
+  color: #404040;
+}
+
+.page-title, .contact-title{
+  color: #404040;
+}
+
+.navbar-dark{
+  background-color: #404040 !important;
+}
+
+.nav-link{
+  color: white !important;
+}
+
+.navbar-brand{
+  color: #8BC34A !important;
+}
+
+.btn-search{
+  background-color: #788F9B !important;
+}
+
+.btn-announcement, .btn-project{
+  background-color: #546E7A !important;
+  color: white;
+}
+
+.btn-browse{
+  background-color: #8BC34A;
+  color: white !important;
+}
+
+.projects-no-gutters {
+      margin-right: 0;
+      margin-left: 0;
+
+      > .col,
+      > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+.projects-card-size{
+   margin-right: 10px; 
+   margin-bottom: 10px;
+   width: 20em;
+}
+
+.projects-link{
+  color: #404040 !important;
+}
+
+
+
+.footer-title{
+  color: #8BC34A;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 20vh; /* Set the fixed height of the footer here */
   color: black;
-  background-color: #f5f5f5;
+  background-color: #404040;
 }
 
-.foot {
+.footer-style {
   padding:10px;
-  color:black;
+  color: white;
 }
 
-.foot td {
+.footer-style td {
   padding-right: 10vh;
 }
 
-.foot a, .foot a:hover{
-  color:black;
+.footer-style a, .footer-style a:hover{
+  color: white;
 }

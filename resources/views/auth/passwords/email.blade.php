@@ -4,47 +4,16 @@
 
 @section('content')
 <style type="text/css">
-    @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
-    body, html{
-        height: 100%;
-    }
 
-    .main{
-        padding : 50px 0;
-    }
-  
-    .main-center {
-        margin-top: 30px;
-        margin: 0 auto;
-        padding: 20px 40px;
-        background:#555;
-        color: #f5f5f5;
-        text-shadow: none;
-        border-radius: 10px;
-    }
-
-    .email-h2 { 
-        border-bottom: 1px solid #f5f5f5; 
-        padding-bottom: 5px;  
-        font-weight:200; 
-    }
-
-     .btn-email {
-        background: #f5f5f5; 
-        color: #555; 
-        font-weight:600;
-        margin-top: 5px;
-        border-radius: 5px;
-    }
+    
 
 </style>
 
 <div class="container">
-    <div class="row main">
-        <div class="main-center">
-        <h2 class="email-h2 text-center">Forgot Password</h2>
-          
+    <div class="row reset-main">
+        <div class="reset-main-center">
+            <h2 class="reset-email-header text-center">Forgot Password</h2>
 <!--
                 <div class="panel-body">
                     @if (session('status'))
