@@ -8,7 +8,7 @@
 
     <!-- body -->
     <div class="col-sm-8 text-left"> 
-      <h1>@yield('page-title')</h1>
+      <h1 class="page-title">@yield('page-title')</h1>
       @yield('body')
     </div>
 

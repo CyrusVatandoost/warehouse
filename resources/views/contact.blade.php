@@ -7,7 +7,7 @@
   <div class="container-fluid">
     <div class="row content">
       <div class="col-sm-12">
-        <h1>Get in touch with us.</h1>
+        <h1 class="contact-title">Get in touch with us.</h1>
         <p class="subtitle">We appreciate all feedback we receive - positive and constructive - and love to hear what you think about our programmes and services.</p>
       </div>
     </div>
@@ -50,8 +50,8 @@
                   <textarea class="form__message" id="body" name="message" placeholder="Enter your message for us here. We will get back to you within 2 business days." required></textarea>
                 </div>
                 <div class="">
-                    <button type="reset" value="Reset" name="reset" class="btn btn-secondary reset float-left">Reset <i class="material-icons material-icons-mid">cached</i></button>
-                    <button type="button" onclick="sendForm()" class="form__submit btn btn-info float-right">Send <i class="material-icons material-icons-mid">near_me</i></button>
+                    <button type="reset" value="Reset" name="reset" class="btn btn-reset reset float-left">Reset <i class="material-icons material-icons-mid">cached</i></button>
+                    <button type="button" onclick="sendForm()" class="form__submit btn btn-send float-right">Send <i class="material-icons material-icons-mid">near_me</i></button>
                 </div>
               </form>
           </div>

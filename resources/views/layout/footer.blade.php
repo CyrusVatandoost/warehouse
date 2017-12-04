@@ -2,10 +2,10 @@
 <footer class="footer">
   <div class="container">
     <center>
-      <table class="foot small">
+      <table class="footer-style small">
         <tr>
-          <td><br><h5>TE<sup>3</sup>D HOUSE</h5>
-          <td><br><h5>WAREHOUSE</h5>
+          <td><br><h5 class="footer-title">TE<sup>3</sup>D HOUSE</h5>
+          <td><br><h5 class="footer-title">WAREHOUSE</h5>
         <tr>
           <td><a href="/welcome">About TED House</a>
           <td><a href="/home">Home</a>
