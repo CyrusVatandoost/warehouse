@@ -74,9 +74,9 @@
 
 	  <!-- form to add tags -->
 	  <li class="list-group-item">
-	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
+	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-tag">
 				{{ csrf_field() }}
-			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="Add Collaborator">&nbsp;
+			  <input class="form-control" type="text" id="tag_name" name="tag_name" placeholder="Add Tag">&nbsp;
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>
 

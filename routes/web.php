@@ -33,6 +33,8 @@ Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorContro
 Route::post('/project/{project}/remove-tag/{tag}', 'TagController@delete');
 // change the name of a project
 Route::post('/project/{project}/change-name', 'ProjectController@changeName');
+// add a tag to a project
+Route::post('/project/{project}/add-tag', 'TagController@store');
 
 // login and register
 Auth::routes();
