@@ -61,9 +61,10 @@
 @section('body')
   <div class="banner">
     <div class="container">
-      <div class="profile-pic">
-        <div class="avatar"></div>
-        
+      <div class="profile-pic"> 
+        <div class="avatar">
+          <img src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}" height="300" width="300">
+        </div>
       </div>
       <div class="bio">
         <h2 class="heading-medium">{{ auth()->user()->first_name }} {{ auth()->user()->middle_initial }} {{ auth()->user()->last_name }}</h2>

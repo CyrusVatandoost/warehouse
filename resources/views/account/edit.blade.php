@@ -24,11 +24,7 @@
 <!-- body -->
 @section('body')
   <!-- insert body here -->
-  <img src="C:\xampp\htdocs\warehouse\storage\app\avatars\1.jpg" class="img-thumbnail">
-  <img src="\storage\app\avatars\1.jpg" class="img-thumbnail">
-  <img src="\storage\app\avatars\1.jpg" class="img-thumbnail">
-  <img src="{{ Storage::disk('local')->getAdapter()->getPathPrefix() }}avatars\{{ auth()->user()->user_id }}.jpg" class="img-thumbnail">
-
+  <img src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}" height="300" width="300">
   <form method="POST" action="/account/{{ auth()->user()->user_id }}/upload-avatar" enctype="multipart/form-data">
   	{{ csrf_field() }}
     <label for="profile_pic">Upload Profile Pic</label>
