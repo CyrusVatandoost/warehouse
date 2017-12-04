@@ -32,13 +32,22 @@ Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorContro
 // change the name of a project
 Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 
+
+//create an announcement
+Route::post('/announcement/create', 'AnnouncementController@store');
+//announcement
+Route::get('/announcement/{announcement}', 'AnnouncementController@show');
+//show all announcements
+Route::get('/home', 'AnnouncementController@index');
+
+
 // login and register
 Auth::routes();
 Route::get('/account', 'HomeController@index')->name('account');
 
 // login and register routes; also pages that are for logged in users only
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/account', 'HomeController@account')->name('account');
 Route::get('/organization', 'HomeController@organization')->name('organization');
 Route::get('/projects', 'HomeController@projects')->name('projects');
@@ -50,10 +59,10 @@ Route::get('/successverification', function() {
 // to be shortened
 Route::get('/', function () {return view('welcome');});
 Route::get('/welcome', function () {return view('welcome');});
-Route::get('/home', function () {return view('home');});
+//Route::get('/home', function () {return view('home');});
 Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
-Route::get('/sample', function () {return view('sample');});
+Route::get('/announcement', function () {return view('announcement');});
 Route::get('/admin', function () {return view('admin');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/search', function () {return view('search');});
