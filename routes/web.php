@@ -26,6 +26,8 @@
 	Route::get('/project/add/file/{project}', 'FileController@store');
 	// set project as complete or incomplete
 	Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
+  // set project's visibility
+  Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
 	// add a collaborator to a project
 	Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
 	// remove a collaborator from a project

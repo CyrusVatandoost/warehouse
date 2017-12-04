@@ -20,6 +20,10 @@ class Project extends Model {
 	public function scopePublic() {
 		return static::where('public', 1);
 	}
+
+	public function scopePrivate() {
+		return static::where('public', 0);
+	}
 	
 	// $project->user
 	public function user() {
