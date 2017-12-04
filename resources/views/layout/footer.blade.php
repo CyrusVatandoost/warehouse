@@ -22,3 +22,5 @@
       </table>
   </div>
 </footer>
+
+@yield('autocomplete')

@@ -42,10 +42,14 @@
 
 </style>
 <div class="container">
-    <div class="row main">
-        <div class="main-center">   
-             <h2 class="confirm-h2 text-center">Not Verified</h2>
-                <p class="verified">User is not yet verified.</p>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Login Error</div>
+                <div class="panel-body">
+                    <span class="help-block">
+                        <strong>User is not yet verified or does not exist.</strong>
+                    </span>
                     <div class="form-group">
                         <center>
                         <a href="{{url('/')}}" class="btn btn-confirm btn-sm">

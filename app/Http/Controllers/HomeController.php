@@ -72,7 +72,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Redirect if user not verified.
+     * Redirect after email sent.
      *
      * @return \Illuminate\Http\Response
      */
