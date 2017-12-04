@@ -13,8 +13,8 @@ html{
     background-color: #404040;
 }
 
-.nav-link{
-    color: white;
+.top-navbar-item{
+    color: white !important;
 }
 
 .login-block {

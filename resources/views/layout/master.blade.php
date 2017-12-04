@@ -8,15 +8,10 @@
     <title>Laravel Messenger</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"  integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="{{ asset('css/style.css') }}" media="all" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="{!! asset('css/easy-autocomplete.min.css') !!}">
-
-    <style>
-        body {
-            padding-top: 70px;
-        }
-    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,26 +21,20 @@
     <![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">WareHouse</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
-                <li><a href="/messages/create">Create New Message</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
+<nav class="navbar navbar-inverse navbar-dark bg-dark">
+    <a class="navbar-brand" href="/welcome">WareHouse</a>
+    <!-- button for mobile mode -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
+        <li><a href="/messages/create">Create New Message</a></li>
+               
+    </ul>
+    </div><!--/.nav-collapse -->
 </nav>
 
 <div class="container">
