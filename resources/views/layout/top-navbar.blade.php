@@ -1,6 +1,6 @@
 <!-- top-navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-  <a class="navbar-brand" href="/welcome">WareHouse</a>
+  <a class="navbar-brand font-weight-bold" href="/welcome">WareHouse</a>
   <!-- button for mobile mode -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@
           <!-- search -->
           <form class="form-inline mt-2 mt-md-0" action="/search">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <button class="btn btn-search my-2 my-sm-0" type="submit">
               <i class="material-icons md-18 material-icons-mid">search</i>
             </button>
           </form>

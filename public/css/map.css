@@ -14,6 +14,16 @@
     color:#1e1e1e;
     margin:20px 0px 0px 0px;
 }
+
+.btn-send{
+  background-color: #9CCC65 !important;
+}
+
+.btn-reset{
+  background-color: #808080 !important;
+  color: white;
+}
+
 .card{
   background-color: #f5f5f5;
   padding: 20px;
