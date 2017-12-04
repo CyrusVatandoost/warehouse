@@ -34,12 +34,11 @@
   by:
   {{ $project->user->first_name }}
   {{ $project->user->last_name }}
-
-
-  @foreach ($project->tags as $project_tag)
-    <span class="badge badge-pill badge-success">{{$project_tag->tag->name}}</span>
+  <br>
+  Tags: 
+  @foreach($project->tags as $something)
+    <span class="badge badge-info">{{ $something->tag->name }}</span>
   @endforeach
-  <!-- {{$project->tags->first()->tag->name}} -->
 
   <br>
   
