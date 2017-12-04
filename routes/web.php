@@ -12,34 +12,36 @@
 */
 
 // projects
-//Route::get('/projects', 'ProjectController@index');
-Route::post('/projects', 'ProjectController@store');
-// projects that are public, used for guests
-Route::get('/projects/public', 'ProjectController@guest');
+	// create a new project
+	Route::post('/projects', 'ProjectController@store');
+	// projects that are public, used for guests
+	Route::get('/projects/public', 'ProjectController@guest');
 
 // project
-Route::get('/project/{project}', 'ProjectController@show');
-// delete project
-Route::get('/project/delete/{project}', 'ProjectController@delete');
-// add file to project
-Route::get('/project/add/file/{project}', 'FileController@store');
-// set project as complete or incomplete
-Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
-// add a collaborator to a project
-Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
-// remove a collaborator from a project
-Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
-// change the name of a project
-Route::post('/project/{project}/change-name', 'ProjectController@changeName');
+	// show a project through ID
+	Route::get('/project/{project}', 'ProjectController@show');
+	// delete project
+	Route::get('/project/delete/{project}', 'ProjectController@delete');
+	// add file to project
+	Route::get('/project/add/file/{project}', 'FileController@store');
+	// set project as complete or incomplete
+	Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
+	// add a collaborator to a project
+	Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
+	// remove a collaborator from a project
+	Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
+	// change the name of a project
+	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
+	// upload a file to the project
+	Route::post('/project/{project}/upload-file', 'FileController@store');
 
-
-//create an announcement
-Route::post('/announcement/create', 'AnnouncementController@store');
-//announcement
-Route::get('/announcement/{announcement}', 'AnnouncementController@show');
-//show all announcements
-Route::get('/home', 'AnnouncementController@index');
-
+// announcement
+	//create an announcement
+	Route::post('/announcement/create', 'AnnouncementController@store');
+	//announcement
+	Route::get('/announcement/{announcement}', 'AnnouncementController@show');
+	//show all announcements
+	Route::get('/home', 'AnnouncementController@index');
 
 // login and register
 Auth::routes();
@@ -55,7 +57,6 @@ Route::group(['prefix' => 'messages'], function () {
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
-
 
 //Auto Complete Routes
 Route::get('/user/autocomplete', function() {

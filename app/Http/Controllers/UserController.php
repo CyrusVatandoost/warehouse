@@ -18,7 +18,6 @@ class UserController extends Controller {
     $image->move($destinationPath, $input['name']);
 
     return back();
-
   }
   
 }
