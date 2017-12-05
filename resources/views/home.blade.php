@@ -19,6 +19,10 @@
     padding: 15px 0;    
    }
    
+   .blue {
+      color:#0066ff;
+    }
+
   </style>
 @endsection
 
@@ -36,18 +40,24 @@
 @section('body')
 
   <div class="container">
-  @foreach($announcements as $announcement)
-    <div class="row row-striped">
-      <div class="col-2 text-center">    
-        <h1 class="display-5"><span class="badge badge-info">{{ $announcement->created_at->format('d') }}</span></h1>    
-        <h2 class="text-uppercase">{{ $announcement->created_at->format('M') }}</h2>    
+  @if($announcements->isEmpty())
+    <h3 class="display-4 | blue">No announcements yet</h3>
+
+  @else
+    @foreach($announcements as $announcement)
+      <div class="row row-striped">
+        <div class="col-2 text-center">    
+          <h1 class="display-5"><span class="badge badge-info">{{ $announcement->created_at->format('d') }}</span></h1>    
+          <h2 class="text-uppercase">{{ $announcement->created_at->format('M') }}</h2>    
+        </div>
+        <div class="col-10">
+          <a href="/announcement/{{ $announcement->announcement_id }}"><h3 class="text-uppercase"><strong> {{ $announcement->name }} </strong></h3></a>
+          <p>  {{ $announcement->description }} </p>   
+        </div>    
       </div>
-      <div class="col-10">
-        <a href="/announcement/{{ $announcement->announcement_id }}"><h3 class="text-uppercase"><strong> {{ $announcement->name }} </strong></h3></a>
-        <p>  {{ $announcement->description }} </p>   
-      </div>    
-    </div>
-  @endforeach
+    @endforeach
+
+  @endi 
   </div>
 
 @endsection
