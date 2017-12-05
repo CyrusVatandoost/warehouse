@@ -1,4 +1,4 @@
-<div class="tab-pane" id="panel-settings">
+	<div class="tab-pane" id="panel-settings">
 
 
 	<div class="row">
@@ -53,7 +53,7 @@
 	</div>
 
 	<p>
-  <h4>Project Tags</h4>
+  <h4>Project Collaborators</h4>
   <ul class="list-group">
 
   	<!-- list of tags -->
@@ -83,7 +83,7 @@
 	</div>
 
 	<p>
-  <h4>Project Collaborators</h4>
+  <h4>Project Tags</h4>
   <ul class="list-group">
 
   	<!-- list of tags -->
