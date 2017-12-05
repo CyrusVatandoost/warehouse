@@ -3,38 +3,23 @@
 @section('page-title', 'Projects')
 @section('title', 'Projects')
 
+@section('modals')
+  @include('modals.new_project')
+@endsection
+
 @section('left-sidenav')
-  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
+  <p><a href="#modal-container-new-project" role="button" class="btn btn-project btn-block" data-toggle="modal">New Project</a></p>
 @endsection
 
 @section('body')
-  <style type="text/css">
-    .no-gutters {
-      margin-right: 0;
-      margin-left: 0;
-
-      > .col,
-      > [class*="col-"] {
-        padding-right: 0;
-        padding-left: 0;
-      }
-    }
-
-    .card-size{
-       margin-right: 10px; 
-       margin-bottom: 10px;
-       width: 20em;
-    }
-  </style>
- 
-  @include('modals.new_project')
+  
 
     <ul class="nav nav-tabs">
-      <li class="active">
-        <a class="btn" href="#panel-projects_all" data-toggle="tab">My Projects</a>
+      <li class="nav-item">
+        <a class="nav-link active" href="#panel-projects_all" data-toggle="tab">My Projects</a>
       </li>
-      <li>
-        <a class="btn"  href="#panel-all_projects" data-toggle="tab">All Projects</a>
+      <li class="nav-item">
+        <a class="nav-link"  href="#panel-all_projects" data-toggle="tab">All Projects</a>
       </li>
     </ul>
 
@@ -43,13 +28,13 @@
       <div class="tab-pane active" id="panel-projects_all">
         <p>
         <div class="container-fluid">
-          <div class="row no-gutters align-items-start">
+          <div class="row projects-no-gutters align-items-start">
             @foreach($my_projects as $project)
               <div class="col-md-auto">
-                <div class="card card-size">
+                <div class="card projects-card-size">
                   <div class="card-block">
                     <h4 class="card-title">
-                      <a href="{{ url('project') }}/{{ $project->project_id }}">
+                      <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">
                         {{ $project->name }}
                       </a>
                     </h4>
@@ -80,13 +65,13 @@
       <div class="tab-pane" id="panel-all_projects">
         <p>
           <div class="container-fluid">
-            <div class="row no-gutters align-items-start">
+            <div class="row projects-no-gutters align-items-start">
               @foreach($all_projects as $project)
                 <div class="col-md-auto">
-                  <div class="card card-size">
+                  <div class="card projects-card-size">
                     <div class="card-block">
                       <h4 class="card-title">
-                        <a href="{{ url('project') }}/{{ $project->project_id }}">{{ $project->name }}</a>
+                        <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">{{ $project->name }}</a>
                       </h4>
                       <h6 class="card-subtitle mb-2 text-muted">{{ $project->user->first_name }}</h6>
                     </div>
@@ -113,6 +98,9 @@
 
 @endsection
 
+<!-- right-sidenav -->
 @section('right-sidenav')
-  
+  <!-- insert featured projects here -->
+  @include('layout.right-sidenav')
 @endsection
+

@@ -1,22 +1,26 @@
-@extends('layout.app')
+@extends('layout.auth')
+
+@section('title', 'Not Verified')
 
 <!-- Main Content -->
-@section('body')
+@section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="row verified-main">
+        <div class="verified-main-center">
             <div class="panel panel-default">
-                <div class="panel-heading">Not Verified</div>
+             <h2 class="verified-confirm-header text-center">Not Verified</h2>
+                <div class="panel-heading">
+                    Login Error
+                </div>
                 <div class="panel-body">
                     <span class="help-block">
-                        <strong>User is not yet verified.</strong>
+                        <strong>User is not yet verified or does not exist.</strong>
                     </span>
                     <div class="form-group">
-                        <div class="col-md-12">
-                            <a href="{{url('/')}}" class="btn btn-primary">
-                                {!! trans('laravel-user-verification::user-verification.verification_error_back_button') !!}
-                            </a>
-                        </div>
+                        <center>
+                        <a href="{{url('/')}}" class="btn btn-confirm btn-sm">
+                            {!! trans('laravel-user-verification::user-verification.verification_error_back_button') !!}
+                        </a>
                     </div>
                 </div>
             </div>

@@ -27,27 +27,27 @@ class ProjectController extends Controller {
 		return view('projects', compact('project_list'));
 	}
 
+	// returns projects that are public
+	public function guest() {
+		$projects = Project::public()->get();
+		return view('project.guest', compact('projects'));
+	}
+
 	// returns a single project using an ID
 	public function show($id) {
-
-		$project = DB::table('projects')->where('project_id', $id)->first();
-		$files = DB::table('files')->where('project_id', $id)->get();
-		
-		return view('project', compact('project', 'files'));
-
+		$project = Project::find($id);
+		return view('project', compact('project'));
 }
 	// stores a new project in warehousedb.projects
 	public function store() {
 		$this->validate(request(), [
 			'project_name' => 'required'
 		]);
-
 		$project = new Project;
 		$project->name = request('project_name');
 		$project->user_id = auth()->id();
 		$project->description = request('project_description');
 		$project->save();
-
 		return redirect('/projects');
 	}
 
@@ -55,6 +55,35 @@ class ProjectController extends Controller {
 	public function delete($id) {
 		DB::table('projects')->where('project_id', $id)->delete();
 		return redirect('/projects');
+	}
+
+	// set completeness depending on the current completeness
+	public function setCompleteness($id) {
+		$project = Project::find($id)->first();
+		if($project->complete == 1)
+			$project->complete = 0;
+		else
+			$project->complete = 1;
+		$project->save();
+		return back();
+	}
+
+	// set visibility depending on current project's visibility
+	public function setVisibility($id) {
+		$project = Project::find($id)->first();
+		if($project->public == 1)
+			$project->public = 0;
+		else
+			$project->public = 1;
+		$project->save();
+		return back();
+	}
+
+	public function changeName($id) {
+		$project = Project::find($id)->first();
+		$project->name = request('name');
+		$project->save();
+		return back();
 	}
 
 }

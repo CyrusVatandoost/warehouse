@@ -10,13 +10,14 @@
 
     <title>@yield('title')</title>
 
-    <link href="{{ asset('css/auth.css') }}" media="all" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="{{ asset('css/auth.css') }}" media="all" rel="stylesheet" type="text/css" />
+    
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="/welcome">WareHouse</a>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <a class="navbar-brand font-weight-bold" href="/welcome">WareHouse</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,10 +28,10 @@
               <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link top-navbar-item" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
+                        <a class="nav-link top-navbar-item" href="/register">Register</a>
                     </li>
                 @else
                     <li class="dropdown">

@@ -44,3 +44,5 @@ yarn-error.log
 public/storage/homepage1.jpg
 public/storage/homepage2.jpg
 public/storage/homepage3.jpg
+vendor/jrean/laravel-user-verification/
+composer.bat
