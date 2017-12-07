@@ -13,7 +13,6 @@
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/home">Home</a>
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/projects">Projects</a>
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/organization">Organization</a>
-      <li class="nav-item"><a class="nav-link top-navbar-item" href="">Messages</a>
       @endif
 
       <!-- if guest -->
