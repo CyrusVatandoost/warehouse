@@ -46,3 +46,5 @@ public/storage/homepage2.jpg
 public/storage/homepage3.jpg
 vendor/jrean/laravel-user-verification/
 composer.bat
+/public/avatars
+/public/1
