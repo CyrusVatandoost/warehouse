@@ -59,6 +59,11 @@
 @endsection
 
 @section('body')
+
+  @if(!empty(auth()->user()->admin))
+    <span class="badge badge-dark">Admin</span>
+  @endif
+
   <div class="banner">
     <div class="container">
       <div class="profile-pic"> 
