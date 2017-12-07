@@ -36,6 +36,8 @@
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 	// upload a file to the project
 	Route::post('/project/{project}/upload-file', 'FileController@store');
+	// delete a file from a project
+	Route::get('/project/{project}/delete-file/{file}', 'FileController@delete');
 
 // post
 	// remove a tag from a project

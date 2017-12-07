@@ -11,7 +11,7 @@
         {{ $file->name }}<br>
         <a href="{{ url($project->project_id.'/'.$file->name) }}" class="btn btn-primary">Download</a>
         <a href="#" class="btn btn-primary">Rename</a>
-        <a href="#" class="btn btn-danger">Delete</a>
+        <a href="/project/{{$project->project_id}}/delete-file/{{$file->file_id}}" class="btn btn-danger">Delete</a>
       </div>
     </div>
   @endforeach

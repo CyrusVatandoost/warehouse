@@ -25,4 +25,9 @@ class FileController extends Controller {
 		return back();
 	}
 
+	public function delete($project_id, $file_id) {
+		File::where('project_id', $project_id)->where('file_id', $file_id)->delete();
+		return back();
+	}
+
 }
