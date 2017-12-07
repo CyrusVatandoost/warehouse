@@ -98,3 +98,4 @@ Route::get('/admin', function () {return view('admin');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/search', function () {return view('search');});
 Route::get('/sample', function () {return view('sample');});
+Route::get('/notifications', function () {return view('notifications');});
