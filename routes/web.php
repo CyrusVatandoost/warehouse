@@ -36,10 +36,12 @@
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 	// upload a file to the project
 	Route::post('/project/{project}/upload-file', 'FileController@store');
-// remove a tag from a project
-Route::post('/project/{project}/remove-tag/{tag}', 'TagController@delete');
-// add a tag to a project
-Route::post('/project/{project}/add-tag', 'TagController@store');
+
+// post
+	// remove a tag from a project
+	Route::post('/project/{project}/remove-tag/{tag}', 'TagController@delete');
+	// add a tag to a project
+	Route::post('/project/{project}/add-tag', 'TagController@store');
 
 // announcement
 	//create an announcement
@@ -50,10 +52,10 @@ Route::post('/project/{project}/add-tag', 'TagController@store');
 	Route::get('/home', 'AnnouncementController@index');
 
 // login and register
-Auth::routes();
-Route::get('/account', 'HomeController@index')->name('account');
-Route::get('/account/edit', function () {return view('account.edit');});
-Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
+	Auth::routes();
+	Route::get('/account', 'HomeController@index')->name('account');
+	Route::get('/account/edit', function () {return view('account.edit');});
+	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
 
 //Messenger Routes
 Route::group(['prefix' => 'messages'], function () {
