@@ -34,6 +34,7 @@
         <li class="nav-item"><a class="nav-link top-navbar-item" href="{{ route('login') }}">Login</a>
         <li class="nav-item"><a class="nav-link top-navbar-item" href="{{ route('register') }}">Register</a>
       @else
+        <li class="nav-item"><a class="nav-link top-navbar-item" href="#"><i class="material-icons md-18 material-icons-mid">notifications</i></a>
         <li class="nav-item dropdown show">
           <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">{{ auth()->user()->first_name }}</a>
           <div class="dropdown-menu">
