@@ -5,7 +5,15 @@
 
 	<!-- list of files -->
   @foreach($project->files as $file)
-  	<p>{{ link_to_asset($project->project_id.'/'.$file->name) }}
+    <div class="card">
+      <img class="card-img-top" src="{{ asset($project->project_id.'/'.$file->name) }}" alt="Card image cap">
+      <div class="card-body">
+        {{ $file->name }}<br>
+        <a href="{{ url($project->project_id.'/'.$file->name) }}" class="btn btn-primary">Download</a>
+        <a href="#" class="btn btn-primary">Rename</a>
+        <a href="#" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
   @endforeach
 
   <p>
