@@ -54,7 +54,29 @@
 	@endforeach
 	<br>
 
-	
+	<h4>Positions: </h4>
+
+	<ul class="list-group">
+
+  	<!-- list of tags -->
+    @foreach($organization_positions as $position)
+	  	<li class="list-group-item">
+	  		<form class="form-inline" method="POST" action="/organization/{{$position->organization_position_id}}/remove-position">
+	  			{{ $position->name }}&nbsp;
+				{{ csrf_field() }}
+				<button type="submit" class="btn btn-outline-danger">&times;</button>
+			</form>
+	  @endforeach
+
+	  <!-- form to add tags -->
+	  <li class="list-group-item">
+	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-tag">
+				{{ csrf_field() }}
+			  <input class="form-control" type="text" id="tag_name" name="tag_name" placeholder="Add Tag">&nbsp;
+			  <button class="btn btn-primary" type="submit">Add</button>
+			</form>
+
+	</ul>
 
   @endsection
 
