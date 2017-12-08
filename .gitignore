@@ -48,3 +48,4 @@ vendor/jrean/laravel-user-verification/
 composer.bat
 /public/avatars
 /public/1
+/public/2
