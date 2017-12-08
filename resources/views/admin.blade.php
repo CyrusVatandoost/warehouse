@@ -26,6 +26,8 @@
 @section('left-sidenav')
   <p><a href="#modal-container-new-announcement" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Announcement</a></p>
   <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
+  <p><a href="#modal-container-select-featured-project/s" role="button" class="btn btn-primary btn-block" data-toggle="modal">Select Featured Project/s</a></p>
+  <p><a href="#modal-container-delete-account" role="button" class="btn btn-primary btn-block" data-toggle="modal">Delete an Account</a></p>
 @endsection
 
 @section('body')
@@ -36,11 +38,73 @@
 	@endforeach
 	<br>
 
+	<p>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>First name</th>
+					   <th>Last name</th>
+					   <th>Email</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
+
 	<h4>List of Admins:</h4>
 	@foreach($admins as $admin)
 		{{ $admin }}<br>
 	@endforeach
 	<br>
+
+	<p>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>First name</th>
+					   <th>Last name</th>
+					   <th>Email</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
 
 	<h4>List of Projects:</h4>
 	@foreach($projects as $project)
@@ -48,17 +112,80 @@
 	@endforeach
 	<br>
 
+<p>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>Project Name</th>
+					   <th>Date Created</th>
+					   <th>button</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
+
 	<h4>Project Archive:</h4>
 	@foreach($project_archives as $project)
 		{{ $project }}<br>
 	@endforeach
 	<br>
-
+  
+	<p>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>Project Name</th>
+					   <th>Date Archived</th>
+					   <th>button</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
+  
+  
 	<h4>Positions: </h4>
 
 	<ul class="list-group">
 
-  	<!-- list of tags -->
+  <!-- list of tags -->
     @foreach($organization_positions as $position)
 	  	<li class="list-group-item">
 	  		<form class="form-inline" method="POST" action="/organization/{{$position->organization_position_id}}/remove-position">

@@ -45,11 +45,13 @@
 @section('modals')
 	<!-- insert css styles here -->
   @include('modals.new_project')  
-  @include('modals.new_announcement')
+  @include('modals.announcement-new')
+  @include('modals.announcement-delete')
 @endsection
 
 <!-- left-sidenav -->
 @section('left-sidenav')
+  <p><a href="#modal-container-delete-announcement" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Announcement</a></p>
   <p><a href="#modal-container-new-announcement" class="btn btn-primary btn-block" role="button" data-toggle="modal">New Announcement</a></p>
   <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 @endsection
@@ -59,19 +61,25 @@
   <!-- insert body here -->  
   <br>
     <div class="container-fluid">
-      <div class="row"> 
         <div class="col-md-12">
           <div class="reviews">
             <div class="row blockquote review-item">
               <div class="col-md-3 text-center">
-                <img class="rounded-circle reviewer" src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}">
+
+                <!-- user profile pic -->
+                @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
+                  <img class="rounded-circle reviewer" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+                @else
+                  <img class="rounded-circle reviewer" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
+                @endif
+
                 <div class="caption small">
                   <small><a href="#"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
                 </div>
               </div>
               <div class="col-md-9">
                 <h3 class="display-4">{{ $announcement->name }}</h3>
-                <p class="display-12 review-date small">Posted {{ $announcement->created_at->diffForHumans() }}</p>
+                <p class="display-12 review-date small">Posted {{ $announcement->created_at->diffForHumans() }} (Expires on {{ $announcement->expires_on }})</p>
                 <div class="ratebox text-center" data-id="0" data-rating="5"></div>
                 <p class="review-text"> {{ $announcement->description }} </p>
               </div>                          
@@ -79,7 +87,6 @@
           </div>
         </div>
       </div>
-    </div>
 @endsection
 
 <!-- right-sidenav -->
