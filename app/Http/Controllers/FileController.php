@@ -19,13 +19,21 @@ class FileController extends Controller {
 		$file->name =  $input['name'];
 		$file->project_id = $project_id;
 		$file->save();
-
+ 
 		return back();
 	}
 
 	// this function deletes a file from the specified file_id and project_id
 	public function delete($project_id, $file_id) {
 		File::where('project_id', $project_id)->where('file_id', $file_id)->delete();
+		return back();
+	}
+
+	public function archive($project_id, $file_id) {
+		$file = File::find($file_id);
+		$file_archive = new FileArchive;
+		$file_archive->project_id = $file->project_id;
+		$file_archive->name = $file->name;
 		return back();
 	}
 
