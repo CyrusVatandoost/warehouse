@@ -23,7 +23,7 @@
           @endif
         </div>
       </div>
-      <div class="bio">
+      <div class="accountbio">
         <h2 class="heading-medium">{{ auth()->user()->first_name }} {{ auth()->user()->middle_initial }} {{ auth()->user()->last_name }}</h2>
         <h5 class="heading-small">TE<sup>3</sup>D Member</h5>
         <h6 class="heading-small">{{ auth()->user()->email }}</h6>

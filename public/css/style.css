@@ -158,6 +158,13 @@ padding: 15px 0;
   -ms-flex-direction: column;
   flex-direction: column;
 }
-.bio {
+.accountbio {
   margin-left: 40px;
+}
+.editbio{
+  width:100%;
+  display: block;
+}
+.uploadimage{
+  margin-left: 90px;
 }
