@@ -36,11 +36,73 @@
 	@endforeach
 	<br>
 
+	<p>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>First name</th>
+					   <th>Last name</th>
+					   <th>Email</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
+
 	<h4>List of Admins:</h4>
 	@foreach($admins as $admin)
 		{{ $admin }}<br>
 	@endforeach
 	<br>
+
+	<p>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>First name</th>
+					   <th>Last name</th>
+					   <th>Email</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
 
 	<h4>List of Projects:</h4>
 	@foreach($projects as $project)
@@ -48,12 +110,73 @@
 	@endforeach
 	<br>
 
+<p>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>Project Name</th>
+					   <th>Date Created</th>
+					   <th>button</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
+
 	<h4>Project Archive:</h4>
 	@foreach($project_archives as $project)
 		{{ $project }}<br>
 	@endforeach
 	<br>
 
+	<p>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>Project Name</th>
+					   <th>Date Archived</th>
+					   <th>button</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				    <tr>
+				      <td>sa</td>
+				      <td>mp</td>
+				      <td>le</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
   @endsection
 
 <!-- right-sidenav -->
