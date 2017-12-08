@@ -7,6 +7,7 @@ use App\User;
 use App\Admin;
 use App\Project;
 use App\ProjectArchive;
+use App\OrganizationPosition;
 
 class AdminController extends Controller{
    
@@ -15,7 +16,8 @@ class AdminController extends Controller{
   	$admins = Admin::get();
   	$projects = Project::get();
   	$project_archives = ProjectArchive::get();
-  	return view('admin', compact('users', 'admins', 'projects', 'project_archives'));
+  	$organization_positions = OrganizationPosition::get();
+  	return view('admin', compact('users', 'admins', 'projects', 'project_archives', 'organization_positions'));
   }
 
 }

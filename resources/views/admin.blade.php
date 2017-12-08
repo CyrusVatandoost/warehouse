@@ -148,7 +148,7 @@
 		{{ $project }}<br>
 	@endforeach
 	<br>
-
+  
 	<p>
 		<div class="table-responsive">   
 			<table class="table table-hover">
@@ -179,6 +179,37 @@
 			</table>
 		</div>
 	</p>
+  
+  
+	<h4>Positions: </h4>
+
+	<ul class="list-group">
+
+  <!-- list of tags -->
+    @foreach($organization_positions as $position)
+	  	<li class="list-group-item">
+	  		<form class="form-inline" method="POST" action="/organization/{{$position->organization_position_id}}/remove-position">
+	  			{{ $position->name }}&nbsp;
+				{{ csrf_field() }}
+				<button type="submit" class="btn btn-outline-danger">&times;</button>
+			</form>
+	  @endforeach
+
+	  <!-- form to add tags -->
+	  <li class="list-group-item">
+	  	<form class="form-inline" method="POST" action="/organization/add-position">
+				{{ csrf_field() }}
+			  <input class="form-control" type="text" id="tag_name" name="organization_id" placeholder="Organization ID">&nbsp;			<!-- Gets the "id" of the organization as Organization has not been fully implemented yet to get Name -->
+			  <input class="form-control" type="text" id="tag_name" name="position" placeholder="Position">&nbsp; <!-- Gets the name of the new position -->
+
+			  <button class="btn btn-primary" type="submit">Add</button>
+			</form>
+	</ul>
+
+	<p>
+	<div class="alert alert-warning" role="alert">
+	  To add a position, input the "organization_id" of the organization for now. You can check their "organization_id" by checking the database. This will be fixed in the future.
+	</div>
 
   @endsection
 

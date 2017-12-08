@@ -41,6 +41,12 @@
 	// delete a file from a project
 	Route::get('/project/{project}/delete-file/{file}', 'FileController@delete');
 
+//Positions
+	//remove a position
+	Route::post('/organization/{organization}/remove-position','OrganizationPositionController@delete');
+	//add a position
+	Route::post('/organization/add-position','OrganizationPositionController@store');
+
 // post
 	// remove a tag from a project
 	Route::post('/project/{project}/remove-tag/{tag}', 'TagController@delete');
