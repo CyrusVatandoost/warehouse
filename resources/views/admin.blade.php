@@ -18,7 +18,7 @@
 <!-- modals -->
 @section('modals')
 	<!-- insert css styles here -->
-  @include('modals.new_announcement')
+  @include('modals.announcement-new')
   @include('modals.new_project')
 @endsection
 
@@ -32,42 +32,30 @@
 
 @section('body')
 	
-	<h4>List of Users:</h4>
+	<h4>Users:</h4>
+	<div class="table-responsive">   
+		<table class="table table-hover">
+		    <thead class="thead-dark">
+		      <tr>
+		      	<th>User ID
+				  	<th>First name
+				  	<th>Middle Initial
+				  	<th>Last Name
+				  	<th>Email Address
+		    </thead>
+		    <tbody>
 	@foreach($users as $user)
-		{{ $user }}<br>
+    <tr>
+      <td>{{ $user->user_id }}
+      <td>{{ $user->first_name }}
+      <td>{{ $user->middle_initial }}
+      <td>{{ $user->last_name }}
+      <td>{{ $user->email }}
 	@endforeach
+			</tbody>
+		</table>
+	</div>
 	<br>
-
-	<p>
-		<div class="table-responsive">   
-			<table class="table table-hover">
-			    <thead class="thead-dark">
-			      <tr>
-					   <th>First name</th>
-					   <th>Last name</th>
-					   <th>Email</th>
-			       </tr>
-			    </thead>
-			    <tbody>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				</tbody>
-			</table>
-		</div>
-	</p>
 
 	<h4>List of Admins:</h4>
 	@foreach($admins as $admin)
