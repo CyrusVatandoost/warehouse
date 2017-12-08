@@ -1,6 +1,14 @@
 <!-- footer -->
+<style type="text/css">
+
+  .footer{
+    display: table;
+    background-color: #404040;
+  }
+</style>
+
 <footer class="footer">
-  <div class="container">
+  <div class="container-fluid">
     <center>
       <table class="footer-style small">
         <tr>
