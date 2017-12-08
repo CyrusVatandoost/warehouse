@@ -32,8 +32,9 @@
     @endif
     <form method="POST" action="/account/{{ auth()->user()->user_id }}/upload-avatar" enctype="multipart/form-data">
   	  {{ csrf_field() }}
+        <br>
         <label for="profile_pic">Upload Profile Pic</label><br>
-        <input type="file" class="form-control-file" id="profile_pic" name="profile_pic"><br>
+        <input type="file" class="form-control-file uploadimage" id="profile_pic" name="profile_pic"><br>
   		  <button type="submit" class="btn btn-primary">Upload</button><br>
     </form>
   </center>
