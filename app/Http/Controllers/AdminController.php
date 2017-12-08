@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Admin;
 use App\Project;
+use App\ProjectArchive;
 
 class AdminController extends Controller{
    
@@ -13,7 +14,8 @@ class AdminController extends Controller{
   	$users = User::get();
   	$admins = Admin::get();
   	$projects = Project::get();
-  	return view('admin', compact('users', 'admins', 'projects'));
+  	$project_archives = ProjectArchive::get();
+  	return view('admin', compact('users', 'admins', 'projects', 'project_archives'));
   }
 
 }

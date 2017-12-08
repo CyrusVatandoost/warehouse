@@ -48,6 +48,12 @@
 	@endforeach
 	<br>
 
+	<h4>Project Archive:</h4>
+	@foreach($project_archives as $project)
+		{{ $project }}<br>
+	@endforeach
+	<br>
+
   @endsection
 
 <!-- right-sidenav -->
