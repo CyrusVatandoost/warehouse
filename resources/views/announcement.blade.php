@@ -10,9 +10,34 @@
 @section('style')
 	<!-- insert css styles here -->
   <style type="text/css">
-    h1.blue {
-      color:#0066ff;
+    .reviews{
+      padding: 0;
+      margin: 0;
     }
+
+    .review-item{
+      background-color: white;
+      padding: 15px; 
+      margin-bottom: 5px;
+      border: 1px solid #cecece;
+    }
+
+    .review-item .review-date{
+      color: #cecece;
+    }
+    .review-item .review-text{
+      font-size: 16px;
+      font-weight: normal;
+      margin-top: 5px;
+      color: #343a40;
+    }
+
+    .review-item .reviewer{
+      width: 64px;
+      height: 64px;
+      border: 1px solid #cecece;
+    }
+
   </style>
 @endsection
 
@@ -33,16 +58,25 @@
 @section('body')
   <!-- insert body here -->  
   <br>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row"> 
-        <div class="col-lg-12"> 
-        
-            <h1 class="display-3 | blue">{{ $announcement->name }}</h1>
-            <p class="display-12">Posted {{ $announcement->created_at->diffForHumans() }} by {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </p>
-
-	        <div class="jumbotron">
-	            <p class="lead"> {{ $announcement->description }} </p>
-	        </div>
+        <div class="col-md-12">
+          <div class="reviews">
+            <div class="row blockquote review-item">
+              <div class="col-md-3 text-center">
+                <img class="rounded-circle reviewer" src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}">
+                <div class="caption small">
+                  <small><a href="#"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <h3 class="display-4">{{ $announcement->name }}</h3>
+                <p class="display-12 review-date small">Posted {{ $announcement->created_at->diffForHumans() }}</p>
+                <div class="ratebox text-center" data-id="0" data-rating="5"></div>
+                <p class="review-text"> {{ $announcement->description }} </p>
+              </div>                          
+            </div>  
+          </div>
         </div>
       </div>
     </div>

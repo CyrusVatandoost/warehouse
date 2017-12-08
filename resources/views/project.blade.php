@@ -26,8 +26,8 @@
 @endsection
 
 @section('left-sidenav')
-  <p><a href="#modal-container-delete-project" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Project</a></p>
-	@endsection
+  <p><a href="#modal-container-delete-project" role="button" class="btn btn-danger btn-left-nav btn-block" data-toggle="modal">Delete Project</a></p>
+@endsection
 
 @section('body')
 
@@ -54,19 +54,19 @@
 
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" href="#panel-abstract" data-toggle="tab">Abstract</a>
+        <a class="nav-link nav-link-tabs active" href="#panel-abstract" data-toggle="tab">Abstract</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#panel-files" data-toggle="tab">Files</a>
+        <a class="nav-link nav-link-tabs" href="#panel-files" data-toggle="tab">Files</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="#panel-progress" data-toggle="tab">Progress</a>
+        <a class="nav-link nav-link-tabs"  href="#panel-progress" data-toggle="tab">Progress</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="#panel-issues" data-toggle="tab">Issues</a>
+        <a class="nav-link nav-link-tabs"  href="#panel-issues" data-toggle="tab">Issues</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="#panel-settings" data-toggle="tab">Settings</a>
+        <a class="nav-link nav-link-tabs"  href="#panel-settings" data-toggle="tab">Settings</a>
       </li>
     </ul>
 
