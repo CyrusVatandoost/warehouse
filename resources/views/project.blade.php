@@ -44,6 +44,7 @@
 
   <br>
   
+  Status:
   @if($project->complete == 1)
     <span class="badge badge-success project-badge">Completed</span>
   @endif

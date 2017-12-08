@@ -1,6 +1,6 @@
 <div class="tab-pane active" id="panel-abstract">
   <br>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row"> 
         <div class="col-lg-12"> 
           <div class="jumbotron">
