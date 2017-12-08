@@ -48,7 +48,7 @@
     <div class="editbio">
       <div class="form-group">
         <label for="profile_bio">Edit your biography</label>
-        <textarea class="form-control" rows="3" name="profile_bio"></textarea>
+        <textarea class="form-control" rows="4" name="profile_bio" maxlength="500"> {{ auth()->user()->bio }} </textarea>
       </div>
 
       <button type="submit" class="btn btn-primary">Save Changes</button>
