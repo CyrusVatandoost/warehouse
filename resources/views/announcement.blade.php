@@ -64,7 +64,14 @@
           <div class="reviews">
             <div class="row blockquote review-item">
               <div class="col-md-3 text-center">
-                <img class="rounded-circle reviewer" src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}">
+
+                <!-- user profile pic -->
+                @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
+                  <img class="rounded-circle reviewer" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+                @else
+                  <img class="rounded-circle reviewer" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
+                @endif
+
                 <div class="caption small">
                   <small><a href="#"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
                 </div>

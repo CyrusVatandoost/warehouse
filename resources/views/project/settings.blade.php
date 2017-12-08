@@ -121,7 +121,7 @@
 
 	<p>
 	<div class="alert alert-warning" role="alert">
-	  To add a collaborator, input the "user_id" of the user for now. You can check their "user_id" by checking the database. This will be fixed in the future.
+	  To add a tag, input any tag you prefer or select a suggested tag.
 	</div>
 
 </div>

@@ -12,7 +12,7 @@ class FileController extends Controller {
 		$file = $upload->getClientOriginalName(); //Get Image Name
 		$extension = $upload->getClientOriginalExtension();  //Get Image Extension
 		$input['name'] = $file;
-    $destinationPath = public_path('/'.$project_id);
+    $destinationPath = public_path('/storage/'.$project_id);
     $upload->move($destinationPath, $input['name']);
 
 		$file = new File;

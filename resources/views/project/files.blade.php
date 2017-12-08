@@ -115,11 +115,11 @@
       <div class="row projects-no-gutters align-items-start">
         @foreach($project->files as $file)
           <div class="card file-card-size">
-            <img class="card-img-top file-img" src="{{ asset($project->project_id.'/'.$file->name) }}" alt="Card image cap">
+            <img class="card-img-top file-img" src="{{ asset('storage'.$project->project_id.'/'.$file->name) }}" alt="Card image cap">
             <div class="card-body">
               {{ $file->name }}
               <div class="file-buttons">
-                <span class="border border-secondary rounded custom-button"><a href="{{ url($project->project_id.'/'.$file->name) }}"><i class="material-icons material-icons-mid">file_download</i></a></span>
+                <span class="border border-secondary rounded custom-button"><a href="{{ url('storage/'.$project->project_id.'/'.$file->name) }}"><i class="material-icons material-icons-mid">file_download</i></a></span>
                 <span class="border border-secondary rounded custom-button"><a href="#" ><i class="material-icons material-icons-mid">edit</i></a></span>
                 <span class="border border-secondary rounded custom-button"><a href="/project/{{$project->project_id}}/delete-file/{{$file->file_id}}"><i class="material-icons material-icons-mid">delete</i></a></span>
               </div>

@@ -14,7 +14,7 @@ class UserController extends Controller {
 
     $image = $request->file('profile_pic');
     $input['name'] = $id.'.'.$image->getClientOriginalExtension();
-    $destinationPath = public_path('/avatars');
+    $destinationPath = public_path('/storage/avatars');
     $image->move($destinationPath, $input['name']);
 
     return back();

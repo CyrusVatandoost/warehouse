@@ -164,10 +164,9 @@ padding: 15px 0;
   -ms-flex-direction: column;
   flex-direction: column;
 }
-.bio {
+.accountbio {
   margin-left: 40px;
 }
-
 .custom-checkbox {
   min-height: 1rem;
   padding-left: 0;
@@ -220,3 +219,11 @@ padding: 15px 0;
   width:50px;
   word-wrap: break-word;
 }
+
+
+.editbio{
+  width:100%;
+  display: block;
+}
+.uploadimage{
+  margin-left: 90px;
