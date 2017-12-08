@@ -34,5 +34,10 @@ class User extends Authenticatable {
   public function admin() {
     return $this->belongsTo('App\Admin', 'user_id');
   }
+
+  public function organizationPosition() {
+    # code...
+    return $this->hasOne('App\OrganizationPositionUser','user_id');
+  }
     
 }
