@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Project;
+use App\ProjectArchive;
 
 class ProjectController extends Controller {
     
@@ -54,6 +55,19 @@ class ProjectController extends Controller {
 	// deletes a project using an id
 	public function delete($id) {
 		DB::table('projects')->where('project_id', $id)->delete();
+		return redirect('/projects');
+	}
+
+	public function archive($id) {
+		$project = Project::find($id);
+		$project_archive = new ProjectArchive;
+		$project_archive->name = $project->name;
+		$project_archive->user_id = $project->project_id;
+		$project_archive->description = $project->description;
+		$project_archive->complete = $project->complete;
+		$project_archive->public = $project->public;
+		$project_archive->save();
+		Project::find($id)->delete();
 		return redirect('/projects');
 	}
 

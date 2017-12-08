@@ -22,6 +22,8 @@
 	Route::get('/project/{project}', 'ProjectController@show');
 	// delete project
 	Route::get('/project/delete/{project}', 'ProjectController@delete');
+	// archive project
+	Route::get('/project/{project}/archive', 'ProjectController@archive');
 	// add file to project
 	Route::get('/project/add/file/{project}', 'FileController@store');
 	// set project as complete or incomplete
