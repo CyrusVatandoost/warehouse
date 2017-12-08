@@ -4,6 +4,7 @@
 
 @section('left-sidenav')
   <p><a href="/account/edit" class="btn btn-primary btn-block">Edit Profile</a></p>
+  <p><a href="/account/settings" class="btn btn-primary btn-block">Account Settings</a></p>
 @endsection
 
 @section('body')

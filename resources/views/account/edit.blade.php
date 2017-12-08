@@ -18,7 +18,8 @@
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-
+  <p><a href="/account/" class="btn btn-primary btn-block">My Account</a></p>
+  <p><a href="/account/settings" class="btn btn-primary btn-block">Account Settings</a></p>
 @endsection
 
 <!-- body -->
