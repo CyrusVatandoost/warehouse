@@ -31,8 +31,12 @@
           <h1 class="display-5"><span class="badge badge-info">{{ $announcement->created_at->format('d') }}</span></h1>    
           <h2 class="text-uppercase">{{ $announcement->created_at->format('M') }}</h2>    
         </div>
-        <div class="col-10">
-          <a href="/announcement/{{ $announcement->announcement_id }}"><h3 class="text-uppercase announcement-title"><strong> {{ $announcement->name }} </strong></h3></a>
+        <div class="col-10 limit">
+          <a href="/announcement/{{ $announcement->announcement_id }}">
+            <h3 class="text-uppercase announcement-title">
+            <strong> {{ $announcement->name }} </strong>
+            </h3>
+          </a>
           <p>  {{ $announcement->description }} </p>   
         </div>    
       </div>
