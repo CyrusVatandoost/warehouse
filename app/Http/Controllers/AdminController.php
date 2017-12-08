@@ -7,6 +7,7 @@ use App\User;
 use App\Admin;
 use App\Project;
 use App\ProjectArchive;
+use App\FileArchive;
 
 class AdminController extends Controller{
    
@@ -15,7 +16,8 @@ class AdminController extends Controller{
   	$admins = Admin::get();
   	$projects = Project::get();
   	$project_archives = ProjectArchive::get();
-  	return view('admin', compact('users', 'admins', 'projects', 'project_archives'));
+  	$file_archives = FileArchive::get();
+  	return view('admin', compact('users', 'admins', 'projects', 'project_archives', 'file_archives'));
   }
 
 }

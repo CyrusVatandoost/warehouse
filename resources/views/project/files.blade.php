@@ -20,6 +20,7 @@
         <a href="{{ url('storage/'.$project->project_id.'/'.$file->name) }}" class="btn btn-primary">Download</a>
         <a href="#" class="btn btn-primary">Rename</a>
         <a href="/project/{{$project->project_id}}/delete-file/{{$file->file_id}}" class="btn btn-danger">Delete</a>
+        <a href="/project/{{$project->project_id}}/file-archive/{{$file->file_id}}" class="btn btn-danger">Archive</a>
       </div>
     </div>
   @endforeach

@@ -180,6 +180,12 @@
 		</div>
 	</p>
 
+	<h4>File Archive:</h4>
+	@foreach($file_archives as $file)
+		{{ $file }}<br>
+	@endforeach
+	<br>
+
   @endsection
 
 <!-- right-sidenav -->

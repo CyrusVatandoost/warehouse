@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\File;
+use App\FileArchive;
 
 class FileController extends Controller {
 
@@ -29,11 +30,14 @@ class FileController extends Controller {
 		return back();
 	}
 
+	// this fuction archives a file from the specified file_id and project_id
 	public function archive($project_id, $file_id) {
 		$file = File::find($file_id);
 		$file_archive = new FileArchive;
 		$file_archive->project_id = $file->project_id;
 		$file_archive->name = $file->name;
+		$file_archive->save();
+		$file->delete();
 		return back();
 	}
 
