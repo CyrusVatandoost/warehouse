@@ -14,4 +14,14 @@ class OrganizationPositionController extends Controller
 			return back();
 
     }
+
+    public function store() {
+    	# code...
+
+    	$OrganizationPosition = new OrganizationPosition;
+    	$OrganizationPosition->organization_id = request('organization_id');
+    	$OrganizationPosition->name = request('position');
+    	$OrganizationPosition->save();
+    	return back();
+    }
 }

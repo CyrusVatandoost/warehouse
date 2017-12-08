@@ -70,13 +70,19 @@
 
 	  <!-- form to add tags -->
 	  <li class="list-group-item">
-	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-tag">
+	  	<form class="form-inline" method="POST" action="/organization/add-position">
 				{{ csrf_field() }}
-			  <input class="form-control" type="text" id="tag_name" name="tag_name" placeholder="Add Tag">&nbsp;
+			  <input class="form-control" type="text" id="tag_name" name="organization_id" placeholder="Organization ID">&nbsp;			<!-- Gets the "id" of the organization as Organization has not been fully implemented yet to get Name -->
+			  <input class="form-control" type="text" id="tag_name" name="position" placeholder="Position">&nbsp; <!-- Gets the name of the new position -->
+
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>
-
 	</ul>
+
+	<p>
+	<div class="alert alert-warning" role="alert">
+	  To add a position, input the "organization_id" of the organization for now. You can check their "organization_id" by checking the database. This will be fixed in the future.
+	</div>
 
   @endsection
 
