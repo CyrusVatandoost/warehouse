@@ -4,7 +4,7 @@
 
 @section('modals')
   @include('modals.new_project')
-  @include('modals.new_announcement')
+  @include('modals.announcement-new')
 @endsection
 
 <!-- left-sidenav -->
