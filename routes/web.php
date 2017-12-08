@@ -36,10 +36,14 @@
 	Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
 	// change the name of a project
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
+
+// file
 	// upload a file to the project
 	Route::post('/project/{project}/upload-file', 'FileController@store');
 	// delete a file from a project
 	Route::get('/project/{project}/delete-file/{file}', 'FileController@delete');
+	// archive a file
+	Route::get('/project/{project}/file-archive/{file}', 'FileController@archive');
 
 //Positions
 	//remove a position

@@ -199,6 +199,12 @@
 	  To add a position, input the "organization_id" of the organization for now. You can check their "organization_id" by checking the database. This will be fixed in the future.
 	</div>
 
+	<h4>File Archive:</h4>
+	@foreach($file_archives as $file)
+		{{ $file }}<br>
+	@endforeach
+	<br>
+
   @endsection
 
 <!-- right-sidenav -->
