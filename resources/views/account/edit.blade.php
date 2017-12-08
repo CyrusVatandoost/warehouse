@@ -35,6 +35,11 @@
     <input type="file" class="form-control-file" id="profile_pic" name="profile_pic">
 		<button type="submit" class="btn btn-primary">Upload</button>
 	</form>
+  <br>
+  <div class="form-group">
+     <label for="profile_bio">Edit your biography</label>
+      <textarea class="form-control" rows="3" name="profile_bio"></textarea>
+  </div>
 
 @endsection
 
