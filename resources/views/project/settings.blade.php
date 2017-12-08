@@ -1,3 +1,53 @@
+	<style type="text/css">
+.custom-checkbox {
+  min-height: 1rem;
+  padding-left: 0;
+  margin-right: 0;
+  cursor: pointer; 
+}
+  .custom-checkbox .custom-control-indicator {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 10px;
+    background-color: #818181;
+    border-radius: 15px;
+    margin-right: 10px;
+    -webkit-transition: background .3s ease;
+    transition: background .3s ease;
+    vertical-align: middle;
+    margin: 0 16px;
+    box-shadow: none; 
+  }
+    .custom-checkbox .custom-control-indicator:after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background-color: #f1f1f1;
+      border-radius: 21px;
+      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+      left: -2px;
+      top: -4px;
+      -webkit-transition: left .3s ease, background .3s ease, box-shadow .1s ease;
+      transition: left .3s ease, background .3s ease, box-shadow .1s ease; 
+    }
+  .custom-checkbox .custom-control-input:checked ~ .custom-control-indicator {
+    background-color: #84c7c1;
+    background-image: none;
+    box-shadow: none !important; 
+  }
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-indicator:after {
+      background-color: #84c7c1;
+      left: 15px; 
+    }
+  .custom-checkbox .custom-control-input:focus ~ .custom-control-indicator {
+    box-shadow: none !important; 
+  }
+	</style>
+
 	<div class="tab-pane" id="panel-settings">
 
 
@@ -21,17 +71,25 @@
 	      <p>
 		  <h4>Project Visibility</h4>
 			<!-- dropdown button to change project status -->
+			 <div class='row'>
+		     	<div class="col-sm-1"></div>
+		     	<div class="col-sm-1">Public</div>
+            	<div class="col-sm-2">
+		    	<label class="custom-control custom-checkbox">
 			    @if( $project->public == 1 )
-			    	<a href="/project/{{$project->project_id}}/change-visibility" class="btn btn-success btn-sm " role="button" aria-pressed="true">
-			    	Public
-			   		</a>
+                	<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')" />
+	                   
 			    @endif
 
 			    @if( $project->public == 0 )
-			    	<a href="/project/{{$project->project_id}}/change-visibility" class="btn btn-danger btn-sm " role="button" aria-pressed="true">
-			   		Private
-			   		</a>
+			    	<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')" checked/>
 			    @endif
+		         <span class="custom-control-indicator"></span>
+                    </label>
+            	</div>
+            	<div class="col-sm-1">Private</div>
+            	<div class="col-sm-7"></div>
+            </div>
 	  </div>
 	</div>
 

@@ -17,6 +17,10 @@ html{
     color: white !important;
 }
 
+.navbar-brand{
+  color: #8BC34A !important;
+}
+
 .login-block {
     float:left;
     width:100%;
@@ -44,7 +48,8 @@ html{
 }
 
 .login-sec {
-    padding: 50px 30px; position:relative;
+    padding: 50px 30px; 
+    position:relative;
 }
 
 .login-sec .copy-text {

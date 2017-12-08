@@ -97,3 +97,4 @@ function sendForm(){
   form.submit();
 }
 </script>
+@endsection

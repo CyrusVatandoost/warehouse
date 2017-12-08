@@ -8,13 +8,10 @@
     <div class="row verified-main">
         <div class="verified-main-center">
             <div class="panel panel-default">
-             <h2 class="verified-confirm-header text-center">Not Verified</h2>
-                <div class="panel-heading">
-                    Login Error
-                </div>
+             <h2 class="verified-confirm-header text-center">Login Error</h2>
                 <div class="panel-body">
                     <span class="help-block">
-                        <strong>User is not yet verified or does not exist.</strong>
+                        User is not yet verified or does not exist.
                     </span>
                     <div class="form-group">
                         <center>
