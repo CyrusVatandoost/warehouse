@@ -2,6 +2,12 @@
 
 	{{ csrf_field() }}
 
+	<!-- CSS for datepicker -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>  
+
 	<div class="modal fade" id="modal-container-new-announcement" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -17,6 +23,23 @@
 						<label for="announcement_name">Name</label>
 						<input type="text" class="form-control" id="announcement_name" name="announcement_name"/>
 					</div>
+      
+    				<div class="form-group">
+    					<label for="announcement_expiration">Expires on</label>
+					    <input class="date form-control" type="text" id="announcement_expiration" name="announcement_expiration" placeholder="YYYY-MM-DD">  
+					    <script type="text/javascript">  
+					    	var currentDate = new Date();
+							currentDate.setDate(currentDate.getDate() + 1);
+					        $('.date').datepicker({  
+					           	format: 'yyyy-mm-dd',
+						      	todayHighlight: true,
+						       	autoclose: true, 
+						       	startDate: new Date(), 
+
+					        });  
+					    </script>  
+    				</div>
+
 					<div class="form-group">
 						<label for="announcement_description">Description</label>
 						<textarea class="form-control" rows="3" name="announcement_description"></textarea>

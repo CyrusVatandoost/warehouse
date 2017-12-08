@@ -48,6 +48,8 @@ Route::post('/project/{project}/add-tag', 'TagController@store');
 	Route::get('/announcement/{announcement}', 'AnnouncementController@show');
 	//show all announcements
 	Route::get('/home', 'AnnouncementController@index');
+	//delete an announcement
+	Route::get('/announcement/delete/{announcement}', 'AnnouncementController@delete');
 
 // login and register
 Auth::routes();
