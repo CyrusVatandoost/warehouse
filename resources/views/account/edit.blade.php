@@ -24,17 +24,39 @@
 <!-- body -->
 @section('body')
   <!-- insert body here -->
-  @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
-    <img class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
-  @else
-    <img class="rounded-circle" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
-  @endif
-  <form method="POST" action="/account/{{ auth()->user()->user_id }}/upload-avatar" enctype="multipart/form-data">
-  	{{ csrf_field() }}
-    <label for="profile_pic">Upload Profile Pic</label>
-    <input type="file" class="form-control-file" id="profile_pic" name="profile_pic">
-		<button type="submit" class="btn btn-primary">Upload</button>
-	</form>
+  <center>
+    @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
+      <img class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+    @else
+      <img class="rounded-circle" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
+    @endif
+    <form method="POST" action="/account/{{ auth()->user()->user_id }}/upload-avatar" enctype="multipart/form-data">
+  	  {{ csrf_field() }}
+        <br>
+        <label for="profile_pic">Upload Profile Pic</label><br>
+        <input type="file" class="form-control-file uploadimage" id="profile_pic" name="profile_pic"><br>
+  		  <button type="submit" class="btn btn-primary">Upload</button><br>
+    </form>
+  </center>
+  <br>
+
+  <center>
+  <!-- save changes button -->
+  <form method="POST" action="/account/{{ auth()->user()->user_id }}/edit-bio">
+    {{ csrf_field() }}
+
+    <div class="editbio">
+      <div class="form-group">
+        <label for="profile_bio">Edit your biography</label>
+        <textarea class="form-control" rows="3" name="profile_bio"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+  </form>
+
+  <br><br>
+  </center>
 
 @endsection
 

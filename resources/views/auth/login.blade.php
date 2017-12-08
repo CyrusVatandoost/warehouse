@@ -3,6 +3,20 @@
 @section('title', 'Login')
 
 @section('content')
+<style type="text/css">
+    .carousel,.item,.active{
+   height:100%;
+ }
+.carousel-inner{
+    height:100%;
+}
+.carousel, .carousel img {
+  width: 100%;
+}
+.carousel img {
+  height: 100% !important;
+}
+</style>
 <section class="login-block">
 <div class="container login-container">
     <div class="row">

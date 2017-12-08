@@ -40,13 +40,13 @@
                     <div class="float-right small">
                         @if($project->public == 1)
                           <span class="badge badge-success">
-                            <i class="material-icons material-icons-md">lock_open</i>
+                            <i class="material-icons material-icons-mid">lock_open</i>
                           </span>
                         @endif
 
                         @if($project->public == 0)
                           <span class="badge badge-danger">
-                            <i class="material-icons material-icons-md">lock_outline</i>
+                            <i class="material-icons material-icons-mid">lock_outline</i>
                           </span>
                         @endif
                       

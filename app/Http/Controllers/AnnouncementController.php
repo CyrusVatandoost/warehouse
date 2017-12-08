@@ -20,7 +20,7 @@ class AnnouncementController extends Controller
     	return view('announcement', compact('announcement'));  //compact announcement = $announcement
     }
 
-    //stores a new project in warehousedb.announcements
+    //stores a new announcement in warehousedb.announcements
     public function store() {
     	$this->validate(request(), ['announcement_name'=>'required']);
     	$announcement = new Announcement;
@@ -28,8 +28,19 @@ class AnnouncementController extends Controller
     	$announcement->user_id = auth()->id();
     	$announcement->name = request('announcement_name');
     	$announcement->description = request('announcement_description');
+        $announcement->expires_on = request('announcement_expiration');
+        $announcement->visibility = 1;
 
     	$announcement->save();
     	return redirect('/home');
+    }
+
+    //deletes a single announcement using an ID
+    public function delete($id) {
+        $announcement = Announcement::find($id);
+        $announcement->visibility = 0;
+
+        $announcement->save();
+        return redirect('/home');
     }
 }

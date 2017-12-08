@@ -45,6 +45,12 @@
 	// archive a file
 	Route::get('/project/{project}/file-archive/{file}', 'FileController@archive');
 
+//Positions
+	//remove a position
+	Route::post('/organization/{organization}/remove-position','OrganizationPositionController@delete');
+	//add a position
+	Route::post('/organization/add-position','OrganizationPositionController@store');
+
 // post
 	// remove a tag from a project
 	Route::post('/project/{project}/remove-tag/{tag}', 'TagController@delete');
@@ -58,6 +64,8 @@
 	Route::get('/announcement/{announcement}', 'AnnouncementController@show');
 	//show all announcements
 	Route::get('/home', 'AnnouncementController@index');
+	//delete an announcement
+	Route::get('/announcement/delete/{announcement}', 'AnnouncementController@delete');
 
 // admin
 	Route::get('/admin', 'AdminController@show');
@@ -67,6 +75,7 @@
 	Route::get('/account', 'HomeController@index')->name('account');
 	Route::get('/account/edit', function () {return view('account.edit');});
 	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
+	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
 
 //Messenger Routes
 Route::group(['prefix' => 'messages'], function () {
