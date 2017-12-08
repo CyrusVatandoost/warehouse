@@ -4,16 +4,16 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectsTable extends Migration
-{
+class CreateProjectArchivesTable extends Migration {
+
   /**
    * Run the migrations.
    *
    * @return void
    */
   public function up() {
-    Schema::create('projects', function (Blueprint $table) {
-      $table->increments('project_id');
+    Schema::create('project_archives', function (Blueprint $table) {
+      $table->increments('project_arhive_id');
       $table->integer('user_id');
       $table->string('name');
       $table->boolean('complete')->default(false);
@@ -22,13 +22,15 @@ class CreateProjectsTable extends Migration
       $table->timestamps();
     });
   }
-  
+
   /**
    * Reverse the migrations.
    *
    * @return void
    */
-  public function down() {
-    Schema::dropIfExists('projects');
+  public function down()
+  {
+    Schema::dropIfExists('project_archives');
   }
+
 }

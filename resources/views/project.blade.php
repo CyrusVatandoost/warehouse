@@ -23,10 +23,12 @@
 
 @section('modals')
   @include('modals.delete_project')
+  @include('modals.project-archive')
 @endsection
 
 @section('left-sidenav')
   <p><a href="#modal-container-delete-project" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Project</a></p>
+  <p><a href="#modal-container-project-archive" role="button" class="btn btn-danger btn-block" data-toggle="modal">Archive Project</a></p>
 	@endsection
 
 @section('body')
