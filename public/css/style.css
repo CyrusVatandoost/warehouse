@@ -5,10 +5,37 @@ html {
 
 body {
   margin-bottom: 20vh; /* Margin bottom by footer height */
+  background: linear-gradient(white, #8BC34A 200%);
 }
 
 p{
   color: #404040;
+}
+
+.row-striped:nth-of-type(odd) {    
+background-color: #9CCC65;    
+border-left: 4px #D1D0CE solid;   
+}    
+  
+.row-striped:nth-of-type(even){    
+background-color: #D1D0CE;    
+border-left: 4px #9CCC65 solid;   
+}
+
+.row-striped {   
+padding: 15px 0;    
+}
+
+.color {
+  color:black;
+}
+
+.badge-info{
+  background-color: #404040;
+}
+
+.announcement-title{
+  color: #0C090A;
 }
 
 .page-title, .contact-title{
@@ -23,6 +50,12 @@ p{
   color: white !important;
 }
 
+.nav-link-tabs{
+  color: black !important;
+  background-color: transparent !important;
+  border-bottom: transparent !important;
+}
+
 .navbar-brand{
   color: #8BC34A !important;
 }
@@ -31,9 +64,10 @@ p{
   background-color: #788F9B !important;
 }
 
-.btn-announcement, .btn-project{
-  background-color: #546E7A !important;
-  color: white;
+.btn-primary{
+  background-color: #404040 !important;
+  border-color: #404040 !important;
+  color: white !important;
 }
 
 .btn-browse{
@@ -42,20 +76,20 @@ p{
 }
 
 .projects-no-gutters {
-      margin-right: 0;
-      margin-left: 0;
+  margin-right: 0;
+  margin-left: 0;
 
-      > .col,
-      > [class*="col-"] {
-        padding-right: 0;
-        padding-left: 0;
-      }
-    }
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 
 .projects-card-size{
-   margin-right: 10px; 
+   margin-right: 10px;
    margin-bottom: 10px;
-   width: 20em;
+   width: 30em;
 }
 
 .projects-link{
@@ -86,4 +120,44 @@ p{
 
 .footer-style a, .footer-style a:hover{
   color: white;
+}
+
+.banner .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 100%;
+  -webkit-transition: width .5s ease;
+  transition: width .5s ease;
+}
+.profile-pic {
+  height: 100%;
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;  
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.bio {
+  margin-left: 40px;
 }

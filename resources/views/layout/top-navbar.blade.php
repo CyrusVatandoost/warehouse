@@ -1,6 +1,6 @@
 <!-- top-navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-  <a class="navbar-brand" href="/welcome">WareHouse</a>
+  <a class="navbar-brand font-weight-bold" href="/welcome">WareHouse</a>
   <!-- button for mobile mode -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

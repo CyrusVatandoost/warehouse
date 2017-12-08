@@ -8,8 +8,8 @@
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-  <p><a href="#" class="btn btn-announcement btn-block">New Announcement</a></p>
-  <p><a href="#modal-container-new-project" role="button" class="btn btn-project btn-block" data-toggle="modal">New Project</a></p>
+  <p><a href="#modal-container-new-announcement" class="btn btn-primary btn-block" role="button" data-toggle="modal">New Announcement</a></p>
+  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 @endsection
 
 <!-- body -->
@@ -72,7 +72,6 @@
 				<div class="col-md-12 text-center">
         			<h1><small> TE<sup>3</sup>D Organization List </small></h1>
         		</div>
-
 				<div class="card card-group-size">
 					<div class="card-header" role="tab" id="headingTwo">
 				      <div class="mb-0">
@@ -121,7 +120,7 @@
 					    </div>
 					</div>
 				</div>
-
+				<p>
 			  	<div class="card card-group-size">
 					<div class="card-header" role="tab" id="headingThree">
 				    	<div class="mb-0">
@@ -214,6 +213,7 @@
 					    </div>
 				    </div>
 				</div>
+			</p>
         	</div>
 		</div>
 	</div>
