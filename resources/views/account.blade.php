@@ -16,10 +16,10 @@
     <div class="container">
       <div class="profile-pic"> 
         <div class="avatar">
-          @if (file_exists(public_path('avatars/'.auth()->user()->user_id.'.jpg')))
-            <img class="rounded-circle" src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+          @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
+            <img class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
           @else
-            <img class="rounded-circle" src="{{ asset('avatars/default.jpg') }}" height="256" width="256">
+            <img class="rounded-circle" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
           @endif
         </div>
       </div>

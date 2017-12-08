@@ -24,7 +24,11 @@
 <!-- body -->
 @section('body')
   <!-- insert body here -->
-  <img src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}" height="300" width="300">
+  @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
+    <img class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+  @else
+    <img class="rounded-circle" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
+  @endif
   <form method="POST" action="/account/{{ auth()->user()->user_id }}/upload-avatar" enctype="multipart/form-data">
   	{{ csrf_field() }}
     <label for="profile_pic">Upload Profile Pic</label>

@@ -14,10 +14,10 @@
   <p>
   @foreach($project->files as $file)
     <div class="card">
-      <img class="card-img-top" src="{{ asset($project->project_id.'/'.$file->name) }}" alt="Card image cap">
+      <img class="card-img-top" src="{{ asset('storage/'.$project->project_id.'/'.$file->name) }}" alt="Card image cap">
       <div class="card-body">
         {{ $file->name }}<br>
-        <a href="{{ url($project->project_id.'/'.$file->name) }}" class="btn btn-primary">Download</a>
+        <a href="{{ url('storage/'.$project->project_id.'/'.$file->name) }}" class="btn btn-primary">Download</a>
         <a href="#" class="btn btn-primary">Rename</a>
         <a href="/project/{{$project->project_id}}/delete-file/{{$file->file_id}}" class="btn btn-danger">Delete</a>
       </div>
