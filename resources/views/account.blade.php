@@ -68,7 +68,11 @@
     <div class="container">
       <div class="profile-pic"> 
         <div class="avatar">
-          <img src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}" height="300" width="300">
+          @if (file_exists(public_path('path/to/asset.png')))
+            <img src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+          @else
+            <img src="{{ asset('avatars/default.jpg') }}" height="256" width="256">
+          @endif
         </div>
       </div>
       <div class="bio">
