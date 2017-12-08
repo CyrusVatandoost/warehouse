@@ -18,6 +18,8 @@ class CreateAnnouncementsTable extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->text('description')->nullable(true);
+            $table->date('expires_on');
+            $table->boolean('visibility')->default(true);
             $table->timestamps();
         });
     }

@@ -54,6 +54,8 @@
 	Route::get('/announcement/{announcement}', 'AnnouncementController@show');
 	//show all announcements
 	Route::get('/home', 'AnnouncementController@index');
+	//delete an announcement
+	Route::get('/announcement/delete/{announcement}', 'AnnouncementController@delete');
 
 // admin
 	Route::get('/admin', 'AdminController@show');
