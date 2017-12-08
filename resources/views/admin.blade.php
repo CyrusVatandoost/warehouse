@@ -26,6 +26,8 @@
 @section('left-sidenav')
   <p><a href="#modal-container-new-announcement" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Announcement</a></p>
   <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
+  <p><a href="#modal-container-select-featured-project/s" role="button" class="btn btn-primary btn-block" data-toggle="modal">Select Featured Project/s</a></p>
+  <p><a href="#modal-container-delete-account" role="button" class="btn btn-primary btn-block" data-toggle="modal">Delete an Account</a></p>
 @endsection
 
 @section('body')
@@ -177,6 +179,7 @@
 			</table>
 		</div>
 	</p>
+
   @endsection
 
 <!-- right-sidenav -->
