@@ -40,13 +40,13 @@
   <br>
 
   <center>
-  <div class="bio">
+  <div class="editbio">
     <div class="form-group">
       <label for="profile_bio">Edit your biography</label>
-      <textarea class="form-control" rows="3" name="profile_bio"></textarea><br>
+      <textarea class="form-control" rows="3" name="profile_bio"></textarea>
     </div>
   </div>
-  <a href=""><button type="submit" class="btn btn-primary">Save Changes</button></a><br>
+  <a href=""><button type="submit" class="btn btn-primary">Save Changes</button></a><br><br>
   </center>
 
 @endsection
