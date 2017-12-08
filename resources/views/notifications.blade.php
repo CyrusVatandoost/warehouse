@@ -5,9 +5,9 @@
 @extends('layout.app')
 
 <!-- title at tab -->
-@section('title', 'Admin')
+@section('title', 'Notifications')
 <!-- title at body -->
-@section('page-title', 'Admin')
+@section('page-title', 'Notifications')
 
 <!-- css styles -->
 @section('style')
@@ -18,37 +18,19 @@
 <!-- modals -->
 @section('modals')
 	<!-- insert css styles here -->
-  @include('modals.new_announcement')
   @include('modals.new_project')
 @endsection
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-  <p><a href="#modal-container-new-announcement" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Announcement</a></p>
+  <p><a href="#" class="btn btn-primary btn-block">New Announcement</a></p>
   <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
 @endsection
 
+<!-- body -->
 @section('body')
-	
-	<h4>List of Users:</h4>
-	@foreach($users as $user)
-		{{ $user }}<br>
-	@endforeach
-	<br>
-
-	<h4>List of Admins:</h4>
-	@foreach($admins as $admin)
-		{{ $admin }}<br>
-	@endforeach
-	<br>
-
-	<h4>List of Projects:</h4>
-	@foreach($projects as $project)
-		{{ $project }}<br>
-	@endforeach
-	<br>
-
-  @endsection
+  <!-- insert body here -->  
+@endsection
 
 <!-- right-sidenav -->
 @section('right-sidenav')

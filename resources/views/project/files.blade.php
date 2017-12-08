@@ -1,9 +1,17 @@
 <div class="tab-pane" id="panel-files">
 
   @include('modals.new_file')
-	<p>
+
+  <p>
+  <!-- add file button -->
+   <form method="POST" action="/project/{{ $project->project_id }}/upload-file" enctype="multipart/form-data">
+    {{ csrf_field() }}
+    <input type="file" class="form-control-file" id="file" name="file">
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
 
 	<!-- list of files -->
+  <p>
   @foreach($project->files as $file)
     <div class="card">
       <img class="card-img-top" src="{{ asset($project->project_id.'/'.$file->name) }}" alt="Card image cap">
@@ -15,12 +23,4 @@
       </div>
     </div>
   @endforeach
-
-  <p>
-  <!-- add file button -->
-   <form method="POST" action="/project/{{ $project->project_id }}/upload-file" enctype="multipart/form-data">
-  	{{ csrf_field() }}
-    <input type="file" class="form-control-file" id="file" name="file">
-		<button type="submit" class="btn btn-primary">Upload</button>
-	</form>
 </div>

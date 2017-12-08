@@ -13,13 +13,17 @@
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/home">Home</a>
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/projects">Projects</a>
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/organization">Organization</a>
-      <li class="nav-item"><a class="nav-link top-navbar-item" href="/messages">Messages</a>
       @endif
 
       <!-- if guest -->
       @if(!Auth::check())
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/projects/public">Projects</a>
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/contact">Contact Us</a>
+      @endif
+
+      <!-- if user is an admin -->
+      @if(!empty(auth()->user()->admin))
+      <li class="nav-item"><a class="nav-link top-navbar-item" href="/admin">Dashboard</a>
       @endif
       
     </ul>
@@ -30,6 +34,10 @@
         <li class="nav-item"><a class="nav-link top-navbar-item" href="{{ route('login') }}">Login</a>
         <li class="nav-item"><a class="nav-link top-navbar-item" href="{{ route('register') }}">Register</a>
       @else
+        <!-- messages -->
+        <li class="nav-item"><a class="nav-link top-navbar-item" href="/messages"><i class="material-icons md-18 material-icons-mid">email</i></a>
+        <!-- notifications -->
+        <li class="nav-item"><a class="nav-link top-navbar-item" href="/notifications"><i class="material-icons md-18 material-icons-mid">notifications</i></a>
         <li class="nav-item dropdown show">
           <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">{{ auth()->user()->first_name }}</a>
           <div class="dropdown-menu">

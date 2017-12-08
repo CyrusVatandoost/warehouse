@@ -53,6 +53,9 @@
 	//show all announcements
 	Route::get('/home', 'AnnouncementController@index');
 
+// admin
+	Route::get('/admin', 'AdminController@show');
+
 // login and register
 	Auth::routes();
 	Route::get('/account', 'HomeController@index')->name('account');
@@ -90,11 +93,10 @@ Route::get('/successverification', function() {
 // to be shortened
 Route::get('/', function () {return view('welcome');});
 Route::get('/welcome', function () {return view('welcome');});
-//Route::get('/home', function () {return view('home');});
 Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/announcement', function () {return view('announcement');});
-Route::get('/admin', function () {return view('admin');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/search', function () {return view('search');});
 Route::get('/sample', function () {return view('sample');});
+Route::get('/notifications', function () {return view('notifications');});

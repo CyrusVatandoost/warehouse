@@ -8,9 +8,7 @@ use App\File;
 class FileController extends Controller {
 
 	public function store(Request $request, $project_id) {
-
 		$upload = $request->file('file');
-
 		$file = $upload->getClientOriginalName(); //Get Image Name
 		$extension = $upload->getClientOriginalExtension();  //Get Image Extension
 		$input['name'] = $file;
@@ -25,6 +23,7 @@ class FileController extends Controller {
 		return back();
 	}
 
+	// this function deletes a file from the specified file_id and project_id
 	public function delete($project_id, $file_id) {
 		File::where('project_id', $project_id)->where('file_id', $file_id)->delete();
 		return back();
