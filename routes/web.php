@@ -65,6 +65,7 @@
 	Route::get('/account', 'HomeController@index')->name('account');
 	Route::get('/account/edit', function () {return view('account.edit');});
 	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
+	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
 
 //Messenger Routes
 Route::group(['prefix' => 'messages'], function () {

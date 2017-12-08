@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration {
     $table->string('user_position', 32)->nullable();
     $table->string('email', 320);
     $table->string('password', 64);
+    $table->text('bio')->nullable(true);
     $table->boolean('verified')->default(false);
     $table->string('verification_token')->nullable();
 

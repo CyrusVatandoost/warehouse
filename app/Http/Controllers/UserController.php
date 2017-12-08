@@ -18,6 +18,15 @@ class UserController extends Controller {
     $image->move($destinationPath, $input['name']);
 
     return back();
-  }
-  
+  	}
+
+  	public function updateBio($id) {
+  		$user = User::find($id);
+
+  		$user->bio = request('profile_bio');
+
+  		$user->save();
+  		return redirect ('/account');
+  	}
+   
 }
