@@ -29,4 +29,8 @@ class UserController extends Controller {
   		return redirect ('/account');
   	}
    
+    public function viewProfile($id) {
+      $profile = User::find($id);
+      return view('profile', compact($profile));
+    }
 }
