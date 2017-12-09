@@ -122,6 +122,7 @@
                 <span class="border border-secondary rounded custom-button"><a href="{{ url('storage/'.$project->project_id.'/'.$file->name) }}"><i class="material-icons material-icons-mid">file_download</i></a></span>
                 <span class="border border-secondary rounded custom-button"><a href="#" ><i class="material-icons material-icons-mid">edit</i></a></span>
                 <span class="border border-secondary rounded custom-button"><a href="/project/{{$project->project_id}}/delete-file/{{$file->file_id}}"><i class="material-icons material-icons-mid">delete</i></a></span>
+                <span class="border border-secondary rounded custom-button"><a href="/project/{{$project->project_id}}/file-archive/{{$file->file_id}}" class="btn btn-danger">Archive</a>
               </div>
             </div>
           </div>

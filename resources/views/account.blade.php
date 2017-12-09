@@ -4,6 +4,7 @@
 
 @section('left-sidenav')
   <p><a href="/account/edit" class="btn btn-primary btn-block">Edit Profile</a></p>
+  <p><a href="/account/settings" class="btn btn-primary btn-block">Account Settings</a></p>
 @endsection
 
 @section('body')
@@ -27,7 +28,7 @@
         <h2 class="heading-medium">{{ auth()->user()->first_name }} {{ auth()->user()->middle_initial }} {{ auth()->user()->last_name }}</h2>
         <h5 class="heading-small">TE<sup>3</sup>D Member</h5>
         <h6 class="heading-small">{{ auth()->user()->email }}</h6>
-        <p class="body-small">Hi I'm {{ auth()->user()->first_name }} and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
+        <p class="body-small">{{ auth()->user()->bio }}</p>
     </div>
   </div>
 </div>

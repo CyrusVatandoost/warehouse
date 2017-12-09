@@ -18,7 +18,8 @@
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-
+  <p><a href="/account/" class="btn btn-primary btn-block">My Account</a></p>
+  <p><a href="/account/settings" class="btn btn-primary btn-block">Account Settings</a></p>
 @endsection
 
 <!-- body -->
@@ -41,13 +42,21 @@
   <br>
 
   <center>
-  <div class="editbio">
-    <div class="form-group">
-      <label for="profile_bio">Edit your biography</label>
-      <textarea class="form-control" rows="3" name="profile_bio"></textarea>
+  <!-- save changes button -->
+  <form method="POST" action="/account/{{ auth()->user()->user_id }}/edit-bio">
+    {{ csrf_field() }}
+
+    <div class="editbio">
+      <div class="form-group">
+        <label for="profile_bio">Edit your biography</label>
+        <textarea class="form-control" rows="4" name="profile_bio" maxlength="500"> {{ auth()->user()->bio }} </textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save Changes</button>
     </div>
-  </div>
-  <a href=""><button type="submit" class="btn btn-primary">Save Changes</button></a><br><br>
+  </form>
+
+  <br><br>
   </center>
 
 @endsection

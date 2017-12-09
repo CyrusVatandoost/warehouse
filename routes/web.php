@@ -36,10 +36,14 @@
 	Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
 	// change the name of a project
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
+
+// file
 	// upload a file to the project
 	Route::post('/project/{project}/upload-file', 'FileController@store');
 	// delete a file from a project
 	Route::get('/project/{project}/delete-file/{file}', 'FileController@delete');
+	// archive a file
+	Route::get('/project/{project}/file-archive/{file}', 'FileController@archive');
 
 //Positions
 	//remove a position
@@ -71,7 +75,10 @@
 	Auth::routes();
 	Route::get('/account', 'HomeController@index')->name('account');
 	Route::get('/account/edit', function () {return view('account.edit');});
+	Route::get('/account/settings', function() {return view('account.settings');});
 	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
+	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
+	Route::post('/account/{user}/settings', 'UserController@updatePersonalInfo');
 
 //Messenger Routes
 Route::group(['prefix' => 'messages'], function () {

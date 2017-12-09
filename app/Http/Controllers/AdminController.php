@@ -9,6 +9,7 @@ use App\User;
 use App\Admin;
 use App\Project;
 use App\ProjectArchive;
+use App\FileArchive;
 use App\OrganizationPosition;
 use App\ApprovedMail;
 class AdminController extends Controller{
@@ -18,12 +19,13 @@ class AdminController extends Controller{
   	$admins = Admin::get();
   	$projects = Project::get();
   	$project_archives = ProjectArchive::get();
+  	$file_archives = FileArchive::get();
   	$organization_positions = OrganizationPosition::get();
   	$waitlists = DB::table('waitlist')
             ->join('users', 'users.user_id', '=', 'waitlist.user_id')
             ->select('waitlist.user_id', 'users.first_name', 'users.middle_initial', 'users.last_name', 'users.email')
             ->get();
-  	return view('admin', compact('users', 'admins', 'projects', 'project_archives', 'organization_positions', 'waitlists'));
+  	return view('admin', compact('users', 'admins', 'projects', 'project_archives', 'file_archives', 'organization_positions', 'waitlists'));
   }
 
   public function approveUser($id, $email){
