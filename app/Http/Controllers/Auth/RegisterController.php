@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
+use Jrean\UserVerification\Facades\UserVerification as UserVerificationFacade;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
@@ -116,5 +118,38 @@ class RegisterController extends Controller
       return $this->registered($request, $user)
                     ?: HomeController::emailSent();
       }
+
+      /**
+     * Handle the user verification.
+     *
+     * @param  string  $token
+     * @return \Illuminate\Http\Response
+     */
+    public function getVerification(Request $request, $token)
+    {
+        if (! $this->validateRequest($request)) {
+            return redirect($this->redirectIfVerificationFails());
+        }
+
+        try {
+            $user = UserVerificationFacade::process($request->input('email'), $token, $this->userTable());
+        } catch (UserNotFoundException $e) {
+            return redirect($this->redirectIfVerificationFails());
+        } catch (UserIsVerifiedException $e) {
+            return redirect($this->redirectIfVerified());
+        } catch (TokenMismatchException $e) {
+            return redirect($this->redirectIfVerificationFails());
+        }
+
+        if (config('user-verification.auto-login') === true) {
+            auth()->loginUsingId($user->id);
+        }
+
+        DB::table('waitlist')->insert(
+            ['user_id' => $user->user_id]
+        );
+
+        return redirect($this->redirectAfterVerification());
+    }
 
 }

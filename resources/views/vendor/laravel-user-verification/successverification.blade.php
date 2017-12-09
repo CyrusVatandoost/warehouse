@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 <!-- Main Content -->
-@section('content')
+@section('body')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -9,7 +9,7 @@
                 <div class="panel-heading">Success!</div>
                 <div class="panel-body">
                     <span class="help-block">
-                        <strong>This user has been successfully verified. Please notify the user about the verification.</strong>
+                        <strong>Email verification success! Your account is now waitlisted for approval by an admin, we will notify you once your account has been approved.</strong>
                     </span>
                     <div class="form-group">
                         <div class="col-md-12">

@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -45,12 +46,22 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'verified' => 1])) {
-            // Authentication passed...
-            return redirect()->intended('home');
+        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+             if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'verified' => 1])) {
+                $userWaitlist = DB::table('waitlist')->where('user_id', '=', request('user_id'))->first();
+                if($userWaitlist == null){
+                    return redirect()->intended('home');
+                }
+                else{
+                    return HomeController::notApproved();
+                }
+             }
+             else{
+                return HomeController::notVerified();
+             }
         }
         else{
-            return HomeController::notVerified();
+            return HomeController::wrongLogin();
         }
     }
 }

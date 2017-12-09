@@ -65,6 +65,7 @@
 
 // admin
 	Route::get('/admin', 'AdminController@show');
+	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
 
 // login and register
 	Auth::routes();

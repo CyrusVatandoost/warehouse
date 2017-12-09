@@ -6,10 +6,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Not Verified</div>
+                <div class="panel-heading">Under Approval</div>
                 <div class="panel-body">
                     <span class="help-block">
-                        <strong>Email is not yet verified, please check your email.</strong>
+                        <strong>Your account is pending approval from the admin, we will notify you if your account has been approved.</strong>
                     </span>
                     <div class="form-group">
                         <div class="col-md-12">
