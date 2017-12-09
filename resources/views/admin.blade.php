@@ -58,11 +58,6 @@
 	<br>
 
 	<h4>List of Admins:</h4>
-	@foreach($admins as $admin)
-		{{ $admin }}<br>
-	@endforeach
-	<br>
-
 	<p>
 		<div class="table-responsive">   
 			<table class="table table-hover">
@@ -74,32 +69,20 @@
 			       </tr>
 			    </thead>
 			    <tbody>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
+			    	@foreach($admins as $admin)
+						<br>
+				    	<tr>
+				      	<td>{{ $admin->user->first_name }}</td>
+				      	<td>{{ $admin->user->last_name }}</td>
+				      	<td>{{ $admin->user->email }}</td>
+				    	</tr>
+				    	@endforeach
 				</tbody>
 			</table>
 		</div>
 	</p>
 
 	<h4>List of Projects:</h4>
-	@foreach($projects as $project)
-		{{ $project }}<br>
-	@endforeach
-	<br>
-
 <p>
 		<div class="table-responsive">   
 			<table class="table table-hover">
@@ -107,25 +90,20 @@
 			      <tr>
 					   <th>Project Name</th>
 					   <th>Date Created</th>
-					   <th>button</th>
+					   <th>Date Updated</th>
+					   <th></th>
 			       </tr>
 			    </thead>
 			    <tbody>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
+					@foreach($projects as $project)
+						<br>
+				    	<tr>
+				      	<td>{{ $project->name }}</td>
+				      	<td>{{ $project->created_at}}</td>
+				      	<td>{{ $project->updated_at}}</td>
+				      	<td><a href="/project/{{$project->project_id}}"><button class="btn btn-primary" >View</button></a></td>
+				    	</tr>
+				    @endforeach
 				</tbody>
 			</table>
 		</div>
