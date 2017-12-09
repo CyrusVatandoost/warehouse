@@ -110,9 +110,6 @@
 	</p>
 
 	<h4>Project Archive:</h4>
-	@foreach($project_archives as $project)
-		{{ $project }}<br>
-	@endforeach
 	<br>
   
 	<p>
@@ -126,21 +123,13 @@
 			       </tr>
 			    </thead>
 			    <tbody>
+			  		@foreach($project_archives as $project)
 				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
+				      <td>{{$project->name}}</td>
+				      <td>{{$project->updated_at}}</td>
+				      <td><a href="/project/{{$project->project_id}}"><button class="btn btn-primary" >View</button></a></td>
 				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
+				    @endforeach
 				</tbody>
 			</table>
 		</div>
