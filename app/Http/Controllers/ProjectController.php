@@ -212,7 +212,38 @@ class ProjectController extends Controller {
         	->orwhere('users.email', 'like', '%'.self::$phrase.'%')
         	->get();
 
-        return view('search', compact('projects', 'searched', 'usersresults'));
+        $tags =  DB::table('tags')
+        	->select('tag_id', 'name')
+        	->get();
+
+
+        return view('search', compact('projects', 'searched', 'usersresults', 'tags'));
+	}
+
+	public function getProjectsByTag(){
+		$input = Input::all();
+		$tag = $input['tag'];
+		$searched = self::$phrase;
+		
+		$projects = DB::table('projects')
+			->join('project_tags', 'project_tags.project_id', '=', 'projects.project_id')
+			->join('users', 'users.user_id', '=', 'projects.user_id')
+			->select('users.first_name AS username', 'projects.project_id AS pID', 'projects.name AS pName', 'projects.description', 'projects.public', 'projects.complete')
+			->where('project_tags.tag_id', '=', $tag)
+			->get();
+
+		$tags =  DB::table('tags')
+        	->select('tag_id', 'name')
+        	->get();
+
+        $usersresults = DB::table('users')
+        	->select('users.user_id','users.first_name', 'users.last_name', 'users.email')
+        	->where('users.first_name', 'like', '%'.self::$phrase.'%')
+        	->orwhere('users.last_name', 'like', '%'.self::$phrase.'%')
+        	->orwhere('users.email', 'like', '%'.self::$phrase.'%')
+        	->get();
+
+		return view('search', compact('projects', 'searched', 'usersresults', 'tags'));
 	}
 
 	public function storeAbstract($id) {
