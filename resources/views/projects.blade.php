@@ -33,9 +33,9 @@
             <div class="col-md-auto">
               <div class="card projects-card-size">
                 <div class="card-block">
-                  <h4 class="card-header bg-dark" style="padding-left: 10px;">
+                  <h4 class="card-header bg-dark" style="padding-left: 10px; padding-top: 20px; padding-bottom: 0;">
                     <a href="{{ url('project') }}/{{ $project->project_id }}">
-                      <p class="limit-header text-white" style="width:90%;"> {{ $project->name }} </p>
+                      <p class="limit-header text-white"> {{ $project->name }} </p>
                     </a>
                     <div class="float-right small">
                         @if($project->public == 1)
@@ -61,8 +61,7 @@
                     <p class="card-text limit">{{ $project->description }}</p>
                   </div>
                   <div class="row">
-                    <div class="col text-center small p-2" style="position: absolute;
-    bottom: 0;">
+                    <div class="col text-center small p-2" style="position: absolute; bottom: 0;">
                       <p>
                         Author: <a href="#">{{ $project->user->first_name }}</a>
                         |
@@ -98,9 +97,9 @@
                 <div class="col-md-auto">
                 <div class="card projects-card-size">
                 <div class="card-block">
-                  <h4 class="card-header bg-dark" style="padding-left: 10px;">
+                  <h4 class="card-header bg-dark"  style="padding-left: 10px; padding-top: 20px; padding-bottom: 0;">
                     <a class="text-white" href="{{ url('project') }}/{{ $project->project_id }}">
-                      {{ $project->name }}
+                      <p class="limit-header text-white">{{ $project->name }}</p>
                     </a>
                     <div class="float-right small">
                         @if($project->public == 1)
@@ -126,7 +125,7 @@
                     <p class="card-text">{{ $project->description }}</p>
                   </div>
                   <div class="row">
-                    <div class="col text-center small p-2">
+                    <div class="col text-center small p-2" style="position: absolute; bottom: 0;">
                       <p>
                         Author: <a href="#">{{ $project->user->first_name }}</a>
                         |

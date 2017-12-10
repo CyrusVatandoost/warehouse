@@ -231,7 +231,8 @@ padding: 15px 0;
   text-overflow: ellipsis;
   width: auto;
   display: inline-block;
-  overflow: hidden
+  overflow: hidden;
+  width:90%
 }
 
 .limit-header-announcement{
