@@ -28,8 +28,8 @@
 	Route::get('/project/add/file/{project}', 'FileController@store');
 	// set project as complete or incomplete
 	Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
-  	// set project's visibility
-  	Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
+	// set project's visibility
+	Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
 	// add a collaborator to a project
 	Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
 	// remove a collaborator from a project
@@ -38,9 +38,10 @@
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 	
 	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
-
 	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
 	Route::post('/search/filtertag', 'ProjectController@getProjectsByTag');
+	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
+
 // file
 	// upload a file to the project
 	Route::post('/project/{project}/upload-file', 'FileController@store');
@@ -73,24 +74,33 @@
 
 // admin
 	Route::get('/admin', 'AdminController@show');
+	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
+	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
+	Route::post('/admin/delete', 'AdminController@delete');
+	Route::post('/admin/store','AdminController@store');
+	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
+
+// archive
+	Route::get('/admin/file-archive', 'ArchiveController@files');
+	Route::get('/admin/logs', 'LogController@index');
 
 // login and register
 	Auth::routes();
 	Route::get('/account', 'HomeController@index')->name('account');
 	Route::get('/account/edit', function () {return view('account.edit');});
-	Route::get('/account/settings', function() {return view('account.settings');});
+	Route::get(' /account/settings', function() {return view('account.settings');});
 	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
 	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
 	Route::post('/account/{user}/settings', 'UserController@updatePersonalInfo');
 
 //Messenger Routes
 Route::group(['prefix' => 'messages'], function () {
-    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
-    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
-    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+  Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+  Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+  Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+  Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+  Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 
 //Auto Complete Routes
@@ -110,7 +120,9 @@ Route::get('/projects', 'HomeController@projects')->name('projects');
 Route::get('/successverification', function() {
 	return view('vendor.laravel-user-verification.successverification');
 });
-//Route::group(['middleware' => ['isVerified']], function ()) 
+
+Route::post('/project/{project}/abstract-edit', 'EditorController@edit');
+Route::post('/project/{project}/abstract-update', 'EditorController@update');
 
 // to be shortened
 Route::get('/', function () {return view('welcome');});

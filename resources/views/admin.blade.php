@@ -24,10 +24,12 @@
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-  <p><a href="#modal-container-new-announcement" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Announcement</a></p>
-  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
+  <!-- <p><a href="#modal-container-new-announcement" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Announcement</a></p>
+  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p> -->
   <p><a href="#modal-container-select-featured-project/s" role="button" class="btn btn-primary btn-block" data-toggle="modal">Select Featured Project/s</a></p>
-  <p><a href="/admin/archive" role="button" class="btn btn-primary btn-block">Archive</a></p>
+  <p><a href="/admin/file-archive" role="button" class="btn btn-primary btn-block">File Archive</a></p>
+  <p><a href="/admin/logs" class="btn btn-primary btn-block">View Logs</a></p>
+  <p><a href="#modal-container-delete-account" role="button" class="btn btn-primary btn-block" data-toggle="modal">Delete an Account</a></p>
 @endsection
 
 @section('body')
@@ -54,6 +56,14 @@
 	@endforeach
 			</tbody>
 		</table>
+		<form class="form-inline" method="POST" action="/admin/delete">
+				{{ csrf_field() }}
+			  <!-- Gets the "id" of the user as User has not been fully implemented yet to get Name -->
+			  <h5>Delete an Account:<h5>&nbsp; <!-- Add Admins -->
+			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="User ID">&nbsp;
+			  <!-- Gets the name of the new position -->
+			  <button class="btn btn-primary" type="submit">Delete</button>
+			</form>
 	</div>
 
 	<h4>Waitlist:</h4>
@@ -74,7 +84,7 @@
       <td>{{ $waitlist->middle_initial }}
       <td>{{ $waitlist->last_name }}
       <td>{{ $waitlist->email }}
-      <td><a href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a>
+      <td><a style="margin-right: 7px;" href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a><a href="admin/disapprove/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-danger">Disapprove</a>
 	@endforeach
 			</tbody>
 		</table>
@@ -96,9 +106,21 @@
 			      	<td>{{ $admin->user->last_name }}
 			      	<td>{{ $admin->user->email }}
 			    @endforeach
+			    	<td>
+			    	<td>
+			    	<td>	
 			</tbody>
 		</table>
+		<form class="form-inline" method="POST" action="/admin/store">
+				{{ csrf_field() }}
+			  <!-- Gets the "id" of the user as User has not been fully implemented yet to get Name -->
+			  <h5>Add Admins:<h5>&nbsp; <!-- Add Admins -->
+			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="User ID">&nbsp;
+			  <!-- Gets the name of the new position -->
+			  <button class="btn btn-primary" type="submit">Add</button>
+			</form>
 	</div>
+
 
 	<h4>List of Projects:</h4>
 		<div class="table-responsive">   
@@ -150,7 +172,7 @@
   
 	<h4>Positions: </h4>
 	<ul class="list-group">
-  <!-- list of tags -->
+  	
     @foreach($organization_positions as $position)
 	  	<li class="list-group-item">
 	  		<form class="form-inline" method="POST" action="/organization/{{$position->organization_position_id}}/remove-position">
@@ -160,7 +182,7 @@
 			</form>
 	  @endforeach
 
-	  <!-- form to add tags -->
+	  <!-- form to add positions -->
 	  <li class="list-group-item">
 	  	<form class="form-inline" method="POST" action="/organization/add-position">
 				{{ csrf_field() }}
@@ -177,11 +199,6 @@
 	<div class="alert alert-warning" role="alert">
 	  To add a position, input the "organization_id" of the organization for now. You can check their "organization_id" by checking the database. This will be fixed in the future.
 	</div>
-
-	<h4>File Archive:</h4>
-	@foreach($file_archives as $file)
-		{{ $file }}<br>
-	@endforeach
 	<br>
 
   @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Announcement; 
+use App\Log;
 
 class AnnouncementController extends Controller
 {
@@ -32,6 +33,16 @@ class AnnouncementController extends Controller
         $announcement->visibility = 1;
 
     	$announcement->save();
+
+        //add store action to logs table
+        $log = new Log;
+
+        $log->user_id = auth()->id();
+        $log->user_action = "posted an announcement";
+        $log->action_details = request('announcement_name');
+        $log->save();
+        //end log
+
     	return redirect('/home');
     }
 
@@ -42,6 +53,16 @@ class AnnouncementController extends Controller
         // $announcement->save();
 
         DB::table('announcements')->where('announcement_id', $id)->delete();
+        //add delete action to logs table
+        $log = new Log;
+
+        $log->user_id = auth()->id();
+        $log->user_action = "deleted an announcement";
+        $log->action_details = $announcement->name;
+        $log->save();
+        //end log
+
+        $announcement->save();
 
         return redirect('/home');
     }

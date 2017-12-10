@@ -1,15 +1,24 @@
 <div class="tab-pane active" id="panel-abstract">
   <br>
     <div class="container-fluid">
-      <div class="row"> 
-        <div class="col-lg-12"> 
-          <div class="jumbotron">
-            <h1 class="display-3">{{ $project->name }}</h1>
-              <p class="lead">{{ $project->description }}</p>
-                <hr class="my-4 hr-abstract">
-                  <p>Insert Names</p>
-          </div>
-        </div>
-      </div>
+
+      @if(Storage::disk('uploads')->exists($project->project_id.'/README.md'))
+        {{ Storage::disk('uploads')->get($project->project_id.'/README.md') }}
+      @endif
+
+      @if(Auth::check())
+      <br><br>
+      <form method="POST" action="/project/{{$project->project_id}}/abstract-add">
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-primary">Add Abstract</button>
+      </form>
+
+      <br>
+      <form method="POST" action="/project/{{$project->project_id}}/abstract-edit">
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-primary">Edit Abstract</button>
+      </form>
+      @endif
+
     </div>
 </div>

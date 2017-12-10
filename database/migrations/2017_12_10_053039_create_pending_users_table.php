@@ -31,7 +31,6 @@ class CreatePendingUsersTable extends Migration
         $table->string('remember_token', 100)->nullable();
         $table->timestamps();
       });
-
     }
 
     /**
