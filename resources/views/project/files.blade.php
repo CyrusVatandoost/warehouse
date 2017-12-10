@@ -115,7 +115,7 @@
       <div class="row projects-no-gutters align-items-start">
         @foreach($project->files as $file)
           <div class="card file-card-size">
-            <img class="card-img-top file-img" src="{{ asset('storage'.$project->project_id.'/'.$file->name) }}" alt="Card image cap">
+            <img class="card-img-top file-img" src="{{ asset('/uploads/'.$project->project_id.'/'.$file->name) }}" alt="Card image cap">
             <div class="card-body">
               {{ $file->name }}
               <div class="file-buttons">

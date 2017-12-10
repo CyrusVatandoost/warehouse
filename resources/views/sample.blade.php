@@ -37,3 +37,7 @@
   <!-- insert featured projects here -->
   @include('layout.right-sidenav') <!-- you can remove this if you do not want the featured projects to be shown -->
 @endsection
+
+@section('scripts')
+	<!-- insert scripts here -->
+@endsection
