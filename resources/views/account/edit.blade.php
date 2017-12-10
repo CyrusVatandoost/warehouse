@@ -26,10 +26,10 @@
 @section('body')
   <!-- insert body here -->
   <center>
-    @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
-      <img id="dp" class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+    @if (file_exists(public_path('uploads/avatars/'.auth()->user()->user_id.'.jpg')))
+      <img id="dp" class="rounded-circle" src="{{ asset('uploads/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
     @else
-      <img id="dp" class="rounded-circle" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
+      <img id="dp" class="rounded-circle" src="{{ asset('/uploads/avatars/default.jpg') }}" height="256" width="256">
     @endif
     <form method="POST" action="/account/{{ auth()->user()->user_id }}/upload-avatar" enctype="multipart/form-data">
   	  {{ csrf_field() }}
