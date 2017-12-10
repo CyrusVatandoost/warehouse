@@ -36,6 +36,8 @@
 	Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
 	// change the name of a project
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
+	// add a task to a project
+	Route::post('/project/{project}/tasks', 'TaskController@store');
 	
 	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
 
