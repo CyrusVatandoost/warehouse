@@ -193,7 +193,7 @@ class MessagesController extends Controller
 
         $log->user_id = $thread->id;
         $log->user_action = "was updated with a new message";
-        //$log->action_details = ; //no message subject
+        $log->action_details = "Thread ID: " . $id;
         $log->save();
         //end log
 
