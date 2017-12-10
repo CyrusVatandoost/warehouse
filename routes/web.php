@@ -71,6 +71,9 @@
 	Route::get('/admin', 'AdminController@show');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
 
+// logs
+	Route::get('/admin/logs', 'LogController@index');
+
 // login and register
 	Auth::routes();
 	Route::get('/account', 'HomeController@index')->name('account');
