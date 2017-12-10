@@ -31,7 +31,7 @@
             	<div class="col-sm-2">
 		    	<label class="custom-control custom-checkbox">
 			    @if( $project->public == 1 )
-                	<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')" />
+            <input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')" />
 	                   
 			    @endif
 
@@ -68,24 +68,23 @@
   <h4>Project Collaborators</h4>
   <ul class="list-group">
 
-  	<!-- list of tags -->
+  	<!-- list of collaborators -->
     @foreach($project->collaborators as $collaborator)
 	  	<li class="list-group-item">
 	  		<!-- form to add collaborator to the project -->
-	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-collaborator/{{$collaborator->user->user_id}}">
+	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-collaborator/{{$collaborator->user_id}}">
 	  			{{ $collaborator->user->first_name }}&nbsp;
 					{{ csrf_field() }}
 					<button type="submit" class="btn btn-outline-danger">&times;</button>
 				</form>
 	  @endforeach
 
-	  <!-- form to add tags -->
+	  <!-- form to add collaborators -->
 	  <li class="list-group-item">
 	  	<form id="collab-form" class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
 				{{ csrf_field() }}
-			  <!--<input class="form-control" type="text" id="user_id" name="user_id" placeholder="Add Collaborator"> -->
 			  <input class="form-control" id="user_id" name="user_id" type="text" placeholder="Add Collaborator">&nbsp;
-			  <button onclick="sendCollaboratorPost()" class="btn btn-primary" type="button">Add</button>
+			  <button type="submit" class="btn btn-primary" type="button">Tests</button>
 			</form>
 
 	</ul>
