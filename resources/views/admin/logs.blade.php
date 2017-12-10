@@ -11,8 +11,9 @@
 
 <!-- css styles -->
 @section('style')
-	<!-- insert custom css styles here -->
-	<!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
+	<style>
+		
+	</style>
 @endsection
 
 <!-- modals -->
@@ -29,7 +30,7 @@
 <!-- body -->
 @section('body')
 
-  <h5>A list of all actions by all accounts</h5>
+  <h5>A list of all actions performed by all accounts</h5>
   <br> 
 
 	<div class="table-responsive">   
@@ -52,6 +53,7 @@
 				      	@endif
 				      @endforeach 
 				      {{ $log->user_action }}: {{ $log->action_details }}
+
 				@endforeach
 			</tbody>
 		</table>
