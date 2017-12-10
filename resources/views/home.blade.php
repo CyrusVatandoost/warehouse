@@ -116,6 +116,7 @@ function topFunction() {
 <!-- right-sidenav -->
 @section('right-sidenav')
   <!-- insert featured projects here -->
+  @include('layout.right-sidenav')
 @endsection
 
 @section('scripts')

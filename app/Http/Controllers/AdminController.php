@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use App\User;
 use App\Admin;
-use App\Project;
-use App\ProjectArchive;
+use App\ApprovedMail;
+use App\User;
+use App\FeaturedProject;
 use App\FileArchive;
 use App\OrganizationPosition;
-use App\ApprovedMail;
+use App\Project;
+use App\ProjectArchive;
 
 class AdminController extends Controller{
    
@@ -35,10 +36,10 @@ class AdminController extends Controller{
 
   public function approveUser($id, $email){
     $userWaitlist = DB::table('pending_users')->where('user_id', '=', $id)->first();
-    if($userWaitlist == null){
+    if($userWaitlist == null) {
       return redirect('/admin');
     }
-    else{
+    else {
       DB::insert("insert into users
              select * from pending_users where user_id = $id");
       DB::table('pending_users')->where('user_id', '=', $id)->delete();
@@ -50,7 +51,7 @@ class AdminController extends Controller{
 
   public function disapproveUser($id, $email){
     $userWaitlist = DB::table('pending_users')->where('user_id', '=', $id)->first();
-    if($userWaitlist == null){
+    if($userWaitlist == null) {
       return redirect('/admin');
     }
     else{
@@ -61,18 +62,22 @@ class AdminController extends Controller{
   }
 
   public function store() {
-  		$Admin = new Admin;
-    	$Admin->user_id = request('user_id');
-    	$Admin->save();
-    	return back();
+		$Admin = new Admin;
+  	$Admin->user_id = request('user_id');
+  	$Admin->save();
+  	return back();
   }
 
   public function delete() {
-      
-      Admin::where('user_id',request('user_id'))->delete();
+    Admin::where('user_id',request('user_id'))->delete();
+    User::where('user_id',request('user_id'))->delete();
+    return back();
+  }
 
-      User::where('user_id',request('user_id'))->delete();
-      return back();
+  public function showProjects() {
+    $projects = Project::get();
+    $featured_projects = FeaturedProject::get();
+    return view('admin.projects', compact('projects', 'featured_projects'));
   }
   
 }

@@ -24,9 +24,7 @@
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-  <!-- <p><a href="#modal-container-new-announcement" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Announcement</a></p>
-  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p> -->
-  <p><a href="#modal-container-select-featured-project/s" role="button" class="btn btn-primary btn-block" data-toggle="modal">Select Featured Project/s</a></p>
+  <p><a href="/admin/projects" role="button" class="btn btn-primary btn-block">Project Dashboard</a></p>
   <p><a href="/admin/file-archive" role="button" class="btn btn-primary btn-block">File Archive</a></p>
   <p><a href="/admin/logs" class="btn btn-primary btn-block">View Logs</a></p>
   <p><a href="#modal-container-delete-account" role="button" class="btn btn-primary btn-block" data-toggle="modal">Delete an Account</a></p>
@@ -120,8 +118,7 @@
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>
 	</div>
-
-
+	
 	<h4>List of Projects:</h4>
 		<div class="table-responsive">   
 			<table class="table table-hover">

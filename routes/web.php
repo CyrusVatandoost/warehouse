@@ -42,6 +42,8 @@
 	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
 
 	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
+	Route::get('/project/{project}/feature', 'ProjectController@feature');
+	Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
 
 // file
 	// upload a file to the project
@@ -78,9 +80,10 @@
 	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
 	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
+	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
+	Route::get('/admin/projects', 'AdminController@showProjects');
 	Route::post('/admin/delete', 'AdminController@delete');
 	Route::post('/admin/store','AdminController@store');
-	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
 
 // archive
 	Route::get('/admin/file-archive', 'ArchiveController@files');

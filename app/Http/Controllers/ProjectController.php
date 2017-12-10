@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Project;
 use App\ProjectArchive;
 use App\Log;
+use App\FeaturedProject;
 
 class ProjectController extends Controller {
     
@@ -165,7 +166,6 @@ class ProjectController extends Controller {
 
 		//add change name action to logs table
     $log = new Log;
-
     $log->user_id = auth()->id();
     $msg = "changed project name from " . $project->name . " to";
     $log->user_action = $msg;
@@ -218,6 +218,39 @@ class ProjectController extends Controller {
 	public function storeAbstract($id) {
 		$project = Project::find($id);
 		Storage::disk('uploads')->put($id.'/README.md', 'Contents');
+		return back();
+	}
+
+	public function feature($id) {
+		$project = Project::find($id);
+		$featured_project = new FeaturedProject;
+		$featured_project->project_id = $id;
+		$featured_project->save();
+
+		//add change name action to logs table
+    $log = new Log;
+    $log->user_id = auth()->id();
+    $log->user_action = "featured";
+    $log->action_details = $project->name;
+    $log->save();
+    //end log
+
+		return back();
+	}
+
+	public function unfeature($id) {
+		$featured_project = FeaturedProject::where('project_id', $id)->first();
+
+		//add change name action to logs table
+    $log = new Log;
+    $log->user_id = auth()->id();
+    $log->user_action = "unfeatured";
+    $name = $featured_project->project->name;
+    $log->action_details = $name;
+    $log->save();
+    //end log
+
+		$featured_project->delete();
 		return back();
 	}
 
