@@ -11,13 +11,13 @@
 
 <!-- css styles -->
 @section('style')
-	<!-- insert custom css styles here -->
-	<!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
+    <!-- insert custom css styles here -->
+    <!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
 @endsection
 
 <!-- modals -->
 @section('modals')
-	<!-- insert css styles here -->
+    <!-- insert css styles here -->
   @include('modals.new_project')
 @endsection
 
@@ -30,7 +30,7 @@
 <!-- body -->
 @section('body')
   
-	<div class="container">
+    <div class="container">
     <div class="row register-main">
         <div class="register-main-center">
         
@@ -76,23 +76,23 @@
                                 <div class="col-md-2"></div>
 
                                 @if( auth()->user()->gender == 'Male' )
-	                                <div class="col-md-5 register-gender">
-	                                    <input type="radio" name="gender" value="male" checked="checked"> Male
-	                                </div>
+                                    <div class="col-md-5 register-gender">
+                                        <input type="radio" name="gender" value="male" checked="checked"> Male
+                                    </div>
 
-	                                <div class="col-md-5 register-gender">
-	                                    <input class="register-input" type="radio" name="gender" value="female"> Female
-	                                </div>
+                                    <div class="col-md-5 register-gender">
+                                        <input class="register-input" type="radio" name="gender" value="female"> Female
+                                    </div>
 
                                 @else
-	                                <div class="col-md-5 register-gender">
-	                                    <input class="register-input" type="radio" name="gender" value="male"> Male
-	                                </div>
+                                    <div class="col-md-5 register-gender">
+                                        <input class="register-input" type="radio" name="gender" value="male"> Male
+                                    </div>
 
-	                                <div class="col-md-5 register-gender">
-	                                    <input type="radio" name="gender" value="female" checked="checked"> Female
-	                                </div>
-	                            @endif
+                                    <div class="col-md-5 register-gender">
+                                        <input type="radio" name="gender" value="female" checked="checked"> Female
+                                    </div>
+                                @endif
 
                             </div>
                     </div>
@@ -123,10 +123,10 @@
                 </div> -->
 
                 <div class="alert alert-warning" role="alert">
-				  Changing email and password is not supported yet.
-				</div>
+                  Changing email and password is not supported yet.
+                </div>
 
-                <button type="submit" class="btn btn-register btn-success float-right">
+                <button type="submit" class="btn btn-register btn-browse float-right">
                     Update Account
                 </button>
                 

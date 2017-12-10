@@ -12,6 +12,7 @@ use App\ProjectArchive;
 use App\FileArchive;
 use App\OrganizationPosition;
 use App\ApprovedMail;
+
 class AdminController extends Controller{
    
   public function show() {
@@ -29,7 +30,7 @@ class AdminController extends Controller{
 
   public function showArchive() {
   	$file_archives = FileArchive::get();
-  	return view('admin.archive', compact('file_archives'));
+  	return view('admin.archive.file', compact('file_archives'));
   }
 
   public function approveUser($id, $email){
@@ -42,6 +43,19 @@ class AdminController extends Controller{
              select * from pending_users where user_id = $id");
       DB::table('pending_users')->where('user_id', '=', $id)->delete();
       //Mail::to($email)->send(new ApprovedMail()); //Commented out as not needed for testing, but its working
+      return redirect('/admin');
+    }
+
+  }
+
+  public function disapproveUser($id, $email){
+    $userWaitlist = DB::table('pending_users')->where('user_id', '=', $id)->first();
+    if($userWaitlist == null){
+      return redirect('/admin');
+    }
+    else{
+      DB::table('pending_users')->where('user_id', '=', $id)->delete();
+      //Mail::to($email)->send(new DisapprovedMail()); //Commented out as not needed for testing, but its working
       return redirect('/admin');
     }
   }

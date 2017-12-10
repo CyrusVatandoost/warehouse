@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use App\Project;
 use App\ProjectArchive;
+use App\Log;
 
 class ProjectController extends Controller {
     
@@ -53,11 +54,31 @@ class ProjectController extends Controller {
 		$project->user_id = auth()->id();
 		$project->description = request('project_description');
 		$project->save();
+
+		//add store action to logs table
+        $log = new Log;
+
+        $log->user_id = auth()->id();
+        $log->user_action = "created a project";
+        $log->action_details = request('project_name');
+        $log->save();
+        //end log
+
 		return redirect('/projects');
 	}
 
 	// deletes a project using an id
 	public function delete($id) {
+		//add delete action to logs table
+    $log = new Log;
+    $project = Project::find($id);
+
+    $log->user_id = auth()->id();
+    $log->user_action = "deleted a project";
+    $log->action_details = $project->name;
+    $log->save();
+    //end log
+
 		DB::table('projects')->where('project_id', $id)->delete();
 		return redirect('/projects');
 	}
@@ -71,6 +92,16 @@ class ProjectController extends Controller {
 		$project_archive->complete = $project->complete;
 		$project_archive->public = $project->public;
 		$project_archive->save();
+
+		//add archive action to logs table
+    $log = new Log;
+    
+    $log->user_id = auth()->id();
+    $log->user_action = "archived a project";
+    $log->action_details = $project->name;
+    $log->save();
+    //end log
+
 		Project::find($id)->delete();
 		return redirect('/projects');
 	}
@@ -78,29 +109,74 @@ class ProjectController extends Controller {
 	// set completeness depending on the current completeness
 	public function setCompleteness($id) {
 		$project = Project::find($id);
-		if($project->complete == 1)
+    $log = new Log;
+
+		if($project->complete == 1) {
 			$project->complete = 0;
-		else
-			$project->complete = 1;
+
+			//logs
+			$log->user_id = auth()->id();
+	        $log->user_action = "changed project status to incomplete";
+	        $log->action_details = $project->name;
+		}
+		else {
+			$project->complete = 1; 
+
+			$log->user_id = auth()->id();
+	        $log->user_action = "changed project status to complete";
+	        $log->action_details = $project->name;
+		}
+
 		$project->save();
+		$log->save();
+
 		return back();
 	}
 
 	// set visibility depending on current project's visibility
 	public function setVisibility($id) {
 		$project = Project::find($id);
-		if($project->public == 1)
+		$log = new Log;
+
+		if($project->public == 1) {
 			$project->public = 0;
-		else
+
+			//logs
+			$log->user_id = auth()->id();
+      $log->user_action = "changed project visibility to private";
+      $log->action_details = $project->name;
+		}
+		else {
 			$project->public = 1;
+
+			$log->user_id = auth()->id();
+      $log->user_action = "changed project visibility to public";
+      $log->action_details = $project->name;
+		}
+
 		$project->save();
+		$log->save();
+
 		return back();
 	}
 
 	public function changeName($id) {
 		$project = Project::find($id);
-		$project->name = request('name');
+
+		//add change name action to logs table
+    $log = new Log;
+
+    $log->user_id = auth()->id();
+    $msg = "changed project name from " . $project->name . " to";
+    $log->user_action = $msg;
+    $log->action_details = request('name');
+    //end log
+
+    $project->name = request('name');
+
 		$project->save();
+		$log->save();
+
 		return back();
 	}
 

@@ -75,17 +75,21 @@
 
 // admin
 	Route::get('/admin', 'AdminController@show');
-	Route::get('/admin/archive', 'AdminController@showArchive');
 	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
 	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
 	Route::post('/admin/store','AdminController@store');
+	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
+
+// archive
+	Route::get('/admin/file-archive', 'ArchiveController@files');
+	Route::get('/admin/logs', 'LogController@index');
 
 // login and register
 	Auth::routes();
 	Route::get('/account', 'HomeController@index')->name('account');
 	Route::get('/account/edit', function () {return view('account.edit');});
-	Route::get('/account/settings', function() {return view('account.settings');});
+	Route::get(' /account/settings', function() {return view('account.settings');});
 	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
 	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
 	Route::post('/account/{user}/settings', 'UserController@updatePersonalInfo');
