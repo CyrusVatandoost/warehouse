@@ -28,14 +28,19 @@
 	Route::get('/project/add/file/{project}', 'FileController@store');
 	// set project as complete or incomplete
 	Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
-  // set project's visibility
-  Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
+  	// set project's visibility
+  	Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
 	// add a collaborator to a project
 	Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
 	// remove a collaborator from a project
 	Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
 	// change the name of a project
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
+	
+	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
+
+	Route::post('/search', 'ProjectController@getProjectsRelatedToPhrase');
+
 
 // file
 	// upload a file to the project
@@ -115,6 +120,6 @@ Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/announcement', function () {return view('announcement');});
 Route::get('/contact', function () {return view('contact');});
-Route::get('/search', function () {return view('search');});
+//Route::get('/search', function () {return view('search');});
 Route::get('/sample', function () {return view('sample');});
 Route::get('/notifications', function () {return view('notifications');});

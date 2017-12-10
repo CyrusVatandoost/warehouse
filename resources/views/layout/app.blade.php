@@ -21,5 +21,34 @@
     <script type="text/javascript" src="{!! asset('js/jquery.easy-autocomplete.min.js') !!}"></script>
     <!-- for custom scripts -->
     @yield('customscripts')
+    <script>
+    var projects = {
+    url: "/searchproject/json",
+    getValue: function(element) {
+      return element.pName+" | "+element.username;
+    },
+    list: {
+      match: {
+        enabled:true
+      },
+      showAnimation: {
+        type: "slide", //normal|slide|fade
+        time: 400,
+        callback: function() {}
+      },
+      hideAnimation: {
+        type: "slide", //normal|slide|fade
+        time: 400,
+        callback: function() {}
+      },
+      onClickEvent: function() {
+        $projectID = $("#search-project").getSelectedItemData().pID;
+        window.location = "/project/" + $projectID;
+      }
+    }
+  };
+
+  $("#search-project").easyAutocomplete(projects);
+  </script>
   </body>
 </html>
