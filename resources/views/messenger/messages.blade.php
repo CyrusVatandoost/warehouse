@@ -18,7 +18,6 @@
 @endsection
 
 @section('left-sidenav')
-  <p><a href="/messages/create" class="btn btn-primary btn-block">New Message</a></p>
   <p><a href="#modal-container-message-new" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Message</a></p>
 @endsection
 
