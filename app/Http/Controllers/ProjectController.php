@@ -248,7 +248,7 @@ class ProjectController extends Controller {
 
 	public function storeAbstract($id) {
 		$project = Project::find($id);
-		Storage::disk('uploads')->put($id.'/README.md', 'Contents');
+		Storage::disk('uploads')->put($id.'/README.html', 'Contents');
 		return back();
 	}
 
