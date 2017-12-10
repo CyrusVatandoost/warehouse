@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\File;
 use App\FileArchive;
 use App\Log;
+use App\Project;
 
 class FileController extends Controller {
 
@@ -24,10 +25,11 @@ class FileController extends Controller {
 
 		//add store action to logs table
         $log = new Log;
+        $project = Project::find($project_id);
 
         $log->user_id = auth()->id();
-        $log->user_action = "uploaded a file";
-        $log->action_details = $input['name'];
+        $log->user_action = "uploaded a file (" . $input['name'] . ") to";
+        $log->action_details = $project->name;
         $log->save();
         //end log
  
@@ -39,10 +41,11 @@ class FileController extends Controller {
 		//add delete action to logs table
 		$file = File::find($file_id);
         $log = new Log;
+        $project = Project::find($project_id);
 
         $log->user_id = auth()->id();
-        $log->user_action = "deleted a file";
-        $log->action_details = $file->name;
+        $log->user_action = "deleted a file (" . $file->name . ") from";
+        $log->action_details = $project->name;
         $log->save();
         //end log
 
@@ -55,10 +58,11 @@ class FileController extends Controller {
 		//add archive action to logs table
 		$file = File::find($file_id);
         $log = new Log;
+		$project = Project::find($project_id);
 
         $log->user_id = auth()->id();
-        $log->user_action = "archived a file";
-        $log->action_details = $file->name;
+        $log->user_action = "archived a file (" . $file->name . ") from";
+        $log->action_details = $project->name;
         $log->save();
         //end log
 
