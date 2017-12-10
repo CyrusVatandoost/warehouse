@@ -74,7 +74,8 @@ function topFunction() {
   }
 }
 </style>
-  <div class="container">
+
+<div class="container">
 
   @if($announcements->isEmpty())
     <h3 class="display-4 | color">No announcements yet</h3>
