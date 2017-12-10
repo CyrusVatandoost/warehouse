@@ -6,15 +6,15 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Success!</div>
+                <div class="panel-heading">Email Exists!</div>
                 <div class="panel-body">
                     <span class="help-block">
-                        <strong>Email verification success! Your account is now waitlisted for approval by an admin, we will notify you once your account has been approved.</strong>
+                        <strong>The email you entered already exists!</strong>
                     </span>
                     <div class="form-group">
                         <div class="col-md-12">
                             <a href="{{url('/')}}" class="btn btn-primary">
-                                Back
+                                {!! trans('laravel-user-verification::user-verification.verification_error_back_button') !!}
                             </a>
                         </div>
                     </div>

@@ -92,6 +92,16 @@ class HomeController extends Controller
     }
 
     /**
+     * Redirect if not yet approved.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function emailExist()
+    {
+        return view ('errors.emailexists');
+    }
+
+    /**
      * Redirect after email sent.
      *
      * @return \Illuminate\Http\Response
