@@ -29,7 +29,7 @@ class FileController extends Controller {
     $project = Project::find($project_id);
 
     $log->user_id = auth()->id();
-    $log->user_action = "uploaded a file (" . $input['name'] . ") to";
+    $log->user_action = "uploaded a file (" . $storage_name . ") to";
     $log->action_details = $project->name;
     $log->save();
     //end log
