@@ -84,7 +84,7 @@ class ProjectController extends Controller {
 
 	// set visibility depending on current project's visibility
 	public function setVisibility($id) {
-		$project = Project::find($id)->first();
+		$project = Project::find($id);
 		if($project->public == 1)
 			$project->public = 0;
 		else
