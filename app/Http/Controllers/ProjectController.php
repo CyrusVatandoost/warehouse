@@ -163,7 +163,7 @@ class ProjectController extends Controller {
         $log = new Log;
 
         $log->user_id = auth()->id();
-        $msg = "changed project name from " . $project->name . " to ";
+        $msg = "changed project name from " . $project->name . " to";
         $log->user_action = $msg;
         $log->action_details = request('name');
         //end log
