@@ -75,10 +75,12 @@
 
 // admin
 	Route::get('/admin', 'AdminController@show');
-	Route::get('/admin/archive', 'AdminController@showArchive');
 	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
 	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
+
+// archive
+	Route::get('/admin/file-archive', 'ArchiveController@files');
 
 // login and register
 	Auth::routes();

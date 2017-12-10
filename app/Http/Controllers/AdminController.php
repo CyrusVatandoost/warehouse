@@ -12,6 +12,7 @@ use App\ProjectArchive;
 use App\FileArchive;
 use App\OrganizationPosition;
 use App\ApprovedMail;
+
 class AdminController extends Controller{
    
   public function show() {
@@ -29,7 +30,7 @@ class AdminController extends Controller{
 
   public function showArchive() {
   	$file_archives = FileArchive::get();
-  	return view('admin.archive', compact('file_archives'));
+  	return view('admin.archive.file', compact('file_archives'));
   }
 
   public function approveUser($id, $email){
