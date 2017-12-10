@@ -66,5 +66,13 @@ class AdminController extends Controller{
     	$Admin->save();
     	return back();
   }
+
+  public function delete() {
+      
+      Admin::where('user_id',request('user_id'))->delete();
+
+      User::where('user_id',request('user_id'))->delete();
+      return back();
+  }
   
 }
