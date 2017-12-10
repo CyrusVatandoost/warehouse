@@ -11,7 +11,6 @@ use App\User;
 use App\FeaturedProject;
 use App\FileArchive;
 use App\OrganizationPosition;
-use App\ApprovedMail;
 use App\OrganizationPositionUser;
 use App\Project;
 use App\ProjectArchive;
@@ -93,15 +92,12 @@ class AdminController extends Controller{
 
     $OrganizationPositionUser->save();
 
-    back();
+    return back();
   }
 
   public function deletePosition($id) {
-    # code...
-      OrganizationPositionUser::where('organization_position_user_id', $user_id)->delete();
-
+      OrganizationPositionUser::where('organization_position_user_id', $id)->delete();
       return back();
-
   }
 
 

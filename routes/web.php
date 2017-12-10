@@ -84,7 +84,7 @@
 	Route::post('/admin/delete', 'AdminController@delete');
 	Route::post('/admin/store','AdminController@store');
 	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
-	Route::post('/admin/{id}/delete-user-position','AdminController@deletePosition');
+	Route::post('/admin/{user}/delete-user-position','AdminController@deletePosition');
 	Route::post('/admin/assign-user-position','AdminController@addPosition');
 
 // archive

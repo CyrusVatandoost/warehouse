@@ -237,6 +237,7 @@
     @foreach($organization_position_users as $employee)
 	  	<li class="list-group-item">
 	  		<form class="form-inline" method="POST" action="/admin/{{$employee->organization_position_user_id}}/delete-user-position">
+				{{ csrf_field() }}
 	  			{{$employee->role['first_name']}}&nbsp;{{$employee->role['last_name']}}&nbsp;&nbsp;  {{$employee->position['name']}}&nbsp;&nbsp;&nbsp;&nbsp;
 				<button type="submit" class="btn btn-outline-danger">&times;</button>
 			</form>

@@ -26,6 +26,9 @@
         @if(!empty($user->admin))
           <span class="badge badge-dark">Admin</span>
         @endif
+        @if(!empty($user->organizationPosition))
+          <span class="badge badge-info">{{ $user->organizationPosition->position->name }}</span>
+        @endif
         <h6 class="heading-small">{{ $user->email }}</h6>
         <p class="body-small">{{ $user->bio }}</p>
     </div>

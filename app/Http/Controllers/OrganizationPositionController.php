@@ -28,12 +28,11 @@ class OrganizationPositionController extends Controller
     }
 
     public function store() {
-    	# code...
 
-    	$OrganizationPosition = new OrganizationPosition;
-    	$OrganizationPosition->organization_id = request('organization_id');
-    	$OrganizationPosition->name = request('position');
-    	$OrganizationPosition->save();
+    	$organization_position = new OrganizationPosition;
+    	$organization_position->organization_id = request('organization_id');
+    	$organization_position->name = request('position');
+    	$organization_position->save();
 
         //add store action to logs table
         $log = new Log;
@@ -45,6 +44,6 @@ class OrganizationPositionController extends Controller
         $log->save();
         //end log
 
-    	return back();
+    	return view('admin');
     }
 }
