@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 use Jrean\UserVerification\Facades\UserVerification as UserVerificationFacade;
 
 use Illuminate\Http\Request;
@@ -104,20 +105,48 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function register(Request $request)
-    {
-      $this->validator($request->all())->validate();
+    {   
 
-      $user = $this->create($request->all());
+      $email_exists_unverified = DB::table('unverified_users')->select('email')->where('email', $request->email)->count(); 
 
-      event(new Registered($user));
+      $email_exists_pending = DB::table('pending_users')->select('email')->where('email', $request->email)->count(); 
 
-      UserVerification::generate($user);
+      if ($email_exists_unverified > 0) {
+            return HomeController::emailExist();
 
-      UserVerification::send($user, 'User Registration Request');
-
-      return $this->registered($request, $user)
-                    ?: HomeController::emailSent();
       }
+      else if($email_exists_pending > 0){
+            return HomeController::emailExist();
+      }
+      else{
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        event(new Registered($user));
+
+        UserVerification::generate($user);
+
+        UserVerification::send($user, 'User Registration Request');
+
+        return $this->registered($request, $user)
+                    ?: HomeController::emailSent();
+      } 
+    }
+
+      /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {   
+        DB::insert("insert into unverified_users
+             select * from users where user_id = $user->user_id");
+        DB::table('users')->where('user_id', '=', $user->user_id)->delete();
+    }
 
       /**
      * Handle the user verification.
@@ -127,6 +156,13 @@ class RegisterController extends Controller
      */
     public function getVerification(Request $request, $token)
     {
+
+        $email = $request->input('email');
+
+        DB::insert("insert into users
+             select * from unverified_users where email = '$email'");
+        DB::table('unverified_users')->where('email', '=', $email)->delete();
+
         if (! $this->validateRequest($request)) {
             return redirect($this->redirectIfVerificationFails());
         }
@@ -145,9 +181,10 @@ class RegisterController extends Controller
             auth()->loginUsingId($user->id);
         }
 
-        DB::table('waitlist')->insert(
-            ['user_id' => $user->user_id]
-        );
+        DB::insert("insert into pending_users
+             select * from users where email = '$email'");
+
+        DB::table('users')->where('email', '=', $email)->delete();
 
         return redirect($this->redirectAfterVerification());
     }

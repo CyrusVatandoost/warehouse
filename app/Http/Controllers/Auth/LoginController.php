@@ -46,24 +46,26 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
+
+      $email_exists_unverified = DB::table('unverified_users')->select('email')->where('email', $request->email)->count(); 
+
+      $email_exists_pending = DB::table('pending_users')->select('email')->where('email', $request->email)->count(); 
+
+      if ($email_exists_unverified > 0) {
+            return HomeController::notVerified();
+
+      }
+      else if($email_exists_pending > 0){
+            return HomeController::notApproved();
+      }
+      else{
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
-             if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'verified' => 1])) {
-                $userWaitlist = DB::table('waitlist')->where('user_id', '=', request('user_id'))->first();
-                if($userWaitlist == null){
-                    return redirect()->intended('home');
-                }
-                else{
-                    auth()->logout();
-                    return HomeController::notApproved();
-                }
-             }
-             else{
-                auth()->logout();
-                return HomeController::notVerified();
-             }
-        }
+          return redirect()->intended('home');
+        } 
         else{
             return HomeController::wrongLogin();
         }
+
+      }
     }
 }
