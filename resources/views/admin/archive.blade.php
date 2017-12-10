@@ -23,7 +23,7 @@
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-
+  <p><a href="/admin" class="btn btn-primary btn-block">Back to Dashboard</a></p>
 @endsection
 
 <!-- body -->
