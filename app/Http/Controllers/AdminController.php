@@ -27,6 +27,11 @@ class AdminController extends Controller{
   	return view('admin', compact('users', 'admins', 'projects', 'project_archives', 'file_archives', 'organization_positions', 'waitlists'));
   }
 
+  public function showArchive() {
+  	$file_archives = FileArchive::get();
+  	return view('admin.archive', compact('file_archives'));
+  }
+
   public function approveUser($id, $email){
     $userWaitlist = DB::table('pending_users')->where('user_id', '=', $id)->first();
     if($userWaitlist == null){
@@ -40,4 +45,5 @@ class AdminController extends Controller{
       return redirect('/admin');
     }
   }
+  
 }
