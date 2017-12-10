@@ -84,7 +84,7 @@
 	  	<form id="collab-form" class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
 				{{ csrf_field() }}
 			  <input class="form-control" id="user_id" name="user_id" type="text" placeholder="Add Collaborator">&nbsp;
-			  <button onclick="sendCollaboratorPost()" class="btn btn-primary" type="button">Tests</button>
+			  <button onclick="sendCollaboratorPost()" class="btn btn-primary" type="button">Add</button>
 			</form>
 
 	</ul>
