@@ -38,9 +38,8 @@
 	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 	
 	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
-
 	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
-
+	Route::post('/search/filtertag', 'ProjectController@getProjectsByTag');
 	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
 	Route::get('/project/{project}/feature', 'ProjectController@feature');
 	Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
