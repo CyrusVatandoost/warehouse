@@ -15,12 +15,6 @@ class TaskController extends Controller
         return view('project.progress', compact('tasks'));
     }
 
-    //returns a single task using an ID
-    // public function show($id) {
-    // 	$announcement = Announcement::find($id);
-    // 	return view('announcement', compact('announcement'));
-    // }
-
     //stores a new task in warehousedb.tasks
     public function store($project_id) {
     	$task = new Task;

@@ -17,12 +17,36 @@
 		<table class="table table-hover">
 			<thead class="thead-dark">
 		      <tr>
-				  	<th>Project Tasks
-		    </thead>
+				  	<th colspan="2">To-Do List
+		  </thead>
+          @foreach($tasks as $task)
+            @if($task->project_id == $project->project_id)
+
+              <tr>
+                <td> 
+                  <p><a href="/project/{{$project->project_id}}/task/complete" role="button" class="btn" data-toggle="modal">Complete Task</a></p>
+                <td> 
+                      {{ $task->name }} 
+                      @if( !empty($task->assigned_to) )
+                        @foreach($users as $user)
+
+                          @if($user->user_id == $task->assigned_to)
+                            (assigned to {{$user->first_name}} {{ $user->last_name }})
+                          @endif
+
+                        @endforeach
+                      @endif 
+
+            @endif
+          @endforeach
+      <tbody>
+
+      </tbody>
 		</table>
   </div>
 
-  <div class="tabbable" id="tabs-463690">
+  <!-- DISPLAY open, completed, all TASKS IN TAB VIEW-->
+  <!-- <div class="tabbable" id="tabs-463690">
 
     <ul class="nav nav-tabs">
       <li class="nav-item">
@@ -44,6 +68,6 @@
       @include('project.tasks.all')
     </div>
     
-  </div>
+  </div> -->
 
 </div>
