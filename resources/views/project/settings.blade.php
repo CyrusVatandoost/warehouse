@@ -30,7 +30,7 @@
             	<div class="col-sm-3">
 		    	<label class="custom-control custom-checkbox">
 			    @if( $project->public == 1 )
-                	<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')"/>
+          <input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')"/>
 	                   
 			    @endif
 
@@ -67,22 +67,21 @@
   <h4>Project Collaborators</h4>
   <ul class="list-group">
 
-  	<!-- list of tags -->
+  	<!-- list of collaborators -->
     @foreach($project->collaborators as $collaborator)
 	  	<li class="list-group-item">
 	  		<!-- form to add collaborator to the project -->
-	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-collaborator/{{$collaborator->user->user_id}}">
+	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-collaborator/{{$collaborator->user_id}}">
 	  			{{ $collaborator->user->first_name }}&nbsp;
 					{{ csrf_field() }}
 					<button type="submit" class="btn btn-outline-danger">&times;</button>
 				</form>
 	  @endforeach
 
-	  <!-- form to add tags -->
+	  <!-- form to add collaborators -->
 	  <li class="list-group-item">
 	  	<form id="collab-form" class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
 				{{ csrf_field() }}
-			  <!--<input class="form-control" type="text" id="user_id" name="user_id" placeholder="Add Collaborator"> -->
 			  <input class="form-control" id="user_id" name="user_id" type="text" placeholder="Add Collaborator">&nbsp;
 			  <button onclick="sendCollaboratorPost()" class="btn btn-primary" type="button">Add</button>
 			</form>
@@ -90,8 +89,8 @@
 	</ul>
 
 	<p>
-	<div class="alert alert-warning" role="alert">
-	  To add a collaborator, input the "user_id" of the user for now. You can check their "user_id" by checking the database. This will be fixed in the future.
+	<div class="alert alert-danger" role="alert">
+	  To add a collaborator, type the name of the user and click on the suggestion from the dropdown.
 	</div>
 
 	<p>
@@ -101,7 +100,7 @@
   	<!-- list of tags -->
     @foreach($project->tags as $proj_tags)
 	  	<li class="list-group-item">
-	  		<!-- form to delete collaborator to the project -->
+	  		<!-- form to delete tags from the project -->
 	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-tag/{{$proj_tags->tag->tag_id}}">
 	  			{{ $proj_tags->tag->name }}&nbsp;
 					{{ csrf_field() }}
@@ -125,58 +124,59 @@
 	</div>
 
 </div>
+
 @section('customscripts')
-<script>
-var collaboratorID = "null";
+	<script>
+	var collaboratorID = "null";
 
-//Send POST for add collaborator
-function sendCollaboratorPost(){
-	var form = document.getElementById("collab-form");
-	var input = document.getElementById("user_id");
-	if(collaboratorID != "null"){
-		input.style.color = '#fff';
-		input.value = collaboratorID;
-		form.submit();
+	//Send POST for add collaborator
+	function sendCollaboratorPost(){
+		var form = document.getElementById("collab-form");
+		var input = document.getElementById("user_id");
+		if(collaboratorID != "null"){
+			input.style.color = '#fff';
+			input.value = collaboratorID;
+			form.submit();
+		}
 	}
-}
 
-//Autocomplete script
-var users = {
-  url: "/user/autocomplete",
-  getValue: function(element) {
-    if(element.email != "{{ auth()->user()->email }}"){
-      if(element.last_name == "last_name"){
-        return element.first_name+" ";
-      }
-      else{
-        return element.first_name+" "+element.last_name;
-      }
-    }
-    else{
-      return "No user";
-    }
+	//Autocomplete script
+	var users = {
+	  url: "/user/autocomplete",
+	  getValue: function(element) {
+	    if(element.email != "{{ auth()->user()->email }}"){
+	      if(element.last_name == "last_name"){
+	        return element.first_name+" ";
+	      }
+	      else{
+	        return element.first_name+" "+element.last_name;
+	      }
+	    }
+	    else{
+	      return "No user";
+	    }
 
-  },
-  list: {
-    match: {
-      enabled:true
-    },
-    showAnimation: {
-      type: "slide", //normal|slide|fade
-      time: 400,
-      callback: function() {}
-    },
-    hideAnimation: {
-      type: "slide", //normal|slide|fade
-      time: 400,
-      callback: function() {}
-    },
-    onClickEvent: function() {
-      collaboratorID = $("#user_id").getSelectedItemData().user_id;
-    }
-  }
-};
+	  },
+	  list: {
+	    match: {
+	      enabled:true
+	    },
+	    showAnimation: {
+	      type: "slide", //normal|slide|fade
+	      time: 400,
+	      callback: function() {}
+	    },
+	    hideAnimation: {
+	      type: "slide", //normal|slide|fade
+	      time: 400,
+	      callback: function() {}
+	    },
+	    onClickEvent: function() {
+	      collaboratorID = $("#user_id").getSelectedItemData().user_id;
+	    }
+	  }
+	};
 
-$("#user_id").easyAutocomplete(users);
-</script>
+	$("#user_id").easyAutocomplete(users);
+	</script>
 @stop

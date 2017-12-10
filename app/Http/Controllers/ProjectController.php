@@ -73,7 +73,7 @@ class ProjectController extends Controller {
 
 	// set completeness depending on the current completeness
 	public function setCompleteness($id) {
-		$project = Project::find($id)->first();
+		$project = Project::find($id);
 		if($project->complete == 1)
 			$project->complete = 0;
 		else
@@ -84,7 +84,7 @@ class ProjectController extends Controller {
 
 	// set visibility depending on current project's visibility
 	public function setVisibility($id) {
-		$project = Project::find($id)->first();
+		$project = Project::find($id);
 		if($project->public == 1)
 			$project->public = 0;
 		else
@@ -94,7 +94,7 @@ class ProjectController extends Controller {
 	}
 
 	public function changeName($id) {
-		$project = Project::find($id)->first();
+		$project = Project::find($id);
 		$project->name = request('name');
 		$project->save();
 		return back();
