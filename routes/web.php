@@ -79,6 +79,7 @@
 	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
 	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
+	Route::post('/admin/store','AdminController@store');
 
 // login and register
 	Auth::routes();
