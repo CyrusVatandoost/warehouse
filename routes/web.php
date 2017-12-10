@@ -44,6 +44,8 @@
 	Route::get('/project/{project}/delete-file/{file}', 'FileController@delete');
 	// archive a file
 	Route::get('/project/{project}/file-archive/{file}', 'FileController@archive');
+	// delete an archived file
+	Route::get('/archive/delete/{file_archive}', 'FileController@deleteArchive');
 
 //Positions
 	//remove a position
@@ -69,6 +71,7 @@
 
 // admin
 	Route::get('/admin', 'AdminController@show');
+	Route::get('/admin/archive', 'AdminController@showArchive');
 
 // login and register
 	Auth::routes();

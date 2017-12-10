@@ -9,22 +9,6 @@ use App\FileArchive;
 
 class FileController extends Controller {
 
-	public function store1() {
-		$upload = $request->file('file');
-		$file = $upload->getClientOriginalName(); //Get Image Name
-		$extension = $upload->getClientOriginalExtension();  //Get Image Extension
-		$input['name'] = $file;
-    $destinationPath = public_path('/storage/'.$project_id);
-    $upload->move($destinationPath, $input['name']);
-
-		$file = new File;
-		$file->name =  $input['name'];
-		$file->project_id = $project_id;
-		$file->save();
- 
-		return back();
-	}
-
 	public function store(Request $request, $project_id) {
 		$upload = $request->file('file');	// get file from form
 		$file_name = $upload->getClientOriginalName();	// get file name
@@ -60,6 +44,13 @@ class FileController extends Controller {
 		$file_archive->save();
 		$file->delete();
 
+		return back();
+	}
+
+	public function deleteArchive($file_archive_id) {
+		$file_archive = FileArchive::find($file_archive_id);
+		Storage::disk('uploads')->delete('archive/'.$file_archive->name);
+		$file_archive->delete();
 		return back();
 	}
 

@@ -22,4 +22,9 @@ class AdminController extends Controller{
   	return view('admin', compact('users', 'admins', 'projects', 'project_archives', 'file_archives', 'organization_positions'));
   }
 
+  public function showArchive() {
+  	$file_archives = FileArchive::get();
+  	return view('admin.archive', compact('file_archives'));
+  }
+
 }

@@ -69,6 +69,12 @@ return [
             'root'   => public_path() . '/uploads',
         ],
 
+        // all files related
+        'accounts' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/accounts',
+        ],
+
     ],
 
 ];
