@@ -79,11 +79,12 @@ function topFunction() {
   @if($announcements->isEmpty())
     <h3 class="display-4 | color">No announcements yet</h3>
 
-  @foreach($announcements as $a)
+  <!-- does not support archiving announcements yet -->
+  <!-- @foreach($announcements as $a)
     @if($a->visibility == 0)
 
     @endif
-  @endforeach
+  @endforeach -->
 
   @else
     @foreach($announcements as $announcement)
