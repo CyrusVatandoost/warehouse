@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use App\Project;
 use App\ProjectArchive;
 
 class ProjectController extends Controller {
     
+	public static $phrase = '';
+
 	// returns all of the logged in user's project and all the site's projects
 	public function index() {
 		$my_projects = Project::get()->where('user_id', auth()->id());
@@ -100,4 +103,39 @@ class ProjectController extends Controller {
 		return back();
 	}
 
+	public function getAllPublicProjectsJSON(){
+		$projects = DB::table('users')
+            ->join('projects', 'projects.user_id', '=', 'users.user_id')
+            ->select('users.first_name AS username', 'projects.project_id AS pID', 'projects.name AS pName', 'projects.public')
+            ->where('projects.public', '=', 1)
+            ->get();
+
+		return $projects->toJson();
+	}
+
+	public function getUsersAndProjectsRelatedToPhrase(){
+
+		$input = Input::all();
+		self::$phrase = $input['search-project'];
+		$searched = $input['search-project'];
+
+		$projects = DB::table('users')
+			->join('projects', 'projects.user_id', '=', 'users.user_id')
+			->select('users.first_name AS username', 'projects.project_id AS pID', 'projects.name AS pName', 'projects.description', 'projects.public', 'projects.complete')
+            ->where('projects.public', '=', 1)
+            ->where(function ($query) {
+                $query->where('projects.name', 'like', '%'.self::$phrase.'%')
+                      ->orwhere('users.first_name', 'like', '%'.self::$phrase.'%');
+            })->get();
+
+        $usersresults = DB::table('users')
+        	->select('users.user_id','users.first_name', 'users.last_name', 'users.email')
+        	->where('users.first_name', 'like', '%'.self::$phrase.'%')
+        	->orwhere('users.last_name', 'like', '%'.self::$phrase.'%')
+        	->orwhere('users.email', 'like', '%'.self::$phrase.'%')
+        	->get();
+
+
+        return view('search', compact('projects', 'searched', 'usersresults'));
+	}
 }

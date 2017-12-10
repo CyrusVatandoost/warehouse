@@ -48,8 +48,8 @@
       @endguest
         <li class="nav-item">
           <!-- search -->
-          <form class="form-inline mt-2 mt-md-0" action="/search">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <form class="form-inline mt-2 mt-md-0" action="/search" method="POST">{{ csrf_field() }}
+            <input id="search-project" name="search-project" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
               <i class="material-icons md-18 material-icons-mid">search</i>
             </button>
@@ -58,3 +58,4 @@
 
   </div>
 </nav>
+

@@ -8,6 +8,7 @@ class Project extends Model {
 
 	protected $primaryKey = 'project_id';
 	protected $fillable = ['project_name', 'description'];
+ 	protected $visible = ['project_name', 'description'];
 
 	public function scopeComplete() {
 		return static::where('complete', 1);
