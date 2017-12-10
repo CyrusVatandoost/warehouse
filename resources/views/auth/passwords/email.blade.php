@@ -3,17 +3,10 @@
 @section('title','Forgot Password')
 
 @section('content')
-<style type="text/css">
-
-
-    
-
-</style>
-
 <div class="container">
-    <div class="row reset-main">
-        <div class="reset-main-center">
-            <h2 class="reset-email-header text-center">Forgot Password</h2>
+    <div class="row main">
+        <div class="main-center">
+            <h2 class="header text-center">Forgot Password</h2>
 <!--
                 <div class="panel-body">
                     @if (session('status'))
@@ -41,9 +34,11 @@
 
                       
                         <center>
-                            <button type="submit" class="btn btn-email">
+                            <a href="{{url('/login')}}" class="btn btn-info">Cancel</a>
+                            <button type="submit" class="btn btn-primary">
                                 Submit
                             </button>
+                            
                         </center>
                           
                     </form>

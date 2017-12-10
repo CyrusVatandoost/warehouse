@@ -47,7 +47,7 @@
   <p>
     What are you waiting for? Get started now!
   <center>
-    <a href="{{ url('projects') }}" class="btn btn-primary btn-lg">Browse Projects</a>
+    <a href="{{ url('projects') }}" class="btn btn-browse btn-lg">Browse Projects</a>
   </center><br>
 </p>
 @endsection

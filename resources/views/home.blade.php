@@ -74,40 +74,42 @@ function topFunction() {
   }
 }
 </style>
-  <div class="container">
+
+<div class="container">
 
   @if($announcements->isEmpty())
     <h3 class="display-4 | color">No announcements yet</h3>
 
-  @foreach($announcements as $a)
+  <!-- does not support archiving announcements yet -->
+  <!-- @foreach($announcements as $a)
     @if($a->visibility == 0)
 
     @endif
-  @endforeach
+  @endforeach -->
 
   @else
     @foreach($announcements as $announcement)
     <p>
       @if($announcement->visibility == 1)
       <div class="row row-striped">
-        <div class="col-2 text-center">    
+        <div class="col-2 text-center"> 
           <h1 class="display-5"><span class="badge badge-info">{{ $announcement->created_at->format('d') }}</span></h1>    
           <h2 class="text-uppercase">{{ $announcement->created_at->format('M') }}</h2>    
         </div>
-        <div class="col-10 limit">
+        <div class="col-10">
           <a href="/announcement/{{ $announcement->announcement_id }}">
-            <h3 class="text-uppercase announcement-title">
+            <h3 class="text-uppercase announcement-title limit-header-announcement">
             <strong> {{ $announcement->name }} </strong>
             </h3>
           </a>
-          <p>  {{ $announcement->description }} </p>   
+          <p class="limit">  {{ $announcement->description }} </p>   
         </div>    
       </div>
       @endif
     @endforeach
   </p>
   @endif
-  <button onclick="topFunction()" class="rounded-circle" id="myBtn" title="Go to top"><span>Top </span></button>
+  <button onclick="topFunction()" class="rounded-circle" id="myBtn" title="Go to top"><span>Top</span></button>
   </div>
 
 @endsection
@@ -119,7 +121,6 @@ function topFunction() {
 
 @section('customscripts')
 <!-- Include date range picker -->
-<script type-"text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js">
-</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 @endsection

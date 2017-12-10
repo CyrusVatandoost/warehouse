@@ -33,9 +33,9 @@
             <div class="col-md-auto">
               <div class="card projects-card-size">
                 <div class="card-block">
-                  <h4 class="card-header bg-dark" style="padding-left: 10px;">
-                    <a class="text-white" href="{{ url('project') }}/{{ $project->project_id }}">
-                      {{ $project->name }}
+                  <h4 class="card-header bg-dark">
+                    <a href="{{ url('project') }}/{{ $project->project_id }}">
+                      <p class="limit-header text-white">{{ $project->name }}</p>
                     </a>
                     <div class="float-right small">
                         @if($project->public == 1)
@@ -54,14 +54,14 @@
                   </h4>
                   <div class="image">
                     <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">
-                      <img src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" class="img-thumbnail" alt="avatar" style="margin-top: 20px; margin-bottom: 20px;"/>
+                      <img class="project-image img-thumbnail" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" alt="avatar" />
                     </a>
                   </div>
                   <div class="card-body">
-                    <p class="card-text">{{ $project->description }}</p>
+                    <p class="card-text limit">{{ $project->description }}</p>
                   </div>
                   <div class="row">
-                    <div class="col text-center small p-2">
+                    <div class="col text-center small p-2  project-footer">
                       <p>
                         Author: <a href="#">{{ $project->user->first_name }}</a>
                         |
@@ -97,20 +97,20 @@
                 <div class="col-md-auto">
                 <div class="card projects-card-size">
                 <div class="card-block">
-                  <h4 class="card-header bg-dark" style="padding-left: 10px;">
-                    <a class="text-white" href="{{ url('project') }}/{{ $project->project_id }}">
-                      {{ $project->name }}
+                  <h4 class="card-header bg-dark">
+                    <a href="{{ url('project') }}/{{ $project->project_id }}">
+                      <p class="limit-header text-white">{{ $project->name }}</p>
                     </a>
                     <div class="float-right small">
                         @if($project->public == 1)
                           <span class="badge badge-success">
-                            <i class="material-icons material-icons-md">lock_open</i>
+                            <i class="material-icons material-icons-mid">lock_open</i>
                           </span>
                         @endif
 
                         @if($project->public == 0)
                           <span class="badge badge-danger">
-                            <i class="material-icons material-icons-md">lock_outline</i>
+                            <i class="material-icons material-icons-mid">lock_outline</i>
                           </span>
                         @endif
                       
@@ -118,14 +118,14 @@
                   </h4>
                   <div class="image">
                     <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">
-                      <img src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" class="img-thumbnail" alt="avatar" style="margin-top: 20px; margin-bottom: 20px;"/>
+                      <img class="project-image img-thumbnail" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" alt="avatar"/>
                     </a>
                   </div>
                   <div class="card-body">
                     <p class="card-text">{{ $project->description }}</p>
                   </div>
                   <div class="row">
-                    <div class="col text-center small p-2">
+                    <div class="col text-center small p-2 project-footer">
                       <p>
                         Author: <a href="#">{{ $project->user->first_name }}</a>
                         |

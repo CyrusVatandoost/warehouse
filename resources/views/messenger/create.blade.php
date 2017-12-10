@@ -34,7 +34,6 @@
                       <thead>
                         <tr>
                           <th>Recipients</th>
-                        </tr>
                       </thead>
                         <tr>
                         </tr>
@@ -46,6 +45,7 @@
                 <!--<input style="display:none;" type="text" name="recipients[]" value="1"><br>-->
               </div>
             @endif
+            
             <br>
             <!-- Submit Form Input -->
             <div class="form-group">
@@ -132,7 +132,6 @@ var users = {
 };
 
 $("#provider-json").easyAutocomplete(users);
-
 
 </script>
 @stop
