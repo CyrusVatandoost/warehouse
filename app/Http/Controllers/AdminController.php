@@ -12,6 +12,7 @@ use App\ProjectArchive;
 use App\FileArchive;
 use App\OrganizationPosition;
 use App\ApprovedMail;
+use App\OrganizationPositionUser;
 
 class AdminController extends Controller{
    
@@ -22,10 +23,12 @@ class AdminController extends Controller{
   	$project_archives = ProjectArchive::get();
   	$file_archives = FileArchive::get();
   	$organization_positions = OrganizationPosition::get();
+    $organization_position_users = OrganizationPositionUser::get();
+
   	$waitlists = DB::table('pending_users')
             ->select('pending_users.user_id', 'pending_users.first_name', 'pending_users.middle_initial', 'pending_users.last_name', 'pending_users.email')
             ->get();
-  	return view('admin', compact('users', 'admins', 'projects', 'project_archives', 'file_archives', 'organization_positions', 'waitlists'));
+  	return view('admin', compact('users', 'admins', 'projects', 'project_archives', 'file_archives', 'organization_positions', 'waitlists','organization_position_users'));
   }
 
   public function showArchive() {
@@ -74,5 +77,27 @@ class AdminController extends Controller{
       User::where('user_id',request('user_id'))->delete();
       return back();
   }
+
+    public function addPosition() {
+    # code...
+
+    $OrganizationPositionUser = new OrganizationPositionUser;
+    $OrganizationPositionUser->user_id = request('user_id');
+    $OrganizationPositionUser->organization_position_id = request('position_id');
+
+    $OrganizationPositionUser->save();
+
+    back();
+  }
+
+  public function deletePosition($id) {
+    # code...
+      OrganizationPositionUser::where('organization_position_user_id', $user_id)->delete();
+
+      return back();
+
+  }
+
+
   
 }
