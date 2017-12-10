@@ -28,8 +28,8 @@
 	Route::get('/project/add/file/{project}', 'FileController@store');
 	// set project as complete or incomplete
 	Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
-  	// set project's visibility
-  	Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
+	// set project's visibility
+	Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
 	// add a collaborator to a project
 	Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
 	// remove a collaborator from a project
@@ -74,6 +74,9 @@
 
 // admin
 	Route::get('/admin', 'AdminController@show');
+	Route::get('/admin/archive', 'AdminController@showArchive');
+	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
+	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
 
 // login and register
@@ -87,11 +90,11 @@
 
 //Messenger Routes
 Route::group(['prefix' => 'messages'], function () {
-    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
-    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
-    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+  Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+  Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+  Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+  Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+  Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 
 //Auto Complete Routes

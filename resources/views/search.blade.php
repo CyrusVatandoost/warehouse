@@ -22,7 +22,7 @@
 <div class="tab-pane" id="panel-all_projects">
 
   <h4>Users</h4>
-  @if($usersresults->count()>0)
+  @if($usersresults->count() > 0)
     <div class="container">
     	<div class="row">
     		<div class="span5">
@@ -32,15 +32,13 @@
                 <th>First Name
                 <th>Last Name
                 <th>Email
-            </thead>   
             <tbody>
             	@foreach($usersresults as $usersresult)
                 <tr>
                   <td>{{ $usersresult->first_name }}
                   <td>{{ $usersresult->last_name }}
                   <td>{{ $usersresult->email }}
-             @endforeach                                
-            </tbody>
+             @endforeach
           </table>
         </div>
     	</div>
