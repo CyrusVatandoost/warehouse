@@ -1,1 +1,2 @@
-<p>Sorry, no threads.</p>
+<!-- title at body -->
+@section('page-title', 'Sorry, no threads.')

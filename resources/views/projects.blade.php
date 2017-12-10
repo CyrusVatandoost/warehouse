@@ -33,19 +33,19 @@
             <div class="col-md-auto">
               <div class="card projects-card-size">
                 <div class="card-block">
-                  <h4 class="card-header bg-dark">
+                  <h4 class="project-card-header bg-dark">
                     <a href="{{ url('project') }}/{{ $project->project_id }}">
                       <p class="limit-header text-white">{{ $project->name }}</p>
                     </a>
                     <div class="float-right small">
                         @if($project->public == 1)
-                          <span class="badge badge-success">
+                          <span class="badge badge-success project-visibility">
                             <i class="material-icons material-icons-mid">lock_open</i>
                           </span>
                         @endif
 
                         @if($project->public == 0)
-                          <span class="badge badge-danger">
+                          <span class="badge badge-danger project-visibility">
                             <i class="material-icons material-icons-mid">lock_outline</i>
                           </span>
                         @endif
@@ -97,19 +97,19 @@
                 <div class="col-md-auto">
                 <div class="card projects-card-size">
                 <div class="card-block">
-                  <h4 class="card-header bg-dark">
+                  <h4 class="project-card-header bg-dark">
                     <a href="{{ url('project') }}/{{ $project->project_id }}">
                       <p class="limit-header text-white">{{ $project->name }}</p>
                     </a>
                     <div class="float-right small">
                         @if($project->public == 1)
-                          <span class="badge badge-success">
+                          <span class="badge badge-success project-visibility">
                             <i class="material-icons material-icons-mid">lock_open</i>
                           </span>
                         @endif
 
                         @if($project->public == 0)
-                          <span class="badge badge-danger">
+                          <span class="badge badge-danger project-visibility">
                             <i class="material-icons material-icons-mid">lock_outline</i>
                           </span>
                         @endif

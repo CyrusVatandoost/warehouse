@@ -1,10 +1,11 @@
-@extends('layout.master')
+@extends('layout.app')
 
-@section('content')
-    <div class="col-md-6">
-        <h1>{{ $thread->subject }}</h1>
-        @each('messenger.partials.messages', $thread->messages, 'message')
+@section('page-title', $thread->subject)
+@section('title', 'Message')
 
-        @include('messenger.partials.form-message')
-    </div>
-@stop
+@section('body')
+	@each('messenger.partials.messages', $thread->messages, 'message')
+
+	@include('messenger.partials.form-message')
+
+@endsection
