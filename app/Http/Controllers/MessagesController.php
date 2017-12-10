@@ -97,7 +97,7 @@ class MessagesController extends Controller
 
         $log->user_id = auth()->id();
         $log->user_action = "started a new message thread";
-        $log->action_details = $input['subject']
+        $log->action_details = $input['subject'];
         $log->save();
         //end log
 
@@ -136,8 +136,8 @@ class MessagesController extends Controller
         $log = new Log;
 
         $log->user_id = $adminID;
-        $log->user_action = "received a new message";
-        $log->action_details = $input['subject']
+        $log->user_action = "received a new message from a Guest user";
+        $log->action_details = $input['subject'];
         $log->save();
         //end log
 
@@ -187,6 +187,16 @@ class MessagesController extends Controller
         if (Input::has('recipients')) {
             $thread->addParticipant(Input::get('recipients'));
         }
+
+        //add adminSend action to logs table
+        $log = new Log;
+
+        $log->user_id = $thread->id;
+        $log->user_action = "was updated with a new message";
+        //$log->action_details = ; //no message subject
+        $log->save();
+        //end log
+
         return redirect()->route('messages.show', $id);
     }
 }
