@@ -1,10 +1,6 @@
 @extends('layout.auth')
 
 @section('content')
-<style type="text/css">
-   
-
-</style>
 
 <div class="container">
     <div class="row main">
