@@ -57,6 +57,33 @@
 	</div>
 	<br>
 
+	@if($waitlists->count() > 0)
+	<h4>Waitlist:</h4>
+	<div class="table-responsive">   
+		<table class="table table-hover">
+		    <thead class="thead-dark">
+		      <tr>
+				  	<th>First name
+				  	<th>Middle Initial
+				  	<th>Last Name
+				  	<th>Email Address
+				  	<th>Action
+		    </thead>
+		    <tbody>
+	@foreach($waitlists as $waitlist)
+    <tr>
+      <td>{{ $waitlist->first_name }}
+      <td>{{ $waitlist->middle_initial }}
+      <td>{{ $waitlist->last_name }}
+      <td>{{ $waitlist->email }}
+      <td><a href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a>
+	@endforeach
+			</tbody>
+		</table>
+	</div>
+	<br>
+	@endif
+
 	<h4>List of Admins:</h4>
 	<p>
 		<div class="table-responsive">   

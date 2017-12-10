@@ -81,10 +81,11 @@
 
 	  <!-- form to add tags -->
 	  <li class="list-group-item">
-	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
+	  	<form id="collab-form" class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
 				{{ csrf_field() }}
-			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="Add Collaborator">&nbsp;
-			  <button class="btn btn-primary" type="submit">Add</button>
+			  <!--<input class="form-control" type="text" id="user_id" name="user_id" placeholder="Add Collaborator"> -->
+			  <input class="form-control" id="user_id" name="user_id" type="text" placeholder="Add Collaborator">&nbsp;
+			  <button onclick="sendCollaboratorPost()" class="btn btn-primary" type="button">Add</button>
 			</form>
 
 	</ul>
@@ -125,3 +126,58 @@
 	</div>
 
 </div>
+@section('customscripts')
+<script>
+var collaboratorID = "null";
+
+//Send POST for add collaborator
+function sendCollaboratorPost(){
+	var form = document.getElementById("collab-form");
+	var input = document.getElementById("user_id");
+	if(collaboratorID != "null"){
+		input.style.color = '#fff';
+		input.value = collaboratorID;
+		form.submit();
+	}
+}
+
+//Autocomplete script
+var users = {
+  url: "/user/autocomplete",
+  getValue: function(element) {
+    if(element.email != "{{ auth()->user()->email }}"){
+      if(element.last_name == "last_name"){
+        return element.first_name+" ";
+      }
+      else{
+        return element.first_name+" "+element.last_name;
+      }
+    }
+    else{
+      return "No user";
+    }
+
+  },
+  list: {
+    match: {
+      enabled:true
+    },
+    showAnimation: {
+      type: "slide", //normal|slide|fade
+      time: 400,
+      callback: function() {}
+    },
+    hideAnimation: {
+      type: "slide", //normal|slide|fade
+      time: 400,
+      callback: function() {}
+    },
+    onClickEvent: function() {
+      collaboratorID = $("#user_id").getSelectedItemData().user_id;
+    }
+  }
+};
+
+$("#user_id").easyAutocomplete(users);
+</script>
+@stop

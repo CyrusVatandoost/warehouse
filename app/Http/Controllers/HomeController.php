@@ -68,7 +68,27 @@ class HomeController extends Controller
      */
     public static function notVerified()
     {
-        return view ('verifyerror.notverified');
+        return view ('errors.notverified');
+    }
+
+    /**
+     * Redirect if wrong login.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function wrongLogin()
+    {
+        return view ('errors.wronglogin');
+    }
+
+    /**
+     * Redirect if not yet approved.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function notApproved()
+    {
+        return view ('errors.notapproved');
     }
 
     /**
