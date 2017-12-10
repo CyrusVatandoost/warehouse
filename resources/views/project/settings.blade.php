@@ -24,14 +24,13 @@
 
 	      <p>
 		  <h4>Project Visibility</h4>
-			<!-- dropdown button to change project status -->
 			 <div class='row'>
 		     	<div class="col-sm-1"></div>
-		     	<div class="col-sm-1">Public</div>
-            	<div class="col-sm-2">
+		     	<div class="col-sm-2">Public</div>
+            	<div class="col-sm-3">
 		    	<label class="custom-control custom-checkbox">
 			    @if( $project->public == 1 )
-                	<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')" />
+                	<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')"/>
 	                   
 			    @endif
 
@@ -42,7 +41,7 @@
                     </label>
             	</div>
             	<div class="col-sm-1">Private</div>
-            	<div class="col-sm-7"></div>
+            	<div class="col-sm-5"></div>
             </div>
 	  </div>
 	</div>
