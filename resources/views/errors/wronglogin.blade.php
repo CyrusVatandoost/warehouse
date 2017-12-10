@@ -1,26 +1,22 @@
-@extends('layout.app')
+@extends('layout.auth')
+
+@section('title','Wrong Username or Password')
 
 <!-- Main Content -->
-@section('body')
+@section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Wrong Username or Password</div>
-                <div class="panel-body">
-                    <span class="help-block">
-                        <strong>You entered the wrong username and password combination.</strong>
-                    </span>
+    <div class="row main">
+        <div class="main-center">
+           <h2 class="header text-center">Wrong Username or Password</h2>
+            <center>
+                <label class="control-label text-center">You entered the wrong username and <br> password combination. </label>
                     <div class="form-group">
-                        <div class="col-md-12">
-                            <a href="{{url('/login')}}" class="btn btn-primary">
-                                {!! trans('laravel-user-verification::user-verification.verification_error_back_button') !!}
-                            </a>
-                        </div>
+                        <a href="{{url('/login')}}" class="btn btn-primary">
+                            {!! trans('laravel-user-verification::user-verification.verification_error_back_button') !!}
+                        </a>
                     </div>
-                </div>
-            </div>
-        </div>
+            </center>
+        </div>           
     </div>
 </div>
 @endsection

@@ -17,10 +17,10 @@
     <div class="container">
       <div class="profile-pic"> 
         <div class="avatar">
-          @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
-            <img class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+          @if (file_exists(public_path('uploads/avatars/'.auth()->user()->user_id.'.jpg')))
+            <img class="rounded-circle" src="{{ asset('uploads/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
           @else
-            <img class="rounded-circle" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
+            <img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" height="256" width="256">
           @endif
         </div>
       </div>
@@ -38,3 +38,4 @@
 <!-- right-sidenav -->
 @section('right-sidenav')
 @endsection
+

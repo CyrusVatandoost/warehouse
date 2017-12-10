@@ -37,10 +37,12 @@ class AnnouncementController extends Controller
 
     //deletes a single announcement using an ID
     public function delete($id) {
-        $announcement = Announcement::find($id);
-        $announcement->visibility = 0;
+        //$announcement = Announcement::find($id);
+        //$announcement->visibility = 0;
+        // $announcement->save();
 
-        $announcement->save();
+        DB::table('announcements')->where('announcement_id', $id)->delete();
+
         return redirect('/home');
     }
 }

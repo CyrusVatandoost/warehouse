@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="row register-main">
-        <div class="register-main-center">
+        <div class="main-center">
         <h2 class="register-header"><center>Register</center></h2>
             <div class="row">
              <form class="form-horizontal" method="POST" action="{{ route('register') }}">

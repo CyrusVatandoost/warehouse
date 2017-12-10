@@ -26,16 +26,16 @@
 @section('body')
   <!-- insert body here -->
   <center>
-    @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
-      <img class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+    @if (file_exists(public_path('uploads/avatars/'.auth()->user()->user_id.'.jpg')))
+      <img id="dp" class="rounded-circle" src="{{ asset('uploads/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
     @else
-      <img class="rounded-circle" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
+      <img id="dp" class="rounded-circle" src="{{ asset('/uploads/avatars/default.jpg') }}" height="256" width="256">
     @endif
     <form method="POST" action="/account/{{ auth()->user()->user_id }}/upload-avatar" enctype="multipart/form-data">
   	  {{ csrf_field() }}
         <br>
         <label for="profile_pic">Upload Profile Pic</label><br>
-        <input type="file" class="form-control-file uploadimage" id="profile_pic" name="profile_pic"><br>
+        <input  type="file" class="form-control-file uploadimage" id="profile_pic" name="profile_pic" onchange="document.getElementById('dp').src = window.URL.createObjectURL(this.files[0])"><br>
   		  <button type="submit" class="btn btn-primary">Upload</button><br>
     </form>
   </center>
@@ -66,3 +66,7 @@
   <!-- insert featured projects here -->
   @include('layout.right-sidenav')
 @endsection
+
+
+
+@section('customscripts')

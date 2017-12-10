@@ -3,39 +3,6 @@
 @section('title', 'Home')
 
 @section('style')
-
-@endsection
-
-@section('modals')
-  @include('modals.new_project')
-  @include('modals.announcement-new')
-@endsection
-
-@section('left-sidenav')
-  <p><a href="#modal-container-new-announcement" class="btn btn-primary btn-block" role="button" data-toggle="modal">New Announcement</a></p>
-  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
-@endsection
-
-
-@section('body')
-<script type="text/javascript">
-  // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-</script>
 <style type="text/css">
 #myBtn {
     display: none; /* Hidden by default */
@@ -74,40 +41,74 @@ function topFunction() {
   }
 }
 </style>
-  <div class="container">
+@endsection
+
+@section('modals')
+  @include('modals.new_project')
+  @include('modals.announcement-new')
+@endsection
+
+@section('left-sidenav')
+  <p><a href="#modal-container-new-announcement" class="btn btn-primary btn-block" role="button" data-toggle="modal">New Announcement</a></p>
+  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
+@endsection
+
+
+@section('body')
+<script type="text/javascript">
+  // When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+
+<div class="container">
 
   @if($announcements->isEmpty())
     <h3 class="display-4 | color">No announcements yet</h3>
 
-  @foreach($announcements as $a)
+  <!-- does not support archiving announcements yet -->
+  <!-- @foreach($announcements as $a)
     @if($a->visibility == 0)
 
     @endif
-  @endforeach
+  @endforeach -->
 
   @else
     @foreach($announcements as $announcement)
     <p>
       @if($announcement->visibility == 1)
       <div class="row row-striped">
-        <div class="col-2 text-center">    
+        <div class="col-2 text-center"> 
           <h1 class="display-5"><span class="badge badge-info">{{ $announcement->created_at->format('d') }}</span></h1>    
           <h2 class="text-uppercase">{{ $announcement->created_at->format('M') }}</h2>    
         </div>
-        <div class="col-10 limit">
+        <div class="col-10">
           <a href="/announcement/{{ $announcement->announcement_id }}">
-            <h3 class="text-uppercase announcement-title">
+            <h3 class="text-uppercase announcement-title limit-header-announcement">
             <strong> {{ $announcement->name }} </strong>
             </h3>
           </a>
-          <p>  {{ $announcement->description }} </p>   
+          <p class="limit">  {{ $announcement->description }} </p>   
         </div>    
       </div>
       @endif
     @endforeach
   </p>
   @endif
-  <button onclick="topFunction()" class="rounded-circle" id="myBtn" title="Go to top"><span>Top </span></button>
+  <button onclick="topFunction()" class="rounded-circle" id="myBtn" title="Go to top"><span>Top</span></button>
   </div>
 
 @endsection
@@ -117,12 +118,10 @@ function topFunction() {
   <!-- insert featured projects here -->
 @endsection
 
-@section('customscripts')
+@section('scripts')
 <!-- Include jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
 <!-- Include date range picker -->
-<script type-"text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js">
-</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 @endsection

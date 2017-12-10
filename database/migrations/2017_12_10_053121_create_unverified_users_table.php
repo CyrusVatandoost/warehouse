@@ -26,7 +26,7 @@ class CreateUnverifiedUsersTable extends Migration
         $table->text('bio')->nullable(true);
         $table->boolean('verified')->default(false);
         $table->string('verification_token')->nullable();
-
+        
         // required for Laravel 4.1.26
         $table->string('remember_token', 100)->nullable();
         $table->timestamps();

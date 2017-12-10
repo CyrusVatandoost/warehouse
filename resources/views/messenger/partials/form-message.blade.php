@@ -1,13 +1,8 @@
-<h2>Add a new message</h2>
+
 <form action="{{ route('messages.update', $thread->id) }}" method="post">
     {{ method_field('put') }}
     {{ csrf_field() }}
         
-    <!-- Message Form Input -->
-    <div class="form-group">
-        <textarea name="message" id="message-body" class="form-control" required>{{ old('message') }}</textarea>
-    </div>
-
     @if($users->count() > 0)
       <div id="search">
         <input id="provider-json" type="text" placeholder="Add Another Recipient">
@@ -18,14 +13,18 @@
       </div>
     @endif
 
-    <!-- Submit Form Input -->
-    <br>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary form-control">Submit</button>
+    <!-- Message Form Input -->
+    <div class="editbio">
+      <textarea name="message" id="message-body" class="form-control" required>{{ old('message') }}</textarea>
     </div>
+
+    <!-- Submit Form Input -->
+    <button type="submit" class="btn btn-browse float-right">Send <i class="material-icons material-icons-mid">near_me</i></button>
 </form>
 
-@section('autocomplete')
+ 
+
+@section('scripts')
 <script>
 var recipientElement = "null";
 var recipientFirstName = "null";
@@ -98,3 +97,4 @@ var users = {
 
 $("#provider-json").easyAutocomplete(users);
 </script>
+@endsection
