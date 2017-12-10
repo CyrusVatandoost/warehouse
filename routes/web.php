@@ -39,7 +39,7 @@
 	
 	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
 
-	Route::post('/search', 'ProjectController@getProjectsRelatedToPhrase');
+	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
 
 
 // file
@@ -49,10 +49,6 @@
 	Route::get('/project/{project}/delete-file/{file}', 'FileController@delete');
 	// archive a file
 	Route::get('/project/{project}/file-archive/{file}', 'FileController@archive');
-	// delete an archived file
-	Route::get('/archive/delete/{file_archive}', 'FileController@deleteArchive');
-	// restore an archived file
-	Route::get('/archive/restore/{file_archive}', 'FileController@restoreArchive');
 
 //Positions
 	//remove a position
@@ -78,7 +74,6 @@
 
 // admin
 	Route::get('/admin', 'AdminController@show');
-	Route::get('/admin/archive', 'AdminController@showArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
 
 // login and register

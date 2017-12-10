@@ -113,7 +113,7 @@ class ProjectController extends Controller {
 		return $projects->toJson();
 	}
 
-	public function getProjectsRelatedToPhrase(){
+	public function getUsersAndProjectsRelatedToPhrase(){
 
 		$input = Input::all();
 		self::$phrase = $input['search-project'];
@@ -128,6 +128,14 @@ class ProjectController extends Controller {
                       ->orwhere('users.first_name', 'like', '%'.self::$phrase.'%');
             })->get();
 
-        return view('search', compact('projects', 'searched'));
+        $usersresults = DB::table('users')
+        	->select('users.user_id','users.first_name', 'users.last_name', 'users.email')
+        	->where('users.first_name', 'like', '%'.self::$phrase.'%')
+        	->orwhere('users.last_name', 'like', '%'.self::$phrase.'%')
+        	->orwhere('users.email', 'like', '%'.self::$phrase.'%')
+        	->get();
+
+
+        return view('search', compact('projects', 'searched', 'usersresults'));
 	}
 }

@@ -20,6 +20,37 @@
 <!-- body -->
 @section('body')
 <h1>Search results for "{{ @$searched }}"</h1>
+<div class="tab-pane" id="panel-all_projects">
+<h1>Users</h1>
+@if($usersresults->count()>0)
+	<div class="container">
+	<div class="row">
+		<div class="span5">
+            <table class="table table-striped table-condensed">
+                  <thead>
+                  <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>                                       
+                  </tr>
+              </thead>   
+              <tbody>
+              	@foreach($usersresults as $usersresult)
+                <tr>
+                    <td>{{ $usersresult->first_name }}</td>
+                    <td>{{ $usersresult->last_name }}</td>
+                    <td>{{ $usersresult->email }}</td>                                     
+                </tr>
+               @endforeach                                
+              </tbody>
+            </table>
+            </div>
+	</div>
+@else
+<p>No results<p>
+@endif
+</div>
+<h1>Projects</h1>
  <div class="tab-pane" id="panel-all_projects">
         <p>
           <div class="container-fluid">
@@ -77,6 +108,11 @@
               </div>
             </div>
               @endforeach
+          </div>
+      </div>
+     </p>
+ </div>
+</div>
 @endsection
 
 <!-- right-sidenav -->
