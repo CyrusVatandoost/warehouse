@@ -45,6 +45,19 @@ class AdminController extends Controller{
       //Mail::to($email)->send(new ApprovedMail()); //Commented out as not needed for testing, but its working
       return redirect('/admin');
     }
+
+  }
+
+  public function disapproveUser($id, $email){
+    $userWaitlist = DB::table('pending_users')->where('user_id', '=', $id)->first();
+    if($userWaitlist == null){
+      return redirect('/admin');
+    }
+    else{
+      DB::table('pending_users')->where('user_id', '=', $id)->delete();
+      //Mail::to($email)->send(new DisapprovedMail()); //Commented out as not needed for testing, but its working
+      return redirect('/admin');
+    }
   }
   
 }
