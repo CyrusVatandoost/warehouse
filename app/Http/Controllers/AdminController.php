@@ -59,5 +59,12 @@ class AdminController extends Controller{
       return redirect('/admin');
     }
   }
+
+  public function store() {
+  		$Admin = new Admin;
+    	$Admin->user_id = request('user_id');
+    	$Admin->save();
+    	return back();
+  }
   
 }

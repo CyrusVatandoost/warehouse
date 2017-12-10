@@ -98,9 +98,21 @@
 			      	<td>{{ $admin->user->last_name }}
 			      	<td>{{ $admin->user->email }}
 			    @endforeach
+			    	<td>
+			    	<td>
+			    	<td>	
 			</tbody>
 		</table>
+		<form class="form-inline" method="POST" action="/admin/store">
+				{{ csrf_field() }}
+			  <!-- Gets the "id" of the user as User has not been fully implemented yet to get Name -->
+			  <h5>Add Admins:<h5>&nbsp; <!-- Add Admins -->
+			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="User ID">&nbsp;
+			  <!-- Gets the name of the new position -->
+			  <button class="btn btn-primary" type="submit">Add</button>
+			</form>
 	</div>
+
 
 	<h4>List of Projects:</h4>
 		<div class="table-responsive">   
@@ -152,7 +164,7 @@
   
 	<h4>Positions: </h4>
 	<ul class="list-group">
-  <!-- list of tags -->
+  	
     @foreach($organization_positions as $position)
 	  	<li class="list-group-item">
 	  		<form class="form-inline" method="POST" action="/organization/{{$position->organization_position_id}}/remove-position">
@@ -162,7 +174,7 @@
 			</form>
 	  @endforeach
 
-	  <!-- form to add tags -->
+	  <!-- form to add positions -->
 	  <li class="list-group-item">
 	  	<form class="form-inline" method="POST" action="/organization/add-position">
 				{{ csrf_field() }}
@@ -179,11 +191,6 @@
 	<div class="alert alert-warning" role="alert">
 	  To add a position, input the "organization_id" of the organization for now. You can check their "organization_id" by checking the database. This will be fixed in the future.
 	</div>
-
-	<h4>File Archive:</h4>
-	@foreach($file_archives as $file)
-		{{ $file }}<br>
-	@endforeach
 	<br>
 
   @endsection
