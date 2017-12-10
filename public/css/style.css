@@ -232,7 +232,7 @@ padding: 15px 0;
   width: auto;
   display: inline-block;
   overflow: hidden;
-  width:90%
+  width:90%;
 }
 
 .limit-header-announcement{
@@ -329,4 +329,20 @@ padding: 15px 0;
    margin-right: 10px;
    margin-bottom: 10px;
    width: 30em;
+}
+
+.card-header{
+  padding-left: 10px; 
+  padding-top: 20px; 
+  padding-bottom: 0;
+}
+
+.project-image{
+  margin-top: 20px; 
+  margin-bottom: 20px;
+}
+
+.project-footer{
+  position: absolute; 
+  bottom: 0;
 }
