@@ -73,7 +73,7 @@ class ProjectController extends Controller {
 
 	// set completeness depending on the current completeness
 	public function setCompleteness($id) {
-		$project = Project::find($id)->first();
+		$project = Project::find($id);
 		if($project->complete == 1)
 			$project->complete = 0;
 		else
