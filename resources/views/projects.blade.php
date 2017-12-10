@@ -34,8 +34,8 @@
               <div class="card projects-card-size">
                 <div class="card-block">
                   <h4 class="card-header bg-dark" style="padding-left: 10px;">
-                    <a class="text-white" href="{{ url('project') }}/{{ $project->project_id }}">
-                      {{ $project->name }}
+                    <a href="{{ url('project') }}/{{ $project->project_id }}">
+                      <p class="limit-header text-white" style="width:90%;"> {{ $project->name }} </p>
                     </a>
                     <div class="float-right small">
                         @if($project->public == 1)
@@ -58,10 +58,11 @@
                     </a>
                   </div>
                   <div class="card-body">
-                    <p class="card-text">{{ $project->description }}</p>
+                    <p class="card-text limit">{{ $project->description }}</p>
                   </div>
                   <div class="row">
-                    <div class="col text-center small p-2">
+                    <div class="col text-center small p-2" style="position: absolute;
+    bottom: 0;">
                       <p>
                         Author: <a href="#">{{ $project->user->first_name }}</a>
                         |

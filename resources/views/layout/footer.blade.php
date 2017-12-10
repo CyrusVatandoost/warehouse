@@ -1,10 +1,5 @@
 <!-- footer -->
 <style type="text/css">
-
-  .footer{
-    display: table;
-    background-color: #404040;
-  }
 </style>
 
 <footer class="footer">
