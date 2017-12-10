@@ -55,9 +55,7 @@
 			</tbody>
 		</table>
 	</div>
-	<br>
 
-	@if($waitlists->count() > 0)
 	<h4>Waitlist:</h4>
 	<div class="table-responsive">   
 		<table class="table table-hover">
@@ -81,39 +79,36 @@
 			</tbody>
 		</table>
 	</div>
-	@endif
 
 	<h4>List of Admins:</h4>
-		<div class="table-responsive">   
-			<table class="table table-hover">
-			    <thead class="thead-dark">
-			      <tr>
-					   <th>First name
-					   <th>Last name
-					   <th>Email
-			    </thead>
-			    <tbody>
-			    	@foreach($admins as $admin)
-						<br>
-				    	<tr>
-				      	<td>{{ $admin->user->first_name }}
-				      	<td>{{ $admin->user->last_name }}
-				      	<td>{{ $admin->user->email }}
-				    	@endforeach
-				</tbody>
-			</table>
-		</div>
+	<div class="table-responsive">   
+		<table class="table table-hover">
+		    <thead class="thead-dark">
+		      <tr>
+				   <th>First name
+				   <th>Last name
+				   <th>Email
+		    </thead>
+		    <tbody>
+		    	@foreach($admins as $admin)
+			    	<tr>
+			      	<td>{{ $admin->user->first_name }}
+			      	<td>{{ $admin->user->last_name }}
+			      	<td>{{ $admin->user->email }}
+			    @endforeach
+			</tbody>
+		</table>
+	</div>
 
 	<h4>List of Projects:</h4>
 		<div class="table-responsive">   
 			<table class="table table-hover">
 			    <thead class="thead-dark">
 			      <tr>
-					   <th>Project Name</th>
-					   <th>Date Created</th>
-					   <th>Date Updated</th>
-					   <th></th>
-			       </tr>
+					   <th>Project Name
+					   <th>Date Created
+					   <th>Date Updated
+					   <th>
 			    </thead>
 			    <tbody>
 					@foreach($projects as $project)
@@ -128,7 +123,6 @@
 				</tbody>
 			</table>
 		</div>
-	</p>
 
 	<h4>Project Archive:</h4>
 		<div class="table-responsive">   
