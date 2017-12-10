@@ -41,6 +41,7 @@
 
 	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
 
+	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
 
 // file
 	// upload a file to the project
@@ -114,7 +115,9 @@ Route::get('/projects', 'HomeController@projects')->name('projects');
 Route::get('/successverification', function() {
 	return view('vendor.laravel-user-verification.successverification');
 });
-//Route::group(['middleware' => ['isVerified']], function ()) 
+
+Route::post('/project/{project}/abstract-edit', 'EditorController@edit');
+Route::post('/project/{project}/abstract-update', 'EditorController@update');
 
 // to be shortened
 Route::get('/', function () {return view('welcome');});

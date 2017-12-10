@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use App\Project;
 use App\ProjectArchive;
 
@@ -113,7 +114,7 @@ class ProjectController extends Controller {
 		return $projects->toJson();
 	}
 
-	public function getUsersAndProjectsRelatedToPhrase(){
+	public function getUsersAndProjectsRelatedToPhrase() {
 
 		$input = Input::all();
 		self::$phrase = $input['search-project'];
@@ -135,7 +136,13 @@ class ProjectController extends Controller {
         	->orwhere('users.email', 'like', '%'.self::$phrase.'%')
         	->get();
 
-
         return view('search', compact('projects', 'searched', 'usersresults'));
 	}
+
+	public function storeAbstract($id) {
+		$project = Project::find($id);
+		Storage::disk('uploads')->put($id.'/README.md', 'Contents');
+		return back();
+	}
+
 }
