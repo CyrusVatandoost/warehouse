@@ -5,7 +5,7 @@
 			<div class="modal-content">
 
 				<div class="modal-header">
-					<h4 class="modal-title" id="myModalLabel">New Announcement</h4>
+					<h4 class="modal-title" id="myModalLabel">New Message</h4>
 					 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				</div>
 
@@ -23,21 +23,24 @@
 
 					@if($users->count() > 0)
 					  <div id="search">
-					    <input id="provider-json" type="text" placeholder="Add Recipients" required>
-					    <button type="button" name="addRecipient" class="btn btn-primary" style="margin-top: 10px;" onclick="addRecipientElement()">Add </button>
-					    <br>
-					    <div  class="container" style="position: relative; left: -222;">
-					      <div class="row col-md-6 col-md-offset-2 custyle">
-					        <table id="recipientList" class="table table-striped custab">
-					          <thead>
-					            <tr>
-					              <th>Recipients</th>
-					          </thead>
-					            <tr>
-					            </tr>
-					          </table>
-					        </div>
-					    </div>
+					  	<div class="row">
+						    <div class="col-sm-10">               
+	                <input class="form-control" id="provider-json" type="text" placeholder="Add Recipients" required>
+	              </div>
+	              <div class="col-sm-2">     
+	                <button type="button" name="addRecipient" class="btn btn-browse " style="margin-bottom: 10px; float:right;" onclick="addRecipientElement()">Add</button>
+	              </div>
+            	</div>
+            <center>
+			        <table id="recipientList" class="table table-striped text-center">
+			          <thead>
+			            <tr>
+		              <th>Recipients</th>
+			          </thead>
+			            <tr>
+			            </tr>
+		          </table>
+				    </center>
 					  </div>
 					  <div id="recipient" >
 					    <!--<input style="display:none;" type="text" name="recipients[]" value="1"><br>-->
@@ -48,7 +51,7 @@
 
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button> 
-					<button type="submit" class="btn btn-success">Send Message</button>
+					<button type="submit" class="btn btn-browse">Send Message</button>
 				</div>
 
 			</div>

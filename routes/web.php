@@ -41,6 +41,7 @@
 
 	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
 
+	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
 
 // file
 	// upload a file to the project
@@ -74,10 +75,12 @@
 
 // admin
 	Route::get('/admin', 'AdminController@show');
-	Route::get('/admin/archive', 'AdminController@showArchive');
 	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
 	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
+
+// archive
+	Route::get('/admin/file-archive', 'ArchiveController@files');
 
 // login and register
 	Auth::routes();
@@ -114,7 +117,9 @@ Route::get('/projects', 'HomeController@projects')->name('projects');
 Route::get('/successverification', function() {
 	return view('vendor.laravel-user-verification.successverification');
 });
-//Route::group(['middleware' => ['isVerified']], function ()) 
+
+Route::post('/project/{project}/abstract-edit', 'EditorController@edit');
+Route::post('/project/{project}/abstract-update', 'EditorController@update');
 
 // to be shortened
 Route::get('/', function () {return view('welcome');});

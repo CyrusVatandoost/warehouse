@@ -68,9 +68,9 @@
 
                 <!-- user profile pic -->
                 @if (file_exists(public_path('storage/avatars/'.auth()->user()->user_id.'.jpg')))
-                  <img class="rounded-circle reviewer" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
+                  <img class="rounded-circle reviewer" src="{{ asset('uploads/avatars/'.auth()->user()->user_id.'.jpg') }}" height="256" width="256">
                 @else
-                  <img class="rounded-circle reviewer" src="{{ asset('storage/avatars/default.jpg') }}" height="256" width="256">
+                  <img class="rounded-circle reviewer" src="{{ asset('uploads/avatars/default.jpg') }}" height="256" width="256">
                 @endif
 
                 <div class="caption small">

@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @if(Auth::check())
-  @section('title', 'Home')
+  @section('title', 'Message')
 @endif
 
 @section('style')

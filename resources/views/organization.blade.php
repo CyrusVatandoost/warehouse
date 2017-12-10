@@ -1,5 +1,6 @@
 @extends('layout.app')
 
+@section('title', 'Organization')
 @section('page-title', 'Organization')
 
 @section('modals')
