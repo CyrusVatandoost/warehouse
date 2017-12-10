@@ -81,36 +81,30 @@
 			</tbody>
 		</table>
 	</div>
-	<br>
 	@endif
 
 	<h4>List of Admins:</h4>
-	<p>
 		<div class="table-responsive">   
 			<table class="table table-hover">
 			    <thead class="thead-dark">
 			      <tr>
-					   <th>First name</th>
-					   <th>Last name</th>
-					   <th>Email</th>
-			       </tr>
+					   <th>First name
+					   <th>Last name
+					   <th>Email
 			    </thead>
 			    <tbody>
 			    	@foreach($admins as $admin)
 						<br>
 				    	<tr>
-				      	<td>{{ $admin->user->first_name }}</td>
-				      	<td>{{ $admin->user->last_name }}</td>
-				      	<td>{{ $admin->user->email }}</td>
-				    	</tr>
+				      	<td>{{ $admin->user->first_name }}
+				      	<td>{{ $admin->user->last_name }}
+				      	<td>{{ $admin->user->email }}
 				    	@endforeach
 				</tbody>
 			</table>
 		</div>
-	</p>
 
 	<h4>List of Projects:</h4>
-<p>
 		<div class="table-responsive">   
 			<table class="table table-hover">
 			    <thead class="thead-dark">
@@ -137,9 +131,6 @@
 	</p>
 
 	<h4>Project Archive:</h4>
-	<br>
-  
-	<p>
 		<div class="table-responsive">   
 			<table class="table table-hover">
 			    <thead class="thead-dark">
@@ -164,9 +155,7 @@
   
   
 	<h4>Positions: </h4>
-
 	<ul class="list-group">
-
   <!-- list of tags -->
     @foreach($organization_positions as $position)
 	  	<li class="list-group-item">
@@ -181,8 +170,10 @@
 	  <li class="list-group-item">
 	  	<form class="form-inline" method="POST" action="/organization/add-position">
 				{{ csrf_field() }}
-			  <input class="form-control" type="text" id="tag_name" name="organization_id" placeholder="Organization ID">&nbsp;			<!-- Gets the "id" of the organization as Organization has not been fully implemented yet to get Name -->
-			  <input class="form-control" type="text" id="tag_name" name="position" placeholder="Position">&nbsp; <!-- Gets the name of the new position -->
+			  <!-- Gets the "id" of the organization as Organization has not been fully implemented yet to get Name -->
+			  <input class="form-control" type="text" id="tag_name" name="organization_id" placeholder="Organization ID">&nbsp;
+			  <!-- Gets the name of the new position -->
+			  <input class="form-control" type="text" id="tag_name" name="position" placeholder="Position">&nbsp;
 
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>

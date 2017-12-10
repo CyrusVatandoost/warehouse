@@ -14,6 +14,7 @@ class CreateWaitlistTable extends Migration
     public function up()
     {
         Schema::create('waitlist', function (Blueprint $table) {
+            $table->increments('waitlist_id');
             $table->integer('user_id')->unsigned();
         });
     }
