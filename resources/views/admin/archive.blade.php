@@ -39,7 +39,8 @@
           <th>Name
           <th>Created At
           <th>Updated At
-          <th>
+          <th>Restore
+          <th>Archive
       </thead>
       <tbody>
         @foreach($file_archives as $file_archive)
@@ -50,6 +51,7 @@
             <td><a href="{{ url('/uploads/archive/'.$file_archive->name) }}">{{ $file_archive->name }}</a>
             <td>{{ $file_archive->created_at }}
             <td>{{ $file_archive->updated_at }}
+            <td><a href="/archive/restore/{{ $file_archive->file_archive_id }}" class="btn btn-success">Restore</a>
             <td><a href="/archive/delete/{{ $file_archive->file_archive_id }}" class="btn btn-danger">Delete</a>
         @endforeach
       </tbody>

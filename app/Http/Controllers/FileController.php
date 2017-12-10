@@ -54,4 +54,19 @@ class FileController extends Controller {
 		return back();
 	}
 
+	public function restoreArchive($file_archive_id) {
+		$file_archive = FileArchive::find($file_archive_id);
+		$file = new File;
+		$file->project_id = $file_archive->project_id;
+		$file->name = $file_archive->name;
+
+		// the file will be moved to the archive folder
+		Storage::disk('uploads')->move('archive/'.$file->name, $file->project_id.'/'.$file->name);
+
+		$file_archive->delete();
+		$file->save();
+
+		return back();
+	}
+
 }

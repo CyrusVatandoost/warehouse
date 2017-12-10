@@ -46,6 +46,8 @@
 	Route::get('/project/{project}/file-archive/{file}', 'FileController@archive');
 	// delete an archived file
 	Route::get('/archive/delete/{file_archive}', 'FileController@deleteArchive');
+	// restore an archived file
+	Route::get('/archive/restore/{file_archive}', 'FileController@restoreArchive');
 
 //Positions
 	//remove a position
