@@ -63,6 +63,18 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        // all uploaded files will go here
+        'uploads' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads',
+        ],
+
+        // all files related
+        'accounts' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/accounts',
+        ],
+
     ],
 
 ];
