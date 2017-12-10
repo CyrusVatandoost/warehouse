@@ -74,7 +74,7 @@
                 @endif
 
                 <div class="caption small">
-                  <small><a href="#"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
+                  <small><a href="/account/{{$announcement->user->user_id}}"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
                 </div>
               </div>
               <div class="col-md-9">

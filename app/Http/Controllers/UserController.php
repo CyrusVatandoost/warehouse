@@ -3,40 +3,49 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Storage;
 use Input;
 use App\User;
 use App\Log;
-use Illuminate\Http\Request;
 
 class UserController extends Controller {
 
+  public function auth() {
+    $user = User::find(Auth::id());
+    return view('account', compact('user'));
+  }
+
+  public function edit() {
+    $user = User::find(Auth::id());
+    return view('account.edit', compact('user'));
+  }
+
+  public function settings() {
+    $user = User::find(Auth::id());
+    return view('account.settings', compact('user'));
+  }
+
+  public function show($id) {
+    $user = User::find($id);
+    return view('account', compact('user'));
+  }
+
  	public function updateAvatar(Request $request, $id) {
     $user = User::find($id);
-
-    /*
-    $image = $request->file('profile_pic');
-    $input['name'] = $id.'.'.$image->getClientOriginalExtension();
-    $destinationPath = public_path('/storage/avatars');
-    $image->move($destinationPath, $input['name']);
-    */
-
     $upload = $request->file('profile_pic'); // get file from form
     $file_name = $upload->getClientOriginalName();  // get file name
     $file_extension = $upload->getClientOriginalExtension();  // get file extension
-
     $storage_path = Storage::disk('uploads')->putFileAs('avatars/', $upload, $id.'.'.$file_extension);
 
     //add update action to logs table
     $log = new Log;
-
     $log->user_id = $id;
     if($user->gender == 'Male')
       $log->user_action = "updated his profile picture to";
     else
       $log->user_action = "updated her profile picture to";
-
-    $log->action_details = $image;
+    $log->action_details = $file_name;
     $log->save();
     //end log
 
@@ -50,7 +59,6 @@ class UserController extends Controller {
 
       //add update action to logs table
       $log = new Log;
-
       $log->user_id = $id;
       if($user->gender == 'Male')
         $log->user_action = "updated his profile";
@@ -76,7 +84,6 @@ class UserController extends Controller {
 
       //add update action to logs table
       $log = new Log;
-
       $log->user_id = $id;
 
       // NOTE: For some reason, gender isn't working here, but it works with updateBio(). Instead of going with "him" or "her", i went with "their" at the moment.

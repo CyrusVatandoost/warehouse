@@ -12,40 +12,69 @@
 @endsection
 
 @section('body')
-  <p>
-  <div class="container-fluid">
-    <div class="row no-gutters align-items-start">
-      @foreach($projects as $project)
+  <div class="tab-pane active" id="panel-projects_all">
+    <p>
+    <div class="container-fluid">
+      <div class="row projects-no-gutters align-items-start">
+        @foreach($projects as $project)
         <div class="col-md-auto">
-          <div class="card card-size">
+          <div class="card projects-card-size">
             <div class="card-block">
-              <h4 class="card-title">
+              <h4 class="project-card-header bg-dark">
                 <a href="{{ url('project') }}/{{ $project->project_id }}">
-                  {{ $project->name }}
+                  <p class="limit-header text-white">{{ $project->name }}</p>
                 </a>
-              </h4>
-              <h6 class="card-subtitle mb-2 text-muted">
-                {{ $project->user->first_name }}
-              </h6>
-            </div>
-            <img class="card-img-top" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">{{ $project->description }}</p>
-            </div>
-            <div class="card-footer">
-              @if($project->complete == 1)
-                <span class="badge badge-success">Compelete</span>
-              @endif
+                <div class="float-right small">
+                    @if($project->public == 1)
+                      <span class="badge badge-success project-visibility">
+                        <i class="material-icons material-icons-mid">lock_open</i>
+                      </span>
+                    @endif
 
-              @if($project->complete == 0)
-                <span class="badge badge-danger">Incomplete</span>
-              @endif
+                    @if($project->public == 0)
+                      <span class="badge badge-danger project-visibility">
+                        <i class="material-icons material-icons-mid">lock_outline</i>
+                      </span>
+                    @endif
+                  
+                </div>
+              </h4>
+              <div class="image">
+                <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">
+                  <img class="project-image img-thumbnail" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" alt="avatar" />
+                </a>
+              </div>
+              <div class="card-body">
+                <p class="card-text limit">{{ $project->description }}</p>
+              </div>
+              <div class="row">
+                <div class="col text-center small p-2  project-footer">
+                  <p>
+                    Author: <a href="#">{{ $project->user->first_name }}</a>
+                    |
+                    <i class="fa fa-tags"></i> Status:
+                      @if($project->complete == 1)
+                        <span class="badge badge-success project-badge">Completed</span>
+                      @endif
+
+                      @if($project->complete == 0)
+                        <span class="badge badge-danger project-badge">Incomplete</span>
+                      @endif
+                    |
+                    <i class="fa fa-tags"></i> Tags:  
+                      @foreach($project->tags as $something)
+                        <span class="badge badge-info">{{ $something->tag->name }}</span>
+                      @endforeach
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-    @endforeach
+      @endforeach
+    </div>
   </div>
-</div>
+  </div>
 
 @endsection
 

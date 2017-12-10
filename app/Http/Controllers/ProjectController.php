@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Project;
 use App\ProjectArchive;
 use App\Log;
+use App\FeaturedProject;
 
 class ProjectController extends Controller {
     
@@ -165,7 +166,6 @@ class ProjectController extends Controller {
 
 		//add change name action to logs table
     $log = new Log;
-
     $log->user_id = auth()->id();
     $msg = "changed project name from " . $project->name . " to";
     $log->user_action = $msg;
@@ -212,12 +212,76 @@ class ProjectController extends Controller {
         	->orwhere('users.email', 'like', '%'.self::$phrase.'%')
         	->get();
 
-        return view('search', compact('projects', 'searched', 'usersresults'));
+        $tags =  DB::table('tags')
+        	->select('tag_id', 'name')
+        	->get();
+
+
+        return view('search', compact('projects', 'searched', 'usersresults', 'tags'));
+	}
+
+	public function getProjectsByTag(){
+		$input = Input::all();
+		$tag = $input['tag'];
+		$searched = self::$phrase;
+		
+		$projects = DB::table('projects')
+			->join('project_tags', 'project_tags.project_id', '=', 'projects.project_id')
+			->join('users', 'users.user_id', '=', 'projects.user_id')
+			->select('users.first_name AS username', 'projects.project_id AS pID', 'projects.name AS pName', 'projects.description', 'projects.public', 'projects.complete')
+			->where('project_tags.tag_id', '=', $tag)
+			->get();
+
+		$tags =  DB::table('tags')
+        	->select('tag_id', 'name')
+        	->get();
+
+        $usersresults = DB::table('users')
+        	->select('users.user_id','users.first_name', 'users.last_name', 'users.email')
+        	->where('users.first_name', 'like', '%'.self::$phrase.'%')
+        	->orwhere('users.last_name', 'like', '%'.self::$phrase.'%')
+        	->orwhere('users.email', 'like', '%'.self::$phrase.'%')
+        	->get();
+
+		return view('search', compact('projects', 'searched', 'usersresults', 'tags'));
 	}
 
 	public function storeAbstract($id) {
 		$project = Project::find($id);
 		Storage::disk('uploads')->put($id.'/README.md', 'Contents');
+		return back();
+	}
+
+	public function feature($id) {
+		$project = Project::find($id);
+		$featured_project = new FeaturedProject;
+		$featured_project->project_id = $id;
+		$featured_project->save();
+
+		//add change name action to logs table
+    $log = new Log;
+    $log->user_id = auth()->id();
+    $log->user_action = "featured";
+    $log->action_details = $project->name;
+    $log->save();
+    //end log
+
+		return back();
+	}
+
+	public function unfeature($id) {
+		$featured_project = FeaturedProject::where('project_id', $id)->first();
+
+		//add change name action to logs table
+    $log = new Log;
+    $log->user_id = auth()->id();
+    $log->user_action = "unfeatured";
+    $name = $featured_project->project->name;
+    $log->action_details = $name;
+    $log->save();
+    //end log
+
+		$featured_project->delete();
 		return back();
 	}
 

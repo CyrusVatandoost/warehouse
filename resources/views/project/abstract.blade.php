@@ -6,6 +6,7 @@
         {{ Storage::disk('uploads')->get($project->project_id.'/README.md') }}
       @endif
 
+      @if(Auth::check())
       <br><br>
       <form method="POST" action="/project/{{$project->project_id}}/abstract-add">
         {{ csrf_field() }}
@@ -17,6 +18,7 @@
         {{ csrf_field() }}
         <button type="submit" class="btn btn-primary">Edit Abstract</button>
       </form>
+      @endif
 
     </div>
 </div>

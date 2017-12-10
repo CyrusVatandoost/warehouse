@@ -27,9 +27,10 @@
 @endsection
 
 @section('left-sidenav')
-  <p><a href="#modal-container-delete-project" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Project</a></p>
-  <p><a href="#modal-container-project-archive" role="button" class="btn btn-danger btn-block" data-toggle="modal">Archive Project</a></p>
-	@endsection
+  @if(Auth::check())
+    <p><a href="#modal-container-project-archive" role="button" class="btn btn-danger btn-block" data-toggle="modal">Archive Project</a></p>
+  @endif
+@endsection
 
 @section('body')
 
@@ -59,6 +60,7 @@
       <li class="nav-item">
         <a class="nav-link nav-link-tabs active" href="#panel-abstract" data-toggle="tab">Abstract</a>
       </li>
+      @if(Auth::check())
       <li class="nav-item">
         <a class="nav-link nav-link-tabs" href="#panel-files" data-toggle="tab">Files</a>
       </li>
@@ -68,17 +70,22 @@
       <li class="nav-item">
         <a class="nav-link nav-link-tabs"  href="#panel-issues" data-toggle="tab">Issues</a>
       </li>
+      @endif
+      @if($project->user_id == auth()->id())
       <li class="nav-item">
         <a class="nav-link nav-link-tabs"  href="#panel-settings" data-toggle="tab">Settings</a>
       </li>
+      @endif
     </ul>
 
     <div class="tab-content">
       @include('project.abstract')
-      @include('project.files')
-      @include('project.progress')
-      @include('project.issues')
-      @include('project.settings')
+      @if(Auth::check())
+        @include('project.files')
+        @include('project.progress')
+        @include('project.issues')
+        @include('project.settings')
+      @endif
     </div>
     
   </div>
