@@ -32,29 +32,30 @@
   <h5>A list of all actions by all accounts</h5>
   <br> 
 
-	<!-- <div class="table-responsive">   
+	<div class="table-responsive">   
 		<table class="table table-hover">
-		    <thead class="thead-dark">
+			<thead class="thead-dark">
 		      <tr>
-		      	<th>User ID
-				  	<th>First name
-				  	<th>Middle Initial
-				  	<th>Last Name
-				  	<th>Email Address
+				  	<th>Date 
+				  	<th>Log
 		    </thead>
 		    <tbody>
-	
+				@foreach($logs as $log) 
+					<tr>
+					  <td>{{ $log->created_at }}
+
+				      <td>
+				      @foreach($users as $user) 
+				      	@if($user->user_id == $log->user_id)
+				      		{{ $user->first_name }} 
+				      		{{ $user->last_name }}
+				      	@endif
+				      @endforeach 
+				      {{ $log->user_action }}: {{ $log->action_details }}
+				@endforeach
 			</tbody>
 		</table>
-	</div> -->
-
-	@foreach($logs as $log) 
-		<tr>
-	      <td>{{ $log->user_id }}
-	      <td>{{ $log->user_action }}
-	      <td>{{ $log->action_details }}
-	      <td>{{ $log->created_at }}
-	@endforeach
+	</div>
 
 @endsection
 
