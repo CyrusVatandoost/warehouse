@@ -53,10 +53,12 @@ class LoginController extends Controller
                     return redirect()->intended('home');
                 }
                 else{
+                    auth()->logout();
                     return HomeController::notApproved();
                 }
              }
              else{
+                auth()->logout();
                 return HomeController::notVerified();
              }
         }
