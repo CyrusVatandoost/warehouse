@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -45,12 +46,26 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'verified' => 1])) {
-            // Authentication passed...
-            return redirect()->intended('home');
-        }
-        else{
+
+      $email_exists_unverified = DB::table('unverified_users')->select('email')->where('email', $request->email)->count(); 
+
+      $email_exists_pending = DB::table('pending_users')->select('email')->where('email', $request->email)->count(); 
+
+      if ($email_exists_unverified > 0) {
             return HomeController::notVerified();
+
+      }
+      else if($email_exists_pending > 0){
+            return HomeController::notApproved();
+      }
+      else{
+        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+          return redirect()->intended('home');
+        } 
+        else{
+            return HomeController::wrongLogin();
         }
+
+      }
     }
 }

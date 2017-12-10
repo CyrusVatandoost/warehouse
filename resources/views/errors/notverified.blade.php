@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 <!-- Main Content -->
-@section('content')
+@section('body')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -9,7 +9,7 @@
                 <div class="panel-heading">Not Verified</div>
                 <div class="panel-body">
                     <span class="help-block">
-                        <strong>User is not yet verified.</strong>
+                        <strong>Email is not yet verified, please check your email.</strong>
                     </span>
                     <div class="form-group">
                         <div class="col-md-12">

@@ -58,87 +58,80 @@
 	</div>
 	<br>
 
-	<h4>List of Admins:</h4>
-	@foreach($admins as $admin)
-		{{ $admin }}<br>
+	@if($waitlists->count() > 0)
+	<h4>Waitlist:</h4>
+	<div class="table-responsive">   
+		<table class="table table-hover">
+		    <thead class="thead-dark">
+		      <tr>
+				  	<th>First name
+				  	<th>Middle Initial
+				  	<th>Last Name
+				  	<th>Email Address
+				  	<th>Action
+		    </thead>
+		    <tbody>
+	@foreach($waitlists as $waitlist)
+    <tr>
+      <td>{{ $waitlist->first_name }}
+      <td>{{ $waitlist->middle_initial }}
+      <td>{{ $waitlist->last_name }}
+      <td>{{ $waitlist->email }}
+      <td><a href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a>
 	@endforeach
-	<br>
+			</tbody>
+		</table>
+	</div>
+	@endif
 
-	<p>
+	<h4>List of Admins:</h4>
 		<div class="table-responsive">   
 			<table class="table table-hover">
 			    <thead class="thead-dark">
 			      <tr>
-					   <th>First name</th>
-					   <th>Last name</th>
-					   <th>Email</th>
-			       </tr>
+					   <th>First name
+					   <th>Last name
+					   <th>Email
 			    </thead>
 			    <tbody>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
+			    	@foreach($admins as $admin)
+						<br>
+				    	<tr>
+				      	<td>{{ $admin->user->first_name }}
+				      	<td>{{ $admin->user->last_name }}
+				      	<td>{{ $admin->user->email }}
+				    	@endforeach
 				</tbody>
 			</table>
 		</div>
-	</p>
 
 	<h4>List of Projects:</h4>
-	@foreach($projects as $project)
-		{{ $project }}<br>
-	@endforeach
-	<br>
-
-<p>
 		<div class="table-responsive">   
 			<table class="table table-hover">
 			    <thead class="thead-dark">
 			      <tr>
 					   <th>Project Name</th>
 					   <th>Date Created</th>
-					   <th>button</th>
+					   <th>Date Updated</th>
+					   <th></th>
 			       </tr>
 			    </thead>
 			    <tbody>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
+					@foreach($projects as $project)
+						<br>
+				    	<tr>
+				      	<td>{{ $project->name }}</td>
+				      	<td>{{ $project->created_at}}</td>
+				      	<td>{{ $project->updated_at}}</td>
+				      	<td><a href="/project/{{$project->project_id}}"><button class="btn btn-primary" >View</button></a></td>
+				    	</tr>
+				    @endforeach
 				</tbody>
 			</table>
 		</div>
 	</p>
 
 	<h4>Project Archive:</h4>
-	@foreach($project_archives as $project)
-		{{ $project }}<br>
-	@endforeach
-	<br>
-  
-	<p>
 		<div class="table-responsive">   
 			<table class="table table-hover">
 			    <thead class="thead-dark">
@@ -149,21 +142,13 @@
 			       </tr>
 			    </thead>
 			    <tbody>
+			  		@foreach($project_archives as $project)
 				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
+				      <td>{{$project->name}}</td>
+				      <td>{{$project->updated_at}}</td>
+				      <td><a href="/project/{{$project->project_id}}"><button class="btn btn-primary" >View</button></a></td>
 				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
-				    <tr>
-				      <td>sa</td>
-				      <td>mp</td>
-				      <td>le</td>
-				    </tr>
+				    @endforeach
 				</tbody>
 			</table>
 		</div>
@@ -171,9 +156,7 @@
   
   
 	<h4>Positions: </h4>
-
 	<ul class="list-group">
-
   <!-- list of tags -->
     @foreach($organization_positions as $position)
 	  	<li class="list-group-item">
@@ -188,8 +171,10 @@
 	  <li class="list-group-item">
 	  	<form class="form-inline" method="POST" action="/organization/add-position">
 				{{ csrf_field() }}
-			  <input class="form-control" type="text" id="tag_name" name="organization_id" placeholder="Organization ID">&nbsp;			<!-- Gets the "id" of the organization as Organization has not been fully implemented yet to get Name -->
-			  <input class="form-control" type="text" id="tag_name" name="position" placeholder="Position">&nbsp; <!-- Gets the name of the new position -->
+			  <!-- Gets the "id" of the organization as Organization has not been fully implemented yet to get Name -->
+			  <input class="form-control" type="text" id="tag_name" name="organization_id" placeholder="Organization ID">&nbsp;
+			  <!-- Gets the name of the new position -->
+			  <input class="form-control" type="text" id="tag_name" name="position" placeholder="Position">&nbsp;
 
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>

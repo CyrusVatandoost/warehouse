@@ -15,8 +15,6 @@
 <link href="{{ asset('css/material-icons.css') }}" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{!! asset('css/easy-autocomplete.min.css') !!}">
 
-
-
 <script type="text/javascript">
   $(document).ready(function() {
   $(".expandable").on("click", ".add-more", function(e) {

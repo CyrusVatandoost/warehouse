@@ -74,13 +74,16 @@
 // admin
 	Route::get('/admin', 'AdminController@show');
 	Route::get('/admin/archive', 'AdminController@showArchive');
+	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
 
 // login and register
 	Auth::routes();
 	Route::get('/account', 'HomeController@index')->name('account');
 	Route::get('/account/edit', function () {return view('account.edit');});
+	Route::get('/account/settings', function() {return view('account.settings');});
 	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
 	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
+	Route::post('/account/{user}/settings', 'UserController@updatePersonalInfo');
 
 //Messenger Routes
 Route::group(['prefix' => 'messages'], function () {

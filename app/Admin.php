@@ -10,7 +10,7 @@ class Admin extends Model {
 
 	// $admin->user
 	public function user() {
-		return $this->belongsTo('users', 'user_id');
+		return $this->belongsTo('App\User', 'user_id','user_id');
 	}
 
 }
