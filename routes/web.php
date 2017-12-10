@@ -40,8 +40,7 @@
 	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
 
 	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
-
-
+	Route::post('/search/filtertag', 'ProjectController@getProjectsByTag');
 // file
 	// upload a file to the project
 	Route::post('/project/{project}/upload-file', 'FileController@store');

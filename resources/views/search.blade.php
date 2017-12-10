@@ -19,6 +19,18 @@
 
 <!-- body -->
 @section('body')
+<form class="form-group" action="/search/filtertag" method="POST">
+  {{ csrf_field() }}
+ <select name="tag">
+  <option selected>Filter By Tags</option>
+  @if($tags->count()>0)
+    @foreach($tags as $tag)
+      <option value="{{ $tag->tag_id }}">{{ $tag->name }}</option>
+    @endforeach
+  @endif
+</select>
+<button type="submit" class="btn btn-primary">Filter</button>
+</form>
 <h1>Search results for "{{ @$searched }}"</h1>
 <div class="tab-pane" id="panel-all_projects">
 <h1>Users</h1>
@@ -55,6 +67,7 @@
         <p>
           <div class="container-fluid">
             <div class="row projects-no-gutters align-items-start">
+            @if($projects->count()>0)
               @foreach($projects as $project)
                 <div class="col-md-auto">
                 <div class="card projects-card-size">
@@ -108,6 +121,9 @@
               </div>
             </div>
               @endforeach
+            @else
+              <h1>No Result</h1>
+            @endif
           </div>
       </div>
      </p>
