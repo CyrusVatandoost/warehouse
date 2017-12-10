@@ -54,6 +54,14 @@
 	@endforeach
 			</tbody>
 		</table>
+		<form class="form-inline" method="POST" action="/admin/delete">
+				{{ csrf_field() }}
+			  <!-- Gets the "id" of the user as User has not been fully implemented yet to get Name -->
+			  <h5>Delete an Account:<h5>&nbsp; <!-- Add Admins -->
+			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="User ID">&nbsp;
+			  <!-- Gets the name of the new position -->
+			  <button class="btn btn-primary" type="submit">Delete</button>
+			</form>
 	</div>
 
 	<h4>Waitlist:</h4>

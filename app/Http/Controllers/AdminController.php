@@ -45,5 +45,17 @@ class AdminController extends Controller{
       return redirect('/admin');
     }
   }
+
+  public function delete() {
+      
+      // foreach($admin as $user)
+      //   if ($user->user_id == request('user_id')) {
+          Admin::where('user_id',request('user_id'))->delete();
+        // }
+        // endforeach
+
+      User::where('user_id',request('user_id'))->delete();
+      return back();
+  }
   
 }
