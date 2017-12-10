@@ -70,6 +70,7 @@
 // admin
 	Route::get('/admin', 'AdminController@show');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
+	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
 
 // login and register
 	Auth::routes();

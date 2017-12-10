@@ -76,7 +76,7 @@
       <td>{{ $waitlist->middle_initial }}
       <td>{{ $waitlist->last_name }}
       <td>{{ $waitlist->email }}
-      <td><a href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a>
+      <td><a style="margin-right: 7px;" href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a><a href="admin/disapprove/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-danger">Disapprove</a>
 	@endforeach
 			</tbody>
 		</table>
