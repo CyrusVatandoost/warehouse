@@ -74,6 +74,9 @@
 	//delete an announcement
 	Route::get('/announcement/delete/{announcement}', 'AnnouncementController@delete');
 
+// notification
+	Route::get('/notifications', 'NotificationController@showNotifs');
+
 // admin
 	Route::get('/admin', 'AdminController@show');
 	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
@@ -137,4 +140,3 @@ Route::get('/contact', function () {return view('contact');});
 Route::get('/announcement', function () {return view('announcement');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/sample', function () {return view('sample');});
-Route::get('/notifications', function () {return view('notifications');});
