@@ -131,7 +131,6 @@
 			    </thead>
 			    <tbody>
 					@foreach($projects as $project)
-						<br>
 				    	<tr>
 				      	<td>{{ $project->name }}</td>
 				      	<td>{{ $project->created_at}}</td>
