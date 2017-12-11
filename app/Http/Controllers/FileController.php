@@ -27,7 +27,6 @@ class FileController extends Controller {
 		//add store action to logs table
     $log = new Log;
     $project = Project::find($project_id);
-
     $log->user_id = auth()->id();
     $log->user_action = "uploaded a file (" . $storage_name . ") to";
     $log->action_details = $project->name;

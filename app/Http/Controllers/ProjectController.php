@@ -289,4 +289,11 @@ class ProjectController extends Controller {
 		return back();
 	}
 
+	public function updateDescription($id) {
+		$project = Project::find($id);
+		$project->description = request('description');
+		$project->save();
+		return back();
+	}
+
 }

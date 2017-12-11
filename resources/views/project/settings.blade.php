@@ -20,31 +20,37 @@
 
 	  </div>
 
-	  <div class="col-lg-5">
+	  <!-- form to change project visibility -->
+		<div class="col-lg-5">
+			<p>
+			<h4>Project Visibility</h4>
+			<div class='row'>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-2">Public</div>
+				<div class="col-sm-3">
+					<label class="custom-control custom-checkbox">
+						@if( $project->public == 1 )
+							<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')"/>
+						@else
+							<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')" checked/>
+						@endif
+						<span class="custom-control-indicator"></span>
+					</label>
+				</div>
+				<div class="col-sm-1">Private</div>
+				<div class="col-sm-5"></div>
+			</div>
+		</div>
 
-	      <p>
-		  <h4>Project Visibility</h4>
-			 <div class='row'>
-		     	<div class="col-sm-1"></div>
-		     	<div class="col-sm-2">Public</div>
-            	<div class="col-sm-3">
-		    	<label class="custom-control custom-checkbox">
-			    @if( $project->public == 1 )
-          <input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')"/>
-	                   
-			    @endif
-
-			    @if( $project->public == 0 )
-			    	<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')" checked/>
-			    @endif
-		         <span class="custom-control-indicator"></span>
-                    </label>
-            	</div>
-            	<div class="col-sm-1">Private</div>
-            	<div class="col-sm-5"></div>
-            </div>
-	  </div>
 	</div>
+
+	<p>
+	<h4>Description</h4>
+	<form method="POST" action="/project/{{$project->project_id}}/update-description">
+		{{ csrf_field() }}
+		<textarea name="description" cols="50" rows="5">{{ $project->description }}</textarea><br>
+		<button type="submit" class="btn btn-primary">Update Description</button>
+	</form>
 
 	<p>
   <h4>Project Heads</h4>

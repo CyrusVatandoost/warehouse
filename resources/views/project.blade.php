@@ -52,6 +52,7 @@
 
   <br>
   
+  <!-- project status -->
   Status:
   @if($project->complete == 1)
     <span class="badge badge-success project-badge">Completed</span>
@@ -60,6 +61,11 @@
   @if($project->complete == 0)
     <span class="badge badge-danger project-badge">Incomplete</span>
   @endif
+
+  <!-- project description -->
+  <p>
+    {{ $project->description }}
+  </p>
 
   <div class="tabbable" id="tabs-463690">
 

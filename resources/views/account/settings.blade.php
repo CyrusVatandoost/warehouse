@@ -34,6 +34,7 @@
     <div class="row register-main">
         <div class="register-main-center">
         
+            
             <div class="row">
              <form class="form-horizontal" method="POST" action="/account/{{ auth()->user()->user_id }}/settings">
                 {{ csrf_field() }}

@@ -47,6 +47,7 @@
 	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
 	Route::get('/project/{project}/feature', 'ProjectController@feature');
 	Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
+	Route::post('/project/{project}/update-description', 'ProjectController@updateDescription');
 
 // file
 	// upload a file to the project
