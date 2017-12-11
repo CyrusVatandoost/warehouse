@@ -34,9 +34,7 @@
 @endsection
 
 @section('left-sidenav')
-  @if(Auth::check())
-    <p><a href="#modal-container-project-archive" role="button" class="btn btn-danger btn-block" data-toggle="modal">Archive Project</a></p>
-  @endif
+
 @endsection
 
 @section('body')
@@ -44,23 +42,20 @@
   by:
   {{ $project->user->first_name }}
   {{ $project->user->last_name }}
+
   <br>
-  Tags: 
+
+  <!-- project status -->
+  @if($project->complete == 1)
+    <span class="badge badge-success project-badge">Completed</span>
+  @else
+    <span class="badge badge-danger project-badge">Incomplete</span>
+  @endif
+
+  <!-- project tags -->
   @foreach($project->tags as $something)
     <span class="badge badge-info">{{ $something->tag->name }}</span>
   @endforeach
-
-  <br>
-  
-  <!-- project status -->
-  Status:
-  @if($project->complete == 1)
-    <span class="badge badge-success project-badge">Completed</span>
-  @endif
-
-  @if($project->complete == 0)
-    <span class="badge badge-danger project-badge">Incomplete</span>
-  @endif
 
   <!-- project description -->
   <p>

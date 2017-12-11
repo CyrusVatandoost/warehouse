@@ -1,11 +1,15 @@
-@extends('layout.auth')
+@extends('layout.app')
 
 @section('title', 'Register')
 
-@section('content')
+<!-- css styles -->
+@section('style')
+  <!-- insert custom css styles here -->
+  <!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
+  <link href="{{ asset('css/auth.css') }}" media="all" rel="stylesheet" type="text/css" />
+@endsection
 
-
-
+@section('body')
 <div class="container">
     <div class="row register-main">
         <div class="main-center">

@@ -70,7 +70,7 @@
 	</div>
 
 	<p>
-  <h4>Project Collaborators</h4>
+  <h4>Collaborators</h4>
   <ul class="list-group">
 
   	<!-- list of collaborators -->
@@ -128,6 +128,10 @@
 	<div class="alert alert-warning" role="alert">
 	  To add a tag, input any tag you prefer or select a suggested tag.
 	</div>
+
+  @if(Auth::check())
+    <p><a href="#modal-container-project-archive" role="button" class="btn btn-danger" data-toggle="modal">Archive Project</a></p>
+  @endif 
 
 </div>
 
