@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Project;
 use App\ProjectArchive;
 use App\Log;
+use App\Task;
+use App\User;
 use App\FeaturedProject;
 
 class ProjectController extends Controller {
@@ -43,7 +45,9 @@ class ProjectController extends Controller {
 	// returns a single project using an ID
 	public function show($id) {
 		$project = Project::find($id);
-		return view('project', compact('project'));
+		$tasks = Task::get();
+		$users = User::get();
+		return view('project', compact('project', 'tasks', 'users'));
 }
 	// stores a new project in warehousedb.projects
 	public function store() {

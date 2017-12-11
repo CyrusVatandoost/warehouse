@@ -4,6 +4,9 @@
 @section('page-title', $project->name)
 
 @section('style')
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
   <style type="text/css">
   
     .hr-abstract {
@@ -18,12 +21,16 @@
       margin-bottom: 10px;
     }
     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+      rel="stylesheet"/>
+
 </style>
 @endsection
 
 @section('modals')
   @include('modals.delete_project')
   @include('modals.project-archive')
+  @include('modals.task-new')
 @endsection
 
 @section('left-sidenav')
