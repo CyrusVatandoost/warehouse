@@ -39,7 +39,7 @@
 	// add a task to a project
 	Route::post('/project/{project}/tasks', 'TaskController@store');
 	// set project task as complete
-	Route::post('/project/{{project}/task/complete', 'TaskController@setCompleteness');
+	Route::post('/project/task/{task}/complete', 'TaskController@setCompleteness');
 	
 	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
 

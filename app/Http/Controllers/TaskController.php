@@ -65,8 +65,8 @@ class TaskController extends Controller
     	$project = Project::find($task->project_id);
     	$log = new Log;
 
-		if($task->complete == 1) {
-			$task->complete = 0;
+		if($task->completed == 1) {
+			$task->completed = 0;
 
 			//logs
 			$log->user_id = auth()->id();
@@ -74,7 +74,7 @@ class TaskController extends Controller
 	        $log->action_details = "not done";
 		}
 		else {
-			$task->complete = 1; 
+			$task->completed = 1; 
 
 			$log->user_id = auth()->id();
 	        $log->user_action = "marked a task in " . $project->name . " as";
@@ -84,6 +84,6 @@ class TaskController extends Controller
 		$task->save();
 		$log->save();
 
-		return redirect('/project/progress');
+		return back();
     }
 }

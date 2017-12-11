@@ -20,22 +20,31 @@
 				  	<th colspan="2">To-Do List
 		  </thead>
           @foreach($tasks as $task)
-            @if($task->project_id == $project->project_id)
+            @if($task->project_id == $project->project_id && $task->completed == 0)
 
               <tr>
-                <td> 
-                  <p><a href="/project/{{$project->project_id}}/task/complete" role="button" class="btn" data-toggle="modal">Complete Task</a></p>
-                <td> 
-                      {{ $task->name }} 
-                      @if( !empty($task->assigned_to) )
-                        @foreach($users as $user)
+                <td>
 
-                          @if($user->user_id == $task->assigned_to)
-                            (assigned to {{$user->first_name}} {{ $user->last_name }})
-                          @endif
+                    <!-- <a href="/project/{{$project->project_id}}/task/complete" role="button" class="btn" data-toggle="modal">
+                      <i class="material-icons">radio_button_unchecked</i>
+                       --><!-- <i class="material-icons">check_circle</i> -->
+                    <!-- </a> -->
 
-                        @endforeach
-                      @endif 
+                    <form class="form-inline" method="POST" action="/project/task/{{$task->task_id}}/complete">
+                      {{ csrf_field() }}
+                      <button type="submit" class="btn btn-success">Mark as Completed</button>
+                    </form>
+                <td>
+                  {{ $task->name }}  
+                  @if( !empty($task->assigned_to) )
+                    @foreach($users as $user)
+
+                      @if($user->user_id == $task->assigned_to)
+                          (assigned to {{$user->first_name}} {{ $user->last_name }})
+                      @endif
+
+                    @endforeach
+                  @endif 
 
             @endif
           @endforeach
