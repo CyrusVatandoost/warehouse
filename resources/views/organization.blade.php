@@ -57,14 +57,14 @@
 			     		<div class="accordion-inner">
 				     		<div class="row no-gutters align-items-start">
 								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
+				     			 <div class="card card-size text-center">
+          						<div class="card-block">
 
-                  							@if (file_exists(public_path('uploads/avatars/'.$admin->user->user_id.'.jpg')))
-            									<img class="rounded-circle" src="{{ asset('uploads/avatars/'.$admin->user->user_id.'.jpg') }}" height="64" width="64">
-         									@else
-            									<img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" height="64" width="64">
-          									@endif
+          							@if (file_exists(public_path('uploads/avatars/'.$admin->user->user_id.'.jpg')))
+          								<img class="rounded-circle" src="{{ asset('uploads/avatars/'.$admin->user->user_id.'.jpg') }}" height="64" width="64">
+       									@else
+          								<img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" height="64" width="64">
+        								@endif
 
 											<div class="card-body">
 												<h4 class="card-title">{{$admin->user->first_name}} &nbsp;{{$admin->user->last_name }}</h4>
@@ -95,17 +95,26 @@
 				    <div id="collapse{{$position->organization_position_id}}" class="accordion-body collapse in" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
 					    <div class="accordion-inner">
 					    	<div class="row no-gutters align-items-start">
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-					     			 	@foreach($position->position as $user)
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">{{$user->role->first_name}}&nbsp;{{$user->role->last_name}}</h4>
-						        			</div>
-						        		</div>
-						        		@endforeach
-				        			</div>
+									<div class="col-md-auto">
+										<div class="card card-size text-center">
+											@foreach($position->position as $user)
+											<div class="card-block">
+
+												@if (file_exists(public_path('uploads/avatars/'.$user->user_id.'.jpg')))
+													<img class="rounded-circle" src="{{ asset('uploads/avatars/'.$user->user_id.'.jpg') }}" height="64" width="64">
+												@else
+													<img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" height="64" width="64">
+												@endif
+
+												<div class="card-body">
+													<h4 class="card-title">
+														<a href="/account/{{$user->user_id}}">{{$user->role->first_name}}&nbsp;{{$user->role->last_name}}</a>
+													</h4>
+												</div>
+
+											</div>
+											@endforeach
+										</div>
 								</div>
 			      			</div>
 					    </div>
