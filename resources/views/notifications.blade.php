@@ -1,8 +1,4 @@
-<!-- DO NOT DELETE THIS FILE -->
-
-<!-- this page follows this layout -->
-<!-- i suggest make all new pages follow this layout -->
-@extends('layout.app')
+`@extends('layout.app')
 
 <!-- title at tab -->
 @section('title', 'Notifications')
@@ -11,26 +7,63 @@
 
 <!-- css styles -->
 @section('style')
-	<!-- insert custom css styles here -->
-	<!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
+  <style>
+    .py-5 {
+      padding-top: 3rem !important; }
+
+      .container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px; }
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px; } }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px; } }
+
+
+  .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px; }
+
+  </style>
 @endsection
 
 <!-- modals -->
 @section('modals')
-	<!-- insert css styles here -->
-  @include('modals.new_project')
-  @include('modals.announcement-new')
+
 @endsection
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-  <p><a href="#modal-container-new-announcement" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Announcement</a></p>
-  <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
+
 @endsection
 
 <!-- body -->
 @section('body')
-  <!-- insert body here -->  
+  <div class="py-5"><div class="container"><div class="row"><div class="col-md-12 border border-dark" style=""><table class="table">
+    <tbody>
+     @foreach($logs as $log) 
+      <tr>
+        <td>
+          You {{ $log->user_action }}: {{ $log->action_details }} on {{ $log->created_at }}
+        </td>
+       @endforeach 
+    </tbody>
+  </table></div></div>
+
+  
 @endsection
 
 <!-- right-sidenav -->
