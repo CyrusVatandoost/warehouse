@@ -1,7 +1,4 @@
 <!-- footer -->
-<style type="text/css">
-</style>
-
 <footer class="footer">
   <div class="container-fluid">
     <center>
@@ -24,6 +21,6 @@
           <td>ImagineWare Solutions, Inc. 2017
       </table>
   </div>
+  <br>
 </footer>
-
 @yield('autocomplete')
