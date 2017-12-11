@@ -7,7 +7,7 @@
 <!-- title at tab -->
 @section('title', 'Projects')
 <!-- title at body -->
-@section('page-title', 'Projects')
+@section('page-title', 'Project Dashboard')
 
 <!-- css styles -->
 @section('style')
@@ -29,28 +29,7 @@
 <!-- body -->
 @section('body')
 
-	<div class="table-responsive">   
-		<table class="table table-hover">
-		    <thead class="thead-dark">
-		      <tr>
-					  <th>Project Name
-					  <th>Date Created
-					  <th>Date Updated
-					  <th>
-		    </thead>
-		    <tbody>
-					@foreach($projects as $project)
-			    	<tr>
-			      	<td><a href="/project/{{$project->project_id}}">{{ $project->name }}</a></td>
-			      	<td>{{ $project->created_at}}</td>
-			      	<td>{{ $project->updated_at}}</td>
-			      	<td><a href="/project/{{$project->project_id}}/feature" class="btn btn-primary">Feature
-			    	</tr>
-			    @endforeach
-			</tbody>
-		</table>
-	</div>
-
+	<h4>Featured Projects</h4>
 	<div class="table-responsive">   
 		<table class="table table-hover">
 		    <thead class="thead-dark">
@@ -72,6 +51,55 @@
 			</tbody>
 		</table>
 	</div>
+
+	<h4>Projects</h4>
+	<div class="table-responsive">   
+		<table class="table table-hover">
+		    <thead class="thead-dark">
+		      <tr>
+					  <th>Project Name
+					  <th>Owner
+					  <th>Date Created
+					  <th>Date Updated
+					  <th>
+		    </thead>
+		    <tbody>
+					@foreach($projects as $project)
+			    	<tr>
+			      	<td><a href="/project/{{$project->project_id}}">{{ $project->name }}</a></td>
+			      	<td><a href="/account/{{$project->user->user_id}}">{{ $project->user->first_name }} {{ $project->user->middle_initial }} {{ $project->user->last_name }}</a>
+			      	<td>{{ $project->created_at}}</td>
+			      	<td>{{ $project->updated_at}}</td>
+			      	<td><a href="/project/{{$project->project_id}}/feature" class="btn btn-primary">Feature
+			    	</tr>
+			    @endforeach
+			</tbody>
+		</table>
+	</div>
+	
+	<h4>Project Archive:</h4>
+		<div class="table-responsive">   
+			<table class="table table-hover">
+			    <thead class="thead-dark">
+			      <tr>
+					   <th>Project Name</th>
+					   <th>Date Archived</th>
+					   <th>button</th>
+			       </tr>
+			    </thead>
+			    <tbody>
+			  		@foreach($project_archives as $project)
+				    <tr>
+				      <td>{{$project->name}}</td>
+				      <td>{{$project->updated_at}}</td>
+				      <td><a href="/project/{{$project->project_id}}"><button class="btn btn-primary" >View</button></a></td>
+				    </tr>
+				    @endforeach
+				</tbody>
+			</table>
+		</div>
+	</p>
+  
 
 @endsection
 

@@ -80,7 +80,8 @@ class AdminController extends Controller{
   public function showProjects() {
     $projects = Project::get();
     $featured_projects = FeaturedProject::get();
-    return view('admin.projects', compact('projects', 'featured_projects'));
+    $project_archives = ProjectArchive::get();
+    return view('admin.projects', compact('projects', 'featured_projects', 'project_archives'));
   }
 
     public function addPosition() {

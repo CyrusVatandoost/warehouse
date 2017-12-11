@@ -27,7 +27,6 @@
   <p><a href="/admin/projects" role="button" class="btn btn-primary btn-block">Project Dashboard</a></p>
   <p><a href="/admin/file-archive" role="button" class="btn btn-primary btn-block">File Archive</a></p>
   <p><a href="/admin/logs" class="btn btn-primary btn-block">View Logs</a></p>
-  <p><a href="#modal-container-delete-account" role="button" class="btn btn-primary btn-block" data-toggle="modal">Delete an Account</a></p>
 @endsection
 
 @section('body')
@@ -118,54 +117,7 @@
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>
 	</div>
-	
-	<h4>List of Projects:</h4>
-		<div class="table-responsive">   
-			<table class="table table-hover">
-			    <thead class="thead-dark">
-			      <tr>
-					   <th>Project Name
-					   <th>Date Created
-					   <th>Date Updated
-					   <th>
-			    </thead>
-			    <tbody>
-					@foreach($projects as $project)
-				    	<tr>
-				      	<td>{{ $project->name }}</td>
-				      	<td>{{ $project->created_at}}</td>
-				      	<td>{{ $project->updated_at}}</td>
-				      	<td><a href="/project/{{$project->project_id}}"><button class="btn btn-primary" >View</button></a></td>
-				    	</tr>
-				    @endforeach
-				</tbody>
-			</table>
-		</div>
 
-	<h4>Project Archive:</h4>
-		<div class="table-responsive">   
-			<table class="table table-hover">
-			    <thead class="thead-dark">
-			      <tr>
-					   <th>Project Name</th>
-					   <th>Date Archived</th>
-					   <th>button</th>
-			       </tr>
-			    </thead>
-			    <tbody>
-			  		@foreach($project_archives as $project)
-				    <tr>
-				      <td>{{$project->name}}</td>
-				      <td>{{$project->updated_at}}</td>
-				      <td><a href="/project/{{$project->project_id}}"><button class="btn btn-primary" >View</button></a></td>
-				    </tr>
-				    @endforeach
-				</tbody>
-			</table>
-		</div>
-	</p>
-  
-  
 	<h4>Positions: </h4>
 	<ul class="list-group">
   	
