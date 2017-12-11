@@ -5,9 +5,9 @@
 @extends('layout.app')
 
 <!-- title at tab -->
-@section('title', 'Admin')
+@section('title', 'Admin Dashboard')
 <!-- title at body -->
-@section('page-title', 'Admin')
+@section('page-title', 'Admin Dashboard')
 
 <!-- css styles -->
 @section('style')
@@ -17,72 +17,40 @@
 
 <!-- modals -->
 @section('modals')
-	<!-- insert css styles here -->
   @include('modals.announcement-new')
   @include('modals.new_project')
 @endsection
 
 <!-- left-sidenav -->
 @section('left-sidenav')
+  <p><a href="/admin/users" role="button" class="btn btn-primary btn-block">User Dashboard</a></p>
   <p><a href="/admin/projects" role="button" class="btn btn-primary btn-block">Project Dashboard</a></p>
   <p><a href="/admin/file-archive" role="button" class="btn btn-primary btn-block">File Archive</a></p>
   <p><a href="/admin/logs" class="btn btn-primary btn-block">View Logs</a></p>
 @endsection
 
 @section('body')
-	
-	<h4>Users:</h4>
-	<div class="table-responsive">   
-		<table class="table table-hover">
-		    <thead class="thead-dark">
-		      <tr>
-		      	<th>User ID
-				  	<th>First name
-				  	<th>Middle Initial
-				  	<th>Last Name
-				  	<th>Email Address
-		    </thead>
-		    <tbody>
-	@foreach($users as $user)
-    <tr>
-      <td>{{ $user->user_id }}
-      <td>{{ $user->first_name }}
-      <td>{{ $user->middle_initial }}
-      <td>{{ $user->last_name }}
-      <td>{{ $user->email }}
-	@endforeach
-			</tbody>
-		</table>
-		<form class="form-inline" method="POST" action="/admin/delete">
-				{{ csrf_field() }}
-			  <!-- Gets the "id" of the user as User has not been fully implemented yet to get Name -->
-			  <h5>Delete an Account:<h5>&nbsp; <!-- Add Admins -->
-			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="User ID">&nbsp;
-			  <!-- Gets the name of the new position -->
-			  <button class="btn btn-primary" type="submit">Delete</button>
-			</form>
-	</div>
 
 	<h4>Waitlist:</h4>
 	<div class="table-responsive">   
 		<table class="table table-hover">
-		    <thead class="thead-dark">
-		      <tr>
-				  	<th>First name
-				  	<th>Middle Initial
-				  	<th>Last Name
-				  	<th>Email Address
-				  	<th>Action
-		    </thead>
-		    <tbody>
-	@foreach($waitlists as $waitlist)
-    <tr>
-      <td>{{ $waitlist->first_name }}
-      <td>{{ $waitlist->middle_initial }}
-      <td>{{ $waitlist->last_name }}
-      <td>{{ $waitlist->email }}
-      <td><a style="margin-right: 7px;" href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a><a href="admin/disapprove/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-danger">Disapprove</a>
-	@endforeach
+			<thead class="thead-dark">
+				<tr>
+					<th>First name
+					<th>Middle Initial
+					<th>Last Name
+					<th>Email Address
+					<th>Action
+			</thead>
+			<tbody>
+				@foreach($waitlists as $waitlist)
+					<tr>
+						<td>{{ $waitlist->first_name }}
+						<td>{{ $waitlist->middle_initial }}
+						<td>{{ $waitlist->last_name }}
+						<td>{{ $waitlist->email }}
+						<td><a style="margin-right: 7px;" href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a><a href="admin/disapprove/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-danger">Disapprove</a>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

@@ -84,6 +84,11 @@ class AdminController extends Controller{
     return view('admin.projects', compact('projects', 'featured_projects', 'project_archives'));
   }
 
+  public function showUsers() {
+    $users = User::get();
+    return view('admin.users', compact('users'));
+  }
+
     public function addPosition() {
     # code...
 

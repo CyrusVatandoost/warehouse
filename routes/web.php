@@ -88,12 +88,14 @@
 	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
 	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
-	Route::get('/admin/projects', 'AdminController@showProjects');
 	Route::post('/admin/delete', 'AdminController@delete');
 	Route::post('/admin/store','AdminController@store');
 	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
 	Route::post('/admin/{user}/delete-user-position','AdminController@deletePosition');
 	Route::post('/admin/assign-user-position','AdminController@addPosition');
+
+	Route::get('/admin/projects', 'AdminController@showProjects');
+	Route::get('/admin/users', 'AdminController@showUsers');
 
 // archive
 	Route::get('/admin/file-archive', 'ArchiveController@files');
