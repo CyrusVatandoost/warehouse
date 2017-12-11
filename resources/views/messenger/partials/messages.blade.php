@@ -51,6 +51,8 @@
 </style>
 @endsection
 
+@if($message->user->user_id == auth()->id() )
+<!-- logged in user -->
 <div class="row msg_container base_sent">
     <div class="col-md-11">
         <div class="messages msg_sent">
@@ -59,14 +61,26 @@
         </div>
     </div>
     <div class="col-md-1">
-        <img class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}"
-             alt="{{ $message->user->first_name }}" height="64" width="64" >
+
+      @if (file_exists(public_path('uploads/avatars/'.$message->user->user_id.'.jpg')))
+        <img class="rounded-circle" src="{{ asset('uploads/avatars/'.$message->user->user_id.'.jpg') }}" alt="{{ $message->user->first_name }}" height="64" width="64">
+      @else
+        <img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" alt="{{ $message->user->first_name }}" height="64" width="64">
+      @endif
+    
     </div>
 </div>
+@else
+<!-- other user/s -->
 <div class="row msg_container base_receive">
     <div class="col-md-1">
-        <img class="rounded-circle" src="{{ asset('storage/avatars/'.auth()->user()->user_id.'.jpg') }}"
-             alt="{{ $message->user->first_name }}" height="64" width="64" >
+
+      @if (file_exists(public_path('uploads/avatars/'.$message->user->user_id.'.jpg')))
+        <img class="rounded-circle" src="{{ asset('uploads/avatars/'.$message->user->user_id.'.jpg') }}" alt="{{ $message->user->first_name }}" height="64" width="64">
+      @else
+        <img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" alt="{{ $message->user->first_name }}" height="64" width="64">
+      @endif
+
     </div>
     <div class="col-md-11">
         <div class="messages msg_receive">
@@ -75,6 +89,7 @@
         </div>
     </div>
 </div>
+@endif
 
  
 

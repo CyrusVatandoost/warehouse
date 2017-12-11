@@ -36,7 +36,6 @@ class User extends Authenticatable {
   }
 
   public function organizationPosition() {
-    # code...
     return $this->hasOne('App\OrganizationPositionUser','user_id');
   }
     

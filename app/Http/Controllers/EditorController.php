@@ -10,14 +10,14 @@ class EditorController extends Controller {
 
 	public function edit($id) {
 		$project = Project::get()->find($id);
-		$file = Storage::disk('uploads')->get($id.'/README.md');
+		$file = Storage::disk('uploads')->get($id.'/README.html');
 		return view('editor.file', compact('file', 'project'));
 	}
 
 	public function update($id) {
 		$project = Project::find($id);
 		$content = request('content');
-		$file = Storage::disk('uploads')->put($id.'/README.md', $content);
+		$file = Storage::disk('uploads')->put($id.'/README.html', $content);
 		return view('project', compact('project'));
 	}
 

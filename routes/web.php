@@ -42,10 +42,11 @@
 	Route::post('/project/task/{task}/complete', 'TaskController@setCompleteness');
 	
 	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
-
 	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
-
+	Route::post('/search/filtertag', 'ProjectController@getProjectsByTag');
 	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
+	Route::get('/project/{project}/feature', 'ProjectController@feature');
+	Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
 
 // file
 	// upload a file to the project
@@ -82,9 +83,13 @@
 	Route::get('/archive/delete/{file}', 'FileController@deleteArchive');
 	Route::get('/archive/restore/{file}', 'FileController@restoreArchive');
 	Route::get('/admin/approve/{id}/mail/{email}', 'AdminController@approveUser');
+	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
+	Route::get('/admin/projects', 'AdminController@showProjects');
 	Route::post('/admin/delete', 'AdminController@delete');
 	Route::post('/admin/store','AdminController@store');
 	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
+	Route::post('/admin/{user}/delete-user-position','AdminController@deletePosition');
+	Route::post('/admin/assign-user-position','AdminController@addPosition');
 
 // archive
 	Route::get('/admin/file-archive', 'ArchiveController@files');
@@ -92,9 +97,10 @@
 
 // login and register
 	Auth::routes();
-	Route::get('/account', 'HomeController@index')->name('account');
-	Route::get('/account/edit', function () {return view('account.edit');});
-	Route::get(' /account/settings', function() {return view('account.settings');});
+	Route::get('/account', 'UserController@auth');
+	Route::get('/account/edit', 'UserController@edit');
+	Route::get(' account/settings', 'UserController@settings');
+	Route::get('/account/{user}', 'UserController@show');
 	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
 	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
 	Route::post('/account/{user}/settings', 'UserController@updatePersonalInfo');
@@ -118,8 +124,6 @@ Route::post('/sendtoadmin', 'MessagesController@adminSend');
 
 //pages that are for logged in users only
 Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/account', 'HomeController@account')->name('account');
 Route::get('/organization', 'HomeController@organization')->name('organization');
 Route::get('/projects', 'HomeController@projects')->name('projects');
 Route::get('/successverification', function() {
@@ -136,6 +140,5 @@ Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/announcement', function () {return view('announcement');});
 Route::get('/contact', function () {return view('contact');});
-//Route::get('/search', function () {return view('search');});
 Route::get('/sample', function () {return view('sample');});
 Route::get('/notifications', function () {return view('notifications');});

@@ -32,7 +32,7 @@
   <br>
   <form method="POST" action="/project/{{$project->project_id}}/abstract-update">
     {{ csrf_field() }}
-    <textarea name="content">{{ $file }}</textarea>
+    <textarea name="content" cols="100%" rows="20%">{{ $file }}</textarea>
     <br>
     <button type="submit" class="btn btn-primary">Edit Abstract</button>
   </form>
@@ -46,4 +46,6 @@
 
 @section('scripts')
 	<!-- insert scripts here -->
+  <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+  <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 @endsection

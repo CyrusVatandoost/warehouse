@@ -3,12 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Storage;
 use Input;
 use App\User;
 use App\Log;
 
 class UserController extends Controller {
+
+  public function auth() {
+    $user = User::find(Auth::id());
+    return view('account', compact('user'));
+  }
+
+  public function edit() {
+    $user = User::find(Auth::id());
+    return view('account.edit', compact('user'));
+  }
+
+  public function settings() {
+    $user = User::find(Auth::id());
+    return view('account.settings', compact('user'));
+  }
+
+  public function show($id) {
+    $user = User::find($id);
+    return view('account', compact('user'));
+  }
 
  	public function updateAvatar(Request $request, $id) {
     $user = User::find($id);

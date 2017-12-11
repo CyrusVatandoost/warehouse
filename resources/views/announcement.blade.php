@@ -74,7 +74,16 @@
                 @endif
 
                 <div class="caption small">
-                  <small><a href="#"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
+
+                  <small><a href="/account/{{$announcement->user->user_id}}"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
+                  <br>
+                  @if(!empty($announcement->user->admin))
+                    <span class="badge badge-dark">Admin</span>
+                  @endif
+                  @if(!empty($announcement->user->organizationPosition->position->name))
+                    <span class="badge badge-info">{{ $announcement->user->organizationPosition->position->name }}</span>
+                  @endif
+
                 </div>
               </div>
               <div class="col-md-9">

@@ -2,8 +2,8 @@
   <br>
     <div class="container-fluid">
 
-      @if(Storage::disk('uploads')->exists($project->project_id.'/README.md'))
-        {{ Storage::disk('uploads')->get($project->project_id.'/README.md') }}
+      @if(Storage::disk('uploads')->exists($project->project_id.'/README.html'))
+        {!! Storage::disk('uploads')->get($project->project_id.'/README.html') !!}
       @endif
 
       @if(Auth::check())

@@ -1,4 +1,4 @@
-@extends('layout.app')
+	@extends('layout.app')
 
 @section('title', 'Organization')
 @section('page-title', 'Organization')
@@ -52,169 +52,76 @@
 			      		</div>
 			    	</div>
 
+			    @foreach(App\Admin::get() as $admin)
 				    <div id="collapseOne" class="accordion-body collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="">
 			     		<div class="accordion-inner">
 				     		<div class="row no-gutters align-items-start">
 								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
+				     			 <div class="card card-size text-center">
+          						<div class="card-block">
+
+          							@if (file_exists(public_path('uploads/avatars/'.$admin->user->user_id.'.jpg')))
+          								<img class="rounded-circle" src="{{ asset('uploads/avatars/'.$admin->user->user_id.'.jpg') }}" height="64" width="64">
+       									@else
+          								<img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" height="64" width="64">
+        								@endif
+
 											<div class="card-body">
-												<h4 class="card-title">Addie Meen</h4>
-												<p class="card-text">Asst. Professor</p>
+												<h4 class="card-title">{{$admin->user->first_name}} &nbsp;{{$admin->user->last_name }}</h4>
+												<p class="card-text">{{$admin->user->organizationPosition->position->name}}</p>
 						        			</div>
 						        		</div>
 				        			</div>
 								</div>
 			      			</div>
-			      		</div>
+			      		</div> <!-- stops here -->
+			      	@endforeach
 			    	</div>
 				</div>
 
 				<div class="col-md-12 text-center">
         			<h1><small> TE<sup>3</sup>D Organization List </small></h1>
         		</div>
+        		
+        		@foreach(App\OrganizationPosition::get() as $position)
 				<div class="card card-group-size">
 					<div class="card-header" role="tab" id="headingTwo">
 				      <div class="mb-0">
-				        <a data-toggle="collapse" data-parent="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-				        	<h3 class="text-center font-weight-light">Fellows</h3>
+				        <a data-toggle="collapse" data-parent="collapse" href="#collapse{{$position->organization_position_id}}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+				        	<h3 class="text-center font-weight-light">{{$position->name}}</h3>
 				        </a>
 				      </div>
-				    </div>
-				    <div id="collapseTwo" class="accordion-body collapse in" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
+				    </div>	
+				    <div id="collapse{{$position->organization_position_id}}" class="accordion-body collapse in" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
 					    <div class="accordion-inner">
 					    	<div class="row no-gutters align-items-start">
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Edgar Allan Poe</h4>
-												<p class="card-text">Full Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Addie Meen</h4>
-												<p class="card-text">Asst. Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Dora The Sr.</h4>
-												<p class="card-text">Asst. Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
+									<div class="col-md-auto">
+										<div class="card card-size text-center">
+											@foreach($position->position as $user)
+											<div class="card-block">
+
+												@if (file_exists(public_path('uploads/avatars/'.$user->user_id.'.jpg')))
+													<img class="rounded-circle" src="{{ asset('uploads/avatars/'.$user->user_id.'.jpg') }}" height="64" width="64">
+												@else
+													<img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" height="64" width="64">
+												@endif
+
+												<div class="card-body">
+													<h4 class="card-title">
+														<a href="/account/{{$user->user_id}}">{{$user->role->first_name}}&nbsp;{{$user->role->last_name}}</a>
+													</h4>
+												</div>
+
+											</div>
+											@endforeach
+										</div>
 								</div>
 			      			</div>
 					    </div>
 					</div>
 				</div>
+				@endforeach
 				<p>
-			  	<div class="card card-group-size">
-					<div class="card-header" role="tab" id="headingThree">
-				    	<div class="mb-0">
-				        	<a data-toggle="collapse" data-parent="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-				        		<h3 class="text-center font-weight-light">Researchers</h3>
-				        	</a>
-				      	</div>
-				    </div>
-				    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
-				    	<div class="accordion-inner">
-					      <div class="row no-gutters align-items-start">
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Bam Ano Jr.</h4>
-												<p class="card-text">Full Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Anya Baranovskaya</h4>
-												<p class="card-text">Asst. Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Dora The Jr.</h4>
-												<p class="card-text">Asst. Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Freddie Wong Jr.</h4>
-												<p class="card-text">Full Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Jenny Woe</h4>
-												<p class="card-text">Full Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Mogi Takahashi Yobe</h4>
-												<p class="card-text">Full Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-								<div class="col-md-auto">
-					     			 <div class="card card-size text-center">
-                  						<div class="card-block">
-                  							<img class="card-img-top" src="storage/user.png" alt="Card image" style="width: 64px;">
-											<div class="card-body">
-												<h4 class="card-title">Zig Zag</h4>
-												<p class="card-text">Asst. Professor</p>
-						        			</div>
-						        		</div>
-				        			</div>
-								</div>
-			      			</div>
-					    </div>
-				    </div>
-				</div>
 			</p>
         	</div>
 		</div>
