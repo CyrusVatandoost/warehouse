@@ -1,43 +1,49 @@
-@extends('layout.auth')
+@extends('layout.app')
 
 @section('title', 'Login')
 
-@section('content')
+<!-- css styles -->
+@section('style')
+  <!-- insert custom css styles here -->
+  <!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
+  <link href="{{ asset('css/auth.css') }}" media="all" rel="stylesheet" type="text/css" />
+@endsection
 
-<section class="login-block">
-<div class="container login-container">
-    <div class="row">
+@section('body')
+  <section class="login-block">
+    <div class="container login-container">
+      <div class="row">
         <div class="col-md-4 login-sec">
-            <h2 class="text-center">Login Now</h2>
+          <h2 class="text-center">Login Now</h2>
             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="email" class="control-label">E-Mail Address</label>
-                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                        @if ($errors->has('email'))
-                            <div class="alert alert-danger alert-spacing small">
-                                {{ $errors->first('email') }}
-                            </div>
-                        @endif
+              {{ csrf_field() }}
+              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <label for="email" class="control-label">E-Mail Address</label>
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                @if ($errors->has('email'))
+                  <div class="alert alert-danger alert-spacing small">
+                    {{ $errors->first('email') }}
+                  </div>
+                @endif
+              </div>
+              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <label for="password" class="control-label">Password</label>
+                <input id="password" type="password" class="form-control" name="password" required>
+                @if ($errors->has('password'))
+                  <div class="alert alert-danger alert-spacing small">
+                    {{ $errors->first('password') }}
+                  </div>
+                @endif
+              </div>
+              <div class="form-group">
+                <div class="col-md-6 col-md-offset-4">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                    </label>
+                  </div>
                 </div>
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <label for="password" class="control-label">Password</label>
-                    <input id="password" type="password" class="form-control" name="password" required>
-                        @if ($errors->has('password'))
-                            <div class="alert alert-danger alert-spacing small">
-                                {{ $errors->first('password') }}
-                            </div>
-                        @endif
-                </div>
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                            </label>
-                        </div>
-                    </div>
-                </div>
+              </div>
                 <div class="form-check">
                     <a class="btn login-btn-link" href="{{ route('password.request') }}">
                         <i> Forgot Your Password? </i>
@@ -86,7 +92,7 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
-</div>
-</section>
+  </section>
 @endsection
