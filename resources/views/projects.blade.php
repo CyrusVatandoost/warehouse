@@ -13,7 +13,6 @@
 
 @section('body')
   
-
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link nav-link-tabs active" href="#panel-projects_all" data-toggle="tab">My Projects</a>
@@ -32,30 +31,27 @@
             @foreach($my_projects as $project)
             <div class="col-md-auto">
               <div class="card projects-card-size">
+
+                <img class="card-img-top" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" alt="Card image cap">
+
                 <div class="card-block">
-                  <h4 class="project-card-header bg-dark">
+                  <h4 class="project-card-header">
                     <a href="{{ url('project') }}/{{ $project->project_id }}">
-                      <p class="limit-header text-white">{{ $project->name }}</p>
+                      <p class="limit-header">{{ $project->name }}</p>
                     </a>
                     <div class="float-right small">
-                        @if($project->public == 1)
-                          <span class="badge badge-success project-visibility">
-                            <i class="material-icons material-icons-mid">lock_open</i>
-                          </span>
-                        @endif
-
-                        @if($project->public == 0)
-                          <span class="badge badge-danger project-visibility">
-                            <i class="material-icons material-icons-mid">lock_outline</i>
-                          </span>
-                        @endif
-                      
+                      @if($project->public == 1)
+                        <span class="badge badge-success project-visibility">
+                          <i class="material-icons material-icons-mid">lock_open</i>
+                        </span>
+                      @else
+                        <span class="badge badge-danger project-visibility">
+                          <i class="material-icons material-icons-mid">lock_outline</i>
+                        </span>
+                      @endif
                     </div>
                   </h4>
                   <div class="image">
-                    <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">
-                      <img class="project-image img-thumbnail" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" alt="avatar" />
-                    </a>
                   </div>
                   <div class="card-body">
                     <p class="card-text limit">{{ $project->description }}</p>
@@ -68,9 +64,7 @@
                         <i class="fa fa-tags"></i> Status:
                           @if($project->complete == 1)
                             <span class="badge badge-success project-badge">Completed</span>
-                          @endif
-
-                          @if($project->complete == 0)
+                          @else
                             <span class="badge badge-danger project-badge">Incomplete</span>
                           @endif
                         |

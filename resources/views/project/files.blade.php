@@ -15,8 +15,7 @@
   <!-- add file button -->
   <div class="container">
     <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
+      <div class="col">
         <form method="post" action="/project/{{ $project->project_id }}/upload-file" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group files">
@@ -24,7 +23,6 @@
               <button type="submit" class="btn btn-browse upload">Upload</button>
             </div>
         </form>
-        <div class="col-md-1"></div>
       </div>
     </div>
   </div>
@@ -35,6 +33,7 @@
       <div class="row projects-no-gutters align-items-start">
         @foreach($project->files as $file)
           <div class="card file-card-size">
+            <br>
             <img class="card-img-top file-img" src="{{ asset('/uploads/'.$project->project_id.'/'.$file->name) }}" alt="Card image cap">
             <div class="card-body">
               {{ $file->name }}
