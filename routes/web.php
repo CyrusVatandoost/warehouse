@@ -44,29 +44,23 @@
 	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
 	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
 	Route::post('/search/filtertag', 'ProjectController@getProjectsByTag');
-	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
+	
 	Route::get('/project/{project}/feature', 'ProjectController@feature');
 	Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
+	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
 	Route::post('/project/{project}/update-description', 'ProjectController@updateDescription');
 
 // file
-	// upload a file to the project
 	Route::post('/project/{project}/upload-file', 'FileController@store');
-	// delete a file from a project
 	Route::get('/project/{project}/delete-file/{file}', 'FileController@delete');
-	// archive a file
 	Route::get('/project/{project}/file-archive/{file}', 'FileController@archive');
 
 //Positions
-	//remove a position
 	Route::post('/organization/{organization}/remove-position','OrganizationPositionController@delete');
-	//add a position
 	Route::post('/organization/add-position','OrganizationPositionController@store');
 
 // post
-	// remove a tag from a project
 	Route::post('/project/{project}/remove-tag/{tag}', 'TagController@delete');
-	// add a tag to a project
 	Route::post('/project/{project}/add-tag', 'TagController@store');
 
 // announcement

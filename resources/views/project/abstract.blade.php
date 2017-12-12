@@ -7,17 +7,11 @@
       @endif
 
       @if(Auth::check())
-      <br><br>
-      <form method="POST" action="/project/{{$project->project_id}}/abstract-add">
-        {{ csrf_field() }}
-        <button type="submit" class="btn btn-primary">Add Abstract</button>
-      </form>
-
-      <br>
-      <form method="POST" action="/project/{{$project->project_id}}/abstract-edit">
-        {{ csrf_field() }}
-        <button type="submit" class="btn btn-primary">Edit Abstract</button>
-      </form>
+        <br>
+        <form method="POST" action="/project/{{$project->project_id}}/abstract-edit">
+          {{ csrf_field() }}
+          <button type="submit" class="btn btn-primary">Edit Abstract</button>
+        </form>
       @endif
 
     </div>

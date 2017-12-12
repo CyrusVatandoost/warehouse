@@ -8,6 +8,12 @@ use App\Project;
 
 class EditorController extends Controller {
 
+	public function store($id) {
+		$project = Project::find($id);
+		Storage::disk('uploads')->put($id.'/README.html', 'Contents');
+		return redirect('project/'.$id);
+	}
+
 	public function edit($id) {
 		$project = Project::get()->find($id);
 		$file = Storage::disk('uploads')->get($id.'/README.html');
@@ -18,7 +24,7 @@ class EditorController extends Controller {
 		$project = Project::find($id);
 		$content = request('content');
 		$file = Storage::disk('uploads')->put($id.'/README.html', $content);
-		return view('project', compact('project'));
+		return redirect('project/'.$id);
 	}
 
 }
