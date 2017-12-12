@@ -93,9 +93,11 @@
 	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
 	Route::post('/admin/{user}/delete-user-position','AdminController@deletePosition');
 	Route::post('/admin/assign-user-position','AdminController@addPosition');
-	Route::get('/admin/projects', 'AdminController@showProjects');
-	Route::get('/admin/users', 'AdminController@showUsers');
-	Route::get('/admin/organization', 'AdminController@organizationDashboard');
+
+// dashboard
+	Route::get('/admin/organization', 'DashboardController@organization');
+	Route::get('/admin/projects', 'DashboardController@projects');
+	Route::get('/admin/users', 'DashboardController@users');
 
 // archive
 	Route::get('/admin/file-archive', 'ArchiveController@files');
