@@ -40,8 +40,11 @@
             <div class="card-body">
               {{ $file->name }}
               <div class="file-buttons">
+                <!-- download -->
                 <span class="border border-secondary rounded custom-button"><a href="{{ url('uploads/'.$project->project_id.'/'.$file->name) }}" data-toggle="tooltip" data-placement="bottom" title="download" download><i class="material-icons material-icons-mid">file_download</i></a></span>
+                <!-- rename -->
                 <span class="border border-secondary rounded custom-button"><a href="#" data-toggle="tooltip" data-placement="bottom" title="edit" ><i class="material-icons material-icons-mid">edit</i></a></span>
+                <!-- delete -->
                 <span class="border border-secondary rounded custom-button"><a href="/project/{{$project->project_id}}/file-archive/{{$file->file_id}}" data-toggle="tooltip" data-placement="bottom" title="delete"><i class="material-icons material-icons-mid">delete</i></a></span>
               </div>
             </div>

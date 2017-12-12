@@ -20,6 +20,7 @@
 // project
 	// show a project through ID
 	Route::get('/project/{project}', 'ProjectController@show');
+	Route::get('/project/{project}/beta', 'ProjectController@beta');
 	// delete project
 	Route::get('/project/delete/{project}', 'ProjectController@delete');
 	// archive project

@@ -49,6 +49,13 @@ class ProjectController extends Controller {
 		$users = User::get();
 		return view('project', compact('project', 'tasks', 'users'));
 }
+
+public function beta($id) {
+	$project = Project::find($id);
+		$tasks = Task::get();
+		$users = User::get();
+	return view('project.index', compact('project', 'tasks', 'users'));
+}
 	// stores a new project in warehousedb.projects
 	public function store() {
 		$this->validate(request(), [
