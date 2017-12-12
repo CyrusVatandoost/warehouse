@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Admin;
 use App\User;
 use App\Organization;
+use App\OrganizationPosition;
+use App\OrganizationPositionUser;
 use App\Project;
 use App\FeaturedProject;
 use App\ProjectArchive;
@@ -26,7 +29,10 @@ class DashboardController extends Controller {
 
 	public function organization() {
     $organization = Organization::find(1);
-    return view('admin.organization', compact('organization'));
+  	$admins = Admin::get();
+  	$organization_positions = OrganizationPosition::get();
+    $organization_position_users = OrganizationPositionUser::get();
+    return view('admin.organization', compact('organization', 'admins', 'organization_positions', 'organization_position_users'));
 	}
 
 	public function projects() {
