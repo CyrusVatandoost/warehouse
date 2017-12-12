@@ -105,4 +105,14 @@ class FileController extends Controller {
 		return back();
 	}
 
+	public function rename($project_id, $file_id) {
+ 		$new_name = request('name');
+ 		$file = File::find($file_id);
+ 		$file_name = $file->name;
+		Storage::disk('uploads')->move($project_id.'/'.$file_name, $project_id.'/'.$new_name);
+		$file->name = $new_name;
+		$file->save();
+		return back();
+	}
+
 }

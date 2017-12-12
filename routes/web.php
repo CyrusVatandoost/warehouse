@@ -56,6 +56,7 @@
 	Route::get('/project/{project}/delete-file/{file}', 'FileController@delete');
 	Route::get('/project/{project}/file-archive/{file}', 'FileController@archive');
 	Route::post('/project/{project}/banner-update', 'FileController@updateBanner');
+	Route::post('/project/{project}/file-rename/{file}', 'FileController@rename');
 
 //Positions
 	Route::post('/organization/{organization}/remove-position','OrganizationPositionController@delete');
