@@ -357,3 +357,7 @@ padding: 15px 0;
   position: absolute; 
   bottom: 0;
 }
+
+.badge-primary {
+  background-color: #404040 !important;
+}

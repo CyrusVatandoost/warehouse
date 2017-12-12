@@ -92,7 +92,7 @@ function topFunction() {
       @if($announcement->visibility == 1)
       <div class="row row-striped">
         <div class="col-2 text-center"> 
-          <h1 class="display-5"><span class="badge badge-info">{{ $announcement->created_at->format('d') }}</span></h1>    
+          <h1 class="display-5"><span class="badge badge-primary">{{ $announcement->created_at->format('d') }}</span></h1>    
           <h2 class="text-uppercase">{{ $announcement->created_at->format('M') }}</h2>    
         </div>
         <div class="col-10">

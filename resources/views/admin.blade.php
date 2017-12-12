@@ -25,6 +25,7 @@
 @section('left-sidenav')
   <p><a href="/admin/users" role="button" class="btn btn-primary btn-block">User Dashboard</a></p>
   <p><a href="/admin/projects" role="button" class="btn btn-primary btn-block">Project Dashboard</a></p>
+  <p><a href="/admin/organization" role="button" class="btn btn-primary btn-block">Organization Dashboard</a></p>
   <p><a href="/admin/file-archive" role="button" class="btn btn-primary btn-block">File Archive</a></p>
   <p><a href="/admin/logs" class="btn btn-primary btn-block">View Logs</a></p>
 @endsection

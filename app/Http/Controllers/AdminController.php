@@ -7,13 +7,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Admin;
 use App\ApprovedMail;
-use App\User;
-use App\FeaturedProject;
 use App\FileArchive;
+use App\Organization;
 use App\OrganizationPosition;
 use App\OrganizationPositionUser;
 use App\Project;
+use App\FeaturedProject;
 use App\ProjectArchive;
+use App\User;
 
 class AdminController extends Controller{
    
@@ -87,6 +88,11 @@ class AdminController extends Controller{
   public function showUsers() {
     $users = User::get();
     return view('admin.users', compact('users'));
+  }
+
+  public function organizationDashboard() {
+    $organization = Organization::find(1);
+    return view('admin.organization', compact('organization'));
   }
 
     public function addPosition() {
