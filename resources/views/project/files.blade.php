@@ -34,7 +34,9 @@
         @foreach($project->files as $file)
           <div class="card file-card-size">
             <br>
+
             <img class="card-img-top file-img" src="{{ asset('/uploads/'.$project->project_id.'/'.$file->name) }}" alt="Card image cap">
+
             <div class="card-body">
               {{ $file->name }}
               <div class="file-buttons">

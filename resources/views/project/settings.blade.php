@@ -44,12 +44,28 @@
 
 	</div>
 
-	<p>
+	<!--form to change project description -->
+	<br>
 	<h4>Description</h4>
 	<form method="POST" action="/project/{{$project->project_id}}/update-description">
 		{{ csrf_field() }}
 		<textarea name="description" cols="50" rows="5">{{ $project->description }}</textarea><br>
 		<button type="submit" class="btn btn-primary">Update Description</button>
+	</form>
+
+	<!-- form to update project banner -->
+	<br>
+
+	@if (file_exists(public_path('/uploads/'.$project->project_id.'/banner.jpg')))
+		<img src="{{ asset('/uploads/'.$project->project_id.'/banner.jpg') }}">
+	@else
+		<img src="{{ asset('/uploads/defaults/banner.jpg') }}">
+	@endif
+
+	<form method="POST" action="/project/{{$project->project_id}}/banner-update" enctype="multipart/form-data">
+		{{ csrf_field() }}
+		<input type="file" class="form-control-file" name="file">
+		<button type="submit" class="btn btn-primary">Update Banner</button>
 	</form>
 
 	<p>

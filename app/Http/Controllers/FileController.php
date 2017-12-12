@@ -40,14 +40,13 @@ class FileController extends Controller {
 	public function delete($project_id, $file_id) {
 		//add delete action to logs table
 		$file = File::find($file_id);
-        $log = new Log;
-        $project = Project::find($project_id);
+    $project = Project::find($project_id);
 
-        $log->user_id = auth()->id();
-        $log->user_action = "deleted a file (" . $file->name . ") from";
-        $log->action_details = $project->name;
-        $log->save();
-        //end log
+    $log = new Log;
+    $log->user_id = auth()->id();
+    $log->user_action = "deleted a file (" . $file->name . ") from";
+    $log->action_details = $project->name;
+    $log->save();
 
 		File::where('project_id', $project_id)->where('file_id', $file_id)->delete();
 		return back();
@@ -57,26 +56,22 @@ class FileController extends Controller {
 	public function archive($project_id, $file_id) {
 		//add archive action to logs table
 		$file = File::find($file_id);
-        $log = new Log;
 		$project = Project::find($project_id);
 
-        $log->user_id = auth()->id();
-        $log->user_action = "archived a file (" . $file->name . ") from";
-        $log->action_details = $project->name;
-        $log->save();
-        //end log
+    $log = new Log;
+    $log->user_id = auth()->id();
+    $log->user_action = "archived a file (" . $file->name . ") from";
+    $log->action_details = $project->name;
+    $log->save();
 
 		$file = File::find($file_id);
 		$file_archive = new FileArchive;
 		$file_archive->project_id = $file->project_id;
 		$file_archive->name = $file->name;
-
 		// the file will be moved to the archive folder
 		Storage::disk('uploads')->move($project_id.'/'.$file->name, 'archive/'.$file->name);
-
 		$file_archive->save();
 		$file->delete();
-
 		return back();
 	}
 
@@ -92,13 +87,21 @@ class FileController extends Controller {
 		$file = new File;
 		$file->project_id = $file_archive->project_id;
 		$file->name = $file_archive->name;
-
 		// the file will be moved to the archive folder
 		Storage::disk('uploads')->move('archive/'.$file->name, $file->project_id.'/'.$file->name);
-
 		$file_archive->delete();
 		$file->save();
+		return back();
+	}
 
+	public function updateBanner(Request $request, $id) {
+		$upload = $request->file('file');	// get file from form
+		$file_name = $upload->getClientOriginalName();	// get file name
+		$file_extension = $upload->getClientOriginalExtension();	// get file extension
+
+		//$storage_path = Storage::disk('uploads')->put($id, $upload);
+		Storage::disk('uploads')->putFileAs($id, $upload, 'banner.jpg');
+ 
 		return back();
 	}
 
