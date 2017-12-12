@@ -32,79 +32,124 @@
 
 @section('body')
 
-  <div class="row">
+	<div class="card-deck">
 
-    <div class="col-sm">
-    	<p>
-    		<div class="card-deck">
+		<div class="card text-white bg-primary">
+	    <div class="card-content">
+        <div class="card-body">
+          <div class="media d-flex">
+            <div class="align-self-center">
+              <i class="material-icons">create</i>
+            </div>
+            <div class="media-body text-right">
+              <h3>{{ $users->count() }}</h3>
+              <span>Users</span>
+            </div>
+          </div>
+        </div>
+	    </div>
+		</div>
 
-		    	<div class="card">
-		    		<h4 class="card-header">Users</h4>
-					  <div class="card-body">
-					    <p class="card-text">
-					    	Users: {{ $users->count() }}<br>
-					    	<!-- need to update number of active users -->
-					    	Active users: {{ $users->count() }}
-					    </p>
-					    <a href="/admin/users" role="button" class="btn btn-primary">Dashboard</a>
-					  </div>
-					</div>
+		<div class="card text-white bg-primary">
+	    <div class="card-content">
+        <div class="card-body">
+          <div class="media d-flex">
+            <div class="align-self-center">
+              <i class="material-icons">create</i>
+            </div>
+            <div class="media-body text-right">
+              <h3>{{ $projects->count() }}</h3>
+              <span>Projects</span>
+            </div>
+          </div>
+        </div>
+	    </div>
+		</div>
 
-					<div class="card">
-		    		<h4 class="card-header">Projects</h4>
-					  <div class="card-body">
-					    <p class="card-text">
-					    	Projects: {{ $projects->count() }}<br>
-					    	Completed projects: {{ $projects->where('completed', 1)->count() }}<br>
-					    	Inprogress projects: {{ $projects->where('completed', 0)->count() }}<br>
-					    	Public projects: {{ $projects->where('public', 1)->count() }}<br>
-					    	Private projects: {{ $projects->where('public', 0)->count() }}<br>
-					    </p>
-								<a href="/admin/projects" role="button" class="btn btn-primary">Dashboard</a>
-					  </div>
-					</div>
+		<div class="card text-white bg-primary">
+	    <div class="card-content">
+        <div class="card-body">
+          <div class="media d-flex">
+            <div class="align-self-center">
+              <i class="material-icons">create</i>
+            </div>
+            <div class="media-body text-right">
+              <h3>{{ $files->count() }}</h3>
+              <span>Files</span>
+            </div>
+          </div>
+        </div>
+	    </div>
+		</div>
 
-					<div class="card">
-		    		<h4 class="card-header">Organization</h4>
-					  <div class="card-body">
-					    <p class="card-text">
-					    	Name: {{ $organization->name }}<br>
-					    	Email: {{ $organization->email}}
-					    </p>
-								<a href="/admin/organization" role="button" class="btn btn-primary">Dashboard</a>
-					  </div>
-					</div>
-
-				</div>
-
-			</p>
-    </div>
-
-  </div>
-
-	<h4>Waitlist:</h4>
-	<div class="table-responsive">   
-		<table class="table table-hover">
-			<thead class="thead-dark">
-				<tr>
-					<th>First name
-					<th>Middle Initial
-					<th>Last Name
-					<th>Email Address
-					<th>Action
-			</thead>
-			<tbody>
-				@foreach($waitlists as $waitlist)
-					<tr>
-						<td>{{ $waitlist->first_name }}
-						<td>{{ $waitlist->middle_initial }}
-						<td>{{ $waitlist->last_name }}
-						<td>{{ $waitlist->email }}
-						<td><a style="margin-right: 7px;" href="admin/approve/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Approve</a><a href="admin/disapprove/{{ $waitlist->user_id }}/mail/{{ $waitlist->email }}" class="btn btn-sm btn-danger">Disapprove</a>
-				@endforeach
-			</tbody>
-		</table>
 	</div>
+	<br>
+	<div class="card-deck">
+
+  	<div class="card">
+  		<h4 class="card-header"><a href="/admin/users">Users</a></h4>
+		  <div class="card-body">
+		    <p class="card-text">
+		    	Users: {{ $users->count() }}<br>
+		    	<!-- need to update number of active users -->
+		    	Active users: {{ $users->count() }}
+		    </p>
+		  </div>
+		</div>
+
+		<div class="card">
+  		<h4 class="card-header"><a href="/admin/projects">Projects</a></h4>
+		  <div class="card-body">
+		    <p class="card-text">
+		    	Projects: {{ $projects->count() }}<br>
+		    	Completed projects: {{ $projects->where('completed', 1)->count() }}<br>
+		    	Inprogress projects: {{ $projects->where('completed', 0)->count() }}<br>
+		    	Public projects: {{ $projects->where('public', 1)->count() }}<br>
+		    	Private projects: {{ $projects->where('public', 0)->count() }}<br>
+		    </p>
+		  </div>
+		</div>
+
+		<div class="card">
+  		<h4 class="card-header"><a href="/admin/organization">Organization</a></h4>
+		  <div class="card-body">
+		    <p class="card-text">
+		    	Name: {{ $organization->name }}<br>
+		    	Email: {{ $organization->email}}
+		    </p>
+		  </div>
+		</div>
+
+	</div>
+	<br>
+	<div class="card-deck">
+
+		<div class="card">
+  		<h4 class="card-header"><a href="/admin/logs">Logs</a></h4>
+		  <div class="card-body">
+		    <p class="card-text">
+		    	<!-- -->
+		    	Logs: {{ $logs->count() }}
+		    </p>
+		  </div>
+		</div>
+
+		<div class="card">
+  		<h4 class="card-header"><a href="/admin/file-archive">File Archive</a></h4>
+		  <div class="card-body">
+		    <p class="card-text">
+		    	<!-- -->
+		    	Files: {{ $files->count() }}
+		    </p>
+		  </div>
+		</div>
+
+	</div>
+
+	<br>
+
+	<!--
+	-->
 
 @endsection
 

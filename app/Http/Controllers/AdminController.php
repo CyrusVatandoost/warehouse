@@ -27,10 +27,7 @@ class AdminController extends Controller{
     $organization = Organization::first();
   	$organization_positions = OrganizationPosition::get();
     $organization_position_users = OrganizationPositionUser::get();
-
-  	$waitlists = DB::table('pending_users')
-            ->select('pending_users.user_id', 'pending_users.first_name', 'pending_users.middle_initial', 'pending_users.last_name', 'pending_users.email')
-            ->get();
+            
   	return view('admin', compact('users', 'admins', 'organization', 'projects', 'project_archives', 'file_archives', 'organization_positions', 'waitlists','organization_position_users'));
   }
 

@@ -323,7 +323,7 @@ padding: 15px 0;
     text-align: center;
 }
 
-.upload{
+.upload {
     display: block;
     padding: 5px;
     margin-top: 5px;
@@ -348,16 +348,25 @@ padding: 15px 0;
   padding-bottom: 0;
 }
 
-.project-image{
+.project-image {
   margin-top: 20px; 
   margin-bottom: 20px;
 }
 
-.project-footer{
+.project-footer {
   position: absolute; 
   bottom: 0;
 }
 
 .badge-primary {
   background-color: #404040 !important;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 2;
+  }
 }

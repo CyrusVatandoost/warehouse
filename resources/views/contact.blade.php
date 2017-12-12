@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-sm-6">
           <div class="map-form">
-            <form action="/sendtoadmin" id="contact-form" class="card" method="post">
+            <form action="/sendtoadmin" id="contact-form" class="map-card" method="post">
                 <div class="form__row">
                       <div class="input-group">
                           <span class="input-group-addon"><i class="material-icons material-icons-md">person</i></span>
