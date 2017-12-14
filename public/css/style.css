@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  margin-bottom: 20vh; /* Margin bottom by footer height */
+  margin-bottom: 25vh; /* Margin bottom by footer height */
   background: linear-gradient(white, #8BC34A 200%);
 }
 
@@ -34,6 +34,10 @@ padding: 15px 0;
 
 .color {
   color:black;
+}
+
+.badge-info{
+  background-color: #404040;
 }
 
 .announcement-title{
@@ -73,6 +77,12 @@ padding: 15px 0;
   color: white !important;
 }
 
+.badge-primary{
+  background-color: #404040 !important;
+  border-color: #404040 !important;
+  color: white !important;
+}
+
 .btn-browse{
   background-color: #8BC34A;
   color: white !important;
@@ -90,10 +100,10 @@ padding: 15px 0;
 }
 
 .projects-card-size{
-   margin-right: 10px;
+   margin-right: -20px;
    margin-bottom: 10px;
-   width: 30em;
-   height: 30em;
+   width: auto;
+   height: 17em;
 }
 
 .projects-link{
@@ -230,6 +240,7 @@ padding: 15px 0;
   display: inline-block;
   overflow: hidden;
   width:85%;
+  margin-bottom: 10px;
 }
 
 .limit-header-announcement{
@@ -250,7 +261,9 @@ padding: 15px 0;
 }
 
  .file-buttons{
-  margin-top: 10px;
+  margin-bottom: : 10px;
+  position: absolute; 
+  bottom: 0;
 }
 
 .custom-button{
@@ -323,7 +336,7 @@ padding: 15px 0;
     text-align: center;
 }
 
-.upload {
+.upload{
     display: block;
     padding: 5px;
     margin-top: 5px;
@@ -335,7 +348,8 @@ padding: 15px 0;
 .file-card-size{
    margin-right: 10px;
    margin-bottom: 10px;
-   width: 30em;
+   width: 25em;
+   height: 25em;
 }
 
 .project-visibility{
@@ -344,29 +358,35 @@ padding: 15px 0;
 
 .project-card-header{
   padding-left: 10px; 
-  padding-top: 20px; 
+  padding-top: 10px; 
   padding-bottom: 0;
+  margin-bottom: 10px;
 }
 
-.project-image {
-  margin-top: 20px; 
-  margin-bottom: 20px;
+.project-image{
+  margin: 0;
 }
 
-.project-footer {
+.project-footer{
   position: absolute; 
   bottom: 0;
+  height: 18%;
 }
 
-.badge-primary {
-  background-color: #404040 !important;
+.project-card-body{
+  margin-bottom: 20px !important;
+  padding-top: 5px;
 }
 
-.card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 2;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 2;
-  }
+.project-button-group{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#grid{
+  margin-right: 2px;
+}
+
+ .project-desc {
+      word-break: break-all;
 }

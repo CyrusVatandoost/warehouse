@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.auth')
 
 @section('title', 'Login')
 
@@ -6,7 +6,6 @@
 @section('style')
   <!-- insert custom css styles here -->
   <!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
-  <link href="{{ asset('css/auth.css') }}" media="all" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('body')

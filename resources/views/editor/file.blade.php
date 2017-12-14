@@ -34,7 +34,7 @@
     {{ csrf_field() }}
     <textarea name="content" cols="100%" rows="20%">{{ $file }}</textarea>
     <br>
-    <button type="submit" class="btn btn-primary">Edit Abstract</button>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
   </form>
 @endsection
 

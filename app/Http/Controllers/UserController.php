@@ -8,6 +8,8 @@ use Storage;
 use Input;
 use App\User;
 use App\Log;
+use Validator;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller {
 
@@ -75,29 +77,58 @@ class UserController extends Controller {
     // updates a user's first_name, middle_initial, last_name, and gender
     // cannot update email and password yet (requires verification)
     public function updatePersonalInfo($id) {
-      $user = User::find($id);
-      $user->first_name = request('first_name');
-      $user->middle_initial = request('middle_initial');
-      $user->last_name = request('last_name');
-      $user->gender = request('gender');
-      $user->save();
 
-      //add update action to logs table
-      $log = new Log;
-      $log->user_id = $id;
+      $validator = Validator::make(
+        array(
+        'password' => request("password"),
+        'controlPass' => request("password_confirmation")
+      ),
+        array(
+        'controlPass' => 'required_with:password|same:password'
+        ));
 
-      // NOTE: For some reason, gender isn't working here, but it works with updateBio(). Instead of going with "him" or "her", i went with "their" at the moment.
+      if ($validator->fails()) {
+        // The given data did not pass validation
 
-      // if($user->gender == 'Male')
-      //   $log->user_action = "updated his profile";
-      // else if($user->gender == 'Female')
-      //   $log->user_action = "updated her profile";
+        $messages = $validator->messages();
 
-      $log->user_action = "updated their profile";
-      $log->action_details = "Personal Information";
-      $log->save();
-      //end log
+        echo $messages->first('password');
 
-      return redirect('/account');
+        return redirect('/account');
+
+      } else {
+
+        $password = request('password');
+
+        $user = User::find($id);
+        $user->first_name = request('first_name');
+        $user->middle_initial = request('middle_initial');
+        $user->last_name = request('last_name');
+        $user->gender = request('gender');
+
+        $hashed = Hash::make($password, ['rounds' => 12 ]);
+
+        $user->password = $hashed;
+        $user->save();
+
+        //add update action to logs table
+        $log = new Log;
+        $log->user_id = $id;
+
+        // NOTE: For some reason, gender isn't working here, but it works with updateBio(). Instead of going with "him" or "her", i went with "their" at the moment.
+
+       // if($user->gender == 'Male')
+        //   $log->user_action = "updated his profile";
+        // else if($user->gender == 'Female')
+        //   $log->user_action = "updated her profile";
+
+        $log->user_action = "updated their profile";
+        $log->action_details = "Personal Information";
+        $log->save();
+        //end log
+        return redirect('/home');
+      }
+       
+
     }
 }
