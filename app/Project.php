@@ -41,6 +41,10 @@ class Project extends Model {
 		return $this->hasMany(Collaborator::class, 'project_id', 'project_id');
 	}
 
+	public function heads() {
+		return $this->hasMany(ProjectHead::class, 'project_id', 'project_id');
+	}
+
 	public function tags(){
 		return $this->hasMany(ProjectTag::class,'project_id','project_id');
 	}

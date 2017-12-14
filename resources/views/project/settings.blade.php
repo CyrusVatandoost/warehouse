@@ -71,24 +71,28 @@
 	<p>
   <h4>Project Heads</h4>
   <ul class="list-group">
-	  <li class="list-group-item">Name Here</li>
+  	<!-- list of heads -->
+    @foreach($project->heads as $head)
+	  	<li class="list-group-item">
+	  		<!-- form to add head to the project -->
+	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/head-remove/{{$head->user_id}}">
+	  			{{ $head->user->first_name }}&nbsp;
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-outline-danger">&times;</button>
+				</form>
+	  @endforeach
 	  <li class="list-group-item">
-	  	<form class="form-inline">
-			  <input type="text" class="form-control" id="inputPassword2" placeholder="Add Collaborator">
+	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/head-add">
+	  		{{ csrf_field() }}
+			  <input type="text" class="form-control" name="user_id" placeholder="Add Project Head">
 			  &nbsp;
 			  <button type="submit" class="btn btn-primary">Add</button>
 			</form>
 	</ul>
 
 	<p>
-	<div class="alert alert-warning" role="alert">
-	  Adding Project Heads isn't available as of now.
-	</div>
-
-	<p>
   <h4>Collaborators</h4>
   <ul class="list-group">
-
   	<!-- list of collaborators -->
     @foreach($project->collaborators as $collaborator)
 	  	<li class="list-group-item">
@@ -99,7 +103,6 @@
 					<button type="submit" class="btn btn-outline-danger">&times;</button>
 				</form>
 	  @endforeach
-
 	  <!-- form to add collaborators -->
 	  <li class="list-group-item">
 	  	<form id="collab-form" class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
@@ -107,15 +110,14 @@
 			  <input class="form-control" id="user_id" name="user_id" type="text" placeholder="Add Collaborator">&nbsp;
 			  <button onclick="sendCollaboratorPost()" class="btn btn-primary" type="button">Add</button>
 			</form>
-
 	</ul>
 
-	<p>
+	<br>
 	<div class="alert alert-danger" role="alert">
 	  To add a collaborator, type the name of the user and click on the suggestion from the dropdown.
 	</div>
 
-	<p>
+	<br>
   <h4>Project Tags</h4>
   <ul class="list-group">
 

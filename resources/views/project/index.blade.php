@@ -62,7 +62,7 @@
           <li class="nav-item">
             <a class="nav-link nav-link-tabs active" href="#panel-abstract" data-toggle="tab">Abstract</a>
           </li>
-          @if($project->collaborators->contains('user_id', Auth::id()) || $project->user_id == auth()->id())
+          @if($project->collaborators->contains('user_id', Auth::id()) || $project->user_id == auth()->id() || $project->heads->contains('user_id', Auth::id()))
           <li class="nav-item">
             <a class="nav-link nav-link-tabs" href="#panel-files" data-toggle="tab">Files</a>
           </li>
@@ -73,7 +73,7 @@
             <a class="nav-link nav-link-tabs"  href="#panel-issues" data-toggle="tab">Issues</a>
           </li>
           @endif
-          @if($project->user_id == auth()->id())
+          @if($project->user_id == auth()->id() || $project->heads->contains('user_id', Auth::id()))
           <li class="nav-item">
             <a class="nav-link nav-link-tabs"  href="#panel-settings" data-toggle="tab">Settings</a>
           </li>

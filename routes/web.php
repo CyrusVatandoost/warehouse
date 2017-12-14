@@ -50,6 +50,8 @@
 	Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
 	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
 	Route::post('/project/{project}/update-description', 'ProjectController@updateDescription');
+	Route::post('/project/{project}/head-add', 'ProjectHeadController@store');
+	Route::post('/project/{project}/head-remove/{user}', 'ProjectHeadController@remove');
 
 // file
 	Route::post('/project/{project}/upload-file', 'FileController@store');
