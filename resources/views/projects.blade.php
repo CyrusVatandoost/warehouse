@@ -67,6 +67,7 @@
         <p>
         <div class="container-fluid">
           <div id="projects" class="row projects-no-gutters align-items-start">
+          <center>{{$my_projects->links()}}</center>
             @foreach($my_projects as $project)
             <div class="item col-md-4">
               <div class="card projects-card-size">
@@ -127,6 +128,7 @@
               </div> 
             </div>
           @endforeach
+          <center>{{$my_projects->links()}}</center>
         </div>
       </div>
     </div>
@@ -135,6 +137,7 @@
         <p>
           <div class="container-fluid">
             <div id="projects" class="row projects-no-gutters align-items-start">
+            <center>{{$my_projects->links()}}</center>
               @foreach($all_projects as $project)
                 <div class="item col-md-4">
                   <div class="card projects-card-size">
@@ -194,7 +197,10 @@
                     </div>
                   </div> 
                 </div>
-          @endforeach
+              </div>
+            </div>
+              @endforeach
+              <center> {{$all_projects->links()}} </center>
             </div>
           </div>
         </div>

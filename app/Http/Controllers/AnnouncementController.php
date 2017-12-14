@@ -11,7 +11,7 @@ class AnnouncementController extends Controller
 {
     //returns all announcements sorted by date
     public function index() {
-        $announcements = Announcement::orderBy('created_at', 'DESC')->get();
+        $announcements = Announcement::orderBy('created_at', 'DESC')->simplePaginate(6);
         return view('home', compact('announcements'));
     }
 
