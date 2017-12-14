@@ -5,8 +5,8 @@
     img{
       height: auto; 
       width: auto; 
-      max-width: 20em; 
-      max-height: 20em;
+      max-width: 15em; 
+      max-height: 15em;
       margin: auto;
     }
   </style>
