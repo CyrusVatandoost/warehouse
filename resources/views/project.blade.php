@@ -6,6 +6,8 @@
 @section('style')
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+      rel="stylesheet"/>
 
   <style type="text/css">
   
@@ -20,9 +22,12 @@
     .project-badge{
       margin-bottom: 10px;
     }
+
+    .project-desc {
+      word-break: break-all;
+    }
     
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
-      rel="stylesheet"/>
+    
 
 </style>
 @endsection
@@ -58,7 +63,7 @@
   @endforeach
 
   <!-- project description -->
-  <p>
+  <p class="project-desc">
     {{ $project->description }}
   </p>
 
