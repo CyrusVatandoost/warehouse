@@ -19,6 +19,7 @@
       @if(!Auth::check())
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/projects/public">Projects</a>
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/contact">Contact Us</a>
+      <li class="nav-item"><a class="nav-link top-navbar-item" href="/about">About Us</a>
       @endif
 
       <!-- if user is an admin -->

@@ -4,14 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Storage;
 use Input;
+use Validator;
 use App\User;
 use App\Log;
-use Validator;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller {
+
+  public function store() {
+    $user = new User;
+    $user->first_name = request('first_name');
+    $user->middle_initial = request('middle_initial');
+    $user->last_name = request('last_name');
+    $user->gender = request('gender');
+    $user->email = request('email');
+    $user->password = Hash::make(request('password'));
+    $user->save();
+    return back();
+  }
 
   public function auth() {
     $user = User::find(Auth::id());

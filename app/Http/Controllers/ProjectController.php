@@ -38,7 +38,7 @@ class ProjectController extends Controller {
 
 	// returns projects that are public
 	public function guest() {
-		$projects = Project::public()->get();
+		$projects = Project::public()->simplePaginate(6);
 		return view('project.guest', compact('projects'));
 	}
 

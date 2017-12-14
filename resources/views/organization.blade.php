@@ -38,7 +38,7 @@
     		color: black;
     	}
 	</style>
-  @include('modals.new_project')
+	
   <!-- insert body here -->  
     <div class="container">
        <div class="row">

@@ -28,6 +28,66 @@
 <!-- body -->
 @section('body')
 
+  <div class="card">
+    <div class="card-header">
+      Create New User
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/user/new">
+        {{ csrf_field() }}
+
+        <!-- name -->
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col">
+              <label>First Name</label>
+              <input type="text" class="form-control" placeholder="First name" name="first_name" required>
+            </div>
+            <div class="col">
+              <label>Middle Initial</label>
+              <input type="text" class="form-control" placeholder="Middle initial" name="middle_initial" required>
+            </div>
+            <div class="col">
+              <label>Last Name</label>
+              <input type="text" class="form-control" placeholder="Last name" name="last_name" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- gender -->
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" checked>Male
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="false">Female
+            </label>
+          </div>
+        </div>
+
+        <!-- email -->
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
+        </div>
+
+        <!-- password -->
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+    </div>
+  </div>
+
+  <br>
   <h4>Users</h4>
   <div class="table-responsive">   
     <table class="table table-hover">

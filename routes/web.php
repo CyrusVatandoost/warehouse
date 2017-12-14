@@ -96,6 +96,7 @@
 	Route::get('/admin/projects', 'DashboardController@projects');
 	Route::get('/admin/users', 'DashboardController@users');
 	Route::post('/organization/{organization}/details-update', 'OrganizationController@update');
+	Route::post('/user/new', 'UserController@store');
 
 // archive
 	Route::get('/admin/file-archive', 'ArchiveController@files');
@@ -147,3 +148,4 @@ Route::get('/contact', function () {return view('contact');});
 Route::get('/announcement', function () {return view('announcement');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/sample', function () {return view('sample');});
+Route::get('/about', function () {return view('about');});
