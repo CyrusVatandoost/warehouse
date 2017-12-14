@@ -44,7 +44,7 @@
 <!-- modals -->
 @section('modals')
 	<!-- insert css styles here -->
-  @include('modals.new_project')  
+  @include('modals.project-new')  
   @include('modals.announcement-new')
   @include('modals.announcement-delete')
 @endsection
