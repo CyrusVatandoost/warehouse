@@ -36,7 +36,7 @@
         <div class="card-body">
           <div class="media d-flex">
             <div class="align-self-center">
-              <i class="material-icons">create</i>
+              <i class="material-icons">person</i>
             </div>
             <div class="media-body text-right">
               <h3>{{ $users->count() }}</h3>
@@ -68,7 +68,7 @@
         <div class="card-body">
           <div class="media d-flex">
             <div class="align-self-center">
-              <i class="material-icons">create</i>
+              <i class="material-icons">folder</i>
             </div>
             <div class="media-body text-right">
               <h3>{{ $files->count() }}</h3>
@@ -89,7 +89,7 @@
 		    <p class="card-text">
 		    	Users: {{ $users->count() }}<br>
 		    	<!-- need to update number of active users -->
-		    	Active users: {{ $users->count() }}
+		    	Active users: {{ App\User::active()->count() }}
 		    </p>
 		  </div>
       <div class="card-footer">

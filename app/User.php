@@ -6,6 +6,8 @@ use Cmgmyr\Messenger\Traits\Messagable;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\User;
+use Carbon\Carbon;
 
 class User extends Authenticatable {
 
@@ -37,6 +39,12 @@ class User extends Authenticatable {
 
   public function organizationPosition() {
     return $this->hasOne('App\OrganizationPositionUser','user_id');
+  }
+
+  public function scopeActive() {
+    $from = Carbon::now()->subDays(30);
+    $to = Carbon::now();
+    return static::whereBetween('updated_at', [$from, $to])->get();
   }
     
 }
