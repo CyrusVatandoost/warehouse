@@ -87,7 +87,6 @@ function topFunction() {
   @endforeach -->
 
   @else
-  {{$announcements->links()}}
     @foreach($announcements as $announcement)
     <p>
       @if($announcement->visibility == 1)
