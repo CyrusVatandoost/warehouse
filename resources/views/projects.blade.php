@@ -27,6 +27,7 @@
       <div class="tab-pane active" id="panel-projects_all">
         <p>
         <div class="container-fluid">
+          <center>{{$my_projects->links()}}</center>
           <div class="row projects-no-gutters align-items-start">
             @foreach($my_projects as $project)
             <div class="col-md-auto">
@@ -79,6 +80,7 @@
               </div>
             </div>
           @endforeach
+          <center>{{$my_projects->links()}}</center>
         </div>
       </div>
     </div>
@@ -86,6 +88,7 @@
       <div class="tab-pane" id="panel-all_projects">
         <p>
           <div class="container-fluid">
+            <center>{{$my_projects->links()}}</center>
             <div class="row projects-no-gutters align-items-start">
               @foreach($all_projects as $project)
                 <div class="col-md-auto">
@@ -143,6 +146,7 @@
               </div>
             </div>
               @endforeach
+              <center> {{$all_projects->links()}} </center>
             </div>
           </div>
         </div>

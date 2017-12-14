@@ -19,8 +19,8 @@ class ProjectController extends Controller {
 
 	// returns all of the logged in user's project and all the site's projects
 	public function index() {
-		$my_projects = Project::get()->where('user_id', auth()->id());
-		$all_projects = Project::get();
+		$my_projects = Project::where('user_id', auth()->id())->simplePaginate(6);
+		$all_projects = Project::simplePaginate(6);
 		return view('projects', compact('my_projects', 'all_projects'));
 	}
 
