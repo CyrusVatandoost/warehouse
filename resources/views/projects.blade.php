@@ -105,7 +105,13 @@
                 <div class="list-group-item-body">
                   <div class="photo text-center">
                     <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">
-                      <img class="project-image img-fluid" src="https://static.pexels.com/photos/701738/pexels-photo-701738.jpeg" alt="avatar" />
+
+                        @if (file_exists(public_path('/uploads/'.$project->project_id.'/banner.jpg')))
+                          <img class="project-image img-fluid" src="{{ asset('/uploads/'.$project->project_id.'/banner.jpg') }}" alt="avatar">
+                        @else
+                          <img class="project-image img-fluid" src="{{ asset('/uploads/defaults/banner.jpg') }}" alt="avatar">
+                        @endif
+                        
                     </a>
                   </div>
                   <div class="card-body project-card-body">
