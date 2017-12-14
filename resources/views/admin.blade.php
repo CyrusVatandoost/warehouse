@@ -30,6 +30,7 @@
 
 	<div class="card-deck">
 
+		<!-- users card -->
 		<div class="card text-white bg-primary">
 	    <div class="card-content">
         <div class="card-body">
@@ -91,6 +92,9 @@
 		    	Active users: {{ $users->count() }}
 		    </p>
 		  </div>
+      <div class="card-footer">
+      	<a href="/admin/users" class="btn btn-primary">Create User</a>
+      </div>
 		</div>
 
 		<div class="card">
