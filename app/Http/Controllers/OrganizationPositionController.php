@@ -6,23 +6,22 @@ use Illuminate\Http\Request;
 use App\OrganizationPosition;
 use App\Log;
 
-class OrganizationPositionController extends Controller
-{
-    //
+class OrganizationPositionController extends Controller {
+
     public function delete($id) {
-    	# code...
+      
+      //add delete action to logs table
+      $log = new Log;
+      $position = OrganizationPosition::find($id);
 
-        //add delete action to logs table
-        $log = new Log;
-        $position = OrganizationPosition::find($id);
-
-        $log->user_id = auth()->id();
-        $log->user_action = "deleted an organization position";
-        $log->action_details = $position->name;
-        $log->save();
-        //end log
+      $log->user_id = auth()->id();
+      $log->user_action = "deleted an organization position";
+      $log->action_details = $position->name;
+      $log->save();
+      //end log
 
     	OrganizationPosition::where('organization_position_id', $id)->delete();
+
 		return back();
 
     }
@@ -44,6 +43,7 @@ class OrganizationPositionController extends Controller
         $log->save();
         //end log
 
-    	return view('admin');
+    	return back();
     }
+
 }
