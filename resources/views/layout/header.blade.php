@@ -12,6 +12,7 @@
 <!-- Custom styles for this template -->
 <link href="{{ asset('css/style.css') }}" media="all" rel="stylesheet" type="text/css" />
 <link href="{{ asset('css/material-icons.css') }}" media="all" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/map.css') }}" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{!! asset('css/easy-autocomplete.min.css') !!}">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
