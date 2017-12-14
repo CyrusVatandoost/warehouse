@@ -91,18 +91,17 @@ function topFunction() {
     <p>
       @if($announcement->visibility == 1)
       <div class="row row-striped">
-        <div class="col-2 text-center"> 
-          <h1 class="display-5"><span class="badge badge-primary">{{ $announcement->created_at->format('d') }}</span></h1>    
-          <h2 class="text-uppercase">{{ $announcement->created_at->format('M') }}</h2>    
-        </div>
-        <div class="col-10">
+        <div class="col-12"> 
           <a href="/announcement/{{ $announcement->announcement_id }}">
-            <h3 class="text-uppercase announcement-title limit-header-announcement">
+            <h1 class="text-uppercase announcement-title limit-header-announcement">
             <strong> {{ $announcement->name }} </strong>
-            </h3>
+            </h1>
           </a>
-          <p class="limit">  {{ $announcement->description }} </p>   
-        </div>    
+          <p class="display-12 font-italic small">Posted by <a href="/account/{{$announcement->user->user_id}}"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a><br>
+          {{ $announcement->created_at->diffForHumans() }} (Expires on {{ $announcement->expires_on }})</p>
+         <h3 class="limit"><small>{{ $announcement->description }}</small></h6>  
+
+        </div>
       </div>
       @endif
     @endforeach
