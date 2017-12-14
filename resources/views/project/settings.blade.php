@@ -151,7 +151,7 @@
 
 </div>
 
-@section('customscripts')
+@section('scripts')
 	<script>
 	var collaboratorID = "null";
 

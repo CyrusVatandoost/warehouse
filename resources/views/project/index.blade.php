@@ -62,7 +62,7 @@
           <li class="nav-item">
             <a class="nav-link nav-link-tabs active" href="#panel-abstract" data-toggle="tab">Abstract</a>
           </li>
-          @if(Auth::check())
+          @if($project->collaborators->contains('user_id', Auth::id()) || $project->user_id == auth()->id())
           <li class="nav-item">
             <a class="nav-link nav-link-tabs" href="#panel-files" data-toggle="tab">Files</a>
           </li>
@@ -82,11 +82,13 @@
 
         <div class="tab-content">
           @include('project.abstract')
-          @if(Auth::check())
+          @if (!$project->collaborators->contains('user_id', Auth::id()))
             @include('project.files')
             @include('project.progress')
             @include('project.issues')
             @include('project.settings')
+          @endif 
+          @if(Auth::check())
           @endif
         </div>
 

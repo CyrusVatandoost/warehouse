@@ -52,17 +52,14 @@
 
 <!-- body -->
 @section('body')
-  <div class="py-5"><div class="container"><div class="row"><div class="col-md-12 border border-dark" style=""><table class="table">
-    <tbody>
-     @foreach($logs as $log) 
-      <tr>
-        <td>
-          You {{ $log->user_action }}: {{ $log->action_details }} on {{ $log->created_at }}
-        </td>
-       @endforeach 
-    </tbody>
-  </table></div></div>
 
+   @foreach($logs as $log) 
+    <div class="card">
+      <div class="card-body">
+        You {{ $log->user_action }}: {{ $log->action_details }} on {{ $log->created_at }}
+      </div>
+    </div>
+  @endforeach
   
 @endsection
 

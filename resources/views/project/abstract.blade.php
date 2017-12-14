@@ -6,7 +6,7 @@
         {!! Storage::disk('uploads')->get($project->project_id.'/README.html') !!}
       @endif
 
-      @if(Auth::check())
+      @if($project->collaborators->contains('user_id', Auth::id()) || $project->user_id == auth()->id())
         <br>
         <form method="POST" action="/project/{{$project->project_id}}/abstract-edit">
           {{ csrf_field() }}
