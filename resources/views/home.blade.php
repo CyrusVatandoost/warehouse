@@ -97,7 +97,8 @@ function topFunction() {
             <strong> {{ $announcement->name }} </strong>
             </h1>
           </a>
-          <p class="display-12 font-italic small">Posted {{ $announcement->created_at->diffForHumans() }} (Expires on {{ $announcement->expires_on }})</p>
+          <p class="display-12 font-italic small">Posted by <a href="/account/{{$announcement->user->user_id}}"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a><br>
+          {{ $announcement->created_at->diffForHumans() }} (Expires on {{ $announcement->expires_on }})</p>
          <h3 class="limit"><small>{{ $announcement->description }}</small></h6>  
 
         </div>
