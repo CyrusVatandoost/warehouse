@@ -18,7 +18,7 @@
 <!-- modals -->
 @section('modals')
   @include('modals.announcement-new')
-  @include('modals.new_project')
+  @include('modals.project-new')
 @endsection
 
 <!-- left-sidenav -->

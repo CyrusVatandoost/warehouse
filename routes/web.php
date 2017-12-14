@@ -95,6 +95,7 @@
 	Route::get('/admin/organization', 'DashboardController@organization');
 	Route::get('/admin/projects', 'DashboardController@projects');
 	Route::get('/admin/users', 'DashboardController@users');
+	Route::post('/organization/{organization}/details-update', 'OrganizationController@update');
 
 // archive
 	Route::get('/admin/file-archive', 'ArchiveController@files');

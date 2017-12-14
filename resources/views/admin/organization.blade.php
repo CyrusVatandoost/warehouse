@@ -18,7 +18,7 @@
 <!-- modals -->
 @section('modals')
 	<!-- insert css styles here -->
-  @include('modals.new_project')
+  @include('modals.project-new')
 @endsection
 
 <!-- left-sidenav -->
@@ -28,9 +28,32 @@
 
 <!-- body -->
 @section('body')
-  
-  {{ $organization }}
 
+	<div class="card">
+		<div class="card-header">
+			Organization Details 
+		</div>
+		<div class="card-body">
+			<form method="POST" action="/organization/{{$organization->organization_id}}/details-update">
+				{{ csrf_field() }}
+				<label>Organization Name</label>
+			  <div class="input-group">
+				  <input type="text" class="form-control" placeholder="Organization Name" aria-label="Username" aria-describedby="basic-addon1" name="name" value="{{$organization->name}}">
+				</div>
+				<br>
+				<label>Organization Email</label>
+			  <div class="input-group">
+				  <input type="text" class="form-control" placeholder="Organization Email" aria-label="Username" aria-describedby="basic-addon1" name="email" value="{{$organization->email}}">
+				</div>
+				<br>
+			  <div class="input-group">
+					<button class="btn btn-primary" type="submit">Update</button>
+			  </div>
+			</form>
+		</div>
+	</div>
+
+	<br>
   <h4>List of Admins:</h4>
 	<div class="table-responsive">   
 		<table class="table table-hover">

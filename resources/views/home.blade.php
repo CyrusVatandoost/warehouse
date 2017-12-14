@@ -44,7 +44,7 @@
 @endsection
 
 @section('modals')
-  @include('modals.new_project')
+  @include('modals.project-new')
   @include('modals.announcement-new')
 @endsection
 
