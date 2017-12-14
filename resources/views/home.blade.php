@@ -105,7 +105,7 @@ function topFunction() {
       </div>
       @endif
     @endforeach
-    {{$announcements->links()}}
+    {{ $announcements->links() }} 
   </p>
   @endif
   <button onclick="topFunction()" class="rounded-circle" id="myBtn" title="Go to top"><span>Top</span></button>
