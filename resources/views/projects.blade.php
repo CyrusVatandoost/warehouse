@@ -100,7 +100,6 @@
                       @endif
                     </div>
                   </div>
-
                 </h4>
                 <div class="list-group-item-body">
                   <div class="photo text-center">
@@ -186,7 +185,7 @@
                         @else
                           <img class="project-image img-fluid" src="{{ asset('/uploads/defaults/banner.jpg') }}" alt="avatar">
                         @endif
-                        
+
                     </a>
                   </div>
                   <div class="card-body project-card-body">

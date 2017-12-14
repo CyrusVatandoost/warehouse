@@ -47,7 +47,7 @@ class ProjectController extends Controller {
 		$project = Project::find($id);
 		$tasks = Task::get();
 		$users = User::get();
-		return view('project', compact('project', 'tasks', 'users'));
+		return view('project.index', compact('project', 'tasks', 'users'));
 }
 
 public function beta($id) {
