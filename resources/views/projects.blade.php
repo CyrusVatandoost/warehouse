@@ -43,7 +43,7 @@
 @endsection
 
 @section('modals')
-  @include('modals.new_project')
+  @include('modals.project-new')
 @endsection
 
 @section('left-sidenav')

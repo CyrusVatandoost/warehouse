@@ -145,9 +145,8 @@
 	  To add a tag, input any tag you prefer or select a suggested tag.
 	</div>
 
-  @if(Auth::check())
-    <p><a href="#modal-container-project-archive" role="button" class="btn btn-danger" data-toggle="modal">Archive Project</a></p>
-  @endif 
+   <p><a href="#modal-container-project-archive" class="btn btn-danger" role="button" data-toggle="modal">Archive Project</a></p>
+
 
 </div>
 

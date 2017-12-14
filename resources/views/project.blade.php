@@ -33,7 +33,6 @@
 @endsection
 
 @section('modals')
-  @include('modals.delete_project')
   @include('modals.project-archive')
   @include('modals.task-new')
 @endsection
