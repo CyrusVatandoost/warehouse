@@ -33,11 +33,16 @@
     <div class="container">
     <div class="row register-main">
         <div class="register-main-center">
-        
+            
+                          @if (session('alert'))
+                   <div class="alert alert-success">
+                       {{ session('alert') }}
+                   </div>
+                @endif   
             
             <div class="row">
              <form class="form-horizontal" method="POST" action="/account/{{ auth()->user()->user_id }}/settings">
-                {{ csrf_field() }}
+                {{ csrf_field() }}          
 
                 <div class="form-row">
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} register-form-group col-md-5">
@@ -102,7 +107,7 @@
 
                 <!-- requires verification -->
 
-                <!-- <div class="form-row">
+                <div class="form-row">
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} register-form-group col-md-6">
                         <label for="password" class="control-label">Password</label>
                         <div class="input-group register-input-group">
@@ -121,7 +126,7 @@
                             <input id="password-confirm" type="password" class="form-control register-form-control" name="password_confirmation" required>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="alert alert-warning" role="alert">
                   Changing email and password is not supported yet.
