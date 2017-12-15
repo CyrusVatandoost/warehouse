@@ -29,6 +29,7 @@
 	       	width: 13em;
 	       	height: 13em;
 	       	border: 0;
+	       	padding: 20px;
     	}	
     	.card-group-size{
     		margin-right: 10px; 
@@ -68,7 +69,7 @@
 				        								@endif
 
 																<div class="card-body">
-																	<h4 class="card-title">{{$admin->user->first_name}} &nbsp;{{$admin->user->last_name }}</h4>
+																	<h5 class="card-title">{{$admin->user->first_name}} &nbsp;{{$admin->user->last_name }}</h5>
 											        	</div>
 
 										        	</div>
