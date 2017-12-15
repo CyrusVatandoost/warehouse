@@ -14,6 +14,7 @@
         margin-bottom: 10px;
         padding: 0px;
         display: table;
+        height: 1px;
     } 
     .list-group-item-body.row{
       padding-left: 10px;
@@ -80,7 +81,7 @@
             <div class="item col-md-4">
               <div class="card projects-card-size">
                 <h4 class="project-card-header bg-dark">
-                  <div class="row">
+                  <div class="row project-header-row">
                     <div class="col-sm-8">
                       <a href="{{ url('project') }}/{{ $project->project_id }}">
                         <p class="limit-header text-white">{{ $project->name }}</p>
@@ -161,7 +162,7 @@
             <div class="item col-md-4">
               <div class="card projects-card-size">
                 <h4 class="project-card-header bg-dark">
-                  <div class="row">
+                  <div class="row project-header-row">
                     <div class="col-sm-8">
                       <a href="{{ url('project') }}/{{ $project->project_id }}">
                         <p class="limit-header text-white">{{ $project->name }}</p>
