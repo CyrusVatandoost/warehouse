@@ -36,8 +36,8 @@
     }
 
     .photo img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 1000;
+      max-height: 300;
     }
   </style>
 @endsection
@@ -84,7 +84,16 @@
                     <div class="col-sm-8">
                       <a href="{{ url('project') }}/{{ $project->project_id }}">
                         <p class="limit-header text-white">{{ $project->name }}</p>
+
                       </a>
+                      <p class="small text-white font-italic">
+                        <sup>
+                          <small>
+                            By: <a class="text-white" href="#">{{ $project->user->first_name }}</a>
+                          </small>
+                        </sup>
+                      </p>
+
                     </div>
                     <div class="col-sm-4">
                       @if($project->public == 1)
@@ -118,8 +127,6 @@
                     <div class="row">
                       <div class="col-md-auto small p-2  project-footer">
                         <p class="small">
-                        Author: <a href="#">{{ $project->user->first_name }}</a>
-                        |
                         <i class="fa fa-tags"></i> Status:
                           @if($project->complete == 1)
                             <span class="badge badge-success project-badge">Completed</span>
@@ -159,6 +166,13 @@
                       <a href="{{ url('project') }}/{{ $project->project_id }}">
                         <p class="limit-header text-white">{{ $project->name }}</p>
                       </a>
+                      <p class="small text-white font-italic">
+                        <sup>
+                          <small>
+                            By: <a class="text-white" href="#">{{ $project->user->first_name }}</a>
+                          </small>
+                        </sup>
+                      </p>
                     </div>
                     <div class="col-sm-4">
                           @if($project->public == 1)
@@ -193,8 +207,6 @@
                     <div class="row">
                       <div class="col-md-auto small p-2  project-footer">
                         <p class="small">
-                        Author: <a href="#">{{ $project->user->first_name }}</a>
-                        |
                         <i class="fa fa-tags"></i> Status:
                           @if($project->complete == 1)
                             <span class="badge badge-success project-badge">Completed</span>
