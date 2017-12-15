@@ -144,8 +144,9 @@ Route::post('/project/{project}/abstract-edit', 'EditorController@edit');
 Route::post('/project/{project}/abstract-update', 'EditorController@update');
 
 // to be shortened
-Route::get('/', function () {return view('welcome');});
-Route::get('/welcome', function () {return view('welcome');});
+Route::get('/', 'HomeController@welcome');
+Route::get('/welcome', 'HomeController@welcome');
+
 Route::get('/organization', function () {return view('organization');});
 Route::get('/contact', function () {return view('contact');});
 Route::get('/announcement', function () {return view('announcement');});
