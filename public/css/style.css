@@ -19,13 +19,13 @@ p{
 }
 
 .row-striped:nth-of-type(odd) {    
-background-color: #9CCC65;    
+background-color: #C3FDB8;    
 border-left: 4px #D1D0CE solid;   
 }    
   
 .row-striped:nth-of-type(even){    
 background-color: #D1D0CE;    
-border-left: 4px #9CCC65 solid;   
+border-left: 4px #C3FDB8 solid;   
 }
 
 .row-striped {   
@@ -360,22 +360,26 @@ padding: 15px 0;
   padding-left: 10px; 
   padding-top: 10px; 
   padding-bottom: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+}
+
+.project-header-row{
+  margin-bottom: -15px;
 }
 
 .project-image{
-  margin: 0;
+  margin-top: 0px;
 }
 
 .project-footer{
   position: absolute; 
   bottom: 0;
-  height: 18%;
+  height: 12%;
 }
 
 .project-card-body{
-  margin-bottom: 20px !important;
-  padding-top: 5px;
+  margin-bottom: 30px !important;
+  padding-top: 10px;
 }
 
 .project-button-group{
