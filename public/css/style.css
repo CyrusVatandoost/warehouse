@@ -12,6 +12,10 @@ p{
   color: #404040;
 }a
 
+.bg-primary{
+  background-color: #404040 !important;
+}
+
 .messages{
   padding: 15px 0;
   background-color: #E5E4E2;    
@@ -19,13 +23,13 @@ p{
 }
 
 .row-striped:nth-of-type(odd) {    
-background-color: #C3FDB8;    
+background-color: #afd683;    
 border-left: 4px #D1D0CE solid;   
 }    
   
 .row-striped:nth-of-type(even){    
 background-color: #D1D0CE;    
-border-left: 4px #C3FDB8 solid;   
+border-left: 4px #afd683 solid;   
 }
 
 .row-striped {   
