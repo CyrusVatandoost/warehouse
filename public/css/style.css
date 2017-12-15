@@ -399,3 +399,7 @@ padding: 15px 0;
       word-break: break-all;
 }
 
+.bg-primary{
+  background-color: #404040 !important;
+}
+

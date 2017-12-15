@@ -40,6 +40,10 @@
     display: none;
   }
 }
+
+.text-black{
+  color: black;
+}
 </style>
 @endsection
 
@@ -97,7 +101,7 @@ function topFunction() {
             <strong> {{ $announcement->name }} </strong>
             </h1>
           </a>
-          <p class="display-12 font-italic small">Posted by <a href="/account/{{$announcement->user->user_id}}"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a><br>
+          <p class="display-12 small">Posted by <a class="font-italic text-black" href="/account/{{$announcement->user->user_id}}"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a><br>
           {{ $announcement->created_at->diffForHumans() }} (Expires on {{ $announcement->expires_on }})</p>
          <h3 class="limit"><small>{{ $announcement->description }}</small></h6>  
 
