@@ -30,16 +30,12 @@
     .list-group-item-body.row .photo img{
        vertical-align: middle;
     }
-  
-    .photo{
-      height: 5em;
-      width: auto;
-    }
 
-    .photo img {
-      max-width: 1000;
-      max-height: 300;
+    .photo img{
+     display: block;
+      width: 100%;
     }
+  
   </style>
 @endsection
 
@@ -112,7 +108,7 @@
                   </div>
                 </h4>
                 <div class="list-group-item-body">
-                  <div class="photo text-center">
+                  <div class="photo">
                     <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">
 
                         @if (file_exists(public_path('/uploads/'.$project->project_id.'/banner.jpg')))
