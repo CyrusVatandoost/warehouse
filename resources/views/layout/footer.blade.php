@@ -15,6 +15,7 @@
         <tr>
           <td>(02) 809 7392
           <td><a href="/contact">Contact Us</a>
+          <td>De La Salle University
         <tr>
           <td>LTI Spine Road, Laguna Blvd. Binan
           <td><a href="/login">Members Sign In</a>

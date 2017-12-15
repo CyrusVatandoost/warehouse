@@ -10,7 +10,7 @@ body {
 
 p{
   color: #404040;
-}
+}a
 
 .messages{
   padding: 15px 0;
@@ -394,3 +394,4 @@ padding: 15px 0;
  .project-desc {
       word-break: break-all;
 }
+

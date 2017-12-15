@@ -23,8 +23,8 @@
         </div>
       </div>
       <div class="accountbio">
-        <h2 class="heading-medium">{{ $user->first_name }} {{ $user->middle_initial }} {{ $user->last_name }}</h2>
-        @if(!empty($user->admin))
+        <h2 class="heading-medium">{{ $user->first_name }} {{ $user->middle_initial }} {{ $user->last_name }}</h2> 
+        @if(App\Admin::get()->contains('user_id', Auth::id()))
           <span class="badge badge-dark">Admin</span>
         @endif
         @if(!empty($user->organizationPosition))

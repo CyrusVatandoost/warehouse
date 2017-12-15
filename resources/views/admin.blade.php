@@ -31,36 +31,40 @@
 	<div class="card-deck">
 
 		<!-- users card -->
-		<div class="card text-white bg-primary">
-	    <div class="card-content">
-        <div class="card-body">
-          <div class="media d-flex">
-            <div class="align-self-center">
-              <i class="material-icons md-48">person</i>
-            </div>
-            <div class="media-body text-right">
-              <h3>{{ $users->count() }}</h3>
-              <span>Users</span>
-            </div>
-          </div>
-        </div>
-	    </div>
-		</div>
+			<div class="card text-white bg-primary">
+				<a href="/admin/users" class="text-white">
+			    <div class="card-content">
+		        <div class="card-body">
+		          <div class="media d-flex">
+		            <div class="align-self-center">
+		              <i class="material-icons md-48">person</i>
+		            </div>
+		            <div class="media-body text-right">
+		              <h3>{{ $users->count() }}</h3>
+		              <span>Users</span>
+		            </div>
+		          </div>
+		        </div>
+			    </div>
+				</a>
+			</div>
 
 		<div class="card text-white bg-primary">
-	    <div class="card-content">
-        <div class="card-body">
-          <div class="media d-flex">
-            <div class="align-self-center">
-              <i class="material-icons md-48">create</i>
-            </div>
-            <div class="media-body text-right">
-              <h3>{{ $projects->count() }}</h3>
-              <span>Projects</span>
-            </div>
-          </div>
-        </div>
-	    </div>
+			<a href="/admin/projects" class="text-white">
+		    <div class="card-content">
+	        <div class="card-body">
+	          <div class="media d-flex">
+	            <div class="align-self-center">
+	              <i class="material-icons md-48">create</i>
+	            </div>
+	            <div class="media-body text-right">
+	              <h3>{{ $projects->count() }}</h3>
+	              <span>Projects</span>
+	            </div>
+	          </div>
+	        </div>
+		    </div>
+		  </a>
 		</div>
 
 		<div class="card text-white bg-primary">

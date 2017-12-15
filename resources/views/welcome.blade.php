@@ -40,7 +40,7 @@
           @endif
           <!-- this isnt working -->
           <div class="carousel-caption d-none d-md-block">
-            <h3>{{$project->name}}</h3>
+            <h3>{{$project->project->name}}</h3>
           </div>
         </div>
       @endforeach

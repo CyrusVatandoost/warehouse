@@ -1,9 +1,9 @@
-@extends('layout.auth')
+@extends('layout.app')
 
 @section('title','Wrong Username or Password')
 
 <!-- Main Content -->
-@section('content')
+@section('body')
 <div class="container">
     <div class="row main">
         <div class="main-center">
