@@ -31,6 +31,13 @@
   <!-- insert body here -->
 
   <div class="card w-100">
+
+    @if (file_exists(public_path('uploads/'.$project->project_id.'/banner.jpg')))
+      <img class="card-img-top img-fluid" src="{{asset('uploads/'.$project->project_id.'/banner.jpg')}}">
+    @else
+      <img class="card-img-top img-fluid" src="{{asset('uploads/defaults/banner.jpg')}}" alt="Card image cap">
+    @endif
+
     <div class="card-header">
       <h1>{{ $project->name }}</h1>
 
