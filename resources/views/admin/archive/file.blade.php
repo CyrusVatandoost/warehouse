@@ -18,7 +18,7 @@
 <!-- modals -->
 @section('modals')
 	<!-- insert css styles here -->
-  @include('modals.new_project')
+  @include('modals.project-new')
 @endsection
 
 <!-- left-sidenav -->
@@ -33,8 +33,6 @@
     <table class="table table-hover">
       <thead class="thead-dark">
         <tr>
-          <th>File Archive ID
-          <th>Project ID
           <th>Project Name
           <th>Name
           <th>Created At
@@ -45,8 +43,6 @@
       <tbody>
         @foreach($file_archives as $file_archive)
           <tr>
-            <td>{{ $file_archive->file_archive_id }}
-            <td>{{ $file_archive->project_id }}
             <td>{{ $file_archive->project->name }}
             <td><a href="{{ url('/uploads/archive/'.$file_archive->name) }}">{{ $file_archive->name }}</a>
             <td>{{ $file_archive->created_at }}

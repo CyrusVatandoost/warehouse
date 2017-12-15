@@ -51,9 +51,11 @@
 
 <!-- left-sidenav -->
 @section('left-sidenav')
-  <p><a href="#modal-container-delete-announcement" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Announcement</a></p>
   <p><a href="#modal-container-new-announcement" class="btn btn-primary btn-block" role="button" data-toggle="modal">New Announcement</a></p>
   <p><a href="#modal-container-new-project" role="button" class="btn btn-primary btn-block" data-toggle="modal">New Project</a></p>
+  @if($announcement->user_id == auth()->id())
+    <p><a href="#modal-container-delete-announcement" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Announcement</a></p>
+  @endif
 @endsection
 
 <!-- body -->

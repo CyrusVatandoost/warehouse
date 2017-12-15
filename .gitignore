@@ -43,6 +43,7 @@ yarn-error.log
 .env
 vendor/jrean/laravel-user-verification/
 composer.bat
+!public/uploads/avatars/default.jpg
 public/uploads/*
 public/uploads/avatars/*
-!public/uploads/avatars/default.jpg
+!public/uploads/defaults/*
