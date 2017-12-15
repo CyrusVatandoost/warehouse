@@ -88,9 +88,9 @@
 	  <li class="list-group-item">
 	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/head-add">
 	  		{{ csrf_field() }}
-			  <input type="text" class="form-control" name="user_id" placeholder="Add Project Head">
-			  &nbsp;
-			  <button type="submit" class="btn btn-primary">Add</button>
+			  <input id="project_head" type="text" class="form-control" name="user_id" placeholder="Add Project Head">
+			  
+			  <button onclick="sendProjectHeadPost()" type="button" class="btn btn-primary">Add</button>
 			</form>
 	</ul>
 
@@ -159,6 +159,7 @@
 @section('scripts')
 	<script>
 	var collaboratorID = "null";
+	var projectHeadID = "null";
 
 	//Send POST for add collaborator
 	function sendCollaboratorPost(){
@@ -167,6 +168,17 @@
 		if(collaboratorID != "null"){
 			input.style.color = '#fff';
 			input.value = collaboratorID;
+			form.submit();
+		}
+	}
+
+	//Send POST for add collaborator
+	function sendProjectHeadPost(){
+		var form = document.getElementById("collab-form");
+		var input = document.getElementById("user_id");
+		if(projectHeadID != "null"){
+			input.style.color = '#fff';
+			input.value = projectHeadID;
 			form.submit();
 		}
 	}
@@ -209,5 +221,39 @@
 	};
 
 	$("#user_id").easyAutocomplete(users);
+	</script>
+
+	<script>
+	var allusers = {
+	  url: "/user/autocomplete",
+	  getValue: function(element) {
+	      if(element.last_name == "last_name"){
+	        return element.first_name+" ";
+	      }
+	      else{
+	        return element.first_name+" "+element.last_name;
+	      }
+	  },
+	  list: {
+	    match: {
+	      enabled:true
+	    },
+	    showAnimation: {
+	      type: "slide", //normal|slide|fade
+	      time: 400,
+	      callback: function() {}
+	    },
+	    hideAnimation: {
+	      type: "slide", //normal|slide|fade
+	      time: 400,
+	      callback: function() {}
+	    },
+	    onClickEvent: function() {
+	      projectHeadID = $("#project_head").getSelectedItemData().user_id;
+	    }
+	  }
+	};
+
+	$("#project_head").easyAutocomplete(allusers);
 	</script>
 @stop
