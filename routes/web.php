@@ -109,6 +109,7 @@
 	Route::get('/account', 'UserController@auth');
 	Route::get('/account/edit', 'UserController@edit');
 	Route::get(' account/settings', 'UserController@settings');
+	Route::get(' account/history', 'UserController@history');
 	Route::get('/account/{user}', 'UserController@show');
 	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
 	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');

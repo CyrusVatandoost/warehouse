@@ -37,6 +37,10 @@ class User extends Authenticatable {
     return $this->belongsTo('App\Admin', 'user_id');
   }
 
+  public function logs() {
+    return $this->hasMany('App\Log', 'user_id');
+  }
+
   public function organizationPosition() {
     return $this->hasOne('App\OrganizationPositionUser','user_id');
   }

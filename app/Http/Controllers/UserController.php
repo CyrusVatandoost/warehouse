@@ -40,6 +40,11 @@ class UserController extends Controller {
     return view('account.settings', compact('user'));
   }
 
+  public function history() {
+    $user = User::find(Auth::id());
+    return view('account.history', compact('user'));
+  }
+
   public function show($id) {
     $user = User::find($id);
     return view('account', compact('user'));
