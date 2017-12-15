@@ -33,10 +33,10 @@
     <ul class="navbar-nav mr-right">
       @guest
         <li class="nav-item"><a class="nav-link top-navbar-item" href="{{ route('login') }}">Login</a>
-        <li class="nav-item"><a class="nav-link top-navbar-item" href="{{ route('register') }}">Register</a>
+        <!-- <li class="nav-item"><a class="nav-link top-navbar-item" href="{{ route('register') }}">Register</a> -->
       @else
         <!-- messages -->
-        <li class="nav-item"><a class="nav-link top-navbar-item" href="/messages"data-toggle="tooltip" data-placement="bottom" title="messages"><i class="material-icons md-18 material-icons-mid">email</i></a>
+        <li class="nav-item"><a class="nav-link top-navbar-item" href="/messages" data-toggle="tooltip" data-placement="bottom" title="messages"><i class="material-icons md-18 material-icons-mid">email</i></a>
         <!-- notifications -->
         <li class="nav-item"><a class="nav-link top-navbar-item" href="/notifications" data-toggle="tooltip" data-placement="bottom" title="notifications"><i class="material-icons md-18 material-icons-mid">notifications</i></a>
         <li class="nav-item dropdown show">
