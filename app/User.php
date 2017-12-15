@@ -46,5 +46,11 @@ class User extends Authenticatable {
     $to = Carbon::now();
     return static::whereBetween('updated_at', [$from, $to])->get();
   }
+
+  public function scopeNew() {
+    $from = Carbon::now()->subDays(30);
+    $to = Carbon::now();
+    return static::whereBetween('created_at', [$from, $to])->get();
+  }
     
 }

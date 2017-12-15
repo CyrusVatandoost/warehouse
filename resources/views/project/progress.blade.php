@@ -9,48 +9,47 @@
 
   <hr>
 
-  <p><a href="#modal-container-new-task" role="button" class="btn btn-primary btn-block" data-toggle="modal">Add a Task</a></p>
+  <br>
+  <a href="#modal-container-new-task" role="button" class="btn btn-primary" data-toggle="modal">Add a Task</a>
 
   <br>
-
   <div class="table-responsive">   
 		<table class="table table-hover">
 			<thead class="thead-dark">
-		      <tr>
-				  	<th colspan="2">To-Do List
+	      <tr>
+			  	<th colspan="2">To-Do List
 		  </thead>
-          @foreach($tasks as $task)
-            @if($task->project_id == $project->project_id && $task->completed == 0)
-
-              <tr>
-                <td>
-
-                    <!-- <a href="/project/{{$project->project_id}}/task/complete" role="button" class="btn" data-toggle="modal">
-                      <i class="material-icons">radio_button_unchecked</i>
-                       --><!-- <i class="material-icons">check_circle</i> -->
-                    <!-- </a> -->
-
-                    <form class="form-inline" method="POST" action="/project/task/{{$task->task_id}}/complete">
-                      {{ csrf_field() }}
-                      <button type="submit" class="btn btn-success">Mark as Completed</button>
-                    </form>
-                <td>
-                  {{ $task->name }}  
-                  @if( !empty($task->assigned_to) )
-                    @foreach($users as $user)
-
-                      @if($user->user_id == $task->assigned_to)
-                          (assigned to {{$user->first_name}} {{ $user->last_name }})
-                      @endif
-
-                    @endforeach
-                  @endif 
-
-            @endif
-          @endforeach
       <tbody>
+        @foreach($tasks as $task)
+          @if($task->project_id == $project->project_id && $task->completed == 0)
 
-      </tbody>
+            <tr>
+              <td>
+
+                  <!-- <a href="/project/{{$project->project_id}}/task/complete" role="button" class="btn" data-toggle="modal">
+                    <i class="material-icons">radio_button_unchecked</i>
+                     --><!-- <i class="material-icons">check_circle</i> -->
+                  <!-- </a> -->
+
+                  <form class="form-inline" method="POST" action="/project/task/{{$task->task_id}}/complete">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-success">Mark as Completed</button>
+                  </form>
+              <td>
+                {{ $task->name }}  
+                @if( !empty($task->assigned_to) )
+                  @foreach($users as $user)
+
+                    @if($user->user_id == $task->assigned_to)
+                        (assigned to {{$user->first_name}} {{ $user->last_name }})
+                    @endif
+
+                  @endforeach
+                @endif 
+
+          @endif
+        @endforeach
+      </td>
 		</table>
   </div>
 

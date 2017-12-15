@@ -18,7 +18,7 @@
 <!-- modals -->
 @section('modals')
     <!-- insert css styles here -->
-  @include('modals.new_project')
+  @include('modals.project-new')
 @endsection
 
 <!-- left-sidenav -->

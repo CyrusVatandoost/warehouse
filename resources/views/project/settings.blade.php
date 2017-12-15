@@ -25,9 +25,8 @@
 			<p>
 			<h4>Project Visibility</h4>
 			<div class='row'>
-				<div class="col-sm-1"></div>
 				<div class="col-sm-2">Public</div>
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 					<label class="custom-control custom-checkbox">
 						@if( $project->public == 1 )
 							<input type="checkbox" class="custom-control-input" onchange="document.location.replace('/project/{{$project->project_id}}/change-visibility')"/>
@@ -37,8 +36,7 @@
 						<span class="custom-control-indicator"></span>
 					</label>
 				</div>
-				<div class="col-sm-1">Private</div>
-				<div class="col-sm-5"></div>
+				<div class="col">Private</div>
 			</div>
 		</div>
 
@@ -55,20 +53,26 @@
 
 	<!-- form to update project banner -->
 	<br>
-
-	@if (file_exists(public_path('/uploads/'.$project->project_id.'/banner.jpg')))
-		<img src="{{ asset('/uploads/'.$project->project_id.'/banner.jpg') }}">
-	@else
-		<img src="{{ asset('/uploads/defaults/banner.jpg') }}">
-	@endif
+	<h4>Banner</h4>
+	<div class="form-group">
+		@if (file_exists(public_path('/uploads/'.$project->project_id.'/banner.jpg')))
+			<img src="{{ asset('/uploads/'.$project->project_id.'/banner.jpg') }}">
+		@else
+			<img src="{{ asset('/uploads/defaults/banner.jpg') }}">
+		@endif
+	</div>
 
 	<form method="POST" action="/project/{{$project->project_id}}/banner-update" enctype="multipart/form-data">
 		{{ csrf_field() }}
-		<input type="file" class="form-control-file" name="file">
-		<button type="submit" class="btn btn-primary">Update Banner</button>
+		<div class="form-group">
+			<input type="file" class="form-control-file" name="file">
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Update Banner</button>
+		</div>
 	</form>
 
-	<p>
+	<br>
   <h4>Project Heads</h4>
   <ul class="list-group">
   	<!-- list of heads -->
@@ -90,7 +94,7 @@
 			</form>
 	</ul>
 
-	<p>
+	<br>
   <h4>Collaborators</h4>
   <ul class="list-group">
   	<!-- list of collaborators -->
@@ -142,13 +146,13 @@
 
 	</ul>
 
-	<p>
+	<br>
 	<div class="alert alert-warning" role="alert">
 	  To add a tag, input any tag you prefer or select a suggested tag.
 	</div>
 
-   <p><a href="#modal-container-project-archive" class="btn btn-danger" role="button" data-toggle="modal">Archive Project</a></p>
-
+	<br>
+   <a href="#modal-container-project-archive" class="btn btn-danger" role="button" data-toggle="modal">Archive Project</a>
 
 </div>
 

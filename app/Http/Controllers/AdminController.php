@@ -17,19 +17,6 @@ use App\ProjectArchive;
 use App\User;
 
 class AdminController extends Controller{
-   
-  public function show() {
-  	$users = User::get();
-  	$admins = Admin::get();
-  	$projects = Project::get();
-  	$project_archives = ProjectArchive::get();
-  	$file_archives = FileArchive::get();
-    $organization = Organization::first();
-  	$organization_positions = OrganizationPosition::get();
-    $organization_position_users = OrganizationPositionUser::get();
-            
-  	return view('admin', compact('users', 'admins', 'organization', 'projects', 'project_archives', 'file_archives', 'organization_positions', 'waitlists','organization_position_users'));
-  }
 
   public function showArchive() {
   	$file_archives = FileArchive::get();

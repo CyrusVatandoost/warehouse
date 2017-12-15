@@ -15,6 +15,7 @@ use App\OrganizationPositionUser;
 use App\Project;
 use App\FeaturedProject;
 use App\ProjectArchive;
+use App\MyThread;
 
 class DashboardController extends Controller {
 
@@ -26,6 +27,7 @@ class DashboardController extends Controller {
     $files = File::get();
     $file_archives = FileArchive::get();
     $logs = Log::get();
+    $messsages = MyThread::get();
     $organization = Organization::find(1);
     $organization_positions = OrganizationPosition::get();
     $organization_position_users = OrganizationPositionUser::get();
@@ -36,6 +38,7 @@ class DashboardController extends Controller {
       'files',
       'file_archives',
       'admins',
+      'messsages',
       'logs',
       'organization',
       'organization_positions',

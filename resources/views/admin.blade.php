@@ -36,7 +36,7 @@
         <div class="card-body">
           <div class="media d-flex">
             <div class="align-self-center">
-              <i class="material-icons">person</i>
+              <i class="material-icons md-48">person</i>
             </div>
             <div class="media-body text-right">
               <h3>{{ $users->count() }}</h3>
@@ -52,7 +52,7 @@
         <div class="card-body">
           <div class="media d-flex">
             <div class="align-self-center">
-              <i class="material-icons">create</i>
+              <i class="material-icons md-48">create</i>
             </div>
             <div class="media-body text-right">
               <h3>{{ $projects->count() }}</h3>
@@ -68,7 +68,7 @@
         <div class="card-body">
           <div class="media d-flex">
             <div class="align-self-center">
-              <i class="material-icons">folder</i>
+              <i class="material-icons md-48">folder</i>
             </div>
             <div class="media-body text-right">
               <h3>{{ $files->count() }}</h3>
@@ -88,8 +88,8 @@
 		  <div class="card-body">
 		    <p class="card-text">
 		    	Users: {{ $users->count() }}<br>
-		    	<!-- need to update number of active users -->
-		    	Active users: {{ App\User::active()->count() }}
+		    	Active users: {{ App\User::active()->count() }}<br>
+		    	New users: {{ App\User::new()->count() }}
 		    </p>
 		  </div>
       <div class="card-footer">
@@ -130,6 +130,15 @@
 		    <p class="card-text">
 		    	<!-- -->
 		    	Logs: {{ $logs->count() }}
+		    </p>
+		  </div>
+		</div>
+
+		<div class="card">
+  		<h4 class="card-header"><a href="/admin/organization">Messages</a></h4>
+		  <div class="card-body">
+		    <p class="card-text">
+		    	Messages: {{ $messsages->count() }}
 		    </p>
 		  </div>
 		</div>
