@@ -48,11 +48,9 @@ class AnnouncementController extends Controller
 
     //deletes a single announcement using an ID
     public function delete($id) {
-        //$announcement = Announcement::find($id);
-        //$announcement->visibility = 0;
-        // $announcement->save();
+        $announcement = Announcement::find($id);
 
-        DB::table('announcements')->where('announcement_id', $id)->delete();
+        //DB::table('announcements')->where('announcement_id', $id)->delete();
         //add delete action to logs table
         $log = new Log;
 
@@ -62,7 +60,7 @@ class AnnouncementController extends Controller
         $log->save();
         //end log
 
-        $announcement->save();
+        $announcement->delete();
 
         return redirect('/home');
     }

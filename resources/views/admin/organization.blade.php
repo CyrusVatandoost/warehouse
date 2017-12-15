@@ -68,23 +68,27 @@
 								<div class="col">
 			  					{{ $admin->user->first_name}}
 			  				</div>
-			  				<div class="col">
-									<button type="submit" class="btn btn-outline-danger rounded-circle">&times;</button>
-								</div>
+								@if($admin->user_id == auth()->id())
+								
+								@else
+				  				<div class="col">
+										<button type="submit" class="btn btn-outline-danger rounded-circle">&times;</button>
+									</div>
+								@endif
 							</form>
 						</div>
 				@endforeach
 			</ul>
 		</div>
 		<div class="card-footer">
-			<form class="form-inline" method="POST" action="/admin/store">
-				{{ csrf_field() }}
-			  <!-- Gets the "id" of the user as User has not been fully implemented yet to get Name -->
-			  <h5>Add Admins:<h5>&nbsp; <!-- Add Admins -->
-			  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="User ID">&nbsp;
-			  <!-- Gets the name of the new position -->
-			  <button class="btn btn-primary" type="submit">Add</button>
-			</form>
+				<form class="form-inline" method="POST" action="/admin/store">
+					{{ csrf_field() }}
+				  <!-- Gets the "id" of the user as User has not been fully implemented yet to get Name -->
+				  <h5>Add Admins:<h5>&nbsp; <!-- Add Admins -->
+				  <input class="form-control" type="text" id="user_id" name="user_id" placeholder="User ID">&nbsp;
+				  <!-- Gets the name of the new position -->
+				  <button class="btn btn-primary" type="submit">Add</button>
+				</form>
 		</div>
 	</div>
 
