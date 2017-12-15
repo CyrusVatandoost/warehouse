@@ -35,7 +35,6 @@ class AdminController extends Controller{
       //Mail::to($email)->send(new ApprovedMail()); //Commented out as not needed for testing, but its working
       return redirect('/admin');
     }
-
   }
 
   public function disapproveUser($id, $email){
@@ -60,6 +59,11 @@ class AdminController extends Controller{
   public function delete() {
     Admin::where('user_id',request('user_id'))->delete();
     User::where('user_id',request('user_id'))->delete();
+    return back();
+  }
+
+  public function removeAdmin($id) {
+    Admin::find($id)->delete();
     return back();
   }
 

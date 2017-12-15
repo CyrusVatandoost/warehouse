@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-auto">
             <!-- user profile pic -->
-            @if (file_exists(public_path('storage/avatars/'.$log->user_id.'.jpg')))
+            @if (file_exists(public_path('uploads/avatars/'.$log->user_id.'.jpg')))
               <img class="rounded-circle reviewer" src="{{ asset('uploads/avatars/'.$log->user_id.'.jpg') }}" height="32" width="32">
             @else
               <img class="rounded-circle reviewer" src="{{ asset('uploads/avatars/default.jpg') }}" height="32" width="32">

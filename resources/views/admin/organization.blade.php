@@ -54,28 +54,30 @@
 	</div>
 
 	<br>
-  <h4>List of Admins:</h4>
-	<div class="table-responsive">   
-		<table class="table table-hover">
-		    <thead class="thead-dark">
-		      <tr>
-				   <th>First name
-				   <th>Last name
-				   <th>Email
-		    </thead>
-		    <tbody>
-		    	@foreach($admins as $admin)
-			    	<tr>
-			      	<td>{{ $admin->user->first_name }}
-			      	<td>{{ $admin->user->last_name }}
-			      	<td>{{ $admin->user->email }}
-			    @endforeach
-			    	<td>
-			    	<td>
-			    	<td>	
-			</tbody>
-		</table>
-		<form class="form-inline" method="POST" action="/admin/store">
+	<div class="card">
+		<div class="card-header">
+  		List of Admins
+  	</div>
+  	<div class="card-body">
+  		<ul class="list-group list-group-flush">
+		    @foreach($admins as $admin)
+			  	<li class="list-group-item">
+			  		<div class="row">
+				  		<form class="form-inline" method="POST" action="/admin/remove/{{$admin->admin_id}}">
+								{{ csrf_field() }}
+								<div class="col">
+			  					{{ $admin->user->first_name}}
+			  				</div>
+			  				<div class="col">
+									<button type="submit" class="btn btn-outline-danger rounded-circle">&times;</button>
+								</div>
+							</form>
+						</div>
+				@endforeach
+			</ul>
+		</div>
+		<div class="card-footer">
+			<form class="form-inline" method="POST" action="/admin/store">
 				{{ csrf_field() }}
 			  <!-- Gets the "id" of the user as User has not been fully implemented yet to get Name -->
 			  <h5>Add Admins:<h5>&nbsp; <!-- Add Admins -->
@@ -83,48 +85,21 @@
 			  <!-- Gets the name of the new position -->
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>
+		</div>
 	</div>
 
-	<h4>Positions: </h4>
-	<ul class="list-group">
-  	
-    @foreach($organization_positions as $position)
-	  	<li class="list-group-item">
-	  		<form class="form-inline" method="POST" action="/organization/{{$position->organization_position_id}}/remove-position">
-	  			{{ $position->name }}&nbsp;
-				{{ csrf_field() }}
-				<button type="submit" class="btn btn-outline-danger">&times;</button>
-			</form>
-	  @endforeach
-
-	  <!-- form to add positions -->
-	  <li class="list-group-item">
-	  	<form class="form-inline" method="POST" action="/organization/add-position">
-				{{ csrf_field() }}
-			  <!-- Gets the "id" of the organization as Organization has not been fully implemented yet to get Name -->
-			  <input class="form-control" type="text" id="tag_name" name="organization_id" placeholder="Organization ID">&nbsp;
-			  <!-- Gets the name of the new position -->
-			  <input class="form-control" type="text" id="tag_name" name="position" placeholder="Position">&nbsp;
-
-			  <button class="btn btn-primary" type="submit">Add</button>
-			</form>
-	</ul>
-
-	<p>
-	<div class="alert alert-warning" role="alert">
-	  To add a position, input the "organization_id" of the organization for now. You can check their "organization_id" by checking the database. This will be fixed in the future.
-	</div>
 	<br>
 
 	<h4>Positions: </h4>
 	<ul class="list-group">
   	
+  	<!-- form: position remove -->
     @foreach($organization_positions as $position)
 	  	<li class="list-group-item">
 	  		<form class="form-inline" method="POST" action="/organization/{{$position->organization_position_id}}/remove-position">
 	  			{{ $position->name }}&nbsp;
 				{{ csrf_field() }}
-				<button type="submit" class="btn btn-outline-danger">&times;</button>
+				<button type="submit" class="btn btn-outline-danger rounded-circle">&times;</button>
 			</form>
 	  @endforeach
 
@@ -148,7 +123,6 @@
 	<br>
 
 	<!-- Assigning Positions to Users -->
-
 	<h4>Assign Positions: </h4>
 	<ul class="list-group">
 

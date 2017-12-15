@@ -91,6 +91,7 @@
 	Route::post('/admin/store','AdminController@store');
 	Route::get('/admin/disapprove/{id}/mail/{email}', 'AdminController@disapproveUser');
 	Route::post('/admin/{user}/delete-user-position','AdminController@deletePosition');
+	Route::post('/admin/remove/{user}','AdminController@removeAdmin');
 	Route::post('/admin/assign-user-position','AdminController@addPosition');
 
 // dashboard

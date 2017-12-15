@@ -108,6 +108,9 @@
 		    	Private projects: {{ $projects->where('public', 0)->count() }}<br>
 		    </p>
 		  </div>
+      <div class="card-footer">
+      	<a href="/projects" class="btn btn-primary">Create Project</a>
+      </div>
 		</div>
 
 		<div class="card">
