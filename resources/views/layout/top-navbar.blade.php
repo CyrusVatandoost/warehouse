@@ -23,7 +23,7 @@
       @endif
 
       <!-- if user is an admin -->
-      @if(!empty(auth()->user()->admin))
+      @if(App\Admin::get()->contains('user_id', Auth::id()))
       <li class="nav-item"><a class="nav-link top-navbar-item" href="/admin">Dashboard</a>
       @endif
       

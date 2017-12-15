@@ -144,7 +144,8 @@
 
         </div>
       </div>
-      {{$all_projects->links()}}
+
+      {{$my_projects->links('vendor.pagination.simple-bootstrap-4')}}
     </div>
 
     <div class="tab-pane" id="panel-all_projects">

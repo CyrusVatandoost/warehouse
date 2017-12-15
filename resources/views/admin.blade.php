@@ -138,7 +138,7 @@
 		</div>
 
 		<div class="card">
-  		<h4 class="card-header"><a href="/admin/organization">Messages</a></h4>
+  		<h4 class="card-header"><a href="#">Messages</a></h4>
 		  <div class="card-body">
 		    <p class="card-text">
 		    	Messages: {{ $messsages->count() }}
