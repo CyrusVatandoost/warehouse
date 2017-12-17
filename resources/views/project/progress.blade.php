@@ -2,15 +2,24 @@
   
   <p>
     
+    <div class="progress">
+      <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:70%">Project Progress: 70%</div>
+    </div>
+  <br>
+
+  <div class="col-md-12">
   <form method="POST" action="/project/{{$project->project_id}}/complete">
 		{{ csrf_field() }}
-		<button type="submit" class="btn btn-primary">Change Completeness</button>
+	 <center><button type="submit" class="btn btn-primary">Change Completeness</button></center>
   </form>
+  </div>
+
 
   <hr>
 
   <br>
-  <a href="#modal-container-new-task" role="button" class="btn btn-primary" data-toggle="modal">Add a Task</a>
+  <a href="#modal-container-new-task" role="button" class="btn btn-primary float-right" data-toggle="modal">Add a Task</a>
+  <br>
 
   <br>
   <div class="table-responsive">   
