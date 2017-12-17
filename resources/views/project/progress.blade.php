@@ -2,23 +2,32 @@
   
   <p>
     
+    <div class="progress">
+      <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:70%">Project Progress: 70%</div>
+    </div>
+  <br>
+
+  <div class="col-md-12">
   <form method="POST" action="/project/{{$project->project_id}}/complete">
-		{{ csrf_field() }}
-		<button type="submit" class="btn btn-primary">Change Completeness</button>
+    {{ csrf_field() }}
+   <center><button type="submit" class="btn btn-primary">Change Completeness</button></center>
   </form>
+  </div>
+
 
   <hr>
 
   <br>
   <a href="#modal-container-new-task" role="button" class="btn btn-primary" data-toggle="modal">Add a Task</a>
+  <br>
 
   <br>
   <div class="table-responsive">   
-		<table class="table table-hover">
-			<thead class="thead-dark">
-	      <tr>
-			  	<th colspan="2">To-Do List
-		  </thead>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th colspan="2"><center>To-Do List</center>
+      </thead>
       <tbody>
         @foreach($tasks as $task)
           @if($task->project_id == $project->project_id && $task->completed == 0)
@@ -30,12 +39,6 @@
                     <i class="material-icons">radio_button_unchecked</i>
                      --><!-- <i class="material-icons">check_circle</i> -->
                   <!-- </a> -->
-
-                  <form class="form-inline" method="POST" action="/project/task/{{$task->task_id}}/complete">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-success">Mark as Completed</button>
-                  </form>
-              <td>
                 {{ $task->name }}  
                 @if( !empty($task->assigned_to) )
                   @foreach($users as $user)
@@ -47,10 +50,16 @@
                   @endforeach
                 @endif 
 
+              <td>
+                <form class="form-group" method="POST" action="/project/task/{{$task->task_id}}/complete">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn btn-primary float-right">Mark as Completed</button>
+                </form>
+                
           @endif
         @endforeach
       </td>
-		</table>
+    </table>
   </div>
 
   <!-- DISPLAY open, completed, all TASKS IN TAB VIEW-->
