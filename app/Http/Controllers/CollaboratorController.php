@@ -17,13 +17,13 @@ class CollaboratorController extends Controller {
 		$collaborator->save();
 
 		//add store action to logs table
-        $log = new Log;
+    $log = new Log;
 
-        $log->user_id = auth()->id();
-        $log->user_action = "added collaborator";
-        $log->action_details = request('user_id');
-        $log->save();
-        //end log
+    $log->user_id = auth()->id();
+    $log->user_action = "added collaborator";
+    $log->action_details = request('user_id');
+    $log->save();
+    //end log
 
 		return back();
 	}

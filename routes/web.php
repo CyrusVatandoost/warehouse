@@ -23,8 +23,6 @@ Route::get('/project/{project}/archive', 'ProjectController@archive');
 Route::get('/project/add/file/{project}', 'FileController@store');
 Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
 Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
-Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
-Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
 Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 Route::post('/project/{project}/tasks', 'TaskController@store');
 Route::post('/project/task/{task}/complete', 'TaskController@setCompleteness');
@@ -37,6 +35,8 @@ Route::get('/project/{project}/feature', 'ProjectController@feature');
 Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
 Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
 Route::post('/project/{project}/update-description', 'ProjectController@updateDescription');
+Route::post('/project/{project}/collaborator-add', 'CollaboratorController@store');
+Route::post('/project/{project}/collaborator-remove/{user}', 'CollaboratorController@delete');
 Route::post('/project/{project}/head-add', 'ProjectHeadController@store');
 Route::post('/project/{project}/head-remove/{user}', 'ProjectHeadController@remove');
 
