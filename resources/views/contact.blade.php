@@ -14,12 +14,12 @@
     <div class="row">
       <div class="col-sm-6">
           <div class="map-form">
-            <form action="/sendtoadmin" id="contact-form" class="card" method="post">
+            <form action="/sendtoadmin" id="contact-form" class="card card-map" method="post">
                 <div class="form__row">
-                      <div class="input-group">
-                          <span class="input-group-addon"><i class="material-icons material-icons-md">person</i></span>
-                          <input type="text" class="input form__field" name="name" id="name" placeholder="Full Name" required>
-                      </div>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="material-icons material-icons-md">person</i></span>
+                    <input type="text" class="input form__field" name="name" id="name" placeholder="Full Name" required>
+                  </div>
                 </div>
                 <div class="form__row">
                       <div class="input-group">
@@ -97,3 +97,4 @@ function sendForm(){
   form.submit();
 }
 </script>
+@endsection

@@ -1,6 +1,6 @@
 <!-- footer -->
 <footer class="footer">
-  <div class="container">
+  <div class="container-fluid">
     <center>
       <table class="footer-style small">
         <tr>
@@ -15,12 +15,13 @@
         <tr>
           <td>(02) 809 7392
           <td><a href="/contact">Contact Us</a>
+          <td>De La Salle University
         <tr>
           <td>LTI Spine Road, Laguna Blvd. Binan
           <td><a href="/login">Members Sign In</a>
           <td>ImagineWare Solutions, Inc. 2017
       </table>
   </div>
+  <br>
 </footer>
-
 @yield('autocomplete')

@@ -4,11 +4,49 @@ html {
 }
 
 body {
-  margin-bottom: 20vh; /* Margin bottom by footer height */
+  margin-bottom: 25vh; /* Margin bottom by footer height */
+  background: linear-gradient(white, #8BC34A 200%);
 }
 
 p{
   color: #404040;
+}a
+
+.bg-primary{
+  background-color: #404040 !important;
+}
+
+.messages{
+  padding: 15px 0;
+  background-color: #E5E4E2;    
+  border: 1px #D1D0CE solid;  
+}
+
+.row-striped:nth-of-type(odd) {    
+background-color: #afd683;    
+border-left: 4px #D1D0CE solid;   
+}    
+  
+.row-striped:nth-of-type(even){    
+background-color: #D1D0CE;    
+border-left: 4px #afd683 solid;   
+}
+
+.row-striped {   
+padding: 15px 0;    
+}
+
+.color {
+  color:black;
+}
+
+.badge-info{
+  background-color: #404040;
+}
+
+.announcement-title{
+  color: #0C090A !important;
+  
 }
 
 .page-title, .contact-title{
@@ -23,6 +61,12 @@ p{
   color: white !important;
 }
 
+.nav-link-tabs{
+  color: black !important;
+  background-color: transparent !important;
+  border-bottom-color: none !important;
+}
+
 .navbar-brand{
   color: #8BC34A !important;
 }
@@ -31,9 +75,16 @@ p{
   background-color: #788F9B !important;
 }
 
-.btn-announcement, .btn-project{
-  background-color: #546E7A !important;
-  color: white;
+.btn-primary{
+  background-color: #404040 !important;
+  border-color: #404040 !important;
+  color: white !important;
+}
+
+.badge-primary{
+  background-color: #404040 !important;
+  border-color: #404040 !important;
+  color: white !important;
 }
 
 .btn-browse{
@@ -42,20 +93,21 @@ p{
 }
 
 .projects-no-gutters {
-      margin-right: 0;
-      margin-left: 0;
+  margin-right: 0;
+  margin-left: 0;
 
-      > .col,
-      > [class*="col-"] {
-        padding-right: 0;
-        padding-left: 0;
-      }
-    }
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 
 .projects-card-size{
-   margin-right: 10px; 
+   margin-right: -20px;
    margin-bottom: 10px;
-   width: 20em;
+   width: auto;
+   height: 17em;
 }
 
 .projects-link{
@@ -73,6 +125,8 @@ p{
   height: 20vh; /* Set the fixed height of the footer here */
   color: black;
   background-color: #404040;
+  height: auto; 
+  overflow: auto;
 }
 
 .footer-style {
@@ -87,3 +141,265 @@ p{
 .footer-style a, .footer-style a:hover{
   color: white;
 }
+
+.banner .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 100%;
+  -webkit-transition: width .5s ease;
+  transition: width .5s ease;
+}
+.profile-pic {
+  height: 100%;
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;  
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.accountbio {
+  margin-left: 40px;
+}
+.custom-checkbox {
+  min-height: 1rem;
+  padding-left: 0;
+  margin-right: 0;
+  cursor: pointer; 
+}
+.custom-checkbox .custom-control-indicator {
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 10px;
+  background-color: #818181;
+  border-radius: 15px;
+  margin-right: 10px;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+  vertical-align: middle;
+  margin: 0 16px;
+  box-shadow: none; 
+}
+.custom-checkbox .custom-control-indicator:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #f1f1f1;
+  border-radius: 21px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+  left: -2px;
+  top: -4px;
+  -webkit-transition: left .3s ease, background .3s ease, box-shadow .1s ease;
+  transition: left .3s ease, background .3s ease, box-shadow .1s ease; 
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-indicator {
+  background-color: #84c7c1;
+  background-image: none;
+  box-shadow: none !important; 
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-indicator:after {
+  background-color: #84c7c1;
+  left: 15px; 
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-indicator {
+  box-shadow: none !important; 
+}
+
+.limit{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+.limit-header{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: auto;
+  display: inline-block;
+  overflow: hidden;
+  width:85%;
+  margin-bottom: 10px;
+}
+
+.limit-header-announcement{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: auto;
+  display: block;
+  overflow: hidden
+}
+
+.editbio{
+  width:100%;
+  display: block;
+}
+
+.uploadimage{
+  margin-left: 90px;
+}
+
+ .file-buttons{
+  margin-bottom: : 10px;
+  position: absolute; 
+  bottom: 0;
+}
+
+.custom-button{
+   padding: 5px;
+}
+
+.custom-button a{
+  color: #808080 !important;
+  text-decoration: none !important;
+}
+
+ .custom-button a:hover{
+  color: #404040 !important;
+}
+
+.files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+    height: 250px;
+}
+
+.files input:focus{     
+  outline: 2px dashed #92b0b3;  
+  outline-offset: -10px;
+  -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+  transition: outline-offset .15s ease-in-out, background-color .15s linear; 
+  border:1px solid #92b0b3;
+ }
+
+.files{ 
+  position:relative;
+}
+
+.files:after {  
+    pointer-events: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 42px;
+    content: "";
+    background-image: url(../storage/download.png);
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.files:before {
+    position: absolute;
+    bottom: 8px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 70px;
+    content: " or drag it here. ";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.upload{
+    display: block;
+    padding: 5px;
+    margin-top: 5px;
+    height: 34px;
+    width: auto;
+    float: right;
+}
+
+.file-card-size{
+   margin-right: 10px;
+   margin-bottom: 10px;
+   width: 25em;
+   height: 25em;
+}
+
+.project-visibility{
+   margin-right: 10px;
+}
+
+.project-card-header{
+  padding-left: 10px; 
+  padding-top: 10px; 
+  padding-bottom: 0;
+  margin-bottom: 0px;
+}
+
+.project-header-row{
+  margin-bottom: -15px;
+}
+
+.project-image{
+  margin-top: 0px;
+}
+
+.project-footer{
+  position: absolute; 
+  bottom: 0;
+  height: 12%;
+}
+
+.project-card-body{
+  margin-bottom: 30px !important;
+  padding-top: 10px;
+}
+
+.project-button-group{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#grid{
+  margin-right: 2px;
+}
+
+ .project-desc {
+      word-break: break-all;
+}
+
+.bg-primary{
+  background-color: #404040 !important;
+}
+

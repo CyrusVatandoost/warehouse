@@ -1,16 +1,22 @@
-@extends('layout.master')
+@extends('layout.app')
 
+@section('title', 'Create New Message')
+@section('page-title', 'Create a new message')
+
+@section('style')
 <style>
 #search .empty-message {
   padding: 5px 10px;
- text-align: center;
+  text-align: center;
 }
+
 </style>
-@section('content')
-    <h1>Create a new message</h1>
+@endsection
+
+
+@section('body')
     <form action="{{ route('messages.store') }}" method="post">
         {{ csrf_field() }}
-        <div class="col-md-6">
             <!-- Subject Form Input -->
             <div class="form-group">
               <label class="control-label">Subject</label>
@@ -25,37 +31,39 @@
             
             @if($users->count() > 0)
               <div id="search">
-                <input id="provider-json" type="text" placeholder="Add Recipients" required>
-                <button type="button" name="addRecipient" class="btn btn-primary" style="margin-top: 10px;" onclick="addRecipientElement()">Add </button>
-                <br>
-                <div  class="container" style="position: relative; left: -222;">
-                  <div class="row col-md-6 col-md-offset-2 custyle">
-                    <table id="recipientList" class="table table-striped custab">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-sm-10">               
+                        <input class="form-control" id="provider-json" type="text" placeholder="Add Recipients" required>
+                      </div>
+                      <div class="col-sm-1"></div>
+                      <div class="col-sm-1">     
+                        <button type="button" name="addRecipient" class="btn btn-browse " style="margin-bottom: 10px; float:right;" onclick="addRecipientElement()">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <table id="recipientList" class="table table-striped text-center">
                       <thead>
                         <tr>
                           <th>Recipients</th>
-                        </tr>
-                      </thead>
-                        <tr>
-                        </tr>
-                      </table>
-                    </div>
-                </div>
-              </div>
+                    </table>
               <div id="recipient" >
                 <!--<input style="display:none;" type="text" name="recipients[]" value="1"><br>-->
               </div>
             @endif
-            <br>
             <!-- Submit Form Input -->
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary form-control">Submit</button>
-            </div>
-        </div>
+                    <center>
+                        <button type="submit" class="btn btn-browse">Submit</button>
+                    </center>
+                  </div>
+                </div>
+              </div>
     </form>
-@stop
+@endsection
 
-@section('autocomplete')
+@section('scripts')
 <script>
 var recipientElement = "null";
 var recipientFirstName = "null";
@@ -133,6 +141,5 @@ var users = {
 
 $("#provider-json").easyAutocomplete(users);
 
-
 </script>
-@stop
+@endsection

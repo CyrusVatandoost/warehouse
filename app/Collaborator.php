@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Collaborator extends Model {
 
-	protected $primaryKey = 'collaborator_od';
 
 	// $collaboration->project
 	public function project() {

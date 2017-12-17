@@ -1,20 +1,13 @@
-body{
-    background: radial-gradient(white,white, #9CCC65);
-    height: 100%;
-}
-
-html{
-     height: 100%;
-}
-
-
-
 .navbar-dark{
     background-color: #404040;
 }
 
 .top-navbar-item{
     color: white !important;
+}
+
+.navbar-brand{
+  color: #8BC34A !important;
 }
 
 .login-block {
@@ -44,7 +37,8 @@ html{
 }
 
 .login-sec {
-    padding: 50px 30px; position:relative;
+    padding: 50px 30px; 
+    position:relative;
 }
 
 .login-sec .copy-text {
@@ -168,11 +162,11 @@ html{
     font-weight:600;
 }
 
-.reset-main, .verified-main{
+.main{
     padding : 50px 0;
 }
 
-.reset-main-center, .verified-main-center, .register-main-center{
+.main-center{
     margin-top: 30px;
     margin: 0 auto;
     padding: 20px 40px;
@@ -182,22 +176,46 @@ html{
     border-radius: 10px;
 }
 
-.reset-email-header, .verified-confirm-header{ 
+.header{ 
     border-bottom: 1px solid white; 
     padding-bottom: 5px;  
     font-weight:200; 
     color:#8BC34A;
 }
 
-.btn-email, .btn-confirm{
-    background: #8BC34A; 
+.btn-primary{
+    background: #8BC34A !important; 
+    border-color: #8BC34A !important;
     color: white !important;
     font-weight:600;
     margin-top: 5px;
     border-radius: 5px;
 }
 
+.btn-info{
+    background: #808080 !important; 
+    border-color: #404040 !important;
+    color: white !important;
+    font-weight:600;
+    margin-top: 5px;
+    padding-top: 8px;
+    border-radius: 5px;
+}
+
 .verified {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.carousel,.item,.active{
+   height:100%;
+ }
+.carousel-inner{
+    height:100%;
+}
+.carousel, .carousel img {
+  width: 100%;
+}
+.carousel img {
+  height: 100% !important;
 }

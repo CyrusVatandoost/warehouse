@@ -4,6 +4,11 @@
 @section('page-title', $project->name)
 
 @section('style')
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+      rel="stylesheet"/>
+
   <style type="text/css">
   
     .hr-abstract {
@@ -17,65 +22,82 @@
     .project-badge{
       margin-bottom: 10px;
     }
+
+    .project-desc {
+      word-break: break-all;
+    }
     
+    
+
 </style>
 @endsection
 
 @section('modals')
-  @include('modals.delete_project')
+  @include('modals.project-archive')
+  @include('modals.task-new')
 @endsection
 
 @section('left-sidenav')
-  <p><a href="#modal-container-delete-project" role="button" class="btn btn-danger btn-block" data-toggle="modal">Delete Project</a></p>
-	@endsection
+
+@endsection
 
 @section('body')
 
   by:
   {{ $project->user->first_name }}
   {{ $project->user->last_name }}
+
   <br>
-  Tags: 
+
+  <!-- project status -->
+  @if($project->complete == 1)
+    <span class="badge badge-success project-badge">Completed</span>
+  @else
+    <span class="badge badge-danger project-badge">Incomplete</span>
+  @endif
+
+  <!-- project tags -->
   @foreach($project->tags as $something)
     <span class="badge badge-info">{{ $something->tag->name }}</span>
   @endforeach
 
-  <br>
-  
-  @if($project->complete == 1)
-    <span class="badge badge-success project-badge">Completed</span>
-  @endif
-
-  @if($project->complete == 0)
-    <span class="badge badge-danger project-badge">Incomplete</span>
-  @endif
+  <!-- project description -->
+  <p class="project-desc">
+    {{ $project->description }}
+  </p>
 
   <div class="tabbable" id="tabs-463690">
 
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" href="#panel-abstract" data-toggle="tab">Abstract</a>
+        <a class="nav-link nav-link-tabs active" href="#panel-abstract" data-toggle="tab">Abstract</a>
+      </li>
+      @if(Auth::check())
+      <li class="nav-item">
+        <a class="nav-link nav-link-tabs" href="#panel-files" data-toggle="tab">Files</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#panel-files" data-toggle="tab">Files</a>
+        <a class="nav-link nav-link-tabs"  href="#panel-progress" data-toggle="tab">Progress</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="#panel-progress" data-toggle="tab">Progress</a>
+        <a class="nav-link nav-link-tabs"  href="#panel-issues" data-toggle="tab">Issues</a>
       </li>
+      @endif
+      @if($project->user_id == auth()->id())
       <li class="nav-item">
-        <a class="nav-link"  href="#panel-issues" data-toggle="tab">Issues</a>
+        <a class="nav-link nav-link-tabs"  href="#panel-settings" data-toggle="tab">Settings</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link"  href="#panel-settings" data-toggle="tab">Settings</a>
-      </li>
+      @endif
     </ul>
 
     <div class="tab-content">
       @include('project.abstract')
-      @include('project.files')
-      @include('project.progress')
-      @include('project.issues')
-      @include('project.settings')
+      @if(Auth::check())
+        @include('project.files')
+        @include('project.progress')
+        @include('project.issues')
+        @include('project.settings')
+      @endif
     </div>
     
   </div>
@@ -84,6 +106,6 @@
 
 <!-- right-sidenav -->
 @section('right-sidenav')
-  <!-- insert featured projects here -->
+<!-- insert featured projects here -->
   @include('layout.right-sidenav')
 @endsection

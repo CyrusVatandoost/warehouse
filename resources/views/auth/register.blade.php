@@ -2,13 +2,17 @@
 
 @section('title', 'Register')
 
-@section('content')
+<!-- css styles -->
+@section('style')
+  <!-- insert custom css styles here -->
+  <!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
+  <link href="{{ asset('css/auth.css') }}" media="all" rel="stylesheet" type="text/css" />
+@endsection
 
-
-
+@section('body')
 <div class="container">
     <div class="row register-main">
-        <div class="register-main-center">
+        <div class="main-center">
         <h2 class="register-header"><center>Register</center></h2>
             <div class="row">
              <form class="form-horizontal" method="POST" action="{{ route('register') }}">

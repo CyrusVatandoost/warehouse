@@ -11,9 +11,11 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="{{ asset('css/style.css') }}" media="all" rel="stylesheet" type="text/css" />
-<link href="{{ asset('css/map.css') }}" media="all" rel="stylesheet" type="text/css" />
 <link href="{{ asset('css/material-icons.css') }}" media="all" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/map.css') }}" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{!! asset('css/easy-autocomplete.min.css') !!}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -69,7 +71,46 @@
     });
 
   });
+
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+  });
+
+  $(document).ready(function() {
+    $('#list').click(function(){
+      event.preventDefault();
+      $('#projects .item').addClass('list-group-item');
+      $('#projects').addClass('list-group');
+      $('#projects .item').removeClass('col-md-4');
+      $('#projects .item').addClass('col-md-12');
+      $('#projects .photo').addClass('col-md-3');
+      $('#projects .card-body').addClass('col-md-9');
+      $('#projects .list-group-item-body').addClass('row');
+      $('#projects .card').css('display','table-row');
+      $('#projects .card-body .card-text').addClass('project-desc');
+    });
+    $('#grid').click(function(){
+      event.preventDefault();
+      $('#projects .item').removeClass('list-group-item');
+      $('#projects').removeClass('list-group');
+      $('#projects .item').addClass('col-md-4');
+      $('#projects .item').removeClass('col-md-12');
+      $('#projects .photo').removeClass('col-md-3');
+      $('#projects .card-body').removeClass('col-md-9');
+      $('#projects .list-group-item-body').removeClass('row');
+      $('#projects .card').css('display','');
+      $('#projects .card-body .card-text').removeClass('project-desc');
+    });
+});
 </script>
+
+<!-- JS for datepicker -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include date range picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
 
 <!-- insert css here -->
 @yield('style')

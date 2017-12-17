@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProjectController;
 use Jrean\UserVerification\Traits\UserVerification;
+use App\FeaturedProject;
 
 class HomeController extends Controller
 {
@@ -20,14 +21,9 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
+    public function welcome() {
+        $featured_projects = FeaturedProject::get();
+        return view('welcome', compact('featured_projects'));
     }
 
     /**
@@ -35,9 +31,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function account()
-    {
-        return view ('account');
+    public function account() {
+
     }
 
     /**
@@ -68,7 +63,37 @@ class HomeController extends Controller
      */
     public static function notVerified()
     {
-        return view ('verifyerror.notverified');
+        return view ('errors.notverified');
+    }
+
+    /**
+     * Redirect if wrong login.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function wrongLogin()
+    {
+        return view ('errors.wronglogin');
+    }
+
+    /**
+     * Redirect if not yet approved.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function notApproved()
+    {
+        return view ('errors.notapproved');
+    }
+
+    /**
+     * Redirect if not yet approved.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function emailExist()
+    {
+        return view ('errors.emailexists');
     }
 
     /**

@@ -8,6 +8,7 @@ class Project extends Model {
 
 	protected $primaryKey = 'project_id';
 	protected $fillable = ['project_name', 'description'];
+ 	protected $visible = ['project_name', 'description'];
 
 	public function scopeComplete() {
 		return static::where('complete', 1);
@@ -38,6 +39,10 @@ class Project extends Model {
 	// $project->collaborators
 	public function collaborators() {
 		return $this->hasMany(Collaborator::class, 'project_id', 'project_id');
+	}
+
+	public function heads() {
+		return $this->hasMany(ProjectHead::class, 'project_id', 'project_id');
 	}
 
 	public function tags(){

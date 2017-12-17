@@ -2,60 +2,12 @@
 
 @section('title', 'Account')
 
-@section('style')
-  <style>
-
-  .banner .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-  }
-  .container {
-    width: 80%;
-    max-width: 900px;
-    margin: 0 auto;
-    height: 100%;
-    -webkit-transition: width .5s ease;
-    transition: width .5s ease;
-  }
-  .profile-pic {
-    height: 100%;
-    width: 250px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .avatar {
-    background-color: #bbbbbb;
-    height: 190px;
-    min-width: 190px;
-    border-radius: 110px;
-  }
-  .bio {
-    margin-left: 40px;
-  }
-
-</style>
-@endsection
-
 @section('left-sidenav')
-  <p><a href="/account/edit" class="btn btn-primary btn-block">Edit Profile</a></p>
+  @if($user->user_id == auth()->id())
+    <p><a href="/account/edit" class="btn btn-primary btn-block">Edit Profile</a></p>
+    <p><a href="/account/settings" class="btn btn-primary btn-block">Account Settings</a></p>
+    <p><a href="/account/history" class="btn btn-primary btn-block">Account History</a></p>
+  @endif
 @endsection
 
 @section('body')
@@ -63,19 +15,31 @@
     <div class="container">
       <div class="profile-pic"> 
         <div class="avatar">
-          <img src="{{ asset('avatars/'.auth()->user()->user_id.'.jpg') }}" height="300" width="300">
+          @if (file_exists(public_path('uploads/avatars/'.$user->user_id.'.jpg')))
+            <img class="rounded-circle" src="{{ asset('uploads/avatars/'.$user->user_id.'.jpg') }}" height="256" width="256">
+          @else
+            <img class="rounded-circle" src="{{ asset('uploads/avatars/default.jpg') }}" height="256" width="256">
+          @endif
         </div>
       </div>
-      <div class="bio">
-        <h2 class="heading-medium">{{ auth()->user()->first_name }} {{ auth()->user()->middle_initial }} {{ auth()->user()->last_name }}</h2>
-        <h5 class="heading-small">TE<sup>3</sup>D Member</h5>
-        <h6 class="heading-small">{{ auth()->user()->email }}</h6>
-        <p class="body-small">Hi I'm {{ auth()->user()->first_name }} and I am a third year college student taking up bachelor of science computer science in De La Salle University</p>
-       <button type="button" class="btn btn-primary btn-sm">Edit Profile</button>
+      <div class="accountbio">
+        <h2 class="heading-medium">{{ $user->first_name }} {{ $user->middle_initial }} {{ $user->last_name }}</h2> 
+        @if(App\Admin::get()->contains('user_id', Auth::id()))
+          <span class="badge badge-dark">Admin</span>
+        @endif
+        @if(!empty($user->organizationPosition))
+          <span class="badge badge-info">{{ $user->organizationPosition->position->name }}</span>
+        @endif
+        <h6 class="heading-small">{{ $user->email }}</h6>
+        <p class="body-small">{{ $user->bio }}</p>
     </div>
   </div>
+</div>
+
 @endsection
 
+<!-- right-sidenav -->
 @section('right-sidenav')
 
 @endsection
+

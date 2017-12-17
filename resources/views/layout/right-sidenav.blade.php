@@ -1,13 +1,9 @@
-<div class="card">
-  <div class="card-body">
-    Project Title
-  </div>
-</div>
-
-<br>
-
-<div class="card">
-  <div class="card-body">
-    Project Title
-  </div>
-</div>
+@foreach(App\FeaturedProject::get() as $featured_project)
+	<div class="card">
+	  <div class="card-body">
+	  	<h5><a href="/project/{{$featured_project->project_id}}">{{ $featured_project->project->name }}</a></h5>
+	  	by: <a href="/account/{{$featured_project->project->user->user_id}}">{{ $featured_project->project->user->first_name }} {{ $featured_project->project->user->middle_initial }} {{ $featured_project->project->user->last_name }}</a>
+	  </div>
+	</div>
+	<br>
+@endforeach

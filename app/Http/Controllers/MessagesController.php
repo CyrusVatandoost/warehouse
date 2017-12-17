@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Participant;
 use App\MyThread as Thread;
+use App\Log;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
@@ -20,15 +21,19 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function index()
-    {
+    public function index() {
         // All threads, ignore deleted/archived participants
         //$threads = Thread::getAllLatest()->get();
         // All threads that user is participating in
         $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
         // All threads that user is participating in, with new messages
         //$threads = Thread::forUserWithNewMessages(Auth::id())->latest('updated_at')->get();
-        return view('messenger.messages', compact('threads'));
+
+        // from function show($id)
+        $user_id = Auth::id();
+        $users = User::get();
+
+        return view('messenger.messages', compact('threads', 'thread', 'users'));
     }
     /**
      * Shows a message thread.
@@ -90,6 +95,16 @@ class MessagesController extends Controller
         if (Input::has('recipients')) {
             $thread->addParticipant($input['recipients']);
         }
+
+        //add store action to logs table
+        $log = new Log;
+
+        $log->user_id = auth()->id();
+        $log->user_action = "started a new message thread";
+        $log->action_details = $input['subject'];
+        $log->save();
+        //end log
+
         return redirect()->route('messages');
     }
 
@@ -120,6 +135,16 @@ class MessagesController extends Controller
         ]);
         // Recipients
         $thread->addParticipant($adminID);
+
+        //add adminSend action to logs table
+        $log = new Log;
+
+        $log->user_id = $adminID;
+        $log->user_action = "received a new message from a Guest user";
+        $log->action_details = $input['subject'];
+        $log->save();
+        //end log
+
         return redirect()->route('/contact');
     }
 
@@ -166,6 +191,16 @@ class MessagesController extends Controller
         if (Input::has('recipients')) {
             $thread->addParticipant(Input::get('recipients'));
         }
+
+        //add adminSend action to logs table
+        $log = new Log;
+
+        $log->user_id = $thread->id;
+        $log->user_action = "was updated with a new message";
+        $log->action_details = "Thread ID: " . $id;
+        $log->save();
+        //end log
+
         return redirect()->route('messages.show', $id);
     }
 }
