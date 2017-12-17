@@ -8,31 +8,32 @@
   <!-- insert custom css styles here -->
   <!-- i suggest to avoid custom css styles and have it in the .css file in `public/css` -->
   <style type="text/css">
-    .item.list-group-item
-    {
+
+    .item.list-group-item {
         width: 100%;
         margin-bottom: 10px;
         padding: 0px;
         display: table;
         height: 1px;
     } 
-    .list-group-item-body.row{
+
+    .list-group-item-body.row {
       padding-left: 10px;
       height: 20em;
       margin-bottom: -25px;
       padding-top: 50px;
     }
 
-   .list-group-item-body.row .photo{
+   .list-group-item-body.row .photo {
       height: 200px;
       line-height: 200px;
     }
 
-    .list-group-item-body.row .photo img{
+    .list-group-item-body.row .photo img {
        vertical-align: middle;
     }
 
-    .photo img{
+    .photo img {
      display: block;
       width: 100%;
     }
@@ -82,34 +83,30 @@
                     <div class="col-sm-8">
                       <a href="{{ url('project') }}/{{ $project->project_id }}">
                         <p class="limit-header text-white">{{ $project->name }}</p>
-
                       </a>
-                      <p class="small text-white font-italic" style="margin-bottom: 0">
+                      <p class="small text-white font-italic">
                         <sup>
                           <small>
                             By: <a class="text-white" href="#">{{ $project->user->first_name }}</a>
                           </small>
                         </sup>
                       </p>
-
                     </div>
                     <div class="col-sm-4">
                       @if($project->public == 1)
-                        <span class="badge badge-success project-visibility float-right">
-                          <i class="material-icons material-icons-mid">lock_open</i>
+                        <span class="badge project-visibility float-right">
+                          <i class="material-icons material-icons-mid md-light">public</i>
                         </span>
-                      @endif
-
-                      @if($project->public == 0)
-                        <span class="badge badge-danger project-visibility float-right">
-                          <i class="material-icons material-icons-mid">lock_outline</i>
+                      @else
+                        <span class="badge project-visibility float-right">
+                          <i class="material-icons material-icons-mid md-light">lock_outline</i>
                         </span>
                       @endif
                     </div>
-                  </div>
+
                 </h4>
                 <div class="list-group-item-body">
-                  <div class="photo">
+                  <div class="photo text-center">
                     <a class="projects-link" href="{{ url('project') }}/{{ $project->project_id }}">
 
                         @if (file_exists(public_path('/uploads/'.$project->project_id.'/banner.jpg')))
@@ -174,19 +171,16 @@
                       </p>
                     </div>
                     <div class="col-sm-4">
-                          @if($project->public == 1)
-                            <span class="badge badge-success project-visibility float-right">
-                              <i class="material-icons material-icons-mid">lock_open</i>
-                            </span>
-                          @endif
-
-                          @if($project->public == 0)
-                            <span class="badge badge-danger project-visibility float-right">
-                              <i class="material-icons material-icons-mid">lock_outline</i>
-                            </span>
-                          @endif
-                        </div>
-                  </div>
+                      @if($project->public == 1)
+                        <span class="badge project-visibility float-right">
+                          <i class="material-icons material-icons-mid md-light">public</i>
+                        </span>
+                      @else
+                        <span class="badge project-visibility float-right">
+                          <i class="material-icons material-icons-mid md-light">lock_outline</i>
+                        </span>
+                      @endif
+                    </div>
 
                 </h4>
                 <div class="list-group-item-body">

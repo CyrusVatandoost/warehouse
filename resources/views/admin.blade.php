@@ -118,7 +118,7 @@
 		</div>
 
 		<div class="card">
-  		<h4 class="card-header"><a href="/admin/organization">Organization</a></h4>
+  		<h4 class="card-header"><a href="/admin/organization">Settings</a></h4>
 		  <div class="card-body">
 		    <p class="card-text">
 		    	Name: {{ $organization->name }}<br>
