@@ -16,6 +16,7 @@ class EditorController extends Controller {
 
 	public function edit($id) {
 		$project = Project::get()->find($id);
+		Storage::disk('uploads')->put($id.'/README.html', 'Contents');
 		$file = Storage::disk('uploads')->get($id.'/README.html');
 		return view('editor.file', compact('file', 'project'));
 	}
