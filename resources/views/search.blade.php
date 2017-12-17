@@ -8,7 +8,7 @@
 
 <!-- add modals here -->
 @section('modals')
-  @include('modals.new_project')
+  @include('modals.project-new')
 @endsection
 
 <!-- left-sidenav -->

@@ -117,11 +117,6 @@
 	</ul>
 
 	<br>
-	<div class="alert alert-danger" role="alert">
-	  To add a collaborator, type the name of the user and click on the suggestion from the dropdown.
-	</div>
-
-	<br>
   <h4>Project Tags</h4>
   <ul class="list-group">
 

@@ -152,7 +152,7 @@
 
     <div class="tab-pane" id="panel-all_projects">
       <div class="container-fluid">
-        <div id="projects" class="row projects-no-gutters align-items-start">
+        <div id="projects" class="row no-gutters align-items-start">
           @foreach($all_projects as $project)
             <div class="item col-md-4">
               <div class="card projects-card-size">
