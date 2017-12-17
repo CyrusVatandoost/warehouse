@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Admin;
+use App\Announcement;
 use App\File;
 use App\FileArchive;
 use App\User;
@@ -20,6 +21,7 @@ use App\MyThread;
 class DashboardController extends Controller {
 
   public function index() {
+    $announcements = Announcement::get();
     $admins = Admin::get();
     $users = User::get();
     $projects = Project::get();
@@ -32,6 +34,7 @@ class DashboardController extends Controller {
     $organization_positions = OrganizationPosition::get();
     $organization_position_users = OrganizationPositionUser::get();
     return view('admin', compact(
+      'announcements',
       'users',
       'projects',
       'project_archives',
