@@ -61,8 +61,8 @@
 
   <!-- grid/list view switcher -->
   <div class="row">
-    <div class="col-md-9"></div>
-    <div class="col-md-3 project-button-group">
+    <div class="col-md-8"></div>
+    <div class="col-md-4 project-button-group">
       <a href="#" id="list" class="btn btn-primary float-right"><i class="material-icons material-icons-mid">view_list</i>List</a>
       <a href="#" id="grid" class="btn btn-primary float-right"><i class="material-icons material-icons-mid">view_module</i>Grid</a>
     </div>

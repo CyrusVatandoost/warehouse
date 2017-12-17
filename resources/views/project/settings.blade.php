@@ -1,9 +1,8 @@
-	<style type="text/css">
+<style type="text/css">
 
-	</style>
+</style>
 
 	<div class="tab-pane" id="panel-settings">
-
 
 	<div class="row">
 	  <div class="col-lg-5">
@@ -72,24 +71,25 @@
 		</div>
 	</form>
 
+	<!-- project heads -->
 	<br>
   <h4>Project Heads</h4>
   <ul class="list-group">
   	<!-- list of heads -->
     @foreach($project->heads as $head)
 	  	<li class="list-group-item">
-	  		<!-- form to add head to the project -->
+	  		<!-- form to delete a head from the project -->
 	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/head-remove/{{$head->user_id}}">
 	  			{{ $head->user->first_name }}&nbsp;
 					{{ csrf_field() }}
-					<button type="submit" class="btn btn-outline-danger">&times;</button>
+					<button type="submit" class="btn btn-outline-danger rounded-circle">&times;</button>
 				</form>
 	  @endforeach
+	  <!-- form to add head to the project -->
 	  <li class="list-group-item">
-	  	<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/head-add">
+	  	<form class="form-inline" id="head-form" method="POST" action="/project/{{$project->project_id}}/head-add">
 	  		{{ csrf_field() }}
-			  <input id="project_head" type="text" class="form-control" name="user_id" placeholder="Add Project Head">
-			  
+			  <input class="form-control" type="text" id="head_user_id" name="user_id" placeholder="Add Project Head">
 			  <button onclick="sendProjectHeadPost()" type="button" class="btn btn-primary">Add</button>
 			</form>
 	</ul>
@@ -101,17 +101,17 @@
     @foreach($project->collaborators as $collaborator)
 	  	<li class="list-group-item">
 	  		<!-- form to add collaborator to the project -->
-	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-collaborator/{{$collaborator->user_id}}">
+	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/collaborator-remove/{{$collaborator->user_id}}">
 	  			{{ $collaborator->user->first_name }}&nbsp;
 					{{ csrf_field() }}
-					<button type="submit" class="btn btn-outline-danger">&times;</button>
+					<button type="submit" class="btn btn-outline-danger rounded-circle">&times;</button>
 				</form>
 	  @endforeach
 	  <!-- form to add collaborators -->
 	  <li class="list-group-item">
-	  	<form id="collab-form" class="form-inline" method="POST" action="/project/{{$project->project_id}}/add-collaborator">
+	  	<form id="collab-form" class="form-inline" method="POST" action="/project/{{$project->project_id}}/collaborator-add">
 				{{ csrf_field() }}
-			  <input class="form-control" id="user_id" name="user_id" type="text" placeholder="Add Collaborator">&nbsp;
+			  <input class="form-control" id="collaborator_user_id" name="user_id" type="text" placeholder="Add Collaborator">&nbsp;
 			  <button onclick="sendCollaboratorPost()" class="btn btn-primary" type="button">Add</button>
 			</form>
 	</ul>
@@ -132,7 +132,7 @@
 	  		<form class="form-inline" method="POST" action="/project/{{$project->project_id}}/remove-tag/{{$proj_tags->tag->tag_id}}">
 	  			{{ $proj_tags->tag->name }}&nbsp;
 					{{ csrf_field() }}
-					<button type="submit" class="btn btn-outline-danger">&times;</button>
+					<button type="submit" class="btn btn-outline-danger rounded-circle">&times;</button>
 				</form>
 	  @endforeach
 
@@ -162,9 +162,9 @@
 	var projectHeadID = "null";
 
 	//Send POST for add collaborator
-	function sendCollaboratorPost(){
+	function sendCollaboratorPost() {
 		var form = document.getElementById("collab-form");
-		var input = document.getElementById("user_id");
+		var input = document.getElementById("collaborator_user_id");
 		if(collaboratorID != "null"){
 			input.style.color = '#fff';
 			input.value = collaboratorID;
@@ -172,10 +172,10 @@
 		}
 	}
 
-	//Send POST for add collaborator
-	function sendProjectHeadPost(){
-		var form = document.getElementById("collab-form");
-		var input = document.getElementById("user_id");
+	//Send POST for add project head
+	function sendProjectHeadPost() {
+		var form = document.getElementById("head-form");
+		var input = document.getElementById("head_user_id");
 		if(projectHeadID != "null"){
 			input.style.color = '#fff';
 			input.value = projectHeadID;
@@ -215,12 +215,12 @@
 	      callback: function() {}
 	    },
 	    onClickEvent: function() {
-	      collaboratorID = $("#user_id").getSelectedItemData().user_id;
+	      collaboratorID = $("#collaborator_user_id").getSelectedItemData().user_id;
 	    }
 	  }
 	};
 
-	$("#user_id").easyAutocomplete(users);
+	$("#collaborator_user_id").easyAutocomplete(users);
 	</script>
 
 	<script>
@@ -249,11 +249,11 @@
 	      callback: function() {}
 	    },
 	    onClickEvent: function() {
-	      projectHeadID = $("#project_head").getSelectedItemData().user_id;
+	      projectHeadID = $("#head_user_id").getSelectedItemData().user_id;
 	    }
 	  }
 	};
 
-	$("#project_head").easyAutocomplete(allusers);
+	$("#head_user_id").easyAutocomplete(allusers);
 	</script>
 @stop

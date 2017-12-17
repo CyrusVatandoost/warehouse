@@ -12,46 +12,33 @@
 */
 
 // projects
-	// create a new project
-	Route::post('/projects', 'ProjectController@store');
-	// projects that are public, used for guests
-	Route::get('/projects/public', 'ProjectController@guest');
+Route::get('/projects/public', 'ProjectController@guest');
+Route::post('/projects', 'ProjectController@store');
 
 // project
-	// show a project through ID
-	Route::get('/project/{project}', 'ProjectController@show');
-	Route::get('/project/{project}/beta', 'ProjectController@beta');
-	// delete project
-	Route::get('/project/delete/{project}', 'ProjectController@delete');
-	// archive project
-	Route::get('/project/{project}/archive', 'ProjectController@archive');
-	// add file to project
-	Route::get('/project/add/file/{project}', 'FileController@store');
-	// set project as complete or incomplete
-	Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
-	// set project's visibility
-	Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
-	// add a collaborator to a project
-	Route::post('/project/{project}/add-collaborator', 'CollaboratorController@store');
-	// remove a collaborator from a project
-	Route::post('/project/{project}/remove-collaborator/{user}', 'CollaboratorController@delete');
-	// change the name of a project
-	Route::post('/project/{project}/change-name', 'ProjectController@changeName');
-	// add a task to a project
-	Route::post('/project/{project}/tasks', 'TaskController@store');
-	// set project task as complete
-	Route::post('/project/task/{task}/complete', 'TaskController@setCompleteness');
+Route::get('/project/{project}', 'ProjectController@show');
+Route::get('/project/{project}/beta', 'ProjectController@beta');
+Route::get('/project/delete/{project}', 'ProjectController@delete');
+Route::get('/project/{project}/archive', 'ProjectController@archive');
+Route::get('/project/add/file/{project}', 'FileController@store');
+Route::post('/project/{project}/complete', 'ProjectController@setCompleteness');
+Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibility');
+Route::post('/project/{project}/change-name', 'ProjectController@changeName');
+Route::post('/project/{project}/tasks', 'TaskController@store');
+Route::post('/project/task/{task}/complete', 'TaskController@setCompleteness');
 	
-	Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
-	Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
-	Route::post('/search/filtertag', 'ProjectController@getProjectsByTag');
+Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
+Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
+Route::post('/search/filtertag', 'ProjectController@getProjectsByTag');
 	
-	Route::get('/project/{project}/feature', 'ProjectController@feature');
-	Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
-	Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
-	Route::post('/project/{project}/update-description', 'ProjectController@updateDescription');
-	Route::post('/project/{project}/head-add', 'ProjectHeadController@store');
-	Route::post('/project/{project}/head-remove/{user}', 'ProjectHeadController@remove');
+Route::get('/project/{project}/feature', 'ProjectController@feature');
+Route::get('/project/{project}/unfeature', 'ProjectController@unfeature');
+Route::post('/project/{project}/abstract-add', 'ProjectController@storeAbstract');
+Route::post('/project/{project}/update-description', 'ProjectController@updateDescription');
+Route::post('/project/{project}/collaborator-add', 'CollaboratorController@store');
+Route::post('/project/{project}/collaborator-remove/{user}', 'CollaboratorController@delete');
+Route::post('/project/{project}/head-add', 'ProjectHeadController@store');
+Route::post('/project/{project}/head-remove/{user}', 'ProjectHeadController@remove');
 
 // file
 	Route::post('/project/{project}/upload-file', 'FileController@store');
@@ -106,15 +93,17 @@
 	Route::get('/admin/logs', 'LogController@index');
 
 // login and register
-	Auth::routes();
-	Route::get('/account', 'UserController@auth');
-	Route::get('/account/edit', 'UserController@edit');
-	Route::get(' account/settings', 'UserController@settings');
-	Route::get(' account/history', 'UserController@history');
-	Route::get('/account/{user}', 'UserController@show');
-	Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
-	Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
-	Route::post('/account/{user}/settings', 'UserController@updatePersonalInfo');
+Auth::routes();
+Route::get('/account', 'UserController@auth');
+Route::get('/account/edit', 'UserController@edit');
+Route::get(' account/settings', 'UserController@settings');
+Route::get(' account/history', 'UserController@history');
+Route::get('/account/{user}', 'UserController@show');
+Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
+Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
+Route::post('/account/{user}/settings', 'UserController@updatePersonalInfo');
+Route::post('/account/details-update', 'UserController@updateDetails');
+Route::post('/account/password-update', 'UserController@updatePassword');
 
 //Messenger Routes
 Route::group(['prefix' => 'messages'], function () {

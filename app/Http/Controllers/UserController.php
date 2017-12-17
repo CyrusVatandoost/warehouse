@@ -131,14 +131,6 @@ class UserController extends Controller {
         //add update action to logs table
         $log = new Log;
         $log->user_id = $id;
-
-        // NOTE: For some reason, gender isn't working here, but it works with updateBio(). Instead of going with "him" or "her", i went with "their" at the moment.
-
-       // if($user->gender == 'Male')
-        //   $log->user_action = "updated his profile";
-        // else if($user->gender == 'Female')
-        //   $log->user_action = "updated her profile";
-
         $log->user_action = "updated their profile";
         $log->action_details = "Personal Information";
         $log->save();
@@ -148,4 +140,42 @@ class UserController extends Controller {
        
 
     }
+
+  public function updateDetails() {
+    $user = User::find(auth()->id());
+    $user->first_name = request('first_name');
+    $user->middle_initial = request('middle_initial');
+    $user->last_name = request('last_name');
+    $user->gender = request('gender');
+    $user->email = request('email');
+    $user->save();
+    return back();
+  }
+
+  public function updatePassword() {
+
+    $validator = Validator::make(
+      array(
+      'password' => request("password"),
+      'controlPass' => request("password_confirmation")
+      ),
+      array(
+      'controlPass' => 'required_with:password|same:password'
+      ));
+    if ($validator->fails()) {
+      // The given data did not pass validation
+      $messages = $validator->messages();
+      echo $messages->first('password');
+      return back();
+
+    }
+    else {
+      $user = User::find(auth()->id());
+      $user->password = Hash::make(request('password'));
+      $user->save();
+      return back();
+    }
+
+  }
+
 }

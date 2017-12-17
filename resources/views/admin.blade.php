@@ -85,6 +85,65 @@
 
 	</div>
 	<br>
+		<div class="card-deck">
+
+		<!-- users card -->
+			<div class="card text-white bg-primary">
+				<a href="/admin/users" class="text-white">
+			    <div class="card-content">
+		        <div class="card-body">
+		          <div class="media d-flex">
+		            <div class="align-self-center">
+		              <i class="material-icons md-48">event_note</i>
+		            </div>
+		            <div class="media-body text-right">
+		              <h3>{{ $announcements->count() }}</h3>
+		              <span>Annoucements</span>
+		            </div>
+		          </div>
+		        </div>
+			    </div>
+				</a>
+			</div>
+
+		<div class="card text-white bg-primary">
+			<a href="/admin/projects" class="text-white">
+		    <div class="card-content">
+	        <div class="card-body">
+	          <div class="media d-flex">
+	            <div class="align-self-center">
+	              <i class="material-icons md-48">sms_failed</i>
+	            </div>
+	            <div class="media-body text-right">
+	              <h3>{{ $logs->count() }}</h3>
+	              <span>Logs</span>
+	            </div>
+	          </div>
+	        </div>
+		    </div>
+		  </a>
+		</div>
+
+		<div class="card text-white bg-primary">
+	    <div class="card-content">
+        <div class="card-body">
+          <div class="media d-flex">
+            <div class="align-self-center">
+              <i class="material-icons md-48">chat</i>
+            </div>
+            <div class="media-body text-right">
+              <h3>{{ $messsages->count() }}</h3>
+              <span>Messages</span>
+            </div>
+          </div>
+        </div>
+	    </div>
+		</div>
+
+	</div>
+
+	<br>
+
 	<div class="card-deck">
 
   	<div class="card">

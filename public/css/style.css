@@ -528,10 +528,6 @@ padding: 15px 0;
     color: #8BC34A;
 }
 
-.register-gender {
-    color: white;
-}
-
 .register-login {
     color: #9CCC65;
 }
@@ -632,4 +628,8 @@ padding: 15px 0;
 .form-check{
   padding-top: 10px;
   padding-bottom: 10px;
+}
+  
+.pagination{
+  margin-top: 10px;
 }
