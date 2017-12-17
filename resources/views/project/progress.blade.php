@@ -9,8 +9,8 @@
 
   <div class="col-md-12">
   <form method="POST" action="/project/{{$project->project_id}}/complete">
-		{{ csrf_field() }}
-	 <center><button type="submit" class="btn btn-primary">Change Completeness</button></center>
+    {{ csrf_field() }}
+   <center><button type="submit" class="btn btn-primary">Change Completeness</button></center>
   </form>
   </div>
 
@@ -23,11 +23,11 @@
 
   <br>
   <div class="table-responsive">   
-		<table class="table table-hover">
-			<thead class="thead-dark">
-	      <tr>
-			  	<th colspan="2">To-Do List
-		  </thead>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th colspan="2"><center>To-Do List</center>
+      </thead>
       <tbody>
         @foreach($tasks as $task)
           @if($task->project_id == $project->project_id && $task->completed == 0)
@@ -40,6 +40,7 @@
                   </button>
                 </form>
               <td>
+              
                 {{ $task->name }}  
                 @if( !empty($task->assigned_to) )
                   @foreach($users as $user)
@@ -51,10 +52,16 @@
                   @endforeach
                 @endif 
 
+              <td>
+                <form class="form-group" method="POST" action="/project/task/{{$task->task_id}}/complete">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn btn-primary float-right">Mark as Completed</button>
+                </form>
+                
           @endif
         @endforeach
       </td>
-		</table>
+    </table>
   </div>
 
   <!-- DISPLAY open, completed, all TASKS IN TAB VIEW-->

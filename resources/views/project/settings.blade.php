@@ -20,7 +20,7 @@
 	  </div>
 
 	  <!-- form to change project visibility -->
-		<div class="col-lg-5">
+		<div class="col-lg-7">
 			<p>
 			<h4>Project Visibility</h4>
 			<div class='row'>
