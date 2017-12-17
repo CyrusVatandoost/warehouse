@@ -623,3 +623,7 @@ padding: 15px 0;
 .pagination{
   margin-top: 10px;
 }
+
+.bg-success{
+  background-color: #9CCC65 !important;
+}
