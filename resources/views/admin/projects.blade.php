@@ -82,9 +82,9 @@
 			<table class="table table-hover">
 			    <thead class="thead-dark">
 			      <tr>
-					   <th>Project Name</th>
-					   <th>Date Archived</th>
-					   <th>button</th>
+					   <th>Project Name
+					   <th>Date Archived
+					   <th>
 			       </tr>
 			    </thead>
 			    <tbody>

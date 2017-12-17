@@ -15,7 +15,7 @@ class CreateProjectsTable extends Migration
     Schema::create('projects', function (Blueprint $table) {
       $table->increments('project_id');
       $table->integer('user_id');
-      $table->string('name');
+      $table->string('name'); 
       $table->boolean('complete')->default(false);
       $table->boolean('public')->default(false);
       $table->text('description')->nullable(true);

@@ -1,6 +1,7 @@
 html {
   position: relative;
   min-height: 100%;
+  color: black !important;
 }
 
 body {
@@ -107,7 +108,7 @@ padding: 15px 0;
    margin-right: -20px;
    margin-bottom: 10px;
    width: auto;
-   height: 17em;
+   height: 25em;
 }
 
 .projects-link{
@@ -401,5 +402,215 @@ padding: 15px 0;
 
 .bg-primary{
   background-color: #404040 !important;
+}
+
+.login-block {
+    float:left;
+    width:100%;
+    padding : 50px 0;
+}
+
+.login-banner-sec {
+    background-size:cover;    
+    min-height:500px; 
+    border-radius: 0 10px 10px 0; 
+    padding:0;
+}
+
+.login-container {
+    background: #404040; 
+    border-radius: 10px; 
+}
+
+.login-carousel-inner {
+    border-radius:0 10px 10px 0;
+}
+
+.login-login-carousel-caption {
+    text-align:left; left:5%;
+}
+
+.login-sec {
+    padding: 50px 30px; 
+    position:relative;
+}
+
+.login-sec .copy-text {
+    position:absolute; 
+    width:80%; 
+    bottom:20px; 
+    font-size:13px; 
+    text-align:center;
+}
+
+.login-sec .copy-text i {
+    color:white;
+}
+
+.login-sec .copy-text a {
+    color:white;
+}
+
+.login-sec h2 {
+    margin-bottom:30px;
+    font-weight:200; 
+    font-size:30px; 
+    color:#8BC34A;
+}
+
+.login-sec h2:after {
+    content:" "; 
+    width:100px; 
+    height:1px;
+    background:white; 
+    display:block; 
+    margin-top:20px; 
+    border-radius:3px; 
+    margin-left:auto;
+    margin-right:auto
+}
+
+.btn-login {
+    background: #8BC34A; 
+    color: white;
+    font-weight:600;
+}
+
+.login-btn-link, label {
+     color:white !important;
+}
+
+.login-banner-text {
+    width:70%; 
+    position:absolute; 
+    bottom:40px; 
+    margin-left:20px;
+    padding-left: 20px;
+    border-radius: 5px;
+    background: rgba(1,1,1,0.5);
+}
+
+.login-banner-text h2 {
+    color: white; 
+    font-weight:500;
+}
+
+.login-banner-text h2:after {
+    content:" "; 
+    width:100px; 
+    height:2px; 
+    background: white; 
+    display:block; 
+    margin-top:10px; 
+    border-radius:3px;
+}
+
+.login-banner-text p {
+    color: white;
+}
+
+.register-main{
+    padding : 50px 0;
+}
+
+.register-header{ 
+    border-bottom: 1px solid white; 
+    padding-bottom: 5px;  
+    font-weight:200; 
+    color: #8BC34A;
+}
+
+.register-gender{
+    color: white;
+}
+
+.register-login{
+    color: #9CCC65;
+}
+
+.alert-spacing{
+    padding: 5px;
+}
+
+.register-form-group{
+    margin-bottom: 10px;
+}
+
+.register-label{
+    margin-bottom: 4px;
+}
+
+.register-form-control {
+    height: auto !important;
+    padding: 8px 12px !important;
+}
+
+.register-input-group{
+    background: white;
+    border-radius: 5px;
+}
+
+.btn-register{
+    background: #8BC34A; 
+    color:white;
+    font-weight:600;
+}
+
+.main{
+    padding : 50px 0;
+}
+
+.main-center{
+    margin-top: 30px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    background:#404040;
+    color: white;
+    text-shadow: none;
+    border-radius: 10px;
+}
+
+.header{ 
+    border-bottom: 1px solid white; 
+    padding-bottom: 5px;  
+    font-weight:200; 
+    color:#8BC34A;
+}
+
+.btn-primary{
+    background: #8BC34A !important; 
+    border-color: #8BC34A !important;
+    color: white !important;
+    font-weight:600;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.btn-info{
+    background: #808080 !important; 
+    border-color: #404040 !important;
+    color: white !important;
+    font-weight:600;
+    margin-top: 5px;
+    padding-top: 8px;
+    border-radius: 5px;
+}
+
+.verified {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.login-carousel,.item,.active{
+   height:100%;
+ }
+.login-carousel-inner{
+    height:100%;
+}
+.login-carousel, .login-carousel img {
+  width: 100%;
+}
+.login-carousel img {
+  height: 100% !important;
 }
 

@@ -18,8 +18,9 @@
     } 
     .list-group-item-body.row{
       padding-left: 10px;
-      height: 15em;
+      height: 20em;
       margin-bottom: -25px;
+      padding-top: 50px;
     }
 
    .list-group-item-body.row .photo{
@@ -83,7 +84,7 @@
                         <p class="limit-header text-white">{{ $project->name }}</p>
 
                       </a>
-                      <p class="small text-white font-italic">
+                      <p class="small text-white font-italic" style="margin-bottom: 0">
                         <sup>
                           <small>
                             By: <a class="text-white" href="#">{{ $project->user->first_name }}</a>

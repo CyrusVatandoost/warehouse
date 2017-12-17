@@ -109,8 +109,8 @@ function topFunction() {
       </div>
       @endif
     @endforeach
-    {{ $announcements->links() }}  
-  </p>
+    {{ $announcements->links('vendor.pagination.simple-bootstrap-4') }}  
+  </p> 
   @endif
   <button onclick="topFunction()" class="rounded-circle" id="myBtn" title="Go to top"><span>Top</span></button>
   </div>

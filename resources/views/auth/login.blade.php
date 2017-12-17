@@ -38,7 +38,7 @@
                 <div class="col-md-6 col-md-offset-4">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <small>Remember Me</small>
                     </label>
                   </div>
                 </div>
@@ -54,13 +54,13 @@
             </form>
         </div>
         <div class="col-md-8 login-banner-sec">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="login-carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
-                <div class="carousel-inner" role="listbox">
+                <div class="login-carousel-inner" role="listbox">
                     <div class="carousel-item active">
                         <img class="d-block img-fluid" src="storage/people-coffee-tea-meeting.jpg" alt="First slide">
                         <div class="login-carousel-caption d-none d-md-block">
