@@ -29,7 +29,6 @@
 <!-- body -->
 @section('body')
   <!-- insert body here -->
-
   <div class="card w-100">
 
     @if (file_exists(public_path('uploads/'.$project->project_id.'/banner.jpg')))
@@ -63,29 +62,25 @@
   <br>
   <div class="card w-100">
     <div class="card-body">
-
       <div class="tabbable">
 
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="myTab">
           <li class="nav-item">
             <a class="nav-link nav-link-tabs active" href="#panel-abstract" data-toggle="tab">Abstract</a>
-          </li>
           @if($project->collaborators->contains('user_id', Auth::id()) || $project->user_id == auth()->id() || $project->heads->contains('user_id', Auth::id()))
           <li class="nav-item">
             <a class="nav-link nav-link-tabs" href="#panel-files" data-toggle="tab">Files</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link nav-link-tabs"  href="#panel-progress" data-toggle="tab">Progress</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link nav-link-tabs"  href="#panel-issues" data-toggle="tab">Issues</a>
-          </li>
           @endif
           @if($project->user_id == auth()->id() || $project->heads->contains('user_id', Auth::id()))
           <li class="nav-item">
             <a class="nav-link nav-link-tabs"  href="#panel-settings" data-toggle="tab">Settings</a>
-          </li>
           @endif
+          <li class="nav-item">
+            <a class="nav-link nav-link-tabs"  href="#panel-test" data-toggle="tab">Test</a>
         </ul>
 
         <div class="tab-content">
@@ -95,13 +90,12 @@
             @include('project.progress')
             @include('project.issues')
             @include('project.settings')
-          @endif 
-          @if(Auth::check())
           @endif
+          <div class="tab-pane" id="panel-test">
+            Test
+          </div>
         </div>
-
       </div>
-
     </div>
   </div>
 @endsection

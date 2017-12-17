@@ -3,7 +3,7 @@
   <p>
     
     <div class="progress">
-      <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:70%">Project Progress: 70%</div>
+      <div class="progress-bar bg-success progress-bar-striped" style="width:70%">Project Progress: 70%</div>
     </div>
   <br>
 
@@ -18,7 +18,7 @@
   <hr>
 
   <br>
-  <a href="#modal-container-new-task" role="button" class="btn btn-primary float-right" data-toggle="modal">Add a Task</a>
+  <a href="#modal-container-new-task" role="button" class="btn btn-primary" data-toggle="modal">Add a Task</a>
   <br>
 
   <br>
@@ -31,19 +31,14 @@
       <tbody>
         @foreach($tasks as $task)
           @if($task->project_id == $project->project_id && $task->completed == 0)
-
             <tr>
               <td>
-
-                  <!-- <a href="/project/{{$project->project_id}}/task/complete" role="button" class="btn" data-toggle="modal">
-                    <i class="material-icons">radio_button_unchecked</i>
-                     --><!-- <i class="material-icons">check_circle</i> -->
-                  <!-- </a> -->
-
-                  <form class="form-inline" method="POST" action="/project/task/{{$task->task_id}}/complete">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-success">Mark as Completed</button>
-                  </form>
+                <form class="form-inline" method="POST" action="/project/task/{{$task->task_id}}/complete">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn btn-success rounded-circle">
+                    <i class="material-icons material-icons-mid md-18 md-light">done</i>
+                  </button>
+                </form>
               <td>
                 {{ $task->name }}  
                 @if( !empty($task->assigned_to) )

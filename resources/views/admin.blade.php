@@ -49,6 +49,7 @@
 				</a>
 			</div>
 
+		<!-- projects card -->
 		<div class="card text-white bg-primary">
 			<a href="/admin/projects" class="text-white">
 		    <div class="card-content">
@@ -67,6 +68,7 @@
 		  </a>
 		</div>
 
+		<!-- files card -->
 		<div class="card text-white bg-primary">
 	    <div class="card-content">
         <div class="card-body">
@@ -106,8 +108,9 @@
 				</a>
 			</div>
 
+		<!-- logs card -->
 		<div class="card text-white bg-primary">
-			<a href="/admin/projects" class="text-white">
+			<a href="/admin/logs" class="text-white">
 		    <div class="card-content">
 	        <div class="card-body">
 	          <div class="media d-flex">
