@@ -35,17 +35,13 @@
                   </div>
                 @endif
               </div>
-              <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                  <div class="checkbox">
-                    <label clas="text-white">
-                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                      Remember Me
-                    </label>
-                  </div>
+              <div class="form-check">
+                <div class="form-check-label text-white">
+                      <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                     Remember Me
                 </div>
               </div>
-                <div class="form-check">
+                <div class="form-group">
                     <a class="btn login-btn-link" href="{{ route('password.request') }}">
                         <i> Forgot Your Password? </i>
                     </a>
@@ -64,7 +60,7 @@
                 </ol>
                 <div class="login-carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img class="d-block img-fluid" src="storage/people-coffee-tea-meeting.jpg" alt="First slide">
+                        <img class="d-block" src="storage/people-coffee-tea-meeting.jpg" alt="First slide">
                         <div class="login-carousel-caption d-none d-md-block">
                         <div class="login-banner-text">
                             <h2>This is Heaven</h2>
@@ -73,7 +69,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block img-fluid" src="storage/people-woman-coffee-meeting.jpg" alt="First slide">
+                        <img class="d-block" src="storage/people-woman-coffee-meeting.jpg" alt="First slide">
                         <div class="login-carousel-caption d-none d-md-block">
                         <div class="login-banner-text">
                             <h2>This is Heaven</h2>
@@ -82,7 +78,7 @@
                         </div>
                     </div>
                      <div class="carousel-item">
-                        <img class="d-block img-fluid" src="storage/pexels-photo.jpg" alt="First slide">
+                        <img class="d-block" src="storage/pexels-photo.jpg" alt="First slide">
                         <div class="login-carousel-caption d-none d-md-block">
                         <div class="login-banner-text">
                             <h2>This is Heaven</h2>
