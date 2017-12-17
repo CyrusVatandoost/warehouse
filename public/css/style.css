@@ -637,3 +637,7 @@ padding: 15px 0;
 .bg-success{
   background-color: #9CCC65 !important;
 }
+
+.bg-dark{
+  background-color: #404040 !important;
+}
