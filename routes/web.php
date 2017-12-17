@@ -61,8 +61,8 @@
 	Route::post('/project/{project}/file-rename/{file}', 'FileController@rename');
 
 //Positions
-	Route::post('/organization/{organization}/remove-position','OrganizationPositionController@delete');
-	Route::post('/organization/add-position','OrganizationPositionController@store');
+	Route::post('/organization/position-remove/{position}','OrganizationPositionController@delete');
+	Route::post('/organization/{organization}/position-add','OrganizationPositionController@store');
 
 // post
 	Route::post('/project/{project}/remove-tag/{tag}', 'TagController@delete');

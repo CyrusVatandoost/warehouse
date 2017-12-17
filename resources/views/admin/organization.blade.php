@@ -98,24 +98,24 @@
 	<ul class="list-group">
   	
   	<!-- form: position remove -->
-    @foreach($organization_positions as $position)
+    @foreach($organization_positions as $organization_position)
 	  	<li class="list-group-item">
-	  		<form class="form-inline" method="POST" action="/organization/{{$position->organization_position_id}}/remove-position">
-	  			{{ $position->name }}&nbsp;
-				{{ csrf_field() }}
-				<button type="submit" class="btn btn-outline-danger rounded-circle">&times;</button>
-			</form>
+	  		<form class="form-inline" method="POST" action="/organization/position-remove/{{$organization_position->organization_position_id}}">
+	  			{{ $organization_position->name }}
+	  			&nbsp;
+	  			{{ csrf_field() }}
+					<button type="submit" class="btn btn-outline-danger rounded-circle">
+						&times;
+					</button>
+				</form>
 	  @endforeach
 
 	  <!-- form to add positions -->
 	  <li class="list-group-item">
-	  	<form class="form-inline" method="POST" action="/organization/add-position">
+	  	<form class="form-inline" method="POST" action="/organization/{{$organization->organization_id}}/position-add">
 				{{ csrf_field() }}
-			  <!-- Gets the "id" of the organization as Organization has not been fully implemented yet to get Name -->
-			  <input class="form-control" type="text" id="tag_name" name="organization_id" placeholder="Organization ID">&nbsp;
 			  <!-- Gets the name of the new position -->
 			  <input class="form-control" type="text" id="tag_name" name="position" placeholder="Position">&nbsp;
-
 			  <button class="btn btn-primary" type="submit">Add</button>
 			</form>
 	</ul>
