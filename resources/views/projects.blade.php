@@ -72,8 +72,7 @@
   <div class="tab-content">
 
     <div class="tab-pane active" id="panel-projects_all">
-      <div class="container-fluid">
-        <div id="projects" class="row no-gutters align-items-start">
+        <div id="projects" class="row no-gutters">
 
           @foreach($my_projects as $project)
             <div class="item col-md-4">
@@ -143,16 +142,14 @@
               </div> 
             </div>
           @endforeach
-
+          
         </div>
-      </div>
 
       {{$my_projects->links('vendor.pagination.simple-bootstrap-4')}}
     </div>
 
     <div class="tab-pane" id="panel-all_projects">
-      <div class="container-fluid">
-        <div id="projects" class="row no-gutters align-items-start">
+        <div id="projects" class="row no-gutters">
           @foreach($all_projects as $project)
             <div class="item col-md-4">
               <div class="card projects-card-size">
@@ -222,8 +219,7 @@
             </div>
           @endforeach
         </div>
-      </div>
-      {{$all_projects->links()}}
+      {{$all_projects->links('vendor.pagination.simple-bootstrap-4')}}
     </div>
 
   </div>
