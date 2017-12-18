@@ -120,12 +120,7 @@
 			</form>
 	</ul>
 
-	<p>
-	<div class="alert alert-warning" role="alert">
-	  To add a position, input the "organization_id" of the organization for now. You can check their "organization_id" by checking the database. This will be fixed in the future.
-	</div>
 	<br>
-
 	<!-- Assigning Positions to Users -->
 	<h4>Assign Positions: </h4>
 	<ul class="list-group">
