@@ -35,8 +35,8 @@
               <td>
                 <form class="form-inline" method="POST" action="/project/task/{{$task->task_id}}/complete">
                   {{ csrf_field() }}
-                  <button type="submit" class="btn btn-success rounded-circle">
-                    <i class="material-icons material-icons-mid md-18 md-light">done</i>
+                  <button type="submit" class="btn btn-outline-success rounded-circle">
+                    <i class="material-icons material-icons-mid md-18 md-dark">done</i>
                   </button>
                 </form>
               <td>
@@ -50,13 +50,7 @@
                     @endif
 
                   @endforeach
-                @endif 
-
-              <td>
-                <form class="form-group" method="POST" action="/project/task/{{$task->task_id}}/complete">
-                  {{ csrf_field() }}
-                  <button type="submit" class="btn btn-primary float-right">Mark as Completed</button>
-                </form>
+                @endif
                 
           @endif
         @endforeach
