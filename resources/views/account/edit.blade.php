@@ -47,7 +47,7 @@
     <form method="POST" action="/account/{{ auth()->user()->user_id }}/upload-avatar" enctype="multipart/form-data">
       {{ csrf_field() }}
         <input type="file" class="form-control-file uploadimage" id="profile_pic" name="profile_pic" onchange="document.getElementById('dp').src = window.URL.createObjectURL(this.files[0])"><br>
-        <button type="submit" class="btn btn-browse float-right">Upload</button><br>
+        <button type="submit" class="btn btn-primary float-right">Upload</button><br>
     </form>
   </div>
   <div class="col-md-6">
@@ -61,7 +61,7 @@
           <textarea class="form-control" rows="4" name="profile_bio" maxlength="500"> {{ auth()->user()->bio }} </textarea>
         </div>
 
-        <button type="submit" class="btn btn-browse float-right">Save Changes</button>
+        <button type="submit" class="btn btn-primary float-right">Save Changes</button>
       </div>
     </form>
   </div>

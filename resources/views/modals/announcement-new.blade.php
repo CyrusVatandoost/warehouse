@@ -47,8 +47,8 @@
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button> 
-					<button type="submit" class="btn btn-browse">Post Announcement</button>
+					<button type="button" class="btn btn-browse" data-dismiss="modal">Cancel</button> 
+					<button type="submit" class="btn btn-primary">Post Announcement</button>
 				</div>
 
 			</div>

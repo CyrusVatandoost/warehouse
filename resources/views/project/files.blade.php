@@ -20,7 +20,7 @@
             {{ csrf_field() }}
             <div class="form-group files">
               <input type="file" class="form-control-file" name="file">
-              <button type="submit" class="btn btn-browse upload">Upload</button>
+              <button type="submit" class="btn btn-primary upload">Upload</button>
             </div>
         </form>
       </div>

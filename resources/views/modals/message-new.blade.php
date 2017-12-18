@@ -28,7 +28,7 @@
 	                <input class="form-control" id="provider-json" type="text" placeholder="Add Recipients" required>
 	              </div>
 	              <div class="col-sm-2">     
-	                <button type="button" name="addRecipient" class="btn btn-browse " style="margin-bottom: 10px; float:right;" onclick="addRecipientElement()">Add</button>
+	                <button type="button" name="addRecipient" class="btn btn-primary" style="margin-bottom: 10px; float:right;" onclick="addRecipientElement()">Add</button>
 	              </div>
             	</div>
             <center>
@@ -50,8 +50,8 @@
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button> 
-					<button type="submit" class="btn btn-browse">Send Message</button>
+					<button type="button" class="btn btn-browse" data-dismiss="modal">Cancel</button> 
+					<button type="submit" class="btn btn-primary">Send Message</button>
 				</div>
 
 			</div>
