@@ -132,7 +132,7 @@
                         |
                         <i class="fa fa-tags"></i> Tags:  
                           @foreach($project->tags as $something)
-                            <span class="badge badge-info">{{ $something->tag->name }}</span>
+                            <span class="badge badge-info">{{ $something->name }}</span>
                           @endforeach
                       </p>
                     </div>

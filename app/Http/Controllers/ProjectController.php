@@ -224,9 +224,18 @@ public function beta($id) {
 		self::$phrase = $input['search-project'];
 		$searched = $input['search-project'];
 
+		/*
 		$projects = DB::table('users')
 			->join('projects', 'projects.user_id', '=', 'users.user_id')
 			->select('users.first_name AS username', 'projects.project_id AS pID', 'projects.name AS pName', 'projects.description', 'projects.public', 'projects.complete')
+            ->where('projects.public', '=', 1)
+            ->where(function ($query) {
+                $query->where('projects.name', 'like', '%'.self::$phrase.'%')
+                      ->orwhere('users.first_name', 'like', '%'.self::$phrase.'%');
+            })->get();
+		*/
+        $projects = Project::select('users.first_name AS username', 'users.last_name AS lastname', 'projects.project_id AS pID', 'projects.name AS pName', 'projects.description', 'projects.public', 'projects.complete')
+        	->join('users', 'projects.user_id', '=', 'users.user_id')
             ->where('projects.public', '=', 1)
             ->where(function ($query) {
                 $query->where('projects.name', 'like', '%'.self::$phrase.'%')

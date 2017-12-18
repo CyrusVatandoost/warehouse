@@ -59,66 +59,79 @@
   @endif
   
   <h4>Projects</h4>
-  <div class="tab-pane" id="panel-all_projects">
-    <div class="container-fluid">
-      <div class="row projects-no-gutters align-items-start">
+    <div class="row no-gutters">
       @if($projects->count()>0)
         @foreach($projects as $project)
-          <div class="col-md-auto">
-            <div class="card projects-card-size">
-              <div class="card-block">
-                <h4 class="card-header bg-dark" style="padding-left: 10px;">
-                  <a class="text-white" href="{{ url('project') }}/{{ $project->pID }}">{{ $project->pName }}</a>
-                  <div class="float-right small">
+          <div class="item col-md-4">
+              <div class="card projects-card-size">
+                <h4 class="project-card-header bg-dark">
+                  <div class="row project-header-row">
+                    <div class="col-sm-8">
+                      <a href="{{ url('project') }}/{{ $project->pID }}">
+                        <p class="limit-header text-white">{{ $project->pName }}</p>
+                      </a>
+                      <p class="small text-white font-italic">
+                        <sup>
+                          <small>
+                            By: <a class="text-white" href="#">{{ $project->username.' '.$project->lastname }}</a>
+                          </small>
+                        </sup>
+                      </p>
+                    </div>
+                    <div class="col-sm-4">
                       @if($project->public == 1)
-                        <span class="badge badge-success">
-                          <i class="material-icons material-icons-md">lock_open</i>
+                        <span class="badge project-visibility float-right">
+                          <i class="material-icons material-icons-mid md-light">public</i>
+                        </span>
+                      @else
+                        <span class="badge project-visibility float-right">
+                          <i class="material-icons material-icons-mid md-light">lock_outline</i>
                         </span>
                       @endif
+                    </div>
 
-                      @if($project->public == 0)
-                        <span class="badge badge-danger">
-                          <i class="material-icons material-icons-md">lock_outline</i>
-                        </span>
-                      @endif
-                  </div>
                 </h4>
-                <div class="image">
-                  <a class="projects-link" href="{{ url('project') }}/{{ $project->pID}}">
-                    <img src="http://lorempixel.com/output/people-q-c-600-200-1.jpg" class="img-thumbnail" alt="avatar" style="margin-top: 20px; margin-bottom: 20px;"/>
-                  </a>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">{{ $project->description }}</p>
-                </div>
-                <div class="row">
-                  <div class="col text-center small p-2">
-                    <p>
-                    Author: <a href="#">{{ $project->username }}</a>
-                    |
-                    <i class="fa fa-tags"></i>
-                    Status:
-                    @if($project->complete == 1)
-                      <span class="badge badge-success project-badge">Completed</span>
-                    @endif
+                  <div class="photo text-center">
+                    <a class="projects-link"  href="{{ url('project') }}/{{ $project->pID}}">
 
-                    @if($project->complete == 0)
-                      <span class="badge badge-danger project-badge">Incomplete</span>
-                    @endif
-                    |
+                        @if (file_exists(public_path('/uploads/'.$project->pID.'/banner.jpg')))
+                          <img class="project-image img-fluid" src="{{ asset('/uploads/'.$project->pID.'/banner.jpg') }}" alt="avatar">
+                        @else
+                          <img class="project-image img-fluid" src="{{ asset('/uploads/defaults/banner.jpg') }}" alt="avatar">
+                        @endif
+
+                    </a>
+                  </div>
+                  <div class="card-body project-card-body">
+                    <p class="card-text limit">{{ $project->description }}</p>
+                    <div class="row">
+                      <div class="col-md-auto small p-2  project-footer">
+                        <p class="small">
+                        <i class="fa fa-tags"></i> Status:
+                          @if($project->complete == 1)
+                            <span class="badge badge-success project-badge">Completed</span>
+                          @endif
+
+                          @if($project->complete == 0)
+                            <span class="badge badge-danger project-badge">Incomplete</span>
+                          @endif
+                        |
+                        <i class="fa fa-tags"></i> Tags:  
+                          @foreach($project->tags as $tag)
+                            <span class="badge badge-info">{{ $tag->name }}</span>
+                          @endforeach
+                      </p>
+                    </div>
+                  </div>
                   </div>
                 </div>
               </div>
-            </div>
               @endforeach
             @else
               <h1>No Result</h1>
             @endif
-      </div>
-    </div>
-  </div>
+  
 
-</div>
 @endsection
 
 <!-- right-sidenav -->
