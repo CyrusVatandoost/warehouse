@@ -79,8 +79,6 @@
           <li class="nav-item">
             <a class="nav-link nav-link-tabs"  href="#panel-settings" data-toggle="tab">Settings</a>
           @endif
-          <li class="nav-item">
-            <a class="nav-link nav-link-tabs"  href="#panel-test" data-toggle="tab">Test</a>
         </ul>
 
         <div class="tab-content">
@@ -91,9 +89,6 @@
             @include('project.issues')
             @include('project.settings')
           @endif
-          <div class="tab-pane" id="panel-test">
-            Test
-          </div>
         </div>
       </div>
     </div>
