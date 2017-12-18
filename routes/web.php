@@ -26,6 +26,7 @@ Route::get('/project/{project}/change-visibility', 'ProjectController@setVisibil
 Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 Route::post('/project/{project}/tasks', 'TaskController@store');
 Route::post('/project/task/{task}/complete', 'TaskController@setCompleteness');
+Route::post('/project/task-uncomplete/{task}', 'TaskController@setCompleteness');
 	
 Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
 Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');

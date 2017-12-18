@@ -15,75 +15,83 @@ class TaskController extends Controller
         return view('project.progress', compact('tasks'));
     }
 
-    //stores a new task in warehousedb.tasks
-    public function store($project_id) {
-    	$task = new Task;
+  //stores a new task in warehousedb.tasks
+  public function store($project_id) {
+    $task = new Task;
 
-    	$task->project_id = $project_id;
-    	$task->created_by = auth()->id();
-    	$task->assigned_to = request('task_assigned_to');
-    	$task->name = request('task_name');
-    	$task->completed = 0;
+    $task->project_id = $project_id;
+    $task->created_by = auth()->id();
+    $task->assigned_to = request('task_assigned_to');
+    $task->name = request('task_name');
+    $task->completed = 0;
+    $task->save();
 
-    	$task->save();
+    $project = Project::find($project_id);
 
-        //add store action to logs table
-        $log = new Log;
-        $project = Project::find($project_id);
+    if($project->tasks->where('completed', 0)->count() == 0)
+      $project->complete = 1;
+    else
+      $project->complete = 0;
 
-        $log->user_id = auth()->id();
-        $log->user_action = "created a task in " . $project->name;
-        $log->action_details = request('task_name');
-        $log->save();
-        //end log
+    //add store action to logs table
+    $log = new Log;
 
-    	return back();
-    }
+    $log->user_id = auth()->id();
+    $log->user_action = "created a task in " . $project->name;
+    $log->action_details = request('task_name');
+    $log->save();
+    $project->save();
+    //end log
 
-    //deletes a single task using an ID
-    public function delete($id) {
-     	$task = Task::find($id);
-     	$project = Project::find($task->project_id);
+    return back();
+  }
 
-        //add delete action to logs table
-        $log = new Log;
+  //deletes a single task using an ID
+  public function delete($id) {
+    $task = Task::find($id);
+    $project = Project::find($task->project_id);
 
-        $log->user_id = auth()->id();
-        $log->user_action = "deleted a task from" . $project->name;
-        $log->action_details = $task->name;
-        $log->save();
-        //end log
+    //add delete action to logs table
+    $log = new Log;
+    $log->user_id = auth()->id();
+    $log->user_action = "deleted a task from" . $project->name;
+    $log->action_details = $task->name;
+    $log->save();
+    //end log
 
-		DB::table('tasks')->where('task_id', $id)->delete();
-
-        return redirect('/project/progress');
-    }
+    DB::table('tasks')->where('task_id', $id)->delete();
+    return redirect('/project/progress');
+  }
 
     //change completed status of a task
-    public function setCompleteness($id) {
-    	$task = Task::find($id);
-    	$project = Project::find($task->project_id);
-    	$log = new Log;
+  public function setCompleteness($id) {
+    $task = Task::find($id);
+    $project = Project::find($task->project_id);
+    $log = new Log;
 
-		if($task->completed == 1) {
-			$task->completed = 0;
-
-			//logs
-			$log->user_id = auth()->id();
-	        $log->user_action = "marked a task in " . $project->name . " as";
-	        $log->action_details = "not done";
-		}
-		else {
-			$task->completed = 1; 
-
-			$log->user_id = auth()->id();
-	        $log->user_action = "marked a task in " . $project->name . " as";
-	        $log->action_details = "completed";
-		}
-
-		$task->save();
-		$log->save();
-
-		return back();
+    if($task->completed == 1) {
+      $task->completed = 0;
+      $log->user_id = auth()->id();
+      $log->user_action = "marked a task in " . $project->name . " as";
+      $log->action_details = "not done";
     }
+    else {
+      $task->completed = 1; 
+      $log->user_id = auth()->id();
+      $log->user_action = "marked a task in " . $project->name . " as";
+      $log->action_details = "completed";
+    }
+
+    $task->save();
+    $log->save();
+
+    if($project->tasks->where('completed', 0)->count() == 0)
+      $project->complete = 1;
+    else
+      $project->complete = 0;
+
+    $project->save();
+
+    return back();
+  }
 }

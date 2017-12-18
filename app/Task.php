@@ -4,11 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
-{
-    public $primaryKey = 'task_id';
-
-    protected $fillable = ['created_by', 'task_name'];
+class Task extends Model {
+	
+  public $primaryKey = 'task_id';
+  protected $fillable = ['created_by', 'task_name'];
 
 	//$task->user 
 	public function user() {
@@ -19,4 +18,5 @@ class Task extends Model
 	public function project() {
 		return $this->belongsTo(Project::class, 'project_id');
 	}
+
 }

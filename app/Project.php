@@ -49,13 +49,17 @@ class Project extends Model {
 		return $this->hasMany(ProjectTag::class,'project_id','project_id');
 	}
 
+	public function tasks() {
+		return $this->hasMany(Task::class, 'project_id', 'project_id');
+	}
+
   // this is a recommended way to declare event handlers
   protected static function boot() {
     parent::boot();
     static::deleting(function($user) { // before delete() method call this
-         $user->files()->delete();
-         $user->collaborators()->delete();
-         $user->heads()->delete();
+			$user->files()->delete();
+			$user->collaborators()->delete();
+			$user->heads()->delete();
     });
   }
 

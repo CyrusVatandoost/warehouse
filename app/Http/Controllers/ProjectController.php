@@ -45,10 +45,15 @@ class ProjectController extends Controller {
 	// returns a single project using an ID
 	public function show($id) {
 		$project = Project::find($id);
-		$tasks = Task::get();
-		$users = User::get();
-		return view('project.index', compact('project', 'tasks', 'users'));
-}
+		$tasks = Task::get(); // delete
+		$users = User::get(); // what's this for?
+
+		$tasks = $project->tasks->count();
+		$completed = $project->tasks->where('completed', 1)->count();
+		$progress = $completed / $tasks * 100;
+
+		return view('project.index', compact('project', 'progress', 'users'));
+	}
 
 public function beta($id) {
 	$project = Project::find($id);
