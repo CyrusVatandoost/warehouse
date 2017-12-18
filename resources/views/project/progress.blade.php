@@ -1,8 +1,7 @@
 <div class="tab-pane" id="panel-progress">
   
   <br>
-      
-
+    
   <div class="card w-100">
     <div class="card-header">
       Tasks
@@ -58,17 +57,6 @@
         @endif
       @endforeach
     </ul>
-  </div>
-
-  <br>
-  </div>
-
-  <br>
-  <div class="col-md-12">
-    <form method="POST" action="/project/{{$project->project_id}}/complete">
-      {{ csrf_field() }}
-     <center><button type="submit" class="btn btn-primary">Change Completeness</button></center>
-    </form>
   </div>
 
 </div>
