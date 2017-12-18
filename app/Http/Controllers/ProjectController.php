@@ -49,8 +49,12 @@ class ProjectController extends Controller {
 		$users = User::get(); // what's this for?
 
 		$tasks = $project->tasks->count();
-		$completed = $project->tasks->where('completed', 1)->count();
-		$progress = $completed / $tasks * 100;
+		if($tasks > 0) {
+			$completed = $project->tasks->where('completed', 1)->count();
+			$progress = $completed / $tasks * 100;
+		}
+		else
+			$progress = 0;
 
 		return view('project.index', compact('project', 'progress', 'users'));
 	}

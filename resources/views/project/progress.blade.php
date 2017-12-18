@@ -41,8 +41,8 @@
           <li class="list-group-item">
             <form class="form-inline" method="POST" action="/project/task/{{$task->task_id}}/complete">
               {{ csrf_field() }}
-              <button type="submit" class="btn btn-outline-danger">
-                undo
+              <button type="submit" class="btn btn-success">
+                <i class="material-icons material-icons-mid md-18 md-light">done</i>
               </button>
               &nbsp;
               {{ $task->name }}

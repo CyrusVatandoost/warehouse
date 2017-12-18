@@ -15,7 +15,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="project_name">Name</label>
-						<input type="text" class="form-control" id="project_name" name="project_name"/>
+						<input type="text" class="form-control" id="project_name" name="project_name" required>
 					</div>
 					<div class="form-group">
 						<label for="project_description">Description</label>
