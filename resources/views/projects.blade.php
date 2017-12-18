@@ -19,14 +19,9 @@
 
     .list-group-item-body.row {
       padding-left: 10px;
-      height: 20em;
+      height: 14em;
       margin-bottom: -25px;
-      padding-top: 50px;
-    }
-
-   .list-group-item-body.row .photo {
-      height: 200px;
-      line-height: 200px;
+      padding-top: 30px;
     }
 
     .list-group-item-body.row .photo img {
@@ -79,7 +74,7 @@
               <div class="card projects-card-size">
                 <h4 class="project-card-header bg-dark">
                   <div class="row project-header-row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-10">
                       <a href="{{ url('project') }}/{{ $project->project_id }}">
                         <p class="limit-header text-white">{{ $project->name }}</p>
                       </a>
@@ -91,7 +86,7 @@
                         </sup>
                       </p>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                       @if($project->public == 1)
                         <span class="badge project-visibility float-right">
                           <i class="material-icons material-icons-mid md-light">public</i>

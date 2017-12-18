@@ -104,7 +104,7 @@ padding: 15px 0;
    margin-right: 5px;
    margin-bottom: 10px;
    width: auto;
-   height: 25em;
+   height: 20em;
 }
 
 .projects-link {
@@ -237,7 +237,7 @@ padding: 15px 0;
 .limit{
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
 }
@@ -248,7 +248,7 @@ padding: 15px 0;
   width: auto;
   display: inline-block;
   overflow: hidden;
-  width:85%;
+  width:100%;
   margin-bottom: 10px;
 }
 
@@ -383,13 +383,9 @@ padding: 15px 0;
 .project-footer {
   position: absolute; 
   bottom: 0;
-  height: 12%;
+  height: 9%;
 }
 
-.project-card-body {
-  margin-bottom: 30px !important;
-  padding-top: 10px;
-}
 
 .project-button-group {
   margin-top: 5px;
@@ -400,7 +396,7 @@ padding: 15px 0;
   margin-right: 2px;
 }
 
-.project-desc {
+.desc {
   word-break: break-all;
 }
 
