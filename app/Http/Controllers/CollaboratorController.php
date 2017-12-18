@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Project;
 use App\Collaborator;
 use App\Log;
+use App\User;
 
 class CollaboratorController extends Controller {
  
@@ -19,9 +20,11 @@ class CollaboratorController extends Controller {
 		//add store action to logs table
     $log = new Log;
 
+    $user = User::find(request('user_id'));
+
     $log->user_id = auth()->id();
     $log->user_action = "added collaborator";
-    $log->action_details = request('user_id');
+    $log->action_details = $user->first_name.' '.$user->last_name;
     $log->save();
     //end log
 
@@ -32,9 +35,11 @@ class CollaboratorController extends Controller {
 		//add delete action to logs table
     $log = new Log;
 
+    $user = User::find($user_id);
+
     $log->user_id = auth()->id();
     $log->user_action = "removed collaborator";
-    $log->action_details = $user_id;
+    $log->action_details = $user->first_name.' '.$user->last_name;
     $log->save();
     //end log
 
