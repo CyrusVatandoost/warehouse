@@ -1,8 +1,8 @@
-@extends('layout.auth')
+@extends('layout.app')
 
 @section('title','Forgot Password')
 
-@section('content')
+@section('body')
 <div class="container">
     <div class="row main">
         <div class="main-center">
