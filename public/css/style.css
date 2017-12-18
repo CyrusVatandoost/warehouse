@@ -75,12 +75,6 @@ padding: 15px 0;
   background-color: #788F9B !important;
 }
 
-.btn-primary {
-  background-color: #404040 !important;
-  border-color: #404040 !important;
-  color: white !important;
-}
-
 .badge-primary {
   background-color: #404040 !important;
   border-color: #404040 !important;
@@ -88,8 +82,11 @@ padding: 15px 0;
 }
 
 .btn-browse {
-  background-color: #8BC34A;
-  color: white !important;
+  background-color: #404040;
+  border-color: #404040;
+ color: white !important;
+  font-weight:600;
+  border-radius: 5px;
 }
 
 .no-gutters {
@@ -554,12 +551,6 @@ padding: 15px 0;
     border-radius: 5px;
 }
 
-.btn-register {
-    background: #8BC34A; 
-    color:white;
-    font-weight:600;
-}
-
 .main {
     padding : 50px 0;
 }
@@ -586,7 +577,6 @@ padding: 15px 0;
   border-color: #8BC34A !important;
   color: white !important;
   font-weight:600;
-  margin-top: 5px;
   border-radius: 5px;
 }
 
@@ -640,4 +630,8 @@ padding: 15px 0;
 
 .bg-dark{
   background-color: #404040 !important;
+}
+
+textarea{
+    overflow-x: hidden !important;
 }
