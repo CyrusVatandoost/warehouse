@@ -56,7 +56,15 @@ class ProjectController extends Controller {
 		else
 			$progress = 0;
 
-		return view('project.index', compact('project', 'progress', 'users'));
+		$issues = $project->issues->count();
+		if($issues > 0) {
+			$completed = $project->issues->where('completed', 1)->count();
+			$issue_progress = $completed / $issues * 100;
+		}
+		else
+			$issue_progress = 0;
+
+		return view('project.index', compact('project', 'progress', 'issue_progress', 'users'));
 	}
 
 public function beta($id) {

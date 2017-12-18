@@ -27,6 +27,8 @@ Route::post('/project/{project}/change-name', 'ProjectController@changeName');
 Route::post('/project/{project}/tasks', 'TaskController@store');
 Route::post('/project/task/{task}/complete', 'TaskController@setCompleteness');
 Route::post('/project/task-uncomplete/{task}', 'TaskController@setCompleteness');
+Route::post('/project/{project}/issue', 'IssueController@store');
+Route::post('/project/issue-set/{task}', 'IssueController@setCompleteness');
 	
 Route::get('/searchproject/json', 'ProjectController@getAllPublicProjectsJSON');
 Route::post('/search', 'ProjectController@getUsersAndProjectsRelatedToPhrase');
@@ -40,6 +42,9 @@ Route::post('/project/{project}/collaborator-add', 'CollaboratorController@store
 Route::post('/project/{project}/collaborator-remove/{user}', 'CollaboratorController@delete');
 Route::post('/project/{project}/head-add', 'ProjectHeadController@store');
 Route::post('/project/{project}/head-remove/{user}', 'ProjectHeadController@remove');
+
+Route::post('/project/{project}/abstract-edit', 'EditorController@edit');
+Route::post('/project/{project}/abstract-update', 'EditorController@update');
 
 // file
 	Route::post('/project/{project}/upload-file', 'FileController@store');
@@ -97,8 +102,8 @@ Route::post('/project/{project}/head-remove/{user}', 'ProjectHeadController@remo
 Auth::routes();
 Route::get('/account', 'UserController@auth');
 Route::get('/account/edit', 'UserController@edit');
-Route::get(' account/settings', 'UserController@settings');
-Route::get(' account/history', 'UserController@history');
+Route::get('/account/settings', 'UserController@settings');
+Route::get('/account/history', 'UserController@history');
 Route::get('/account/{user}', 'UserController@show');
 Route::post('/account/{user}/upload-avatar', 'UserController@updateAvatar');
 Route::post('/account/{user}/edit-bio', 'UserController@updateBio');
@@ -130,9 +135,6 @@ Route::get('/projects', 'HomeController@projects')->name('projects');
 Route::get('/successverification', function() {
 	return view('vendor.laravel-user-verification.successverification');
 });
-
-Route::post('/project/{project}/abstract-edit', 'EditorController@edit');
-Route::post('/project/{project}/abstract-update', 'EditorController@update');
 
 // to be shortened
 Route::get('/', 'HomeController@welcome');

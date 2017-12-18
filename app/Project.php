@@ -53,6 +53,10 @@ class Project extends Model {
 		return $this->hasMany(Task::class, 'project_id', 'project_id');
 	}
 
+	public function issues() {
+		return $this->hasMany(Issue::class, 'project_id', 'project_id');
+	}
+
   // this is a recommended way to declare event handlers
   protected static function boot() {
     parent::boot();

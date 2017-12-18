@@ -19,6 +19,7 @@
 	<!-- insert css styles here -->
   @include('modals.project-archive')
   @include('modals.task-new')
+  @include('modals.issue-new')
 @endsection
 
 <!-- left-sidenav -->

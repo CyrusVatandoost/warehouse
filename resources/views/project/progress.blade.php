@@ -4,8 +4,10 @@
     
   <div class="card w-100">
     <div class="card-header">
-      Tasks
+      <h3>
+        Tasks
       <a href="#modal-container-new-task" role="button" class="btn btn-primary float-right" data-toggle="modal">Add Task</a>
+      </h3>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
