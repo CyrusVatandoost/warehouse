@@ -36,7 +36,11 @@
           <div class="card file-card-size">
             <br>
 
-            <img class="card-img-top file-img" src="{{ asset('/uploads/'.$project->project_id.'/'.$file->name) }}" alt="Card image cap">
+            @if(pathinfo($file->name, PATHINFO_EXTENSION) == "jpg" || pathinfo($file->name, PATHINFO_EXTENSION) == "png")
+              <img class="card-img-top file-img" src="{{ asset('/uploads/'.$project->project_id.'/'.$file->name) }}" alt="Card image cap">
+            @else
+              <img class="card-img-top file-img" src="{{ asset('/uploads/defaults/file.jpg') }}" alt="Card image cap">
+            @endif
 
             <div class="card-body">
               <small>{{ $file->name }}</small>
