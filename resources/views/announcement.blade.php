@@ -91,7 +91,6 @@
               <div class="col-md-9">
                 <h3 class="display-4 limit"><strong>{{ $announcement->name }}</strong></h3>
                 <p class="display-12 review-date small">Posted {{ $announcement->created_at->diffForHumans() }} (Expires on {{ $announcement->expires_on }})</p>
-                <div class="ratebox text-center" data-id="0" data-rating="5"></div>
                 <p class="review-text text-justify"> {{ $announcement->description }} </p>
               </div>                          
             </div>  
