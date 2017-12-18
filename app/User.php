@@ -15,6 +15,7 @@ class User extends Authenticatable {
   use Messagable;
 
   public $primaryKey = 'user_id';
+  
   /**
    * The attributes that are mass assignable.
    *

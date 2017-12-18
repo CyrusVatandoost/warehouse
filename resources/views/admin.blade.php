@@ -197,10 +197,14 @@
   		<h4 class="card-header"><a href="/admin/logs">Logs</a></h4>
 		  <div class="card-body">
 		    <p class="card-text">
-		    	<!-- -->
 		    	Logs: {{ $logs->count() }}
 		    </p>
 		  </div>
+		  <ul class="list-group list-group-flush">
+		  	@foreach($logs->slice(0, 5) as $log)
+		    	<li class="list-group-item">
+		    		{{ App\User::find($log->user_id)->first_name }} {{ App\User::find($log->user_id)->last_name }} {{ $log->user_action }}: {{ $log->action_details }}
+		  	@endforeach
 		</div>
 
 		<div class="card">
