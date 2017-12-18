@@ -595,7 +595,7 @@ padding: 15px 0;
     padding-bottom: 10px;
 }
 
-.login-carousel,.item,.active{
+.login-carousel,.carousel-item.active{
   height:100% !important;
 }
 
@@ -603,18 +603,10 @@ padding: 15px 0;
   height:100% !important;
 }
 
-.login-carousel, .login-carousel img {
-  width: 100%;
+.login-carousel-inner > .carousel-item > img {
+  width:100%;
+  height:510px;
 }
-
-.login-carousel img {
-  height: 100% !important;
-}
-
-.login-carousel-inner{
-
-}
-
 .form-check{
   padding-top: 10px;
   padding-bottom: 10px;
