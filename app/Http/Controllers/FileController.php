@@ -19,8 +19,10 @@ class FileController extends Controller {
 		$storage_path = Storage::disk('uploads')->put($project_id, $upload);	// upload file to folder called $project_id
 		$storage_name = basename($storage_path);
 
+		Storage::disk('uploads')->move($project_id.'/'.$storage_name, $project_id.'/'.$file_name);
+
 		$file = new File;
-		$file->name =  $storage_name;
+		$file->name = $file_name;
 		$file->project_id = $project_id;
 		$file->save();
 		
