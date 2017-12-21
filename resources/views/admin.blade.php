@@ -70,19 +70,21 @@
 
 		<!-- files card -->
 		<div class="card text-white bg-primary">
+		<a href="/admin/file-archive" class="text-white">
 	    <div class="card-content">
-        <div class="card-body">
-          <div class="media d-flex">
-            <div class="align-self-center">
-              <i class="material-icons md-48">folder</i>
-            </div>
-            <div class="media-body text-right">
-              <h3>{{ $files->count() }}</h3>
-              <span>Files</span>
-            </div>
-          </div>
-        </div>
+	        <div class="card-body">
+	          <div class="media d-flex">
+	            <div class="align-self-center">
+	              <i class="material-icons md-48">folder</i>
+	            </div>
+	            <div class="media-body text-right">
+	              <h3>{{ $file_archives->count() }}</h3>
+	              <span>Files</span>
+	            </div>
+	          </div>
+	        </div>
 	    </div>
+		</a>
 		</div>
 
 	</div>
@@ -150,7 +152,7 @@
 	<div class="card-deck">
 
   	<div class="card">
-  		<h4 class="card-header"><a href="/admin/users">Users</a></h4>
+  		<h4 class="card-header"><a class="text-dark" href="/admin/users">Users</a></h4>
 		  <div class="card-body">
 		    <p class="card-text">
 		    	Users: {{ $users->count() }}<br>
@@ -164,7 +166,7 @@
 		</div>
 
 		<div class="card">
-  		<h4 class="card-header"><a href="/admin/projects">Projects</a></h4>
+  		<h4 class="card-header"><a class="text-dark" href="/admin/projects">Projects</a></h4>
 		  <div class="card-body">
 		    <p class="card-text">
 		    	Projects: {{ $projects->count() }}<br>
@@ -180,7 +182,7 @@
 		</div>
 
 		<div class="card">
-  		<h4 class="card-header"><a href="/admin/organization">Settings</a></h4>
+  		<h4 class="card-header"><a class="text-dark" href="/admin/organization">Settings</a></h4>
 		  <div class="card-body">
 		    <p class="card-text">
 		    	Name: {{ $organization->name }}<br>
@@ -194,7 +196,7 @@
 	<div class="card-deck">
 
 		<div class="card">
-  		<h4 class="card-header"><a href="/admin/logs">Logs</a></h4>
+  		<h4 class="card-header"><a class="text-dark" href="/admin/logs">Logs</a></h4>
 		  <div class="card-body">
 		    <p class="card-text">
 		    	Logs: {{ $logs->count() }}
@@ -208,7 +210,7 @@
 		</div>
 
 		<div class="card">
-  		<h4 class="card-header"><a href="#">Messages</a></h4>
+  		<h4 class="card-header text-dark">Messages</h4>
 		  <div class="card-body">
 		    <p class="card-text">
 		    	Messages: {{ $messsages->count() }}
@@ -217,11 +219,11 @@
 		</div>
 
 		<div class="card">
-  		<h4 class="card-header"><a href="/admin/file-archive">File Archive</a></h4>
+  		<h4 class="card-header"><a class="text-dark" href="/admin/file-archive">File Archive</a></h4>
 		  <div class="card-body">
 		    <p class="card-text">
 		    	<!-- -->
-		    	Files: {{ $files->count() }}
+		    	Files: {{ $file_archives->count() }}
 		    </p>
 		  </div>
 		</div>

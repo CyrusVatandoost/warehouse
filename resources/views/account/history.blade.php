@@ -30,7 +30,7 @@
 @section('body')
   <!-- insert body here -->  
 
-   @foreach($user->logs as $log) 
+   @foreach($user->logs->reverse() as $log) 
     <div class="card">
       <div class="card-body">
         <div class="row">

@@ -67,7 +67,7 @@
           <div class="reviews">
             <div class="row blockquote review-item">
               <div class="col-md-3 text-center">
-
+                <a class="text-dark" href="/account/{{$announcement->user->user_id}}">
                 <!-- user profile pic -->
                 @if (file_exists(public_path('uploads/avatars/'.$announcement->user_id.'.jpg')))
                   <img class="rounded-circle reviewer" src="{{ asset('uploads/avatars/'.$announcement->user->user_id.'.jpg') }}" height="256" width="256">
@@ -75,9 +75,9 @@
                   <img class="rounded-circle reviewer" src="{{ asset('uploads/avatars/default.jpg') }}" height="256" width="256">
                 @endif
 
-                <div class="caption small">
+                <div class="caption small font-italic">
 
-                  <small><a href="/account/{{$announcement->user->user_id}}"> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
+                  <small> {{ $announcement->user->first_name}} {{ $announcement->user->last_name }} </a></small>
                   <br>
                   @if(!empty($announcement->user->admin))
                     <span class="badge badge-dark">Admin</span>
@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="col-md-9">
-                <h3 class="display-4 limit"><strong>{{ $announcement->name }}</strong></h3>
+                <h4 class="display-4 break"><strong>{{ $announcement->name }}</strong></h4>
                 <p class="display-12 review-date small">Posted {{ $announcement->created_at->diffForHumans() }} (Expires on {{ $announcement->expires_on }})</p>
                 <p class="review-text text-justify"> {{ $announcement->description }} </p>
               </div>                          

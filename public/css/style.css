@@ -237,7 +237,7 @@ padding: 15px 0;
 .limit{
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
 }
@@ -258,6 +258,10 @@ padding: 15px 0;
   width: auto;
   display: block;
   overflow: hidden
+}
+
+.break{
+  word-wrap: break-word;
 }
 
 .editbio {
@@ -601,7 +605,8 @@ padding: 15px 0;
 
 .login-carousel-inner > .carousel-item > img {
   width:100%;
-  height:510px;
+  height:100%;
+  border-radius: 0px 10px 10px 0px;
 }
 .form-check{
   padding-top: 10px;
@@ -623,3 +628,4 @@ padding: 15px 0;
 textarea{
     overflow-x: hidden !important;
 }
+
