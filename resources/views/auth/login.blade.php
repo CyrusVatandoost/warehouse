@@ -11,7 +11,7 @@
 @section('body')
 
   <section class="login-block">
-    <div class="container login-container">
+    <div class="login-container">
       <div class="row">
         <div class="col-md-4 login-sec">
           <h2 class="text-center">Login Now</h2>
@@ -52,7 +52,7 @@
             </form>
         </div>
         <div class="col-md-8 login-banner-sec">
-            <div id="carouselExampleIndicators" class="login-carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="login-carousel" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

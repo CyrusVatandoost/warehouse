@@ -100,7 +100,7 @@
           <th>Created On
       </thead>
       <tbody>
-        @foreach($users as $user)
+        @foreach($users->reverse() as $user)
           <tr>
             <td>{{ $user->first_name }}
             <td>{{ $user->middle_initial }}

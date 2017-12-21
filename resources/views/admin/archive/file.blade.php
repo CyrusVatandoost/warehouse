@@ -38,7 +38,6 @@
 <!-- body -->
 @section('body')
   <!-- insert body here -->  
-  <div class="table-responsive">   
     <table class="table table-hover">
       <thead class="thead-dark">
         <tr>
@@ -53,17 +52,16 @@
       <tbody>
         @foreach($file_archives as $file_archive)
           <tr>
-            <td class="desc">{{ $file_archive->project->name }}
+            <td class="desc small">{{ $file_archive->project->name }}
             <td class="desc small"><a href="{{ url('/uploads/archive/'.$file_archive->name) }}">{{ $file_archive->name }}</a>
             <td><img class="card-img-top file-img" src="{{ asset('/uploads/archive/'.$file_archive->name) }}" alt="Card image cap">
-            <td class="desc">{{ $file_archive->created_at }}
-            <td class="desc">{{ $file_archive->updated_at }}
+            <td class="desc small">{{ $file_archive->created_at }}
+            <td class="desc small">{{ $file_archive->updated_at }}
             <td><a href="/archive/restore/{{ $file_archive->file_archive_id }}" class="btn btn-success">Restore</a>
             <td><a href="/archive/delete/{{ $file_archive->file_archive_id }}" class="btn btn-danger">Delete</a>
         @endforeach
       </tbody>
     </table>
-  </div>
 
     <div class="row no-gutters">
       @foreach($file_archives as $file_archive)

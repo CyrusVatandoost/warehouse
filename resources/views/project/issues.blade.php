@@ -20,7 +20,7 @@
       @foreach($project->issues as $issue)
         @if($issue->completed == 0)
           <li class="list-group-item">
-            <form class="form-inline" method="POST" action="/project/issue-set/{{$issue->issue_id}}/">
+            <form class="form-inline" method="POST" action="/project/issue-set/{{$issue->issue_id}}">
               {{ csrf_field() }}
               <button type="submit" class="btn btn-outline-success">
                 <i class="material-icons material-icons-mid md-18 md-dark">done</i>

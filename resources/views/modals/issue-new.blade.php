@@ -29,8 +29,8 @@
 		    </div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<button type="submit" class="btn btn-browse">Add issue</button>
+					<button type="button" class="btn btn-browse" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-primary">Add issue</button>
 				</div>
 
 			</div>
