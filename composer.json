@@ -10,7 +10,7 @@
         "cmgmyr/messenger": "^2.15",
         "fideloper/proxy": "~3.3",
         "jrean/laravel-user-verification": "dev-master",
-        "laravel/framework": "5.5.*",
+        "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0"
     },
