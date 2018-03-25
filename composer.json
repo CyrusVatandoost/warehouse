@@ -8,7 +8,7 @@
         "fzaninotto/faker": "^1.6",
         "php": ">=7.1.3",
         "cmgmyr/messenger": "^2.15",
-        "fideloper/proxy": "~3.3",
+        "fideloper/proxy": "^4.0",
         "jrean/laravel-user-verification": "dev-master",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0",
